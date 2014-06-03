@@ -1,11 +1,11 @@
 [
 	
 		{
-		  "title"      : "hello",
+		  "title"      : "Cassandra Counter delete 之后update失效的问题",
 		  "category"   : "",
-		  "url"        : "http://yangqiju.github.io//hello",
-		  "date"       : "2013-12-29 00:00:00 +0800",
-		  "shortdate"  : "December 29, 2013"
+		  "url"        : "http://yangqiju.github.io/cassandra-counter",
+		  "date"       : "2014-06-03 00:00:00 +0000",
+		  "shortdate"  : "June 03, 2014"
 		} 
 	
 ]

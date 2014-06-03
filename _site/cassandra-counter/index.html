@@ -5,25 +5,25 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>Interest &#8211; Orange</title>
-<meta name="description" content="Interest">
-<meta name="keywords" content="Jekyll, theme, install, setup">
+<title>Cassandra Counter delete 之后update失效的问题 &#8211; Orange</title>
+<meta name="description" content="">
+<meta name="keywords" content="cassandra, counter">
 
 
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Interest">
-<meta property="og:description" content="Interest">
-<meta property="og:url" content="http://yangqiju.github.io/interest/index.html">
+<meta property="og:title" content="Cassandra Counter delete 之后update失效的问题">
+<meta property="og:description" content="">
+<meta property="og:url" content="http://yangqiju.github.io/cassandra-counter">
 <meta property="og:site_name" content="Orange">
 
 
 
 
 
-<link rel="canonical" href="http://yangqiju.github.io/interest/">
+<link rel="canonical" href="http://yangqiju.github.io/cassandra-counter">
 <link href="http://yangqiju.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="Orange Feed">
 
 
@@ -58,7 +58,8 @@
 
 </head>
 
-<body id="page" itemscope itemtype="http://schema.org/WebPage" >
+<body id="post" itemscope itemtype="http://schema.org/WebPage">
+
 <div class="navigation-wrapper">
 	<nav role="navigation" id="site-nav" class="animated drop" itemscope itemtype="http://schema.org/SiteNavigationElement">
 	    <ul>
@@ -114,23 +115,67 @@
 </header><!-- /.masthead -->
 
 
-<div id="main" role="main" itemprop="mainContentOfPage">
-  <article class="entry" itemscope>
-  <!-- 
+<div id="main" role="main" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/Blog">
+  <article class="hentry" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
     
-     -->
     <div class="entry-wrapper">
       <header class="entry-header">
-        <h1 class="entry-title" itemprop="name">Interest</h1>
+        <span class="entry-tags"><a href="http://yangqiju.github.io/tags.html#cassandra" title="Pages tagged cassandra" rel="tag">cassandra</a>&nbsp;&bull;&nbsp;<a href="http://yangqiju.github.io/tags.html#counter" title="Pages tagged counter" rel="tag">counter</a></span>
+        
+          <h1 class="entry-title" itemprop="headline">Cassandra Counter delete 之后update失效的问题</h1>
+        
       </header>
+      <footer class="entry-meta">
+        <img src="http://yangqiju.github.io/images/logo.jpg" alt="yangqiju photo" class="author-photo">
+        <span class="author vcard" itemprop="author" itemscope itemtype="http://schema.org/Person">By <span itemprop="name" class="fn"><a href="http://yangqiju.github.io/about" title="About yangqiju" itemprop="url">yangqiju</a></span></span>
+        <span class="entry-date date published"><time datetime="2014-06-03T00:00:00+00:00" itemprop="datePublished"><i class="icon-calendar-empty"></i> June 03, 2014</time></span>
+        
+        
+        <span><a href="http://yangqiju.github.io/cassandra-counter" rel="bookmark" title="Cassandra Counter delete 之后update失效的问题" itemprop="url"><i class="icon-link"></i> Permalink</a></span>
+      </footer>
       <div class="entry-content" itemprop="description">
-        <p>is my <strong>Interest</strong>.</p>
+        <pre><code>这两天在做项目的时候，发现Cassandra使用有点问题，所以把他记录下来，给自己提个醒，也希望也能帮到其他人。
 
-<h1 id="title">Title</h1>
-<p>is content</p>
+1.运行版本：Cassandra-2.0.8
+2.问题：使用Counter的delete之后，不能update。
+3.结论：Counter 对一个key进行delete之后，就不能再对这个key进行操作。
 
+实现步骤：
+1.create table
+	CREATE TABLE expendbulk (key text,expend counter,PRIMARY KEY (key));
+2.insert data
+	UPDATE expendbulk SET expend = expend + 1 WHERE key = 'TJ';
+3.select data
+	cqlsh:lottery&gt; SELECT * FROM expendbulk ;
+			key | expend
+			----+-------
+			TJ  | 1
+4.delte data
+	DELETE from expendbulk where key = 'TJ';
+5.insert data
+	UPDATE expendbulk SET expend = expend + 1 WHERE key = 'TJ';
+6.select data
+	cqlsh:lottery&gt; SELECT * FROM expendbulk ;
+			(0 rows)
+这样一个流程下来，这个问题就出现了，只要对这个Key进行delete之后，update就失效了。
+后来提给Cassandra提了一个关于这个的bug.
+Datastax公司的人很快回复说：这个说Cassandra对counter的正常处理。
+(原文:[https://issues.apache.org/jira/browse/CASSANDRA-7326])
+
+额。。好吧，那就是说Counter就最好不要用delete了，试了一下，truncate表没有同样的问题。
+所以。。建议大家，再用Cassandra的时候，不要踩到这个坑里面。
+另外目前Cassandra的Counter功能并支持的不要，大概看了下，官方说会开发Counter2.0，来完善它的功能。
+目前他就支持个原子的加减，不支持SetAndGet 等功能。很失望。
+</code></pre>
+
+
+        
       </div><!-- /.entry-content -->
     </div><!-- /.entry-wrapper -->
+    <nav class="pagination" role="navigation">
+      
+      
+    </nav><!-- /.pagination -->
   </article>
 </div><!-- /#main -->
 
@@ -191,6 +236,7 @@
 </script>
 
 
-          
+	        
+
 </body>
 </html>

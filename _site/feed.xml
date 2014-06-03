@@ -1,32 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
-<title type="text">I'm yours..</title>
+<title type="text">Orange</title>
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
-<link rel="self" type="application/atom+xml" href="http://yangqiju.github.io//feed.xml" />
-<link rel="alternate" type="text/html" href="http://yangqiju.github.io/" />
-<updated>2013-12-29T23:24:46+08:00</updated>
-<id>http://yangqiju.github.io//</id>
+<link rel="self" type="application/atom+xml" href="http://yangqiju.github.io/feed.xml" />
+<link rel="alternate" type="text/html" href="http://yangqiju.github.io" />
+<updated>2014-06-03T12:26:31+00:00</updated>
+<id>http://yangqiju.github.io/</id>
 <author>
   <name>yangqiju</name>
-  <uri>http://yangqiju.github.io//</uri>
+  <uri>http://yangqiju.github.io/</uri>
   <email>362991493@qq.com</email>
 </author>
 
 
 <entry>
-  <title type="html"><![CDATA[hello]]></title>
-  <link>http://yangqiju.github.io//hello</link>
-  <id>http://yangqiju.github.io//hello</id>
-  <published>2013-12-29T00:00:00+08:00</published>
-  <updated>2013-12-29T00:00:00+08:00</updated>
+  <title type="html"><![CDATA[Cassandra Counter delete 之后update失效的问题]]></title>
+  <link>http://yangqiju.github.io/cassandra-counter</link>
+  <id>http://yangqiju.github.io/cassandra-counter</id>
+  <published>2014-06-03T00:00:00+00:00</published>
+  <updated>2014-06-03T00:00:00+00:00</updated>
   <author>
     <name>yangqiju</name>
-    <uri>http://yangqiju.github.io/</uri>
+    <uri>http://yangqiju.github.io</uri>
     <email>362991493@qq.com</email>
   </author>
-  <content type="html">&lt;p&gt;hello word&lt;/p&gt;
+  <content type="html">&lt;pre&gt;&lt;code&gt;这两天在做项目的时候，发现Cassandra使用有点问题，所以把他记录下来，给自己提个醒，也希望也能帮到其他人。
 
-  &lt;p&gt;&lt;a href=&quot;http://yangqiju.github.io//hello&quot;&gt;hello&lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://yangqiju.github.io/&quot;&gt;I'm yours..&lt;/a&gt; on December 29, 2013.&lt;/p&gt;</content>
+1.运行版本：Cassandra-2.0.8
+2.问题：使用Counter的delete之后，不能update。
+3.结论：Counter 对一个key进行delete之后，就不能再对这个key进行操作。
+
+实现步骤：
+1.create table
+	CREATE TABLE expendbulk (key text,expend counter,PRIMARY KEY (key));
+2.insert data
+	UPDATE expendbulk SET expend = expend + 1 WHERE key = &#39;TJ&#39;;
+3.select data
+	cqlsh:lottery&amp;gt; SELECT * FROM expendbulk ;
+			key | expend
+			----+-------
+			TJ  | 1
+4.delte data
+	DELETE from expendbulk where key = &#39;TJ&#39;;
+5.insert data
+	UPDATE expendbulk SET expend = expend + 1 WHERE key = &#39;TJ&#39;;
+6.select data
+	cqlsh:lottery&amp;gt; SELECT * FROM expendbulk ;
+			(0 rows)
+这样一个流程下来，这个问题就出现了，只要对这个Key进行delete之后，update就失效了。
+后来提给Cassandra提了一个关于这个的bug.
+Datastax公司的人很快回复说：这个说Cassandra对counter的正常处理。
+(原文:[https://issues.apache.org/jira/browse/CASSANDRA-7326])
+
+额。。好吧，那就是说Counter就最好不要用delete了，试了一下，truncate表没有同样的问题。
+所以。。建议大家，再用Cassandra的时候，不要踩到这个坑里面。
+另外目前Cassandra的Counter功能并支持的不要，大概看了下，官方说会开发Counter2.0，来完善它的功能。
+目前他就支持个原子的加减，不支持SetAndGet 等功能。很失望。
+&lt;/code&gt;&lt;/pre&gt;
+
+
+  &lt;p&gt;&lt;a href=&quot;http://yangqiju.github.io/cassandra-counter&quot;&gt;Cassandra Counter delete 之后update失效的问题&lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://yangqiju.github.io&quot;&gt;Orange&lt;/a&gt; on June 03, 2014.&lt;/p&gt;</content>
 </entry>
 
 </feed>
