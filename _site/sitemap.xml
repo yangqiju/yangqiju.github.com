@@ -6,6 +6,14 @@
     
     
     <url>
+        <loc>http://yangqiju.github.io/cassandra-run-eclipse</loc>
+    </url>
+    
+    <url>
+        <loc>http://yangqiju.github.io/avro-osgi</loc>
+    </url>
+    
+    <url>
         <loc>http://yangqiju.github.io/cassandra-counter</loc>
     </url>
     

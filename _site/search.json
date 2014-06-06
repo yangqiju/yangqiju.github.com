@@ -1,6 +1,22 @@
 [
 	
 		{
+		  "title"      : "Running Cassandra In Eclipse ",
+		  "category"   : "",
+		  "url"        : "http://yangqiju.github.io/cassandra-run-eclipse",
+		  "date"       : "2014-06-06 00:00:00 +0000",
+		  "shortdate"  : "June 06, 2014"
+		} ,
+	
+		{
+		  "title"      : "avro osgi 下遇到的ClassCaseException",
+		  "category"   : "",
+		  "url"        : "http://yangqiju.github.io/avro-osgi",
+		  "date"       : "2014-06-06 00:00:00 +0000",
+		  "shortdate"  : "June 06, 2014"
+		} ,
+	
+		{
 		  "title"      : "Cassandra Counter delete 之后update失效的问题",
 		  "category"   : "",
 		  "url"        : "http://yangqiju.github.io/cassandra-counter",
