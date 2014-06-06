@@ -41,7 +41,11 @@ tags: [cassandra,eclipse]
 		-Dlog4j.configuration=file:(conf地址)\log4j-server.properties
 	6.Run..
 	
-	
 	这样的话应该就能启动Cassandra了。我在本机能通过，不知道在别人那会不会有问题，
-	官方(http://wiki.apache.org/cassandra/RunningCassandraInEclipse)
+	
+---	
+	
+官方[http://wiki.apache.org/cassandra/RunningCassandraInEclipse](http://wiki.apache.org/cassandra/RunningCassandraInEclipse)
 					
+---
+

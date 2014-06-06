@@ -31,7 +31,12 @@ tags: [cassandra,counter]
 	这样一个流程下来，这个问题就出现了，只要对这个Key进行delete之后，update就失效了。
 	后来提给Cassandra提了一个关于这个的bug.
 	Datastax公司的人很快回复说：这个说Cassandra对counter的正常处理。
-	(原文:[https://issues.apache.org/jira/browse/CASSANDRA-7326])
+	
+---
+	
+(原文:[https://issues.apache.org/jira/browse/CASSANDRA-7326](https://issues.apache.org/jira/browse/CASSANDRA-7326))
+	
+---
 	
 	额。。好吧，那就是说Counter就最好不要用delete了，试了一下，truncate表没有同样的问题。
 	所以。。建议大家，再用Cassandra的时候，不要踩到这个坑里面。

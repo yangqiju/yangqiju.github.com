@@ -4,7 +4,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://yangqiju.github.io/feed.xml" />
 <link rel="alternate" type="text/html" href="http://yangqiju.github.io" />
-<updated>2014-06-06T17:31:30+00:00</updated>
+<updated>2014-06-06T17:47:22+00:00</updated>
 <id>http://yangqiju.github.io/</id>
 <author>
   <name>yangqiju</name>
@@ -60,10 +60,14 @@ Step:
 	-Dlog4j.configuration=file:(conf地址)\log4j-server.properties
 6.Run..
 
-
 这样的话应该就能启动Cassandra了。我在本机能通过，不知道在别人那会不会有问题，
-官方(http://wiki.apache.org/cassandra/RunningCassandraInEclipse)
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;官方&lt;a href=&quot;http://wiki.apache.org/cassandra/RunningCassandraInEclipse&quot;&gt;http://wiki.apache.org/cassandra/RunningCassandraInEclipse&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
 
 
   &lt;p&gt;&lt;a href=&quot;http://yangqiju.github.io/cassandra-run-eclipse&quot;&gt;Running Cassandra In Eclipse &lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://yangqiju.github.io&quot;&gt;Orange&lt;/a&gt; on June 06, 2014.&lt;/p&gt;</content>
@@ -164,9 +168,15 @@ code:
 这样一个流程下来，这个问题就出现了，只要对这个Key进行delete之后，update就失效了。
 后来提给Cassandra提了一个关于这个的bug.
 Datastax公司的人很快回复说：这个说Cassandra对counter的正常处理。
-(原文:[https://issues.apache.org/jira/browse/CASSANDRA-7326])
+&lt;/code&gt;&lt;/pre&gt;
 
-额。。好吧，那就是说Counter就最好不要用delete了，试了一下，truncate表没有同样的问题。
+&lt;hr /&gt;
+
+&lt;p&gt;(原文:&lt;a href=&quot;https://issues.apache.org/jira/browse/CASSANDRA-7326&quot;&gt;https://issues.apache.org/jira/browse/CASSANDRA-7326&lt;/a&gt;)&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;pre&gt;&lt;code&gt;额。。好吧，那就是说Counter就最好不要用delete了，试了一下，truncate表没有同样的问题。
 所以。。建议大家，再用Cassandra的时候，不要踩到这个坑里面。
 另外目前Cassandra的Counter功能并支持的不要，大概看了下，官方说会开发Counter2.0，来完善它的功能。
 目前他就支持个原子的加减，不支持SetAndGet 等功能。很失望。
