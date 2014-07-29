@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "spring multi datasource config",
+		  "category"   : "",
+		  "url"        : "http://yangqiju.github.io/spring-multi-datasource",
+		  "date"       : "2014-07-29 00:00:00 +0000",
+		  "shortdate"  : "July 29, 2014"
+		} ,
+	
+		{
 		  "title"      : "Running Cassandra In Eclipse ",
 		  "category"   : "",
 		  "url"        : "http://yangqiju.github.io/cassandra-run-eclipse",

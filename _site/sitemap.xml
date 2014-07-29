@@ -6,6 +6,10 @@
     
     
     <url>
+        <loc>http://yangqiju.github.io/spring-multi-datasource</loc>
+    </url>
+    
+    <url>
         <loc>http://yangqiju.github.io/cassandra-run-eclipse</loc>
     </url>
     
