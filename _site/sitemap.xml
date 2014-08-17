@@ -6,6 +6,14 @@
     
     
     <url>
+        <loc>http://yangqiju.github.io/mybatis-generator-plugin</loc>
+    </url>
+    
+    <url>
+        <loc>http://yangqiju.github.io/mybatis-generator-change-field-plugin</loc>
+    </url>
+    
+    <url>
         <loc>http://yangqiju.github.io/spring-multi-datasource</loc>
     </url>
     
