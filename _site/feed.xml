@@ -4,13 +4,109 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://yangqiju.github.io/feed.xml" />
 <link rel="alternate" type="text/html" href="http://yangqiju.github.io" />
-<updated>2014-08-17T16:40:19+00:00</updated>
+<updated>2015-03-09T06:09:34+00:00</updated>
 <id>http://yangqiju.github.io/</id>
 <author>
   <name>yangqiju</name>
   <uri>http://yangqiju.github.io/</uri>
   <email>362991493@qq.com</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[JVM 飞行记录抓取]]></title>
+  <link>http://yangqiju.github.io/jfr-jvm-jcmd</link>
+  <id>http://yangqiju.github.io/jfr-jvm-jcmd</id>
+  <published>2015-03-09T00:00:00+00:00</published>
+  <updated>2015-03-09T00:00:00+00:00</updated>
+  <author>
+    <name>yangqiju</name>
+    <uri>http://yangqiju.github.io</uri>
+    <email>362991493@qq.com</email>
+  </author>
+  <content type="html">&lt;pre&gt;&lt;code&gt;在项目调优的时候，时常会去抓取一下飞行记录，网上没什么介绍，简单记录一下。
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;usr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;java&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jdk1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;7.0&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_51&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jcmd&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;usr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;java&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jdk1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;7.0&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_51&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jcmd&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4885&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JFR&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;start&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;duration&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;filename&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cassandra10G&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;jfr&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;compress&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;usr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;java&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jdk1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;7.0&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_51&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jcmd&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4885&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JFR&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;check&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+
+  &lt;p&gt;&lt;a href=&quot;http://yangqiju.github.io/jfr-jvm-jcmd&quot;&gt;JVM 飞行记录抓取&lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://yangqiju.github.io&quot;&gt;Orange&lt;/a&gt; on March 09, 2015.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[VirtualBox set network]]></title>
+  <link>http://yangqiju.github.io/VM-Linux-eth0</link>
+  <id>http://yangqiju.github.io/VM-Linux-eth0</id>
+  <published>2015-03-09T00:00:00+00:00</published>
+  <updated>2015-03-09T00:00:00+00:00</updated>
+  <author>
+    <name>yangqiju</name>
+    <uri>http://yangqiju.github.io</uri>
+    <email>362991493@qq.com</email>
+  </author>
+  <content type="html">&lt;pre&gt;&lt;code&gt;准备在本地安装docker，使用VirtualBox，想用Xmanager来连接，结果连接不了。
+使用ifconfig 没有显示eth0重启报错
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;&lt;span class=&quot;n&quot;&gt;service&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;network&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;restart&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Shutting&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;down&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;loopback&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;insterface:&lt;/span&gt;            &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;OK&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Bringing&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;up&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;loopback&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;insterface:&lt;/span&gt;              &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;OK&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Bringing&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;up&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;eth0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;  
+&lt;span class=&quot;n&quot;&gt;Device&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;eth0&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;does&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;seem&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;be&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;present&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;delaying&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;initialization&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FAILED&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;pre&gt;&lt;code&gt;如下解决:
+1. vi /etc/udev/rules.d/70-persistent-net.rules 
+2. 记录eth1网卡的mac地址 00:00:00:00:00:00(example1)
+3. vi /etc/sysconfig/network-scripts/ifcfg-eth0
+4. 把 DEVICE=&quot;eth0&quot;  改成  DEVICE=&quot;eth1&quot;
+5. 将 HWADDR=&quot;00:00:00:00:00:00(example2)&quot; 之前记录的  HWADDR=&quot;00:00:00:00:00:00(example1)&quot;
+6. service network restart  或者     /etc/init.d/network restart
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+
+  &lt;p&gt;&lt;a href=&quot;http://yangqiju.github.io/VM-Linux-eth0&quot;&gt;VirtualBox set network&lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://yangqiju.github.io&quot;&gt;Orange&lt;/a&gt; on March 09, 2015.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Jboss EAP DataSource Configuration]]></title>
+  <link>http://yangqiju.github.io/JBossEAP-DataSource-Mysql</link>
+  <id>http://yangqiju.github.io/JBossEAP-DataSource-Mysql</id>
+  <published>2015-01-22T00:00:00+00:00</published>
+  <updated>2015-01-22T00:00:00+00:00</updated>
+  <author>
+    <name>yangqiju</name>
+    <uri>http://yangqiju.github.io</uri>
+    <email>362991493@qq.com</email>
+  </author>
+  <content type="html">&lt;pre&gt;&lt;code&gt;今天使用Jboss EAP 创建JDBC连接,发现默认只提供h2的驱动支持,mysql 什么的都没有。
+按照他官方提供的用 modules add 的方式未果,找到了更方便的快捷的
+直接把jar包放到该目录下，就有在后台就能看到可以使用mysql服务了。
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;standalone&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;deployments&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mysql&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;connector&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;java&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;5.1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;jar&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;pre&gt;&lt;code&gt;下面这个讲解了全部添加驱动或dataSource的全部方法
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;官方&lt;a href=&quot;https://docs.jboss.org/author/display/AS7/How+do+I+migrate+my+application+from+AS5+or+AS6+to+AS7&quot;&gt;https://docs.jboss.org/author/display/AS7/How+do+I+migrate+my+application+from+AS5+or+AS6+to+AS7&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+
+  &lt;p&gt;&lt;a href=&quot;http://yangqiju.github.io/JBossEAP-DataSource-Mysql&quot;&gt;Jboss EAP DataSource Configuration&lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://yangqiju.github.io&quot;&gt;Orange&lt;/a&gt; on January 22, 2015.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>

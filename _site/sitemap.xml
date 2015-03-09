@@ -6,6 +6,18 @@
     
     
     <url>
+        <loc>http://yangqiju.github.io/jfr-jvm-jcmd</loc>
+    </url>
+    
+    <url>
+        <loc>http://yangqiju.github.io/VM-Linux-eth0</loc>
+    </url>
+    
+    <url>
+        <loc>http://yangqiju.github.io/JBossEAP-DataSource-Mysql</loc>
+    </url>
+    
+    <url>
         <loc>http://yangqiju.github.io/mybatis-generator-plugin</loc>
     </url>
     
