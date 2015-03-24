@@ -6,6 +6,10 @@
     
     
     <url>
+        <loc>http://yangqiju.github.io/Glassfish-OSGi-password</loc>
+    </url>
+    
+    <url>
         <loc>http://yangqiju.github.io/jfr-jvm-jcmd</loc>
     </url>
     
