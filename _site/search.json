@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "Thread 泄露",
+		  "category"   : "",
+		  "url"        : "http://yangqiju.github.io/Thread-Runnable-uncaughtException",
+		  "date"       : "2015-04-01 00:00:00 +0000",
+		  "shortdate"  : "April 01, 2015"
+		} ,
+	
+		{
 		  "title"      : "glassfish 使用指令每次输入密码问题解决",
 		  "category"   : "",
 		  "url"        : "http://yangqiju.github.io/Glassfish-OSGi-password",
