@@ -1,0 +1,261 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Thread 泄露 &#8211; Orange</title>
+<meta name="description" content="线程未捕获的异常处理问题">
+<meta name="keywords" content="Thread, Runnable, 泄露, Exception">
+
+
+<meta name="baidu-site-verification" content="kGTic24zBh" />
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Thread 泄露">
+<meta property="og:description" content="线程未捕获的异常处理问题">
+<meta property="og:url" content="http://yangqiju.github.io/Thread-Runnable-uncaughtException">
+<meta property="og:site_name" content="Orange">
+
+
+
+
+
+<link rel="canonical" href="http://yangqiju.github.io/Thread-Runnable-uncaughtException">
+<link href="http://yangqiju.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="Orange Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://yangqiju.github.io/assets/css/main.min.css">
+<!-- Webfonts 
+<script src="//use.edgefonts.net/source-sans-pro:n2,i2,n3,i3,n4,i4,n6,i6,n7,i7,n9,i9;source-code-pro:n4,n7;volkhov.js"></script>
+-->
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="http://yangqiju.github.io/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://yangqiju.github.io/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://yangqiju.github.io/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://yangqiju.github.io/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://yangqiju.github.io/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://yangqiju.github.io/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://yangqiju.github.io/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body id="post" itemscope itemtype="http://schema.org/WebPage">
+
+<div class="navigation-wrapper">
+	<nav role="navigation" id="site-nav" class="animated drop" itemscope itemtype="http://schema.org/SiteNavigationElement">
+	    <ul>
+	        
+			<li>
+				
+					<a href="http://yangqiju.github.io/about">Home</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="http://yangqiju.github.io/work">Work</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="http://yangqiju.github.io/interest">Interest</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="http://yangqiju.github.io/life">life</a>
+				 
+			</li>
+	        
+	        <!-- 
+	        <li><a href="http://yangqiju.github.io/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
+	         -->
+	        <li class="dosearch"><i class="icon-search"></i> Search</li>
+	    </ul>
+	</nav>
+</div><!-- /.navigation-wrapper -->
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+
+<div class="search-wrapper">
+	<div class="search-form">
+		<input type="text" class="search-field" placeholder="Search...">
+		<i class="icon-remove-sign icon-2x"></i>
+		<ul class="search-results post-list"></ul><!-- /.search-results -->
+	</div><!-- /.search-form -->
+</div><!-- ./search-wrapper -->
+
+<header class="masthead" itemscope itemtype="http://schema.org/Organization">
+	<div class="wrap">
+		<a href="http://yangqiju.github.io" class="site-logo" rel="home" title="Orange" itemprop="url"><img src="http://yangqiju.github.io/images/logo.jpg" width="200" height="200" alt="Orange logo" class="animated fadeInUp" itemprop="logo"></a>
+		<h1 class="site-title animated fadeIn"><a href="http://yangqiju.github.io">Orange</a></h1>
+		<h2 class="site-description animated fadeIn" itemprop="description">In the future, you will thank now hard.</h2>
+	</div>
+</header><!-- /.masthead -->
+
+
+<div id="main" role="main" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/Blog">
+  <article class="hentry" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="entry-wrapper">
+      <header class="entry-header">
+        <span class="entry-tags"><a href="http://yangqiju.github.io/tags.html#Thread" title="Pages tagged Thread" rel="tag">Thread</a>&nbsp;&bull;&nbsp;<a href="http://yangqiju.github.io/tags.html#Runnable" title="Pages tagged Runnable" rel="tag">Runnable</a>&nbsp;&bull;&nbsp;<a href="http://yangqiju.github.io/tags.html#泄露" title="Pages tagged 泄露" rel="tag">泄露</a>&nbsp;&bull;&nbsp;<a href="http://yangqiju.github.io/tags.html#Exception" title="Pages tagged Exception" rel="tag">Exception</a></span>
+        
+          <h1 class="entry-title" itemprop="headline">Thread 泄露</h1>
+        
+      </header>
+      <footer class="entry-meta">
+        <img src="http://yangqiju.github.io/images/logo.jpg" alt="yangqiju photo" class="author-photo">
+        <span class="author vcard" itemprop="author" itemscope itemtype="http://schema.org/Person">By <span itemprop="name" class="fn"><a href="http://yangqiju.github.io/about" title="About yangqiju" itemprop="url">yangqiju</a></span></span>
+        <span class="entry-date date published"><time datetime="2015-04-01T00:00:00+00:00" itemprop="datePublished"><i class="icon-calendar-empty"></i> April 01, 2015</time></span>
+        
+        
+        <span><a href="http://yangqiju.github.io/Thread-Runnable-uncaughtException" rel="bookmark" title="Thread 泄露" itemprop="url"><i class="icon-link"></i> Permalink</a></span>
+      </footer>
+      <div class="entry-content" itemprop="description">
+        <pre><code>在线程池执行线程时,可能会遇到线程泄露的问题,在java并发编程中有提到对于很多Exception 线程池是没有捕获的，
+对于这类异常,如果没有提供任何异常处理,那么默认输出到System.err 
+Thread API中提供了 UncaughtExceptionHandler来处理这个问题.
+</code></pre>
+
+<div class="highlight"><pre><code class="java"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">UncaughtExceptionHandler</span> <span class="o">{</span>
+        <span class="kt">void</span> <span class="nf">uncaughtException</span><span class="o">(</span><span class="n">Thread</span> <span class="n">t</span><span class="o">,</span> <span class="n">Throwable</span> <span class="n">e</span><span class="o">);</span>
+    <span class="o">}</span></code></pre></div>
+
+<pre><code>我们可以通过他来处理线程发生的异常，例如输出日志，重启线程，或者修复等操作。
+</code></pre>
+
+<div class="highlight"><pre><code class="java"><span class="kd">public</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">LogHandler</span> <span class="kd">implements</span> <span class="n">UncaughtExceptionHandler</span><span class="o">{</span>
+		<span class="nd">@Override</span>
+		<span class="kd">public</span> <span class="kt">void</span> <span class="nf">uncaughtException</span><span class="o">(</span><span class="n">Thread</span> <span class="n">t</span><span class="o">,</span> <span class="n">Throwable</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+			<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;线程[&quot;</span> <span class="o">+</span> <span class="n">t</span><span class="o">.</span><span class="na">getName</span><span class="o">()</span> <span class="o">+</span> <span class="s">&quot;]发生异常&quot;</span> <span class="o">+</span> <span class="n">e</span><span class="o">);</span>
+		<span class="o">}</span>
+	<span class="o">}</span></code></pre></div>
+
+<pre><code>我们把handler投入到使用中,需要实现ThreadFactory的帮助
+</code></pre>
+
+<div class="highlight"><pre><code class="java"><span class="kd">public</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">TestThreadFactory</span> <span class="kd">implements</span> <span class="n">ThreadFactory</span> <span class="o">{</span>
+		<span class="nd">@Override</span>
+		<span class="kd">public</span> <span class="n">Thread</span> <span class="nf">newThread</span><span class="o">(</span><span class="n">Runnable</span> <span class="n">r</span><span class="o">)</span> <span class="o">{</span>
+			<span class="n">Thread</span> <span class="n">t</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Thread</span><span class="o">(</span><span class="n">r</span><span class="o">);</span>
+			<span class="n">t</span><span class="o">.</span><span class="na">setUncaughtExceptionHandler</span><span class="o">(</span><span class="k">new</span> <span class="n">LogHandler</span><span class="o">());</span>
+			<span class="k">return</span> <span class="n">t</span><span class="o">;</span>
+		<span class="o">}</span>
+	<span class="o">}</span></code></pre></div>
+
+<pre><code>这样当线程抛出没有捕获到的异常的时候,我们就能够通过日志去了解了,避免线程的泄露问题.
+</code></pre>
+
+<div class="highlight"><pre><code class="java"><span class="n">ExecutorService</span> <span class="n">executors</span> <span class="o">=</span> <span class="n">Executors</span><span class="o">.</span><span class="na">newFixedThreadPool</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="k">new</span> <span class="n">TestThreadFactory</span><span class="o">());</span>
+	<span class="n">executors</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="k">new</span> <span class="n">Runnable</span><span class="o">()</span> <span class="o">{</span>
+			<span class="nd">@Override</span>
+			<span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+				<span class="k">throw</span> <span class="k">new</span> <span class="nf">RuntimeException</span><span class="o">();</span>
+			<span class="o">}</span>
+		<span class="o">});</span></code></pre></div>
+
+<pre><code>或者override ThreadPoolExecutor 的afterExecute 方法,帮我们打印出error信息
+</code></pre>
+
+<div class="highlight"><pre><code class="java"><span class="nd">@Override</span>
+		<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">afterExecute</span><span class="o">(</span><span class="n">Runnable</span> <span class="n">r</span><span class="o">,</span> <span class="n">Throwable</span> <span class="n">t</span><span class="o">)</span> <span class="o">{</span>
+			<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;after::&quot;</span><span class="o">+</span><span class="n">t</span><span class="o">);</span>
+			<span class="kd">super</span><span class="o">.</span><span class="na">afterExecute</span><span class="o">(</span><span class="n">r</span><span class="o">,</span> <span class="n">t</span><span class="o">);</span>
+		<span class="o">}</span></code></pre></div>
+
+
+        
+      </div><!-- /.entry-content -->
+    </div><!-- /.entry-wrapper -->
+    <nav class="pagination" role="navigation">
+      
+        <a href="http://yangqiju.github.io/Glassfish-OSGi-password" class="btn" title="glassfish 使用指令每次输入密码问题解决">Previous article</a>
+      
+      
+    </nav><!-- /.pagination -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2015 yangqiju. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">So Simple Theme</a>.</span>
+<div class="social-icons">
+	
+	
+	
+	
+	
+	
+	
+	<a href="http://github.com/yangqiju" title="yangqiju on Github" target="_blank"><i class="icon-github icon-2x"></i></a>
+	
+</div><!-- /.social-icons -->
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://yangqiju.github.io/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://yangqiju.github.io/assets/js/scripts.min.js"></script>
+
+<!-- Jekyll Simple Search option -->
+<script>
+  $(document).ready(function() {
+      $('.search-field').simpleJekyllSearch({
+          jsonFile : 'http://yangqiju.github.io/search.json',
+          searchResults : '.search-results',
+          template : '<li><article><a href="{url}">{title} <span class="entry-date"><time datetime="{date}">{shortdate}</time></span></a></article></li>',
+          noResults: '<p>Nothing found.</p>'
+        });
+  });
+
+  (function( $, window, undefined ) {
+    
+     var bs = {
+          close: $(".icon-remove-sign"),
+          searchform: $(".search-form"),
+          canvas: $("body"),
+          dothis: $('.dosearch')
+      };
+    
+    bs.dothis.on('click', function() {
+      $('.search-wrapper').css({ display: "block" });
+      bs.searchform.toggleClass('active');
+      bs.searchform.find('input').focus();
+      bs.canvas.toggleClass('search-overlay');
+    });
+    
+      bs.close.on('click', function() {
+        $('.search-wrapper').removeAttr( 'style' );
+        bs.searchform.toggleClass('active');
+        bs.canvas.removeClass('search-overlay');
+    });
+  })( jQuery, window );
+</script>
+
+
+	        
+
+</body>
+</html>
