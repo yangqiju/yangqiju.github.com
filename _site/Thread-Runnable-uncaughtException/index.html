@@ -128,7 +128,7 @@
       <footer class="entry-meta">
         <img src="http://yangqiju.github.io/images/logo.jpg" alt="yangqiju photo" class="author-photo">
         <span class="author vcard" itemprop="author" itemscope itemtype="http://schema.org/Person">By <span itemprop="name" class="fn"><a href="http://yangqiju.github.io/about" title="About yangqiju" itemprop="url">yangqiju</a></span></span>
-        <span class="entry-date date published"><time datetime="2015-04-01T00:00:00+00:00" itemprop="datePublished"><i class="icon-calendar-empty"></i> April 01, 2015</time></span>
+        <span class="entry-date date published"><time datetime="2015-04-01T00:00:00-04:00" itemprop="datePublished"><i class="icon-calendar-empty"></i> April 01, 2015</time></span>
         
         
         <span><a href="http://yangqiju.github.io/Thread-Runnable-uncaughtException" rel="bookmark" title="Thread 泄露" itemprop="url"><i class="icon-link"></i> Permalink</a></span>
@@ -139,14 +139,14 @@
 Thread API中提供了 UncaughtExceptionHandler来处理这个问题.
 </code></pre>
 
-<div class="highlight"><pre><code class="java"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">UncaughtExceptionHandler</span> <span class="o">{</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">UncaughtExceptionHandler</span> <span class="o">{</span>
         <span class="kt">void</span> <span class="nf">uncaughtException</span><span class="o">(</span><span class="n">Thread</span> <span class="n">t</span><span class="o">,</span> <span class="n">Throwable</span> <span class="n">e</span><span class="o">);</span>
     <span class="o">}</span></code></pre></div>
 
 <pre><code>我们可以通过他来处理线程发生的异常，例如输出日志，重启线程，或者修复等操作。
 </code></pre>
 
-<div class="highlight"><pre><code class="java"><span class="kd">public</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">LogHandler</span> <span class="kd">implements</span> <span class="n">UncaughtExceptionHandler</span><span class="o">{</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">LogHandler</span> <span class="kd">implements</span> <span class="n">UncaughtExceptionHandler</span><span class="o">{</span>
 		<span class="nd">@Override</span>
 		<span class="kd">public</span> <span class="kt">void</span> <span class="nf">uncaughtException</span><span class="o">(</span><span class="n">Thread</span> <span class="n">t</span><span class="o">,</span> <span class="n">Throwable</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
 			<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;线程[&quot;</span> <span class="o">+</span> <span class="n">t</span><span class="o">.</span><span class="na">getName</span><span class="o">()</span> <span class="o">+</span> <span class="s">&quot;]发生异常&quot;</span> <span class="o">+</span> <span class="n">e</span><span class="o">);</span>
@@ -156,11 +156,11 @@ Thread API中提供了 UncaughtExceptionHandler来处理这个问题.
 <pre><code>我们把handler投入到使用中,需要实现ThreadFactory的帮助
 </code></pre>
 
-<div class="highlight"><pre><code class="java"><span class="kd">public</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">TestThreadFactory</span> <span class="kd">implements</span> <span class="n">ThreadFactory</span> <span class="o">{</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">TestThreadFactory</span> <span class="kd">implements</span> <span class="n">ThreadFactory</span> <span class="o">{</span>
 		<span class="nd">@Override</span>
 		<span class="kd">public</span> <span class="n">Thread</span> <span class="nf">newThread</span><span class="o">(</span><span class="n">Runnable</span> <span class="n">r</span><span class="o">)</span> <span class="o">{</span>
-			<span class="n">Thread</span> <span class="n">t</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Thread</span><span class="o">(</span><span class="n">r</span><span class="o">);</span>
-			<span class="n">t</span><span class="o">.</span><span class="na">setUncaughtExceptionHandler</span><span class="o">(</span><span class="k">new</span> <span class="n">LogHandler</span><span class="o">());</span>
+			<span class="n">Thread</span> <span class="n">t</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">Thread</span><span class="o">(</span><span class="n">r</span><span class="o">);</span>
+			<span class="n">t</span><span class="o">.</span><span class="na">setUncaughtExceptionHandler</span><span class="o">(</span><span class="k">new</span> <span class="nf">LogHandler</span><span class="o">());</span>
 			<span class="k">return</span> <span class="n">t</span><span class="o">;</span>
 		<span class="o">}</span>
 	<span class="o">}</span></code></pre></div>
@@ -168,8 +168,8 @@ Thread API中提供了 UncaughtExceptionHandler来处理这个问题.
 <pre><code>这样当线程抛出没有捕获到的异常的时候,我们就能够通过日志去了解了,避免线程的泄露问题.
 </code></pre>
 
-<div class="highlight"><pre><code class="java"><span class="n">ExecutorService</span> <span class="n">executors</span> <span class="o">=</span> <span class="n">Executors</span><span class="o">.</span><span class="na">newFixedThreadPool</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="k">new</span> <span class="n">TestThreadFactory</span><span class="o">());</span>
-	<span class="n">executors</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="k">new</span> <span class="n">Runnable</span><span class="o">()</span> <span class="o">{</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">ExecutorService</span> <span class="n">executors</span> <span class="o">=</span> <span class="n">Executors</span><span class="o">.</span><span class="na">newFixedThreadPool</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="k">new</span> <span class="nf">TestThreadFactory</span><span class="o">());</span>
+	<span class="n">executors</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="k">new</span> <span class="nf">Runnable</span><span class="o">()</span> <span class="o">{</span>
 			<span class="nd">@Override</span>
 			<span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
 				<span class="k">throw</span> <span class="k">new</span> <span class="nf">RuntimeException</span><span class="o">();</span>
@@ -179,7 +179,7 @@ Thread API中提供了 UncaughtExceptionHandler来处理这个问题.
 <pre><code>或者override ThreadPoolExecutor 的afterExecute 方法,帮我们打印出error信息
 </code></pre>
 
-<div class="highlight"><pre><code class="java"><span class="nd">@Override</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@Override</span>
 		<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">afterExecute</span><span class="o">(</span><span class="n">Runnable</span> <span class="n">r</span><span class="o">,</span> <span class="n">Throwable</span> <span class="n">t</span><span class="o">)</span> <span class="o">{</span>
 			<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;after::&quot;</span><span class="o">+</span><span class="n">t</span><span class="o">);</span>
 			<span class="kd">super</span><span class="o">.</span><span class="na">afterExecute</span><span class="o">(</span><span class="n">r</span><span class="o">,</span> <span class="n">t</span><span class="o">);</span>
@@ -193,6 +193,8 @@ Thread API中提供了 UncaughtExceptionHandler来处理这个问题.
       
         <a href="http://yangqiju.github.io/Glassfish-OSGi-password" class="btn" title="glassfish 使用指令每次输入密码问题解决">Previous article</a>
       
+      
+        <a href="http://yangqiju.github.io/linux-jekyll-ruby-gem" class="btn" title="linux上搭建jekyll应用问题">Next article</a>
       
     </nav><!-- /.pagination -->
   </article>

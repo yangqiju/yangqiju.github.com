@@ -128,7 +128,7 @@
       <footer class="entry-meta">
         <img src="http://yangqiju.github.io/images/logo.jpg" alt="yangqiju photo" class="author-photo">
         <span class="author vcard" itemprop="author" itemscope itemtype="http://schema.org/Person">By <span itemprop="name" class="fn"><a href="http://yangqiju.github.io/about" title="About yangqiju" itemprop="url">yangqiju</a></span></span>
-        <span class="entry-date date published"><time datetime="2014-08-17T00:00:00+00:00" itemprop="datePublished"><i class="icon-calendar-empty"></i> August 17, 2014</time></span>
+        <span class="entry-date date published"><time datetime="2014-08-17T00:00:00-04:00" itemprop="datePublished"><i class="icon-calendar-empty"></i> August 17, 2014</time></span>
         
         
         <span><a href="http://yangqiju.github.io/mybatis-generator-change-field-plugin" rel="bookmark" title="mybatis generate 修改默认字段类型的plugin" itemprop="url"><i class="icon-link"></i> Permalink</a></span>
@@ -148,7 +148,7 @@
 在 ObjectFactory 中 有如下方法,用来判断是否使用我们自己的类型。
 </code></pre>
 
-<div class="highlight"><pre><code class="java"><span class="kd">public</span> <span class="kd">static</span> <span class="n">JavaTypeResolver</span> <span class="nf">createJavaTypeResolver</span><span class="o">(</span><span class="n">Context</span> <span class="n">context</span><span class="o">,</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">static</span> <span class="n">JavaTypeResolver</span> <span class="nf">createJavaTypeResolver</span><span class="o">(</span><span class="n">Context</span> <span class="n">context</span><span class="o">,</span>
             <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">warnings</span><span class="o">)</span> <span class="o">{</span>
         <span class="n">JavaTypeResolverConfiguration</span> <span class="n">config</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="na">getJavaTypeResolverConfiguration</span><span class="o">();</span>
         <span class="n">String</span> <span class="n">type</span><span class="o">;</span>
@@ -174,7 +174,7 @@
 这时候我们只需要给他配置一个type 参数,就ok了。
 </code></pre>
 
-<div class="highlight"><pre><code class="java"><span class="kd">public</span> <span class="kd">static</span> <span class="n">Object</span> <span class="nf">createInternalObject</span><span class="o">(</span><span class="n">String</span> <span class="n">type</span><span class="o">)</span> <span class="o">{</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">static</span> <span class="n">Object</span> <span class="nf">createInternalObject</span><span class="o">(</span><span class="n">String</span> <span class="n">type</span><span class="o">)</span> <span class="o">{</span>
         <span class="n">Object</span> <span class="n">answer</span><span class="o">;</span>
         <span class="k">try</span> <span class="o">{</span>
             <span class="n">Class</span><span class="o">&lt;?&gt;</span> <span class="n">clazz</span> <span class="o">=</span> <span class="n">internalClassForName</span><span class="o">(</span><span class="n">type</span><span class="o">);</span>
@@ -201,7 +201,7 @@
 <pre><code>看到这里,我们不难看出,他需要的这个type,就是用来获得这个class 的。ok。那我配置给他就好了。
 </code></pre>
 
-<div class="highlight"><pre><code class="xml"><span class="nt">&lt;generatorConfiguration&gt;</span>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;generatorConfiguration&gt;</span>
 	 <span class="nt">&lt;context</span> <span class="na">id=</span><span class="s">&quot;CoreGenconfig&quot;</span> <span class="na">targetRuntime=</span><span class="s">&quot;MyBatis3&quot;</span> <span class="na">defaultModelType=</span><span class="s">&quot;hierarchical&quot;</span><span class="nt">&gt;</span>
 		<span class="nt">&lt;javaTypeResolver</span> <span class="na">type=</span><span class="s">&quot;com.joyveb.。。.JavaTypeResolverJoyvebImpl&quot;</span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/generatorConfiguration&gt;</span></code></pre></div>

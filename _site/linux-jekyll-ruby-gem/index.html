@@ -5,25 +5,25 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>Jboss EAP DataSource Configuration &#8211; Orange</title>
-<meta name="description" content="">
-<meta name="keywords" content="Jboss, mysql, dataSource">
+<title>linux上搭建jekyll应用问题 &#8211; Orange</title>
+<meta name="description" content="在linux上搭建jekyll的问题">
+<meta name="keywords" content="linux, jekyll, ruby, gem">
 
 
 <meta name="baidu-site-verification" content="kGTic24zBh" />
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Jboss EAP DataSource Configuration">
-<meta property="og:description" content="">
-<meta property="og:url" content="http://yangqiju.github.io/JBossEAP-DataSource-Mysql">
+<meta property="og:title" content="linux上搭建jekyll应用问题">
+<meta property="og:description" content="在linux上搭建jekyll的问题">
+<meta property="og:url" content="http://yangqiju.github.io/linux-jekyll-ruby-gem">
 <meta property="og:site_name" content="Orange">
 
 
 
 
 
-<link rel="canonical" href="http://yangqiju.github.io/JBossEAP-DataSource-Mysql">
+<link rel="canonical" href="http://yangqiju.github.io/linux-jekyll-ruby-gem">
 <link href="http://yangqiju.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="Orange Feed">
 
 
@@ -120,35 +120,59 @@
     
     <div class="entry-wrapper">
       <header class="entry-header">
-        <span class="entry-tags"><a href="http://yangqiju.github.io/tags.html#Jboss" title="Pages tagged Jboss" rel="tag">Jboss</a>&nbsp;&bull;&nbsp;<a href="http://yangqiju.github.io/tags.html#mysql" title="Pages tagged mysql" rel="tag">mysql</a>&nbsp;&bull;&nbsp;<a href="http://yangqiju.github.io/tags.html#dataSource" title="Pages tagged dataSource" rel="tag">dataSource</a></span>
+        <span class="entry-tags"><a href="http://yangqiju.github.io/tags.html#linux" title="Pages tagged linux" rel="tag">linux</a>&nbsp;&bull;&nbsp;<a href="http://yangqiju.github.io/tags.html#jekyll" title="Pages tagged jekyll" rel="tag">jekyll</a>&nbsp;&bull;&nbsp;<a href="http://yangqiju.github.io/tags.html#ruby" title="Pages tagged ruby" rel="tag">ruby</a>&nbsp;&bull;&nbsp;<a href="http://yangqiju.github.io/tags.html#gem" title="Pages tagged gem" rel="tag">gem</a></span>
         
-          <h1 class="entry-title" itemprop="headline">Jboss EAP DataSource Configuration</h1>
+          <h1 class="entry-title" itemprop="headline">linux上搭建jekyll应用问题</h1>
         
       </header>
       <footer class="entry-meta">
         <img src="http://yangqiju.github.io/images/logo.jpg" alt="yangqiju photo" class="author-photo">
         <span class="author vcard" itemprop="author" itemscope itemtype="http://schema.org/Person">By <span itemprop="name" class="fn"><a href="http://yangqiju.github.io/about" title="About yangqiju" itemprop="url">yangqiju</a></span></span>
-        <span class="entry-date date published"><time datetime="2015-01-22T00:00:00-05:00" itemprop="datePublished"><i class="icon-calendar-empty"></i> January 22, 2015</time></span>
+        <span class="entry-date date published"><time datetime="2015-05-04T00:00:00-04:00" itemprop="datePublished"><i class="icon-calendar-empty"></i> May 04, 2015</time></span>
         
         
-        <span><a href="http://yangqiju.github.io/JBossEAP-DataSource-Mysql" rel="bookmark" title="Jboss EAP DataSource Configuration" itemprop="url"><i class="icon-link"></i> Permalink</a></span>
+        <span><a href="http://yangqiju.github.io/linux-jekyll-ruby-gem" rel="bookmark" title="linux上搭建jekyll应用问题" itemprop="url"><i class="icon-link"></i> Permalink</a></span>
       </footer>
       <div class="entry-content" itemprop="description">
-        <pre><code>今天使用Jboss EAP 创建JDBC连接,发现默认只提供h2的驱动支持,mysql 什么的都没有。
-按照他官方提供的用 modules add 的方式未果,找到了更方便的快捷的
-直接把jar包放到该目录下，就有在后台就能看到可以使用mysql服务了。
+        <pre><code>最近把工作环境换到了linux mint下,所以把jekyll搭建的博客什么的也转移过来,遇到了很多问题,记录一下.
+
+安装jekyll 第一步就是 gem install jekyll
+所以需要先安装ruby什么的,使用默认的(sudo apt-get install -y ruby)安装,然后 gem install jekyll 就有问题了.
+首先超时问题,查看 http://ruby.taobao.org/ 修改源就能解决.
+然后就是下面的问题
 </code></pre>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="o">/</span><span class="n">standalone</span><span class="o">/</span><span class="n">deployments</span><span class="o">/</span><span class="n">mysql</span><span class="o">-</span><span class="n">connector</span><span class="o">-</span><span class="n">java</span><span class="o">-</span><span class="mf">5.1</span><span class="o">.</span><span class="mi">15</span><span class="o">.</span><span class="na">jar</span></code></pre></div>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="ss">Fetching</span><span class="p">:</span> <span class="n">yajl</span><span class="o">-</span><span class="n">ruby</span><span class="o">-</span><span class="mi">1</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="mi">1</span><span class="o">.</span><span class="n">gem</span> <span class="p">(</span><span class="mi">100</span><span class="sx">%)</span>
+<span class="sx">	ERROR:  While executing gem ... (Gem::FilePermissionError)</span>
+    <span class="no">You</span> <span class="n">don</span><span class="err">&#39;</span><span class="n">t</span> <span class="n">have</span> <span class="n">write</span> <span class="n">permissions</span> <span class="n">into</span> <span class="n">the</span> <span class="sr">/var/</span><span class="n">lib</span><span class="o">/</span><span class="n">gems</span><span class="o">/</span><span class="mi">1</span><span class="o">.</span><span class="mi">9</span><span class="o">.</span><span class="mi">1</span> <span class="n">directory</span><span class="o">.</span>
+		<span class="n">yangqiju</span><span class="vi">@yqj</span> <span class="o">~</span><span class="sr">/work/so</span><span class="n">ftware</span> <span class="err">$</span> <span class="n">sudo</span> <span class="n">gem</span> <span class="n">install</span> <span class="n">jekyll</span>
+<span class="no">Building</span> <span class="n">native</span> <span class="n">extensions</span><span class="o">.</span>  <span class="no">This</span> <span class="n">could</span> <span class="n">take</span> <span class="n">a</span> <span class="k">while</span><span class="o">.</span><span class="n">.</span><span class="o">.</span>
+<span class="ss">ERROR</span><span class="p">:</span>  <span class="no">Error</span> <span class="n">installing</span> <span class="ss">jekyll</span><span class="p">:</span>
+	<span class="ss">ERROR</span><span class="p">:</span> <span class="no">Failed</span> <span class="n">to</span> <span class="n">build</span> <span class="n">gem</span> <span class="n">native</span> <span class="n">extension</span><span class="o">.</span></code></pre></div>
 
-<pre><code>下面这个讲解了全部添加驱动或dataSource的全部方法
+<pre><code>大家都说是因为版本的问题,看了一下ruby 版本 1.9.1 
+执行下面命令,用开发版本
 </code></pre>
 
-<hr />
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">ruby</span><span class="o">-</span><span class="n">dev</span></code></pre></div>
 
-<p>官方<a href="https://docs.jboss.org/author/display/AS7/How+do+I+migrate+my+application+from+AS5+or+AS6+to+AS7">https://docs.jboss.org/author/display/AS7/How+do+I+migrate+my+application+from+AS5+or+AS6+to+AS7</a></p>
+<pre><code>再来安装jekyll 结果就ok了.
+当启动jekyll的时候,结果报下面的错误
+</code></pre>
 
-<hr />
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">gems</span><span class="o">/</span><span class="mf">1.9</span><span class="o">.</span><span class="mi">1</span><span class="o">/</span><span class="n">gems</span><span class="o">/</span><span class="n">execjs</span><span class="o">-</span><span class="mf">2.5</span><span class="o">.</span><span class="mi">2</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">execjs</span><span class="o">/</span><span class="n">runtimes</span><span class="o">.</span><span class="na">rb</span><span class="o">:</span><span class="mi">48</span><span class="o">:</span><span class="n">in</span> <span class="err">`</span><span class="n">autodetect</span><span class="err">&#39;</span><span class="o">:</span>
+ <span class="n">Could</span> <span class="n">not</span> <span class="n">find</span> <span class="n">a</span> <span class="n">JavaScript</span> <span class="n">runtime</span><span class="o">.</span> <span class="n">See</span> <span class="nl">https:</span><span class="c1">//github.com/rails/execjs </span>
+ <span class="k">for</span> <span class="n">a</span> <span class="n">list</span> <span class="n">of</span> <span class="n">available</span> <span class="n">runtimes</span><span class="o">.</span> <span class="o">(</span><span class="nl">ExecJS:</span><span class="o">:</span><span class="n">RuntimeUnavailable</span><span class="o">)</span></code></pre></div>
+
+<pre><code>据说是少了点东西,解决方案直接安装nodejs,就会安装少的东西了
+</code></pre>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">nodejs</span></code></pre></div>
+
+<pre><code>最后启动一下 jekyll ,应该就ok了
+</code></pre>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">jekyll</span> <span class="n">serve</span></code></pre></div>
 
 
         
@@ -156,10 +180,8 @@
     </div><!-- /.entry-wrapper -->
     <nav class="pagination" role="navigation">
       
-        <a href="http://yangqiju.github.io/mybatis-generator-plugin" class="btn" title="mybatis generate plugin">Previous article</a>
+        <a href="http://yangqiju.github.io/Thread-Runnable-uncaughtException" class="btn" title="Thread 泄露">Previous article</a>
       
-      
-        <a href="http://yangqiju.github.io/VM-Linux-eth0" class="btn" title="VirtualBox set network">Next article</a>
       
     </nav><!-- /.pagination -->
   </article>

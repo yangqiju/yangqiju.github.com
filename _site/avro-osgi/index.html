@@ -128,7 +128,7 @@
       <footer class="entry-meta">
         <img src="http://yangqiju.github.io/images/logo.jpg" alt="yangqiju photo" class="author-photo">
         <span class="author vcard" itemprop="author" itemscope itemtype="http://schema.org/Person">By <span itemprop="name" class="fn"><a href="http://yangqiju.github.io/about" title="About yangqiju" itemprop="url">yangqiju</a></span></span>
-        <span class="entry-date date published"><time datetime="2014-06-06T00:00:00+00:00" itemprop="datePublished"><i class="icon-calendar-empty"></i> June 06, 2014</time></span>
+        <span class="entry-date date published"><time datetime="2014-06-06T00:00:00-04:00" itemprop="datePublished"><i class="icon-calendar-empty"></i> June 06, 2014</time></span>
         
         
         <span><a href="http://yangqiju.github.io/avro-osgi" rel="bookmark" title="avro osgi 下遇到的ClassCaseException" itemprop="url"><i class="icon-link"></i> Permalink</a></span>
@@ -138,13 +138,13 @@
 异常:
 </code></pre>
 
-<div class="highlight"><pre><code class="java"><span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">ClassCastException</span><span class="o">:</span> <span class="n">org</span><span class="o">.</span><span class="na">apache</span><span class="o">.</span><span class="na">avro</span><span class="o">.</span><span class="na">generic</span><span class="o">.</span><span class="na">GenericData</span><span class="n">$Record</span> <span class="n">to</span><span class="o">...</span></code></pre></div>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">ClassCastException</span><span class="o">:</span> <span class="n">org</span><span class="o">.</span><span class="na">apache</span><span class="o">.</span><span class="na">avro</span><span class="o">.</span><span class="na">generic</span><span class="o">.</span><span class="na">GenericData$Record</span> <span class="n">to</span><span class="o">...</span></code></pre></div>
 
 <pre><code>-------------------serialize--------------------------------
 </code></pre>
 
-<div class="highlight"><pre><code class="java"><span class="n">Schema</span> <span class="n">schema</span> <span class="o">=</span> <span class="n">etSchema</span> <span class="o">();</span> 
-<span class="n">ByteArrayOutputStream</span> <span class="n">outputStream</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ByteArrayOutputStream</span><span class="o">();</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">Schema</span> <span class="n">schema</span> <span class="o">=</span> <span class="n">etSchema</span> <span class="o">();</span> 
+<span class="n">ByteArrayOutputStream</span> <span class="n">outputStream</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">ByteArrayOutputStream</span><span class="o">();</span>
 <span class="n">GenericDatumWriter</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">datumWriter</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ReflectDatumWriter</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;(</span><span class="n">schema</span><span class="o">);</span><span class="c1">//问题所在</span>
 <span class="n">DataFileWriter</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">writer</span> <span class="o">=</span>
  		<span class="k">new</span> <span class="n">DataFileWriter</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;(</span><span class="n">datumWriter</span><span class="o">).</span><span class="na">create</span><span class="o">(</span><span class="n">schema</span><span class="o">,</span> <span class="n">outputStream</span><span class="o">);</span>
@@ -155,7 +155,7 @@
 <pre><code>-------------------deserialize--------------------------------
 </code></pre>
 
-<div class="highlight"><pre><code class="java"><span class="n">ByteArrayInputStream</span> <span class="n">inputStream</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ByteArrayInputStream</span><span class="o">(</span><span class="n">bytes</span><span class="o">);</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">ByteArrayInputStream</span> <span class="n">inputStream</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">ByteArrayInputStream</span><span class="o">(</span><span class="n">bytes</span><span class="o">);</span>
 <span class="n">GenericDatumReader</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">datumReader</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ReflectDatumReader</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;(</span><span class="n">schema</span><span class="o">);</span><span class="c1">//问题所在</span>
 <span class="n">DataFileStream</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DataFileStream</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;(</span><span class="n">inputStream</span><span class="o">,</span><span class="n">datumReader</span><span class="o">);</span>
 <span class="n">datumReader</span><span class="o">.</span><span class="na">setExpected</span><span class="o">(</span><span class="n">schema</span><span class="o">);</span>
@@ -175,9 +175,9 @@
 code:
 </code></pre>
 
-<div class="highlight"><pre><code class="java"><span class="cm">/** Construct for reading instances of a class. */</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="cm">/** Construct for reading instances of a class. */</span>
  	 <span class="kd">public</span> <span class="nf">ReflectDatumReader</span><span class="o">(</span><span class="n">Class</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">c</span><span class="o">)</span> <span class="o">{</span>
-    	<span class="k">this</span><span class="o">(</span><span class="k">new</span> <span class="n">ReflectData</span><span class="o">(</span><span class="n">c</span><span class="o">.</span><span class="na">getClassLoader</span><span class="o">()));</span><span class="c1">//获得ClassLoader</span>
+    	<span class="k">this</span><span class="o">(</span><span class="k">new</span> <span class="nf">ReflectData</span><span class="o">(</span><span class="n">c</span><span class="o">.</span><span class="na">getClassLoader</span><span class="o">()));</span><span class="c1">//获得ClassLoader</span>
     	<span class="n">setSchema</span><span class="o">(</span><span class="n">getSpecificData</span><span class="o">().</span><span class="na">getSchema</span><span class="o">(</span><span class="n">c</span><span class="o">));</span>
  	 <span class="o">}</span></code></pre></div>
 

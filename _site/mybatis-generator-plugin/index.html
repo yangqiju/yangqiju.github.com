@@ -128,7 +128,7 @@
       <footer class="entry-meta">
         <img src="http://yangqiju.github.io/images/logo.jpg" alt="yangqiju photo" class="author-photo">
         <span class="author vcard" itemprop="author" itemscope itemtype="http://schema.org/Person">By <span itemprop="name" class="fn"><a href="http://yangqiju.github.io/about" title="About yangqiju" itemprop="url">yangqiju</a></span></span>
-        <span class="entry-date date published"><time datetime="2014-08-17T00:00:00+00:00" itemprop="datePublished"><i class="icon-calendar-empty"></i> August 17, 2014</time></span>
+        <span class="entry-date date published"><time datetime="2014-08-17T00:00:00-04:00" itemprop="datePublished"><i class="icon-calendar-empty"></i> August 17, 2014</time></span>
         
         
         <span><a href="http://yangqiju.github.io/mybatis-generator-plugin" rel="bookmark" title="mybatis generate plugin" itemprop="url"><i class="icon-link"></i> Permalink</a></span>
@@ -146,7 +146,7 @@ mybatis 没有自带分页。那是有些大神写的,当然你也可以自己�
 首先 extends PluginAdapter 这个抽象类。会让你override validate这个方法。
 </code></pre>
 
-<div class="highlight"><pre><code class="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MysqlTestPlugin</span> <span class="kd">extends</span> <span class="n">PluginAdapter</span> <span class="o">{</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MysqlTestPlugin</span> <span class="kd">extends</span> <span class="n">PluginAdapter</span> <span class="o">{</span>
 		<span class="nd">@Override</span>
 		<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">validate</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">warnings</span><span class="o">)</span> <span class="o">{</span>
 			<span class="c1">// TODO Auto-generated method stub</span>
@@ -158,7 +158,7 @@ mybatis 没有自带分页。那是有些大神写的,当然你也可以自己�
 默认false,这里只需要改为true即可。你也可以看看他的源码。
 </code></pre>
 
-<div class="highlight"><pre><code class="java"><span class="k">for</span> <span class="o">(</span><span class="n">PluginConfiguration</span> <span class="n">pluginConfiguration</span> <span class="o">:</span> <span class="n">pluginConfigurations</span><span class="o">)</span> <span class="o">{</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="k">for</span> <span class="o">(</span><span class="n">PluginConfiguration</span> <span class="n">pluginConfiguration</span> <span class="o">:</span> <span class="n">pluginConfigurations</span><span class="o">)</span> <span class="o">{</span>
             <span class="n">Plugin</span> <span class="n">plugin</span> <span class="o">=</span> <span class="n">ObjectFactory</span><span class="o">.</span><span class="na">createPlugin</span><span class="o">(</span><span class="k">this</span><span class="o">,</span>
                     <span class="n">pluginConfiguration</span><span class="o">);</span>
             <span class="k">if</span> <span class="o">(</span><span class="n">plugin</span><span class="o">.</span><span class="na">validate</span><span class="o">(</span><span class="n">warnings</span><span class="o">))</span> <span class="o">{</span>
@@ -173,7 +173,7 @@ mybatis 没有自带分页。那是有些大神写的,当然你也可以自己�
 由于太多,就列举其中一二。
 </code></pre>
 
-<div class="highlight"><pre><code class="java"><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">modelExampleClassGenerated</span><span class="o">(</span><span class="n">TopLevelClass</span> <span class="n">topLevelClass</span><span class="o">,</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">modelExampleClassGenerated</span><span class="o">(</span><span class="n">TopLevelClass</span> <span class="n">topLevelClass</span><span class="o">,</span>
             <span class="n">IntrospectedTable</span> <span class="n">introspectedTable</span><span class="o">)</span> <span class="o">{</span>
         <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
     <span class="o">}</span>
@@ -205,7 +205,7 @@ mybatis 没有自带分页。那是有些大神写的,当然你也可以自己�
 id定义为  mysql_Pagination_Tail,当然你可以自己定义.供后面使用。
 </code></pre>
 
-<div class="highlight"><pre><code class="java"><span class="nd">@Override</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@Override</span>
 	<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">sqlMapDocumentGenerated</span><span class="o">(</span><span class="n">Document</span> <span class="n">document</span><span class="o">,</span>
 			<span class="n">IntrospectedTable</span> <span class="n">introspectedTable</span><span class="o">)</span> <span class="o">{</span>
 		<span class="n">XmlElement</span> <span class="n">rootelement</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="na">getRootElement</span><span class="o">();</span>
@@ -214,7 +214,7 @@ id定义为  mysql_Pagination_Tail,当然你可以自己定义.供后面使用�
 				<span class="o">+</span> <span class="s">&quot;	&lt;if test=\&quot;offset !=null and limit !=null\&quot;&gt;\r\n&quot;</span>
 				<span class="o">+</span> <span class="s">&quot;		limit #{offset} ,#{limit} \r\n&quot;</span> <span class="o">+</span> <span class="s">&quot;		 &lt;/if&gt; \r\n&quot;</span>
 				<span class="o">+</span> <span class="s">&quot;  &lt;/sql&gt;\r\n&quot;</span><span class="o">;</span>
-		<span class="n">Element</span> <span class="n">groupByExample</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TextElement</span><span class="o">(</span><span class="n">template</span><span class="o">);</span>
+		<span class="n">Element</span> <span class="n">groupByExample</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">TextElement</span><span class="o">(</span><span class="n">template</span><span class="o">);</span>
 		<span class="n">rootelement</span><span class="o">.</span><span class="na">addElement</span><span class="o">(</span><span class="n">groupByExample</span><span class="o">);</span>
 		<span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
 	<span class="o">}</span></code></pre></div>
@@ -222,12 +222,12 @@ id定义为  mysql_Pagination_Tail,当然你可以自己定义.供后面使用�
 <pre><code>到这里往xml中添加分页,就实现了。接下来就是让SelectByExample等方法可以调用到刚刚写的分页功能。
 </code></pre>
 
-<div class="highlight"><pre><code class="java"><span class="nd">@Override</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@Override</span>
 	<span class="nd">@Override</span>
 	<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">sqlMapSelectByExampleWithoutBLOBsElementGenerated</span><span class="o">(</span>
 			<span class="n">XmlElement</span> <span class="n">element</span><span class="o">,</span> <span class="n">IntrospectedTable</span> <span class="n">introspectedTable</span><span class="o">)</span> <span class="o">{</span>
-		<span class="n">XmlElement</span> <span class="n">pagetail</span> <span class="o">=</span> <span class="k">new</span> <span class="n">XmlElement</span><span class="o">(</span><span class="s">&quot;include&quot;</span><span class="o">);</span>
-		<span class="n">pagetail</span><span class="o">.</span><span class="na">addAttribute</span><span class="o">(</span><span class="k">new</span> <span class="n">Attribute</span><span class="o">(</span><span class="s">&quot;refid&quot;</span><span class="o">,</span> <span class="s">&quot;mysql_Pagination_Tail&quot;</span><span class="o">));</span>
+		<span class="n">XmlElement</span> <span class="n">pagetail</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">XmlElement</span><span class="o">(</span><span class="s">&quot;include&quot;</span><span class="o">);</span>
+		<span class="n">pagetail</span><span class="o">.</span><span class="na">addAttribute</span><span class="o">(</span><span class="k">new</span> <span class="nf">Attribute</span><span class="o">(</span><span class="s">&quot;refid&quot;</span><span class="o">,</span> <span class="s">&quot;mysql_Pagination_Tail&quot;</span><span class="o">));</span>
 		<span class="n">element</span><span class="o">.</span><span class="na">addElement</span><span class="o">(</span><span class="n">pagetail</span><span class="o">);</span>
 		<span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
 	<span class="o">}</span></code></pre></div>
@@ -235,7 +235,7 @@ id定义为  mysql_Pagination_Tail,当然你可以自己定义.供后面使用�
 <pre><code> 上面的代码就实现了,在selectByExample 的最下面,添加个 limit 分页。
 </code></pre>
 
-<div class="highlight"><pre><code class="xml"><span class="nt">&lt;select</span> <span class="na">id=</span><span class="s">&quot;selectByExample&quot;</span> <span class="na">resultMap=</span><span class="s">&quot;BaseResultMap&quot;</span> <span class="na">parameterClass=</span><span class="s">&quot;...&quot;</span> <span class="nt">&gt;</span>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;select</span> <span class="na">id=</span><span class="s">&quot;selectByExample&quot;</span> <span class="na">resultMap=</span><span class="s">&quot;BaseResultMap&quot;</span> <span class="na">parameterClass=</span><span class="s">&quot;...&quot;</span> <span class="nt">&gt;</span>
     select
     <span class="nt">&lt;isParameterPresent</span> <span class="nt">&gt;</span>
       <span class="nt">&lt;isEqual</span> <span class="na">property=</span><span class="s">&quot;distinct&quot;</span> <span class="na">compareValue=</span><span class="s">&quot;true&quot;</span> <span class="nt">&gt;</span>
@@ -258,7 +258,7 @@ id定义为  mysql_Pagination_Tail,当然你可以自己定义.供后面使用�
 这里就用eclipse 插件吧。将写好的pluin 放到配置文件中。
 </code></pre>
 
-<div class="highlight"><pre><code class="xml"><span class="nt">&lt;generatorConfiguration&gt;</span>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;generatorConfiguration&gt;</span>
 	 <span class="nt">&lt;context</span> <span class="na">id=</span><span class="s">&quot;CoreGenconfig&quot;</span> <span class="na">targetRuntime=</span><span class="s">&quot;MyBatis3&quot;</span> <span class="na">defaultModelType=</span><span class="s">&quot;hierarchical&quot;</span><span class="nt">&gt;</span>
 		<span class="nt">&lt;plugin</span> <span class="na">type=</span><span class="s">&quot;com.joyveb.....MysqlTestPlugin&quot;</span> <span class="nt">/&gt;</span>
 		.......

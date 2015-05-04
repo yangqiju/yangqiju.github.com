@@ -1,10 +1,18 @@
 [
 	
 		{
+		  "title"      : "linux上搭建jekyll应用问题",
+		  "category"   : "",
+		  "url"        : "http://yangqiju.github.io/linux-jekyll-ruby-gem",
+		  "date"       : "2015-05-04 00:00:00 -0400",
+		  "shortdate"  : "May 04, 2015"
+		} ,
+	
+		{
 		  "title"      : "Thread 泄露",
 		  "category"   : "",
 		  "url"        : "http://yangqiju.github.io/Thread-Runnable-uncaughtException",
-		  "date"       : "2015-04-01 00:00:00 +0000",
+		  "date"       : "2015-04-01 00:00:00 -0400",
 		  "shortdate"  : "April 01, 2015"
 		} ,
 	
@@ -12,7 +20,7 @@
 		  "title"      : "glassfish 使用指令每次输入密码问题解决",
 		  "category"   : "",
 		  "url"        : "http://yangqiju.github.io/Glassfish-OSGi-password",
-		  "date"       : "2015-03-24 00:00:00 +0000",
+		  "date"       : "2015-03-24 00:00:00 -0400",
 		  "shortdate"  : "March 24, 2015"
 		} ,
 	
@@ -20,7 +28,7 @@
 		  "title"      : "JVM 飞行记录抓取",
 		  "category"   : "",
 		  "url"        : "http://yangqiju.github.io/jfr-jvm-jcmd",
-		  "date"       : "2015-03-09 00:00:00 +0000",
+		  "date"       : "2015-03-09 00:00:00 -0400",
 		  "shortdate"  : "March 09, 2015"
 		} ,
 	
@@ -28,7 +36,7 @@
 		  "title"      : "VirtualBox set network",
 		  "category"   : "",
 		  "url"        : "http://yangqiju.github.io/VM-Linux-eth0",
-		  "date"       : "2015-03-09 00:00:00 +0000",
+		  "date"       : "2015-03-09 00:00:00 -0400",
 		  "shortdate"  : "March 09, 2015"
 		} ,
 	
@@ -36,7 +44,7 @@
 		  "title"      : "Jboss EAP DataSource Configuration",
 		  "category"   : "",
 		  "url"        : "http://yangqiju.github.io/JBossEAP-DataSource-Mysql",
-		  "date"       : "2015-01-22 00:00:00 +0000",
+		  "date"       : "2015-01-22 00:00:00 -0500",
 		  "shortdate"  : "January 22, 2015"
 		} ,
 	
@@ -44,7 +52,7 @@
 		  "title"      : "mybatis generate plugin",
 		  "category"   : "",
 		  "url"        : "http://yangqiju.github.io/mybatis-generator-plugin",
-		  "date"       : "2014-08-17 00:00:00 +0000",
+		  "date"       : "2014-08-17 00:00:00 -0400",
 		  "shortdate"  : "August 17, 2014"
 		} ,
 	
@@ -52,7 +60,7 @@
 		  "title"      : "mybatis generate 修改默认字段类型的plugin",
 		  "category"   : "",
 		  "url"        : "http://yangqiju.github.io/mybatis-generator-change-field-plugin",
-		  "date"       : "2014-08-17 00:00:00 +0000",
+		  "date"       : "2014-08-17 00:00:00 -0400",
 		  "shortdate"  : "August 17, 2014"
 		} ,
 	
@@ -60,7 +68,7 @@
 		  "title"      : "spring multi datasource config",
 		  "category"   : "",
 		  "url"        : "http://yangqiju.github.io/spring-multi-datasource",
-		  "date"       : "2014-07-29 00:00:00 +0000",
+		  "date"       : "2014-07-29 00:00:00 -0400",
 		  "shortdate"  : "July 29, 2014"
 		} ,
 	
@@ -68,7 +76,7 @@
 		  "title"      : "Running Cassandra In Eclipse ",
 		  "category"   : "",
 		  "url"        : "http://yangqiju.github.io/cassandra-run-eclipse",
-		  "date"       : "2014-06-06 00:00:00 +0000",
+		  "date"       : "2014-06-06 00:00:00 -0400",
 		  "shortdate"  : "June 06, 2014"
 		} ,
 	
@@ -76,7 +84,7 @@
 		  "title"      : "avro osgi 下遇到的ClassCaseException",
 		  "category"   : "",
 		  "url"        : "http://yangqiju.github.io/avro-osgi",
-		  "date"       : "2014-06-06 00:00:00 +0000",
+		  "date"       : "2014-06-06 00:00:00 -0400",
 		  "shortdate"  : "June 06, 2014"
 		} ,
 	
@@ -84,7 +92,7 @@
 		  "title"      : "Cassandra Counter delete 之后update失效的问题",
 		  "category"   : "",
 		  "url"        : "http://yangqiju.github.io/cassandra-counter",
-		  "date"       : "2014-06-03 00:00:00 +0000",
+		  "date"       : "2014-06-03 00:00:00 -0400",
 		  "shortdate"  : "June 03, 2014"
 		} 
 	

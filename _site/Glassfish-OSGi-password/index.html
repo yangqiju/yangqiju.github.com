@@ -128,7 +128,7 @@
       <footer class="entry-meta">
         <img src="http://yangqiju.github.io/images/logo.jpg" alt="yangqiju photo" class="author-photo">
         <span class="author vcard" itemprop="author" itemscope itemtype="http://schema.org/Person">By <span itemprop="name" class="fn"><a href="http://yangqiju.github.io/about" title="About yangqiju" itemprop="url">yangqiju</a></span></span>
-        <span class="entry-date date published"><time datetime="2015-03-24T00:00:00+00:00" itemprop="datePublished"><i class="icon-calendar-empty"></i> March 24, 2015</time></span>
+        <span class="entry-date date published"><time datetime="2015-03-24T00:00:00-04:00" itemprop="datePublished"><i class="icon-calendar-empty"></i> March 24, 2015</time></span>
         
         
         <span><a href="http://yangqiju.github.io/Glassfish-OSGi-password" rel="bookmark" title="glassfish 使用指令每次输入密码问题解决" itemprop="url"><i class="icon-link"></i> Permalink</a></span>
@@ -140,9 +140,9 @@
 查看help
 </code></pre>
 
-<div class="highlight"><pre><code class="java"><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">glassfish4</span><span class="o">/</span><span class="n">glassfish</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">asadmin</span> <span class="o">--</span><span class="n">help</span></code></pre></div>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">glassfish4</span><span class="o">/</span><span class="n">glassfish</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">asadmin</span> <span class="o">--</span><span class="n">help</span></code></pre></div>
 
-<div class="highlight"><pre><code class="java"><span class="o">......</span><span class="err">省略</span><span class="o">.......</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="o">......</span><span class="na">省略</span><span class="o">.......</span>
 <span class="n">OPTIONS</span>
        <span class="o">--</span><span class="n">user</span><span class="o">,</span> <span class="o">-</span><span class="n">u</span>
            <span class="n">The</span> <span class="n">user</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">authorized</span> <span class="n">administrative</span> <span class="n">user</span> <span class="n">of</span> <span class="n">the</span> <span class="n">DAS</span><span class="o">.</span>
@@ -171,7 +171,7 @@
            <span class="o">*</span>   <span class="n">AS_ADMIN_PASSWORD</span><span class="o">=</span><span class="n">administration</span><span class="o">-</span><span class="n">password</span>
 
            <span class="o">*</span>   <span class="n">AS_ADMIN_MASTERPASSWORD</span><span class="o">=</span><span class="n">master</span><span class="o">-</span><span class="n">password</span>
-<span class="o">......</span><span class="err">省略</span><span class="o">.......</span></code></pre></div>
+<span class="o">......</span><span class="na">省略</span><span class="o">.......</span></code></pre></div>
 
 <pre><code>根据上面的提示可以指定密码文件，所以新建密码文件  /etc/gf4pwd  内容如下
 AS_ADMIN_PASSWORD=password
