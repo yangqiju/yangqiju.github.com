@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "使用gradle打包可运行的jar包",
+		  "category"   : "",
+		  "url"        : "http://yangqiju.github.io/gradle-jar-application-shell",
+		  "date"       : "2015-05-18 00:00:00 -0400",
+		  "shortdate"  : "May 18, 2015"
+		} ,
+	
+		{
 		  "title"      : "linux上搭建jekyll应用问题",
 		  "category"   : "",
 		  "url"        : "http://yangqiju.github.io/linux-jekyll-ruby-gem",
