@@ -5,25 +5,25 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>使用gradle打包可运行的jar包 &#8211; Orange</title>
-<meta name="description" content="使用gradle打包可运行的jar包">
-<meta name="keywords" content="gradle, jar, shell, application">
+<title>glassfish4 deploy gradle plugin &#8211; Orange</title>
+<meta name="description" content="glassfish4 gradle 部署插件">
+<meta name="keywords" content="gradle, war, deploy, plugin, glassfish">
 
 
 <meta name="baidu-site-verification" content="kGTic24zBh" />
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用gradle打包可运行的jar包">
-<meta property="og:description" content="使用gradle打包可运行的jar包">
-<meta property="og:url" content="http://yangqiju.github.io/gradle-jar-application-shell">
+<meta property="og:title" content="glassfish4 deploy gradle plugin">
+<meta property="og:description" content="glassfish4 gradle 部署插件">
+<meta property="og:url" content="http://yangqiju.github.io/gradle-glassfish-deploy-plugin">
 <meta property="og:site_name" content="Orange">
 
 
 
 
 
-<link rel="canonical" href="http://yangqiju.github.io/gradle-jar-application-shell">
+<link rel="canonical" href="http://yangqiju.github.io/gradle-glassfish-deploy-plugin">
 <link href="http://yangqiju.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="Orange Feed">
 
 
@@ -120,64 +120,83 @@
     
     <div class="entry-wrapper">
       <header class="entry-header">
-        <span class="entry-tags"><a href="http://yangqiju.github.io/tags.html#gradle" title="Pages tagged gradle" rel="tag">gradle</a>&nbsp;&bull;&nbsp;<a href="http://yangqiju.github.io/tags.html#jar" title="Pages tagged jar" rel="tag">jar</a>&nbsp;&bull;&nbsp;<a href="http://yangqiju.github.io/tags.html#shell" title="Pages tagged shell" rel="tag">shell</a>&nbsp;&bull;&nbsp;<a href="http://yangqiju.github.io/tags.html#application" title="Pages tagged application" rel="tag">application</a></span>
+        <span class="entry-tags"><a href="http://yangqiju.github.io/tags.html#gradle" title="Pages tagged gradle" rel="tag">gradle</a>&nbsp;&bull;&nbsp;<a href="http://yangqiju.github.io/tags.html#war" title="Pages tagged war" rel="tag">war</a>&nbsp;&bull;&nbsp;<a href="http://yangqiju.github.io/tags.html#deploy" title="Pages tagged deploy" rel="tag">deploy</a>&nbsp;&bull;&nbsp;<a href="http://yangqiju.github.io/tags.html#plugin" title="Pages tagged plugin" rel="tag">plugin</a>&nbsp;&bull;&nbsp;<a href="http://yangqiju.github.io/tags.html#glassfish" title="Pages tagged glassfish" rel="tag">glassfish</a></span>
         
-          <h1 class="entry-title" itemprop="headline">使用gradle打包可运行的jar包</h1>
+          <h1 class="entry-title" itemprop="headline">glassfish4 deploy gradle plugin</h1>
         
       </header>
       <footer class="entry-meta">
         <img src="http://yangqiju.github.io/images/logo.jpg" alt="yangqiju photo" class="author-photo">
         <span class="author vcard" itemprop="author" itemscope itemtype="http://schema.org/Person">By <span itemprop="name" class="fn"><a href="http://yangqiju.github.io/about" title="About yangqiju" itemprop="url">yangqiju</a></span></span>
-        <span class="entry-date date published"><time datetime="2015-05-18T00:00:00-04:00" itemprop="datePublished"><i class="icon-calendar-empty"></i> May 18, 2015</time></span>
+        <span class="entry-date date published"><time datetime="2015-06-25T00:00:00-04:00" itemprop="datePublished"><i class="icon-calendar-empty"></i> June 25, 2015</time></span>
         
         
-        <span><a href="http://yangqiju.github.io/gradle-jar-application-shell" rel="bookmark" title="使用gradle打包可运行的jar包" itemprop="url"><i class="icon-link"></i> Permalink</a></span>
+        <span><a href="http://yangqiju.github.io/gradle-glassfish-deploy-plugin" rel="bookmark" title="glassfish4 deploy gradle plugin" itemprop="url"><i class="icon-link"></i> Permalink</a></span>
       </footer>
       <div class="entry-content" itemprop="description">
-        <pre><code>对于gradle的打包功能还是比较好的，起初用的是非官方的一个哥们写的插件，
-最近试了试官方的打包功能，还是比较好的，记录一下。
+        <pre><code>以前的项目一直用的maven管理，新项目又一直使用osgi，没有涉及到web项目的直接
+部署，才发现官网貌似没有提供glassfish的插件，有点费解，找了找解决方案：
+1.Codehaus cargo 能够完成相应的功能
+2.直接使用glassfish 的 asadmin直接部署
+3.etc
 
-先说一下官方的吧，添加application plugin 和制定main 入口：
+看了下 cargo 集成的挺多东西的，功能强大，但是太复杂，不是我想要的。
+试了试使用glassfish自带的deploy方法，貌似也挺好用，想了想，要不自己写个简单的gradle插件吧。
+在之前做好准备：
+1.一套glassfish环境
+2.一个web项目
+
+在web项目的build.gradle中添加如下配置
 </code></pre>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">apply</span> <span class="ss">plugin</span><span class="p">:</span> <span class="s1">&#39;application&#39;</span>
-	<span class="n">mainClassName</span> <span class="o">=</span> <span class="s2">&quot;com.joyveb.jkp.pressure.starter.SendClientStarter&quot;</span></code></pre></div>
+<div class="highlight"><pre><code class="language-groovy" data-lang="groovy"><span class="n">task</span> <span class="n">deploy2glassfish</span> <span class="o">&lt;&lt;</span> <span class="o">{</span>
+        <span class="kt">def</span> <span class="n">deployfile</span> <span class="o">=</span>  <span class="n">project</span><span class="o">.</span><span class="na">file</span><span class="o">(</span><span class="n">project</span><span class="o">.</span><span class="na">war</span><span class="o">.</span><span class="na">archivePath</span><span class="o">)</span>
+        <span class="k">if</span><span class="o">(!</span><span class="n">deployfile</span><span class="o">.</span><span class="na">exists</span><span class="o">())</span> <span class="k">return</span>
+        <span class="kt">def</span> <span class="n">proc</span> <span class="o">=</span> <span class="s2">&quot;asadmin deploy --name ${project.name} --contextroot ${project.name} ${deployfile.absolutePath}&quot;</span><span class="o">.</span><span class="na">execute</span><span class="o">()</span>
+        <span class="n">proc</span><span class="o">.</span><span class="na">in</span><span class="o">.</span><span class="na">each</span> <span class="o">{</span> <span class="n">println</span> <span class="n">it</span> <span class="o">}</span>
+        <span class="n">proc</span><span class="o">.</span><span class="na">err</span><span class="o">.</span><span class="na">each</span> <span class="o">{</span><span class="n">println</span> <span class="s1">&#39;[ERROR]&#39;</span><span class="o">+</span><span class="n">it</span> <span class="o">}</span>
+<span class="o">}</span></code></pre></div>
 
-<pre><code>然后运行 gradle distZip 就可以打包成zip包了，当然还可以打包成tar包(distTar)
-这个还是比较好的，直接打包成了包含shell脚本和bat脚本的工具。
-在build -&gt; distributions 中可以找到打好的包
-当然，还可以把自己想加的配置文件放到里面
+<pre><code>其中有写比较有意思的是 task deploy2glassfish(){} 和 task deploy2glassfish &lt;&lt; {} 有点分别，没有 &lt;&lt; 的会
+自动运行，添加了&lt;&lt; 的task 需要手动执行(gradle deploy2glassfish)。
+peoject 是build.gradle 中的内置对象。
+
+执行gradle deploy2glassfish 相当于执行运行了
 </code></pre>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">distributions</span> <span class="p">{</span>
-	<span class="n">main</span> <span class="p">{</span>
-		<span class="n">contents</span> <span class="p">{</span>
-			<span class="n">into</span><span class="p">(</span><span class="s2">&quot;bin&quot;</span><span class="p">){</span><span class="o">//</span><span class="err">要放的目录</span>
-				<span class="n">from</span> <span class="p">{</span> <span class="s2">&quot;src/main/resources/config.properties&quot;</span> <span class="p">}</span><span class="o">//</span><span class="err">要放的文件</span>
-			<span class="p">}</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-<span class="p">}</span></code></pre></div>
+<div class="highlight"><pre><code class="language-groovy" data-lang="groovy"><span class="n">asadmin</span> <span class="n">deploy</span> <span class="o">--</span><span class="n">name</span> <span class="n">webtest</span> <span class="o">--</span><span class="n">contextroot</span> <span class="n">webtest</span> <span class="s">/home/</span><span class="o">....</span><span class="na">path</span><span class="o">/</span><span class="n">webtext</span><span class="o">.</span><span class="na">war</span></code></pre></div>
 
-<pre><code>还有个是个人写的，看看写的代码挺有意思，值得学习；
-在build.gradle中添加
+<pre><code>部署的结果可以直接使用下列命令查看，或者进入到glassfish 4848 后台进行查看	
 </code></pre>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">apply</span> <span class="ss">plugin</span><span class="p">:</span> <span class="s1">&#39;executable-jar&#39;</span>
-	
-<span class="n">repositories</span> <span class="p">{</span>
-    <span class="n">mavenCentral</span><span class="p">()</span>
-    <span class="n">maven</span><span class="p">{</span> <span class="n">url</span> <span class="s2">&quot;https://oss.sonatype.org/content/repositories/snapshots&quot;</span> <span class="p">}</span>
-<span class="p">}</span>
-<span class="n">mainClass</span> <span class="o">=</span> <span class="s1">&#39;com.joyveb.jkp.pressure.starter.SendClientStarter&#39;</span>
-<span class="n">buildscript</span> <span class="p">{</span>
-       <span class="n">repositories</span> <span class="p">{</span>
-              <span class="n">mavenCentral</span><span class="p">()</span>
-       <span class="p">}</span>
-       <span class="n">dependencies</span> <span class="p">{</span>
-              <span class="n">classpath</span> <span class="s1">&#39;net.nisgits.gradle:gradle-executable-jar-plugin:1.7.0&#39;</span>
-       <span class="p">}</span>
-<span class="p">}</span></code></pre></div>
+<div class="highlight"><pre><code class="language-groovy" data-lang="groovy"><span class="n">asadmin</span> <span class="n">list</span><span class="o">-</span><span class="n">applications</span></code></pre></div>
+
+<pre><code>进一步把上面deploy脚本加工成为gradle 插件，方便以后扩展，代码如下
+https://github.com/yangqiju/glassfish4-gradle-plugin/tree/master
+
+其他项目在使用的时候在下面添加如下配置,便可以调用gradle deploy2glassfish进行部署
+</code></pre>
+
+<div class="highlight"><pre><code class="language-groovy" data-lang="groovy"><span class="n">buildscript</span> <span class="o">{</span>
+	<span class="n">repositories</span> <span class="o">{</span>
+		<span class="n">mavenLocal</span><span class="o">()</span>
+	<span class="o">}</span>
+	<span class="n">dependencies</span> <span class="o">{</span>
+		<span class="n">classpath</span> <span class="s2">&quot;com.joyveb:glassfish4-gradle-plugin:1.0.0&quot;</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+<span class="n">apply</span> <span class="nl">plugin:</span> <span class="s1">&#39;glassfish4&#39;</span></code></pre></div>
+
+<pre><code>web项目中也遇到了写比较有意思的地方，需要添加如下配置
+</code></pre>
+
+<div class="highlight"><pre><code class="language-groovy" data-lang="groovy"><span class="n">apply</span> <span class="nl">plugin:</span> <span class="s1">&#39;war&#39;</span>
+<span class="n">apply</span> <span class="nl">plugin:</span><span class="s1">&#39;java&#39;</span>
+<span class="n">apply</span> <span class="nl">plugin:</span><span class="s1">&#39;maven&#39;</span>
+<span class="n">apply</span> <span class="nl">plugin:</span> <span class="s1">&#39;eclipse-wtp&#39;</span> <span class="c1">//web 项目</span>
+
+<span class="n">webAppDirName</span> <span class="o">=</span> <span class="s1">&#39;WebContent&#39;</span>    <span class="c1">// 设置 WebApp 根目录</span>
+<span class="n">sourceSets</span><span class="o">.</span><span class="na">main</span><span class="o">.</span><span class="na">java</span><span class="o">.</span><span class="na">srcDir</span> <span class="s1">&#39;src/main/java&#39;</span>   <span class="c1">// 设置 Java 源码所在目录</span></code></pre></div>
 
 
         
@@ -185,10 +204,8 @@
     </div><!-- /.entry-wrapper -->
     <nav class="pagination" role="navigation">
       
-        <a href="http://yangqiju.github.io/linux-jekyll-ruby-gem" class="btn" title="linux上搭建jekyll应用问题">Previous article</a>
+        <a href="http://yangqiju.github.io/gradle-jar-application-shell" class="btn" title="使用gradle打包可运行的jar包">Previous article</a>
       
-      
-        <a href="http://yangqiju.github.io/gradle-glassfish-deploy-plugin" class="btn" title="glassfish4 deploy gradle plugin">Next article</a>
       
     </nav><!-- /.pagination -->
   </article>

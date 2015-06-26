@@ -6,6 +6,10 @@
     
     
     <url>
+        <loc>http://yangqiju.github.io/gradle-glassfish-deploy-plugin</loc>
+    </url>
+    
+    <url>
         <loc>http://yangqiju.github.io/gradle-jar-application-shell</loc>
     </url>
     

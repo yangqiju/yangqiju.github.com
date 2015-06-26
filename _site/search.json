@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "glassfish4 deploy gradle plugin",
+		  "category"   : "",
+		  "url"        : "http://yangqiju.github.io/gradle-glassfish-deploy-plugin",
+		  "date"       : "2015-06-25 00:00:00 -0400",
+		  "shortdate"  : "June 25, 2015"
+		} ,
+	
+		{
 		  "title"      : "使用gradle打包可运行的jar包",
 		  "category"   : "",
 		  "url"        : "http://yangqiju.github.io/gradle-jar-application-shell",

@@ -4,13 +4,93 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://yangqiju.github.io/feed.xml" />
 <link rel="alternate" type="text/html" href="http://yangqiju.github.io" />
-<updated>2015-05-18T11:36:08-04:00</updated>
+<updated>2015-06-26T08:18:58-04:00</updated>
 <id>http://yangqiju.github.io/</id>
 <author>
   <name>yangqiju</name>
   <uri>http://yangqiju.github.io/</uri>
   <email>362991493@qq.com</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[glassfish4 deploy gradle plugin]]></title>
+  <link>http://yangqiju.github.io/gradle-glassfish-deploy-plugin</link>
+  <id>http://yangqiju.github.io/gradle-glassfish-deploy-plugin</id>
+  <published>2015-06-25T00:00:00-04:00</published>
+  <updated>2015-06-25T00:00:00-04:00</updated>
+  <author>
+    <name>yangqiju</name>
+    <uri>http://yangqiju.github.io</uri>
+    <email>362991493@qq.com</email>
+  </author>
+  <content type="html">&lt;pre&gt;&lt;code&gt;以前的项目一直用的maven管理，新项目又一直使用osgi，没有涉及到web项目的直接
+部署，才发现官网貌似没有提供glassfish的插件，有点费解，找了找解决方案：
+1.Codehaus cargo 能够完成相应的功能
+2.直接使用glassfish 的 asadmin直接部署
+3.etc
+
+看了下 cargo 集成的挺多东西的，功能强大，但是太复杂，不是我想要的。
+试了试使用glassfish自带的deploy方法，貌似也挺好用，想了想，要不自己写个简单的gradle插件吧。
+在之前做好准备：
+1.一套glassfish环境
+2.一个web项目
+
+在web项目的build.gradle中添加如下配置
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-groovy&quot; data-lang=&quot;groovy&quot;&gt;&lt;span class=&quot;n&quot;&gt;task&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;deploy2glassfish&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;kt&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;deployfile&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;project&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;project&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;war&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;archivePath&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;deployfile&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;exists&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;())&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;
+        &lt;span class=&quot;kt&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;proc&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;asadmin deploy --name ${project.name} --contextroot ${project.name} ${deployfile.absolutePath}&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;proc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;println&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;it&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;proc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;println&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;[ERROR]&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;it&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;pre&gt;&lt;code&gt;其中有写比较有意思的是 task deploy2glassfish(){} 和 task deploy2glassfish &amp;lt;&amp;lt; {} 有点分别，没有 &amp;lt;&amp;lt; 的会
+自动运行，添加了&amp;lt;&amp;lt; 的task 需要手动执行(gradle deploy2glassfish)。
+peoject 是build.gradle 中的内置对象。
+
+执行gradle deploy2glassfish 相当于执行运行了
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-groovy&quot; data-lang=&quot;groovy&quot;&gt;&lt;span class=&quot;n&quot;&gt;asadmin&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;deploy&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;webtest&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;contextroot&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;webtest&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;/home/&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;....&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;webtext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;war&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;pre&gt;&lt;code&gt;部署的结果可以直接使用下列命令查看，或者进入到glassfish 4848 后台进行查看	
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-groovy&quot; data-lang=&quot;groovy&quot;&gt;&lt;span class=&quot;n&quot;&gt;asadmin&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;applications&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;pre&gt;&lt;code&gt;进一步把上面deploy脚本加工成为gradle 插件，方便以后扩展，代码如下
+https://github.com/yangqiju/glassfish4-gradle-plugin/tree/master
+
+其他项目在使用的时候在下面添加如下配置,便可以调用gradle deploy2glassfish进行部署
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-groovy&quot; data-lang=&quot;groovy&quot;&gt;&lt;span class=&quot;n&quot;&gt;buildscript&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;repositories&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;mavenLocal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;dependencies&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;classpath&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;com.joyveb:glassfish4-gradle-plugin:1.0.0&amp;quot;&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;apply&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;plugin:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;glassfish4&amp;#39;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;pre&gt;&lt;code&gt;web项目中也遇到了写比较有意思的地方，需要添加如下配置
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-groovy&quot; data-lang=&quot;groovy&quot;&gt;&lt;span class=&quot;n&quot;&gt;apply&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;plugin:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;war&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;apply&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;plugin:&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;java&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;apply&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;plugin:&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;maven&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;apply&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;plugin:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;eclipse-wtp&amp;#39;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//web 项目&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;webAppDirName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;WebContent&amp;#39;&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;// 设置 WebApp 根目录&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;sourceSets&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;java&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;srcDir&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;src/main/java&amp;#39;&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;// 设置 Java 源码所在目录&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+  &lt;p&gt;&lt;a href=&quot;http://yangqiju.github.io/gradle-glassfish-deploy-plugin&quot;&gt;glassfish4 deploy gradle plugin&lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://yangqiju.github.io&quot;&gt;Orange&lt;/a&gt; on June 25, 2015.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>
