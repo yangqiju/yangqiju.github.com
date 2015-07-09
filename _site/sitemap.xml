@@ -6,6 +6,14 @@
     
     
     <url>
+        <loc>http://yangqiju.github.io/ssl-tls-ukey-pkcs11</loc>
+    </url>
+    
+    <url>
+        <loc>http://yangqiju.github.io/ssl-tls-pkcs12-JSSE</loc>
+    </url>
+    
+    <url>
         <loc>http://yangqiju.github.io/gradle-glassfish-deploy-plugin</loc>
     </url>
     
