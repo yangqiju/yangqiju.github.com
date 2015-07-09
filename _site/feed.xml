@@ -4,7 +4,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://yangqiju.github.io/feed.xml" />
 <link rel="alternate" type="text/html" href="http://yangqiju.github.io" />
-<updated>2015-07-09T05:47:07-04:00</updated>
+<updated>2015-07-09T05:54:54-04:00</updated>
 <id>http://yangqiju.github.io/</id>
 <author>
   <name>yangqiju</name>
@@ -24,23 +24,20 @@
     <uri>http://yangqiju.github.io</uri>
     <email>362991493@qq.com</email>
   </author>
-  <content type="html">&lt;pre&gt;&lt;code&gt;之前使用SSL/TLS 做client和server的双向验证,为了进一步提高安全性，我们设定
-只允许和指定的client进行连接，并且保证client的私钥无法复制,我们采取使用Ukey
-的方案.
+  <content type="html">&lt;pre&gt;&lt;code&gt;之前使用SSL/TLS 做client和server的双向验证,为了进一步提高安全性，我们设定只允许和指定的client进
+行连接，并且保证client的私钥无法复制,我们采取使用Ukey的方案.
 
-UKey是一种通过USB (通用串行总线接口)直接与计算机相连、具有密码验证功能、可
-靠高速的小型存储设备。Ukey 是对现行的网络安全体系是一个极为有力的补充,
-Ukey更形象的描述就是以前我们银行使用的Ｕ盾,他能确定你的唯一身份,U盾还使用
-了双因子验证,就是你插了U盾还需要输入pin码.尽可能的提高安全性.
+UKey是一种通过USB (通用串行总线接口)直接与计算机相连、具有密码验证功能、可靠高速的小型存储设
+备。Ukey 是对现行的网络安全体系是一个极为有力的补充,Ukey更形象的描述就是以前我们银行使用的Ｕ盾,
+他能确定你的唯一身份,U盾还使用了双因子验证,就是你插了U盾还需要输入pin码.尽可能的提高安全性.
 
-更加详细的Ukey描述就不陈述了,他能使用非对称加密算法，对信息进行数字签名，
-并且他无法导出私钥,这样它能保证身份唯一, 他人不可能造假.
+更加详细的Ukey描述就不陈述了,他能使用非对称加密算法，对信息进行数字签名，并且他无法导出私钥,这
+样它能保证身份唯一, 他人不可能造假.
 
 当我们使用java进行对Ukey的调用之前,我们需要了解PKCS11.
-PKCS#11是公钥加密标准（PKCS, Public-Key Cryptography Standards）中的一份子 ，由
-RSA实验室(RSA Laboratories)发布[1]，它为加密令牌定义了一组平台无关的API ，如硬件
-安全模块和智能卡.PKCS#11称为Cyptoki，定义了一套独立于技术的程序设计接口，UKey
-安全应用需要实现的接口.
+PKCS#11是公钥加密标准（PKCS, Public-Key Cryptography Standards）中的一份子 ，由RSA实验室(RSA 
+Laboratories)发布[1]，它为加密令牌定义了一组平台无关的API ，如硬件安全模块和智能卡.PKCS#11称为
+Cyptoki，定义了一套独立于技术的程序设计接口，UKey安全应用需要实现的接口.
 
 Ukey都遵循PKCS11标准,java也支持对PKCS11的调用,在之前需要如下准备:
 1.Ukey
@@ -108,27 +105,28 @@ Ukey都遵循PKCS11标准,java也支持对PKCS11的调用,在之前需要如下�
   </author>
   <content type="html">&lt;pre&gt;&lt;code&gt;最近在使用SSL/TLS相关的技术，使用语言为Java,遇到了一些值得记录的问题。
 
-Java实现SSL/TLS网上有很多现成的例子，这里就不重复了
-(http://www.cnblogs.com/yqskj/p/3142861.html)
+Java实现SSL/TLS网上有很多现成的例子，这里就不重复了(http://www.cnblogs.com/yqskj/p/3142861.html)
 但是稍微深入一些就会发信啊有些地方是有问题的，下面是部分示例的代码
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;n&quot;&gt;SSLContext&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ctx&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SSLContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getInstance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;SSL&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;  
 &lt;span class=&quot;n&quot;&gt;KeyStore&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ks&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;KeyStore&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getInstance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;JKS&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;pre&gt;&lt;code&gt;SSL/TLS这个技术被人习惯的称为SSL，可能也误解了SSL也就是TLS了，我们现在
-使用的安全技术其实是TLS,截止目前(2015-07-09)牛ｘ的网站是用的是TLSv1.2版本
-TLSv1.3马上也要和大家见面了
+&lt;pre&gt;&lt;code&gt;SSL/TLS这个技术被人习惯的称为SSL，可能也误解了SSL也就是TLS了，我们现在使用的安全技术其实是TLS, 
+截止目前(2015-07-09)牛ｘ的网站是用的是TLSv1.2版本TLSv1.3马上也要和大家见面了
 
-SSL 已经是不建议使用的技术了,最高版本SSL3.0,因为他被目前是有漏洞的,google在
-2014年10月声明他们将取消对SSL3.0的支持,论文中所描述的POODLE攻击，导致秘
-钥的特定部分在会话过程中泄露.SSL 3.0使用RC4流加密（存在已知漏洞）或CBC模
-式的块加密。[http://googleonlinesecurity.blogspot.co.uk/2014/10/this-poodle-bites-exploiting-ssl-30.html]
+SSL 已经是不建议使用的技术了,最高版本SSL3.0,因为他被目前是有漏洞的,google在2014年10月声明他们将
+取消对SSL3.0的支持,论文中所描述的POODLE攻击，导致秘钥的特定部分在会话过程中泄露.SSL 3.0使用
+RC4流加密（存在已知漏洞）或CBC模式的块加密。
+[http://googleonlinesecurity.blogspot.co.uk/2014/10/this-poodle-bites-exploiting-ssl-30.html]
 
 在oracle 2015年1月对java 进行一次升级时,修复漏洞的同时也对SSL 3.0安全协议默
-认支持禁用，这是因为SSL 3.0安全协议已经成了一个易于受攻击、过时的协议。 (http://www.oracle.com/technetwork/topics/security/cpujan2015-1972971.html)
+认支持禁用，这是因为SSL 3.0安全协议已经成了一个易于受攻击、过时的协议。
+&lt;/code&gt;&lt;/pre&gt;
 
-花边:
+&lt;p&gt;(http://www.oracle.com/technetwork/topics/security/cpujan2015-1972971.html)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;花边:
 微软将停止接受用于SSL和代码签名的SHA1证书(http://www.infoq.com/cn/news/2013/11/SHA-1)
 RC4和SHA1被证明是不安全的,但是aliplay还是使用的RC4和SHA1,结果被百度的人吐槽了一下
 
@@ -139,9 +137,9 @@ SSLv3 TLSv1 TLSv1.1 TLSv1.2
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;n&quot;&gt;SSLContext&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ctx&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SSLContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getInstance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;TLSv1.2&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;pre&gt;&lt;code&gt;当我们写Java 示例的时候,都会默认使用 .jks (java key store)来做keystore.但实际运用中发现
-还有和其他语言通信,这时候出现个新的keystore 类型,例如.pfx .p12 这两个的文件类型是
-PKCS12的文件形式,PKCS12是种交换数字证书的加密标准，用来描述个人身份信息.
+&lt;pre&gt;&lt;code&gt;当我们写Java 示例的时候,都会默认使用 .jks (java key store)来做keystore.但实际运用中发现还有和其他语言
+通信,这时候出现个新的keystore 类型,例如.pfx .p12 这两个的文件类型是PKCS12的文件形式,PKCS12是种交
+换数字证书的加密标准，用来描述个人身份信息.
 
 Java 的keytool对PKCS12也是支持的,只需要加参数即可
 &lt;/code&gt;&lt;/pre&gt;
