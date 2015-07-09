@@ -1,0 +1,259 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>java SSL/TLS  &#8211; Orange</title>
+<meta name="description" content="java 使用SSL/TLS的花边">
+<meta name="keywords" content="SSL, TLS, Java, PKCS12">
+
+
+<meta name="baidu-site-verification" content="kGTic24zBh" />
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java SSL/TLS ">
+<meta property="og:description" content="java 使用SSL/TLS的花边">
+<meta property="og:url" content="http://yangqiju.github.io/ssl-tls-pkcs12-JSSE">
+<meta property="og:site_name" content="Orange">
+
+
+
+
+
+<link rel="canonical" href="http://yangqiju.github.io/ssl-tls-pkcs12-JSSE">
+<link href="http://yangqiju.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="Orange Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://yangqiju.github.io/assets/css/main.min.css">
+<!-- Webfonts 
+<script src="//use.edgefonts.net/source-sans-pro:n2,i2,n3,i3,n4,i4,n6,i6,n7,i7,n9,i9;source-code-pro:n4,n7;volkhov.js"></script>
+-->
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="http://yangqiju.github.io/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://yangqiju.github.io/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://yangqiju.github.io/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://yangqiju.github.io/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://yangqiju.github.io/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://yangqiju.github.io/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://yangqiju.github.io/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body id="post" itemscope itemtype="http://schema.org/WebPage">
+
+<div class="navigation-wrapper">
+	<nav role="navigation" id="site-nav" class="animated drop" itemscope itemtype="http://schema.org/SiteNavigationElement">
+	    <ul>
+	        
+			<li>
+				
+					<a href="http://yangqiju.github.io/about">Home</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="http://yangqiju.github.io/work">Work</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="http://yangqiju.github.io/interest">Interest</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="http://yangqiju.github.io/life">life</a>
+				 
+			</li>
+	        
+	        <!-- 
+	        <li><a href="http://yangqiju.github.io/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
+	         -->
+	        <li class="dosearch"><i class="icon-search"></i> Search</li>
+	    </ul>
+	</nav>
+</div><!-- /.navigation-wrapper -->
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+
+<div class="search-wrapper">
+	<div class="search-form">
+		<input type="text" class="search-field" placeholder="Search...">
+		<i class="icon-remove-sign icon-2x"></i>
+		<ul class="search-results post-list"></ul><!-- /.search-results -->
+	</div><!-- /.search-form -->
+</div><!-- ./search-wrapper -->
+
+<header class="masthead" itemscope itemtype="http://schema.org/Organization">
+	<div class="wrap">
+		<a href="http://yangqiju.github.io" class="site-logo" rel="home" title="Orange" itemprop="url"><img src="http://yangqiju.github.io/images/logo.jpg" width="200" height="200" alt="Orange logo" class="animated fadeInUp" itemprop="logo"></a>
+		<h1 class="site-title animated fadeIn"><a href="http://yangqiju.github.io">Orange</a></h1>
+		<h2 class="site-description animated fadeIn" itemprop="description">In the future, you will thank now hard.</h2>
+	</div>
+</header><!-- /.masthead -->
+
+
+<div id="main" role="main" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/Blog">
+  <article class="hentry" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="entry-wrapper">
+      <header class="entry-header">
+        <span class="entry-tags"><a href="http://yangqiju.github.io/tags.html#SSL" title="Pages tagged SSL" rel="tag">SSL</a>&nbsp;&bull;&nbsp;<a href="http://yangqiju.github.io/tags.html#TLS" title="Pages tagged TLS" rel="tag">TLS</a>&nbsp;&bull;&nbsp;<a href="http://yangqiju.github.io/tags.html#Java" title="Pages tagged Java" rel="tag">Java</a>&nbsp;&bull;&nbsp;<a href="http://yangqiju.github.io/tags.html#PKCS12" title="Pages tagged PKCS12" rel="tag">PKCS12</a></span>
+        
+          <h1 class="entry-title" itemprop="headline">java SSL/TLS </h1>
+        
+      </header>
+      <footer class="entry-meta">
+        <img src="http://yangqiju.github.io/images/logo.jpg" alt="yangqiju photo" class="author-photo">
+        <span class="author vcard" itemprop="author" itemscope itemtype="http://schema.org/Person">By <span itemprop="name" class="fn"><a href="http://yangqiju.github.io/about" title="About yangqiju" itemprop="url">yangqiju</a></span></span>
+        <span class="entry-date date published"><time datetime="2015-07-09T00:00:00-04:00" itemprop="datePublished"><i class="icon-calendar-empty"></i> July 09, 2015</time></span>
+        
+        
+        <span><a href="http://yangqiju.github.io/ssl-tls-pkcs12-JSSE" rel="bookmark" title="java SSL/TLS " itemprop="url"><i class="icon-link"></i> Permalink</a></span>
+      </footer>
+      <div class="entry-content" itemprop="description">
+        <pre><code>最近在使用SSL/TLS相关的技术，使用语言为Java,遇到了一些值得记录的问题。
+
+Java实现SSL/TLS网上有很多现成的例子，这里就不重复了
+(http://www.cnblogs.com/yqskj/p/3142861.html)
+但是稍微深入一些就会发信啊有些地方是有问题的，下面是部分示例的代码
+</code></pre>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">SSLContext</span> <span class="n">ctx</span> <span class="o">=</span> <span class="n">SSLContext</span><span class="o">.</span><span class="na">getInstance</span><span class="o">(</span><span class="s">&quot;SSL&quot;</span><span class="o">);</span>  
+<span class="n">KeyStore</span> <span class="n">ks</span> <span class="o">=</span> <span class="n">KeyStore</span><span class="o">.</span><span class="na">getInstance</span><span class="o">(</span><span class="s">&quot;JKS&quot;</span><span class="o">);</span></code></pre></div>
+
+<pre><code>SSL/TLS这个技术被人习惯的称为SSL，可能也误解了SSL也就是TLS了，我们现在
+使用的安全技术其实是TLS,截止目前(2015-07-09)牛ｘ的网站是用的是TLSv1.2版本
+TLSv1.3马上也要和大家见面了
+
+SSL 已经是不建议使用的技术了,最高版本SSL3.0,因为他被目前是有漏洞的,google在
+2014年10月声明他们将取消对SSL3.0的支持,论文中所描述的POODLE攻击，导致秘
+钥的特定部分在会话过程中泄露.SSL 3.0使用RC4流加密（存在已知漏洞）或CBC模
+式的块加密。[http://googleonlinesecurity.blogspot.co.uk/2014/10/this-poodle-bites-exploiting-ssl-30.html]
+
+在oracle 2015年1月对java 进行一次升级时,修复漏洞的同时也对SSL 3.0安全协议默
+认支持禁用，这是因为SSL 3.0安全协议已经成了一个易于受攻击、过时的协议。 (http://www.oracle.com/technetwork/topics/security/cpujan2015-1972971.html)
+
+花边:
+微软将停止接受用于SSL和代码签名的SHA1证书(http://www.infoq.com/cn/news/2013/11/SHA-1)
+RC4和SHA1被证明是不安全的,但是aliplay还是使用的RC4和SHA1,结果被百度的人吐槽了一下
+
+
+绕了一圈，我们便知道我们的确应该改改了,把SSL修改为TLS,可选参数为
+SSLv3 TLSv1 TLSv1.1 TLSv1.2
+</code></pre>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">SSLContext</span> <span class="n">ctx</span> <span class="o">=</span> <span class="n">SSLContext</span><span class="o">.</span><span class="na">getInstance</span><span class="o">(</span><span class="s">&quot;TLSv1.2&quot;</span><span class="o">);</span></code></pre></div>
+
+<pre><code>当我们写Java 示例的时候,都会默认使用 .jks (java key store)来做keystore.但实际运用中发现
+还有和其他语言通信,这时候出现个新的keystore 类型,例如.pfx .p12 这两个的文件类型是
+PKCS12的文件形式,PKCS12是种交换数字证书的加密标准，用来描述个人身份信息.
+
+Java 的keytool对PKCS12也是支持的,只需要加参数即可
+</code></pre>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">keytool</span>  <span class="o">-</span><span class="n">keystore</span> <span class="n">example</span><span class="o">.</span><span class="na">pfx</span> <span class="o">-</span><span class="n">storetype</span> <span class="n">PKCS12</span> <span class="o">......</span></code></pre></div>
+
+<pre><code>在代码中做如下配置
+</code></pre>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">KeyStore</span> <span class="n">ks</span> <span class="o">=</span> <span class="n">KeyStore</span><span class="o">.</span><span class="na">getInstance</span><span class="o">(</span><span class="s">&quot;PKCS12&quot;</span><span class="o">);</span></code></pre></div>
+
+
+        
+      </div><!-- /.entry-content -->
+    </div><!-- /.entry-wrapper -->
+    <nav class="pagination" role="navigation">
+      
+        <a href="http://yangqiju.github.io/gradle-glassfish-deploy-plugin" class="btn" title="glassfish4 deploy gradle plugin">Previous article</a>
+      
+      
+        <a href="http://yangqiju.github.io/ssl-tls-ukey-pkcs11" class="btn" title="使用UKEY调用PKCS11做SSL/TLS的验证 ">Next article</a>
+      
+    </nav><!-- /.pagination -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2015 yangqiju. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">So Simple Theme</a>.</span>
+<div class="social-icons">
+	
+	
+	
+	
+	
+	
+	
+	<a href="http://github.com/yangqiju" title="yangqiju on Github" target="_blank"><i class="icon-github icon-2x"></i></a>
+	
+</div><!-- /.social-icons -->
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://yangqiju.github.io/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://yangqiju.github.io/assets/js/scripts.min.js"></script>
+
+<!-- Jekyll Simple Search option -->
+<script>
+  $(document).ready(function() {
+      $('.search-field').simpleJekyllSearch({
+          jsonFile : 'http://yangqiju.github.io/search.json',
+          searchResults : '.search-results',
+          template : '<li><article><a href="{url}">{title} <span class="entry-date"><time datetime="{date}">{shortdate}</time></span></a></article></li>',
+          noResults: '<p>Nothing found.</p>'
+        });
+  });
+
+  (function( $, window, undefined ) {
+    
+     var bs = {
+          close: $(".icon-remove-sign"),
+          searchform: $(".search-form"),
+          canvas: $("body"),
+          dothis: $('.dosearch')
+      };
+    
+    bs.dothis.on('click', function() {
+      $('.search-wrapper').css({ display: "block" });
+      bs.searchform.toggleClass('active');
+      bs.searchform.find('input').focus();
+      bs.canvas.toggleClass('search-overlay');
+    });
+    
+      bs.close.on('click', function() {
+        $('.search-wrapper').removeAttr( 'style' );
+        bs.searchform.toggleClass('active');
+        bs.canvas.removeClass('search-overlay');
+    });
+  })( jQuery, window );
+</script>
+
+
+	        
+
+</body>
+</html>
