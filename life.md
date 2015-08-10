@@ -10,9 +10,9 @@ image:
   creditlink:  
 ---
 
- **is my life**
+ **鸡汤**
 
-## my life:
+## 压力不是有人比你努力，而是比你牛几倍的人依然在努力:
 
 
 <a markdown="0" href="{{ site.url }}/work" class="btn">go to work</a>
