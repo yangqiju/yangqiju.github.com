@@ -6,6 +6,10 @@
     
     
     <url>
+        <loc>http://yangqiju.github.io/glassfish-osgi-deploy</loc>
+    </url>
+    
+    <url>
         <loc>http://yangqiju.github.io/ssl-tls-ukey-pkcs11</loc>
     </url>
     

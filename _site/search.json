@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "glassfish OSGi 环境使用obr部署选择版本部署 ",
+		  "category"   : "",
+		  "url"        : "http://yangqiju.github.io/glassfish-osgi-deploy",
+		  "date"       : "2015-09-08 00:00:00 -0400",
+		  "shortdate"  : "September 08, 2015"
+		} ,
+	
+		{
 		  "title"      : "使用UKEY调用PKCS11做SSL/TLS的验证 ",
 		  "category"   : "",
 		  "url"        : "http://yangqiju.github.io/ssl-tls-ukey-pkcs11",
