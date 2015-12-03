@@ -5,25 +5,25 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>Articles &#8211; Orange</title>
-<meta name="description" content="An archive of posts sorted by date.">
-
+<title>无锁的队列 disruptor &#8211; Orange</title>
+<meta name="description" content="disruptor">
+<meta name="keywords" content="disruptor, paldb, queue, lock-free">
 
 
 <meta name="baidu-site-verification" content="kGTic24zBh" />
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Articles">
-<meta property="og:description" content="An archive of posts sorted by date.">
-<meta property="og:url" content="http://yangqiju.github.io/articles/index.html">
+<meta property="og:title" content="无锁的队列 disruptor">
+<meta property="og:description" content="disruptor">
+<meta property="og:url" content="http://yangqiju.github.io/paldb-disruptor">
 <meta property="og:site_name" content="Orange">
 
 
 
 
 
-<link rel="canonical" href="http://yangqiju.github.io/articles/">
+<link rel="canonical" href="http://yangqiju.github.io/paldb-disruptor">
 <link href="http://yangqiju.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="Orange Feed">
 
 
@@ -58,7 +58,8 @@
 
 </head>
 
-<body id="page" itemscope itemtype="http://schema.org/WebPage" >
+<body id="post" itemscope itemtype="http://schema.org/WebPage">
+
 <div class="navigation-wrapper">
 	<nav role="navigation" id="site-nav" class="animated drop" itemscope itemtype="http://schema.org/SiteNavigationElement">
 	    <ul>
@@ -114,60 +115,83 @@
 </header><!-- /.masthead -->
 
 
-<div id="main" role="main" itemprop="mainContentOfPage">
-  <article class="entry" itemscope>
-  <!-- 
+<div id="main" role="main" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/Blog">
+  <article class="hentry" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
     
-     -->
     <div class="entry-wrapper">
       <header class="entry-header">
-        <h1 class="entry-title" itemprop="name">Articles</h1>
+        <span class="entry-tags"><a href="http://yangqiju.github.io/tags.html#disruptor" title="Pages tagged disruptor" rel="tag">disruptor</a>&nbsp;&bull;&nbsp;<a href="http://yangqiju.github.io/tags.html#paldb" title="Pages tagged paldb" rel="tag">paldb</a>&nbsp;&bull;&nbsp;<a href="http://yangqiju.github.io/tags.html#queue" title="Pages tagged queue" rel="tag">queue</a>&nbsp;&bull;&nbsp;<a href="http://yangqiju.github.io/tags.html#lock-free" title="Pages tagged lock-free" rel="tag">lock-free</a></span>
+        
+          <h1 class="entry-title" itemprop="headline">无锁的队列 disruptor</h1>
+        
       </header>
+      <footer class="entry-meta">
+        <img src="http://yangqiju.github.io/images/logo.jpg" alt="yangqiju photo" class="author-photo">
+        <span class="author vcard" itemprop="author" itemscope itemtype="http://schema.org/Person">By <span itemprop="name" class="fn"><a href="http://yangqiju.github.io/about" title="About yangqiju" itemprop="url">yangqiju</a></span></span>
+        <span class="entry-date date published"><time datetime="2015-12-03T00:00:00-05:00" itemprop="datePublished"><i class="icon-calendar-empty"></i> December 03, 2015</time></span>
+        
+        
+        <span><a href="http://yangqiju.github.io/paldb-disruptor" rel="bookmark" title="无锁的队列 disruptor" itemprop="url"><i class="icon-link"></i> Permalink</a></span>
+      </footer>
       <div class="entry-content" itemprop="description">
-        <ul class="post-list">
- 
-  <li><article><a href="http://yangqiju.github.io/paldb-disruptor">无锁的队列 disruptor <span class="entry-date"><time datetime="2015-12-03T00:00:00-05:00">December 03, 2015</time></span></a></article></li>
- 
-  <li><article><a href="http://yangqiju.github.io/paldb-code-view">linkedin 的paldb 代码赏析(一)  <span class="entry-date"><time datetime="2015-11-26T00:00:00-05:00">November 26, 2015</time></span></a></article></li>
- 
-  <li><article><a href="http://yangqiju.github.io/glassfish-osgi-deploy">glassfish OSGi 环境使用obr部署选择版本部署  <span class="entry-date"><time datetime="2015-09-08T00:00:00-04:00">September 08, 2015</time></span></a></article></li>
- 
-  <li><article><a href="http://yangqiju.github.io/ssl-tls-ukey-pkcs11">使用UKEY调用PKCS11做SSL/TLS的验证  <span class="entry-date"><time datetime="2015-07-09T00:00:00-04:00">July 09, 2015</time></span></a></article></li>
- 
-  <li><article><a href="http://yangqiju.github.io/ssl-tls-pkcs12-JSSE">java SSL/TLS  <span class="entry-date"><time datetime="2015-07-09T00:00:00-04:00">July 09, 2015</time></span></a></article></li>
- 
-  <li><article><a href="http://yangqiju.github.io/gradle-glassfish-deploy-plugin">glassfish4 deploy gradle plugin <span class="entry-date"><time datetime="2015-06-25T00:00:00-04:00">June 25, 2015</time></span></a></article></li>
- 
-  <li><article><a href="http://yangqiju.github.io/gradle-jar-application-shell">使用gradle打包可运行的jar包 <span class="entry-date"><time datetime="2015-05-18T00:00:00-04:00">May 18, 2015</time></span></a></article></li>
- 
-  <li><article><a href="http://yangqiju.github.io/linux-jekyll-ruby-gem">linux上搭建jekyll应用问题 <span class="entry-date"><time datetime="2015-05-04T00:00:00-04:00">May 04, 2015</time></span></a></article></li>
- 
-  <li><article><a href="http://yangqiju.github.io/Thread-Runnable-uncaughtException">Thread 泄露 <span class="entry-date"><time datetime="2015-04-01T00:00:00-04:00">April 01, 2015</time></span></a></article></li>
- 
-  <li><article><a href="http://yangqiju.github.io/Glassfish-OSGi-password">glassfish 使用指令每次输入密码问题解决 <span class="entry-date"><time datetime="2015-03-24T00:00:00-04:00">March 24, 2015</time></span></a></article></li>
- 
-  <li><article><a href="http://yangqiju.github.io/jfr-jvm-jcmd">JVM 飞行记录抓取 <span class="entry-date"><time datetime="2015-03-09T00:00:00-04:00">March 09, 2015</time></span></a></article></li>
- 
-  <li><article><a href="http://yangqiju.github.io/VM-Linux-eth0">VirtualBox set network <span class="entry-date"><time datetime="2015-03-09T00:00:00-04:00">March 09, 2015</time></span></a></article></li>
- 
-  <li><article><a href="http://yangqiju.github.io/JBossEAP-DataSource-Mysql">Jboss EAP DataSource Configuration <span class="entry-date"><time datetime="2015-01-22T00:00:00-05:00">January 22, 2015</time></span></a></article></li>
- 
-  <li><article><a href="http://yangqiju.github.io/mybatis-generator-plugin">mybatis generate plugin <span class="entry-date"><time datetime="2014-08-17T00:00:00-04:00">August 17, 2014</time></span></a></article></li>
- 
-  <li><article><a href="http://yangqiju.github.io/mybatis-generator-change-field-plugin">mybatis generate 修改默认字段类型的plugin <span class="entry-date"><time datetime="2014-08-17T00:00:00-04:00">August 17, 2014</time></span></a></article></li>
- 
-  <li><article><a href="http://yangqiju.github.io/spring-multi-datasource">spring multi datasource config <span class="entry-date"><time datetime="2014-07-29T00:00:00-04:00">July 29, 2014</time></span></a></article></li>
- 
-  <li><article><a href="http://yangqiju.github.io/cassandra-run-eclipse">Running Cassandra In Eclipse  <span class="entry-date"><time datetime="2014-06-06T00:00:00-04:00">June 06, 2014</time></span></a></article></li>
- 
-  <li><article><a href="http://yangqiju.github.io/avro-osgi">avro osgi 下遇到的ClassCaseException <span class="entry-date"><time datetime="2014-06-06T00:00:00-04:00">June 06, 2014</time></span></a></article></li>
- 
-  <li><article><a href="http://yangqiju.github.io/cassandra-counter">Cassandra Counter delete 之后update失效的问题 <span class="entry-date"><time datetime="2014-06-03T00:00:00-04:00">June 03, 2014</time></span></a></article></li>
+        <p>之前调研学习了paldb，速度的确很快，但是它是非线程安全的，如果是单个操作必然没什么问题。
+但是涉及到多个线程的时候，怎么办呢？</p>
 
+<p>最直接简单的办法就是直接加锁，试了一下，但是加锁操作，在单线程的情况下，性能就缩短成了
+不加锁的大约1/5，170万左右降到了30万左右，虽然还是很快，但是性能这么消耗了，也太不爽了。</p>
+
+<p>还有中方法就是使用队列，paldb的查询是消费者，使用单线程，一般情况下性能是能提高不少了，
+但是使用了队列，就意味着，向队列里面添加对象时，还是加锁了还是涉及到了多线程竞争。</p>
+
+<p>能不能把他实现成redis一样，单线程就能拥有如此高的效率。</p>
+
+<p>高效无锁，这是个很值得思考的方式。disruptor便实现了它。随便google一下，有很多，引用一篇
+比较好的：<a href="http://www.cnblogs.com/killmyday/archive/2012/12/02/2798218.html">disruptor 调研报告</a></p>
+
+<p>之前看过一篇关于<a href="http://www.infoq.com/cn/articles/things-of-java-log-performance">java日志的性能的报告</a>，提到Log4j 2.x的异步Logger，底层使用了disruptor，在
+64线程下：</p>
+
+<ul>
+  <li>比异步Appender快12倍</li>
+  <li>比同步Logger快68倍</li>
+  <li>LogBack的AsyncAppender快12倍</li>
+  <li>Log4J 1.x的异步Appender快19倍</li>
 </ul>
 
+<p>那么，是时候使用disruptor了。经过简单的测试：</p>
+
+<ul>
+  <li>使用单线程不加锁paldb，大约170万TPS</li>
+  <li>使用单线程加锁paldb，大约30万TPS</li>
+  <li>使用单线程disruptor，一个生产者，一个消费者，大约150万TPS左右</li>
+</ul>
+
+<p>性能的确很惊人，当然使用了disruptor多个生产者时也没有出现问题，因为始终就一个消费者来查询paldb，
+以上是为了同级比较所以使用一个生产者。</p>
+
+<p>不禁感叹在无锁情况下，效率真的比加锁的情况好太多。在disruptor背后，不但是使用了无锁，而是从系统，
+jvm，甚至是cpu内存的硬件级别来思考，优化程序。
+他们提供了他们论文报告，在这找到了一个中文翻译后的<a href="http://outofmemoryerror.github.io/2015/07/14/concurrent-disruptor">文章</a>，阅读之后，受益匪浅。</p>
+
+<ul>
+  <li>CAS不需要涉及内核上下文切换，会用到memory barrier刷新内存状态</li>
+  <li>CPU操作缓存是以cache-line为单位，如果两个变量不幸在同一个cache-line里，且它们分别由不同的线程来进行写入操作，那么此时这两个变量的写入会发生竞争，这被称之为JVM的伪共享</li>
+  <li>现代CPU的可以预取，包括指令预取和数据预取，遍历数组就是一个非常好的例子，它的访问模式就是可预测的，因此遍历数组是非常高效的，一般小于2048个字节。</li>
+  <li>Ring Buffer是一个指针数组，预先分配避免了java内存回收，由于预先分配，有很大的可能这些对象在内存中是连续的，即使不连续它们在内存中得间隔也有可能是固定的，这样非常有利于缓存的数据预取。</li>
+</ul>
+
+<p>有篇文章对actor模式和disruptor有较好的分析，并且提出了自己更加强的无锁算法<a href="http://www.infoq.com/cn/articles/High-Performance-Java-Inter-Thread-Communications">详情</a></p>
+
+
+        
       </div><!-- /.entry-content -->
     </div><!-- /.entry-wrapper -->
+    <nav class="pagination" role="navigation">
+      
+        <a href="http://yangqiju.github.io/paldb-code-view" class="btn" title="linkedin 的paldb 代码赏析(一) ">Previous article</a>
+      
+      
+    </nav><!-- /.pagination -->
   </article>
 </div><!-- /#main -->
 
@@ -228,6 +252,7 @@
 </script>
 
 
-          
+	        
+
 </body>
 </html>

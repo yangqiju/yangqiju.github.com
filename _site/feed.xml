@@ -4,13 +4,77 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://yangqiju.github.io/feed.xml" />
 <link rel="alternate" type="text/html" href="http://yangqiju.github.io" />
-<updated>2015-11-25T23:30:09-05:00</updated>
+<updated>2015-12-02T22:35:57-05:00</updated>
 <id>http://yangqiju.github.io/</id>
 <author>
   <name>yangqiju</name>
   <uri>http://yangqiju.github.io/</uri>
   <email>362991493@qq.com</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[无锁的队列 disruptor]]></title>
+  <link>http://yangqiju.github.io/paldb-disruptor</link>
+  <id>http://yangqiju.github.io/paldb-disruptor</id>
+  <published>2015-12-03T00:00:00-05:00</published>
+  <updated>2015-12-03T00:00:00-05:00</updated>
+  <author>
+    <name>yangqiju</name>
+    <uri>http://yangqiju.github.io</uri>
+    <email>362991493@qq.com</email>
+  </author>
+  <content type="html">&lt;p&gt;之前调研学习了paldb，速度的确很快，但是它是非线程安全的，如果是单个操作必然没什么问题。
+但是涉及到多个线程的时候，怎么办呢？&lt;/p&gt;
+
+&lt;p&gt;最直接简单的办法就是直接加锁，试了一下，但是加锁操作，在单线程的情况下，性能就缩短成了
+不加锁的大约1/5，170万左右降到了30万左右，虽然还是很快，但是性能这么消耗了，也太不爽了。&lt;/p&gt;
+
+&lt;p&gt;还有中方法就是使用队列，paldb的查询是消费者，使用单线程，一般情况下性能是能提高不少了，
+但是使用了队列，就意味着，向队列里面添加对象时，还是加锁了还是涉及到了多线程竞争。&lt;/p&gt;
+
+&lt;p&gt;能不能把他实现成redis一样，单线程就能拥有如此高的效率。&lt;/p&gt;
+
+&lt;p&gt;高效无锁，这是个很值得思考的方式。disruptor便实现了它。随便google一下，有很多，引用一篇
+比较好的：&lt;a href=&quot;http://www.cnblogs.com/killmyday/archive/2012/12/02/2798218.html&quot;&gt;disruptor 调研报告&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;之前看过一篇关于&lt;a href=&quot;http://www.infoq.com/cn/articles/things-of-java-log-performance&quot;&gt;java日志的性能的报告&lt;/a&gt;，提到Log4j 2.x的异步Logger，底层使用了disruptor，在
+64线程下：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;比异步Appender快12倍&lt;/li&gt;
+  &lt;li&gt;比同步Logger快68倍&lt;/li&gt;
+  &lt;li&gt;LogBack的AsyncAppender快12倍&lt;/li&gt;
+  &lt;li&gt;Log4J 1.x的异步Appender快19倍&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;那么，是时候使用disruptor了。经过简单的测试：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;使用单线程不加锁paldb，大约170万TPS&lt;/li&gt;
+  &lt;li&gt;使用单线程加锁paldb，大约30万TPS&lt;/li&gt;
+  &lt;li&gt;使用单线程disruptor，一个生产者，一个消费者，大约150万TPS左右&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;性能的确很惊人，当然使用了disruptor多个生产者时也没有出现问题，因为始终就一个消费者来查询paldb，
+以上是为了同级比较所以使用一个生产者。&lt;/p&gt;
+
+&lt;p&gt;不禁感叹在无锁情况下，效率真的比加锁的情况好太多。在disruptor背后，不但是使用了无锁，而是从系统，
+jvm，甚至是cpu内存的硬件级别来思考，优化程序。
+他们提供了他们论文报告，在这找到了一个中文翻译后的&lt;a href=&quot;http://outofmemoryerror.github.io/2015/07/14/concurrent-disruptor&quot;&gt;文章&lt;/a&gt;，阅读之后，受益匪浅。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;CAS不需要涉及内核上下文切换，会用到memory barrier刷新内存状态&lt;/li&gt;
+  &lt;li&gt;CPU操作缓存是以cache-line为单位，如果两个变量不幸在同一个cache-line里，且它们分别由不同的线程来进行写入操作，那么此时这两个变量的写入会发生竞争，这被称之为JVM的伪共享&lt;/li&gt;
+  &lt;li&gt;现代CPU的可以预取，包括指令预取和数据预取，遍历数组就是一个非常好的例子，它的访问模式就是可预测的，因此遍历数组是非常高效的，一般小于2048个字节。&lt;/li&gt;
+  &lt;li&gt;Ring Buffer是一个指针数组，预先分配避免了java内存回收，由于预先分配，有很大的可能这些对象在内存中是连续的，即使不连续它们在内存中得间隔也有可能是固定的，这样非常有利于缓存的数据预取。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;有篇文章对actor模式和disruptor有较好的分析，并且提出了自己更加强的无锁算法&lt;a href=&quot;http://www.infoq.com/cn/articles/High-Performance-Java-Inter-Thread-Communications&quot;&gt;详情&lt;/a&gt;&lt;/p&gt;
+
+
+  &lt;p&gt;&lt;a href=&quot;http://yangqiju.github.io/paldb-disruptor&quot;&gt;无锁的队列 disruptor&lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://yangqiju.github.io&quot;&gt;Orange&lt;/a&gt; on December 03, 2015.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>
@@ -62,8 +126,7 @@
 &lt;p&gt;测试结果表明，使用内存映射时，效率能达到640万TPS以上，直接使用RandomAccessFile 效率达到150万以上。
 所以使用MappedByteBuffer效率是高了不少。&lt;/p&gt;
 
-&lt;p&gt;paldb还使用了LinkedHashMap进行缓存实现让查询更加快速，使用snappy进行数据压缩。特别的索引的使用，
-很值得学习。&lt;/p&gt;
+&lt;p&gt;paldb还使用了LinkedHashMap进行缓存实现让查询更加快速，使用snappy进行数据压缩。特别的索引的使用，很值得学习。&lt;/p&gt;
 
 
   &lt;p&gt;&lt;a href=&quot;http://yangqiju.github.io/paldb-code-view&quot;&gt;linkedin 的paldb 代码赏析(一) &lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://yangqiju.github.io&quot;&gt;Orange&lt;/a&gt; on November 26, 2015.&lt;/p&gt;</content>

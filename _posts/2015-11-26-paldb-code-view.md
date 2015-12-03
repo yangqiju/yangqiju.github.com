@@ -50,6 +50,5 @@ ssd固态
 测试结果表明，使用内存映射时，效率能达到640万TPS以上，直接使用RandomAccessFile 效率达到150万以上。
 所以使用MappedByteBuffer效率是高了不少。
 
-paldb还使用了LinkedHashMap进行缓存实现让查询更加快速，使用snappy进行数据压缩。特别的索引的使用，
-很值得学习。
+paldb还使用了LinkedHashMap进行缓存实现让查询更加快速，使用snappy进行数据压缩。特别的索引的使用，很值得学习。
 	
