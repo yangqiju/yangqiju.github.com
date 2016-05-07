@@ -138,7 +138,7 @@
 但是涉及到多个线程的时候，怎么办呢？</p>
 
 <p>最直接简单的办法就是直接加锁，试了一下，但是加锁操作，在单线程的情况下，性能就缩短成了
-不加锁的大约1/5，170万左右降到了30万左右，虽然还是很快，但是性能这么消耗了，也太不爽了。</p>
+不加锁的大约1/5，170万左右降到了30万左右，虽然还是很快，但是性能这么消耗了，太浪费了。</p>
 
 <p>还有中方法就是使用队列，paldb的查询是消费者，使用单线程，一般情况下性能是能提高不少了，
 但是使用了队列，就意味着，向队列里面添加对象时，还是加锁了还是涉及到了多线程竞争。</p>
@@ -182,7 +182,6 @@ jvm，甚至是cpu内存的硬件级别来思考，优化程序。
 
 <p>有篇文章对actor模式和disruptor有较好的分析，并且提出了自己更加强的无锁算法<a href="http://www.infoq.com/cn/articles/High-Performance-Java-Inter-Thread-Communications">详情</a></p>
 
-
         
       </div><!-- /.entry-content -->
     </div><!-- /.entry-wrapper -->
@@ -191,13 +190,15 @@ jvm，甚至是cpu内存的硬件级别来思考，优化程序。
         <a href="http://yangqiju.github.io/paldb-code-view" class="btn" title="linkedin 的paldb 代码赏析(一) ">Previous article</a>
       
       
+        <a href="http://yangqiju.github.io/uuid-twtter-snowflake" class="btn" title="twtter 全局id snowflake 算法">Next article</a>
+      
     </nav><!-- /.pagination -->
   </article>
 </div><!-- /#main -->
 
 <div class="footer-wrapper">
   <footer role="contentinfo">
-    <span>&copy; 2015 yangqiju. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">So Simple Theme</a>.</span>
+    <span>&copy; 2016 yangqiju. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">So Simple Theme</a>.</span>
 <div class="social-icons">
 	
 	

@@ -10,20 +10,20 @@ tags: [disruptor,paldb,queue,lock-free]
 但是涉及到多个线程的时候，怎么办呢？
 
    最直接简单的办法就是直接加锁，试了一下，但是加锁操作，在单线程的情况下，性能就缩短成了
-不加锁的大约1/5，170万左右降到了30万左右，虽然还是很快，但是性能这么消耗了，也太不爽了。
+不加锁的大约1/5，170万左右降到了30万左右，虽然还是很快，但是性能这么消耗了，太浪费了。
 
    还有中方法就是使用队列，paldb的查询是消费者，使用单线程，一般情况下性能是能提高不少了，
 但是使用了队列，就意味着，向队列里面添加对象时，还是加锁了还是涉及到了多线程竞争。
 
 能不能把他实现成redis一样，单线程就能拥有如此高的效率。
-	
+
    高效无锁，这是个很值得思考的方式。disruptor便实现了它。随便google一下，有很多，引用一篇
 比较好的：[disruptor 调研报告](http://www.cnblogs.com/killmyday/archive/2012/12/02/2798218.html)
- 
+
 之前看过一篇关于[java日志的性能的报告](http://www.infoq.com/cn/articles/things-of-java-log-performance)，提到Log4j 2.x的异步Logger，底层使用了disruptor，在
 64线程下：
 
-* 	比异步Appender快12倍
+* 比异步Appender快12倍
 *	比同步Logger快68倍
 *	LogBack的AsyncAppender快12倍
 *	Log4J 1.x的异步Appender快19倍
@@ -49,5 +49,3 @@ jvm，甚至是cpu内存的硬件级别来思考，优化程序。
 
 
 有篇文章对actor模式和disruptor有较好的分析，并且提出了自己更加强的无锁算法[详情](http://www.infoq.com/cn/articles/High-Performance-Java-Inter-Thread-Communications)
-
-
