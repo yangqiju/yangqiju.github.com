@@ -1,6 +1,30 @@
 [
 	
 		{
+		  "title"      : "java bitset之set方法解惑",
+		  "category"   : "",
+		  "url"        : "http://yangqiju.github.io/java-bitset",
+		  "date"       : "2016-10-17 00:00:00 -0400",
+		  "shortdate"  : "October 17, 2016"
+		} ,
+	
+		{
+		  "title"      : "mvn deploy 方法",
+		  "category"   : "",
+		  "url"        : "http://yangqiju.github.io/mvn-deploy",
+		  "date"       : "2016-08-05 00:00:00 -0400",
+		  "shortdate"  : "August 05, 2016"
+		} ,
+	
+		{
+		  "title"      : "https压力测试(1)",
+		  "category"   : "",
+		  "url"        : "http://yangqiju.github.io/https-stress-1",
+		  "date"       : "2016-07-21 00:00:00 -0400",
+		  "shortdate"  : "July 21, 2016"
+		} ,
+	
+		{
 		  "title"      : "twtter 全局id snowflake 算法",
 		  "category"   : "",
 		  "url"        : "http://yangqiju.github.io/uuid-twtter-snowflake",

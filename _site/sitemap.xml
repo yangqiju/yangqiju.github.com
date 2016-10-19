@@ -6,6 +6,18 @@
     
     
     <url>
+        <loc>http://yangqiju.github.io/java-bitset</loc>
+    </url>
+    
+    <url>
+        <loc>http://yangqiju.github.io/mvn-deploy</loc>
+    </url>
+    
+    <url>
+        <loc>http://yangqiju.github.io/https-stress-1</loc>
+    </url>
+    
+    <url>
         <loc>http://yangqiju.github.io/uuid-twtter-snowflake</loc>
     </url>
     

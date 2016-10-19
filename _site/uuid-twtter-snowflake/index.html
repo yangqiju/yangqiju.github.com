@@ -173,8 +173,8 @@
 <ul>
   <li>第一位始终是符号位，不会考虑去修改它</li>
   <li>41位时间戳可代表69年的时间戳</li>
-  <li>10位能代表1024个工作机</li>
-  <li>12位序列号能代表4096个序列号</li>
+  <li>10位能代表1023个工作机</li>
+  <li>12位序列号能代表4095个序列号</li>
 </ul>
 
 <p>在使用时，只需要对每台机器进行编号，即可达到分布式不重复的效果，并且通过时间戳在高位，也能满足通过时间排序的需求。</p>
@@ -270,6 +270,8 @@
       
         <a href="http://yangqiju.github.io/paldb-disruptor" class="btn" title="无锁的队列 disruptor">Previous article</a>
       
+      
+        <a href="http://yangqiju.github.io/https-stress-1" class="btn" title="https压力测试(1)">Next article</a>
       
     </nav><!-- /.pagination -->
   </article>
