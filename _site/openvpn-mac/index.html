@@ -5,25 +5,25 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>java bitset之set方法解惑 &#8211; Orange</title>
-<meta name="description" content="java bitset">
-<meta name="keywords" content="java, bitset">
+<title>mac上安装openvpn支持pkcs11 &#8211; Orange</title>
+<meta name="description" content="mac上安装openvpn支持pkcs11">
+<meta name="keywords" content="mac, openvpn, pkcs11">
 
 
 <meta name="baidu-site-verification" content="kGTic24zBh" />
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java bitset之set方法解惑">
-<meta property="og:description" content="java bitset">
-<meta property="og:url" content="http://yangqiju.github.io/java-bitset">
+<meta property="og:title" content="mac上安装openvpn支持pkcs11">
+<meta property="og:description" content="mac上安装openvpn支持pkcs11">
+<meta property="og:url" content="http://yangqiju.github.io/openvpn-mac">
 <meta property="og:site_name" content="Orange">
 
 
 
 
 
-<link rel="canonical" href="http://yangqiju.github.io/java-bitset">
+<link rel="canonical" href="http://yangqiju.github.io/openvpn-mac">
 <link href="http://yangqiju.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="Orange Feed">
 
 
@@ -120,57 +120,51 @@
     
     <div class="entry-wrapper">
       <header class="entry-header">
-        <span class="entry-tags"><a href="http://yangqiju.github.io/tags.html#java" title="Pages tagged java" rel="tag">java</a>&nbsp;&bull;&nbsp;<a href="http://yangqiju.github.io/tags.html#bitset" title="Pages tagged bitset" rel="tag">bitset</a></span>
+        <span class="entry-tags"><a href="http://yangqiju.github.io/tags.html#mac" title="Pages tagged mac" rel="tag">mac</a>&nbsp;&bull;&nbsp;<a href="http://yangqiju.github.io/tags.html#openvpn" title="Pages tagged openvpn" rel="tag">openvpn</a>&nbsp;&bull;&nbsp;<a href="http://yangqiju.github.io/tags.html#pkcs11" title="Pages tagged pkcs11" rel="tag">pkcs11</a></span>
         
-          <h1 class="entry-title" itemprop="headline">java bitset之set方法解惑</h1>
+          <h1 class="entry-title" itemprop="headline">mac上安装openvpn支持pkcs11</h1>
         
       </header>
       <footer class="entry-meta">
         <img src="http://yangqiju.github.io/images/logo.jpg" alt="yangqiju photo" class="author-photo">
         <span class="author vcard" itemprop="author" itemscope itemtype="http://schema.org/Person">By <span itemprop="name" class="fn"><a href="http://yangqiju.github.io/about" title="About yangqiju" itemprop="url">yangqiju</a></span></span>
-        <span class="entry-date date published"><time datetime="2016-10-17T00:00:00-04:00" itemprop="datePublished"><i class="icon-calendar-empty"></i> October 17, 2016</time></span>
+        <span class="entry-date date published"><time datetime="2016-11-22T00:00:00-05:00" itemprop="datePublished"><i class="icon-calendar-empty"></i> November 22, 2016</time></span>
         
         
-        <span><a href="http://yangqiju.github.io/java-bitset" rel="bookmark" title="java bitset之set方法解惑" itemprop="url"><i class="icon-link"></i> Permalink</a></span>
+        <span><a href="http://yangqiju.github.io/openvpn-mac" rel="bookmark" title="mac上安装openvpn支持pkcs11" itemprop="url"><i class="icon-link"></i> Permalink</a></span>
       </footer>
       <div class="entry-content" itemprop="description">
-        <p>在java的Bitset中的set方法中有两个方法思考了很长时间，记录一下。</p>
+        <p>由于公司的vpn需要通过Ukey身份认证才能进行连接，在mac上一直没有很好的解决方法，Tunnelblick也
+一直有问题。目前对openvpn的需求有些迫切，所以把这件事情重新抓起来。</p>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">set</span><span class="o">(</span><span class="kt">int</span> <span class="n">bitIndex</span><span class="o">)</span> <span class="o">{</span>
-   <span class="k">if</span> <span class="o">(</span><span class="n">bitIndex</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">)</span>
-       <span class="k">throw</span> <span class="k">new</span> <span class="nf">IndexOutOfBoundsException</span><span class="o">(</span><span class="s">&quot;bitIndex &lt; 0: &quot;</span> <span class="o">+</span> <span class="n">bitIndex</span><span class="o">);</span>
-   <span class="c1">//A</span>
-   <span class="kt">int</span> <span class="n">wordIndex</span> <span class="o">=</span> <span class="n">wordIndex</span><span class="o">(</span><span class="n">bitIndex</span><span class="o">);</span>
-   <span class="n">expandTo</span><span class="o">(</span><span class="n">wordIndex</span><span class="o">);</span>
-   <span class="c1">//B</span>
-   <span class="n">words</span><span class="o">[</span><span class="n">wordIndex</span><span class="o">]</span> <span class="o">|=</span> <span class="o">(</span><span class="mi">1L</span> <span class="o">&lt;&lt;</span> <span class="n">bitIndex</span><span class="o">);</span> <span class="c1">// Restores invariants</span>
-   <span class="n">checkInvariants</span><span class="o">();</span>
-<span class="o">}</span>
+<p>这里假设已经有了.ovpn 文件，只是没有调试通pkcs11.</p>
 
-<span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">wordIndex</span><span class="o">(</span><span class="kt">int</span> <span class="n">bitIndex</span><span class="o">)</span> <span class="o">{</span>
-       <span class="k">return</span> <span class="n">bitIndex</span> <span class="o">&gt;&gt;</span> <span class="n">ADDRESS_BITS_PER_WORD</span><span class="o">;</span>
-<span class="o">}</span>
+<p>1.首先安装openvpn，记得添加’–with-pkcs11-helper’ 选项，因为默认pkcs11的依赖是不安装的</p>
 
-<span class="kd">private</span> <span class="kd">final</span> <span class="kd">static</span> <span class="kt">int</span> <span class="n">ADDRESS_BITS_PER_WORD</span> <span class="o">=</span> <span class="mi">6</span><span class="o">;</span></code></pre></div>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">brew</span> <span class="n">install</span> <span class="n">openvpn</span> <span class="o">--</span><span class="n">with</span><span class="o">-</span><span class="n">pkcs11</span><span class="o">-</span><span class="n">helper</span></code></pre></div>
 
-<p>在A处，wordIndex 方法中，右移6位。原因是在bitset中，记录实际数据的是long数组，
-为了明确bitIndex在属于数组中的位置。对bitIndex 进行64取整。</p>
+<p>2.查看自己证书的id,找到Serialized id</p>
 
-<p>在B处，1L « bitIndex 等同于下列代码</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">openvpn</span> <span class="o">--</span><span class="n">show</span><span class="o">-</span><span class="n">pkcs11</span><span class="o">-</span><span class="n">ids</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">libeTPkcs11</span><span class="o">.</span><span class="na">dylib</span></code></pre></div>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kt">int</span> <span class="n">transderBits</span> <span class="o">=</span> <span class="n">bitIndex</span> <span class="o">%</span> <span class="mi">64</span><span class="o">;</span>
-<span class="n">words</span><span class="o">[</span><span class="n">wordsIndex</span><span class="o">]</span> <span class="o">|=</span> <span class="o">(</span><span class="mi">1L</span> <span class="o">&lt;&lt;</span> <span class="n">transferBits</span><span class="o">);</span></code></pre></div>
+<p>3.在.ovpn 中添加证书id,注释pkcs11-id-management</p>
 
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">pkcs11</span><span class="o">-</span><span class="n">id</span> <span class="err">&#39;</span><span class="n">SafeNet</span><span class="err">\</span><span class="n">x2C</span><span class="err">\</span><span class="n">x20Inc</span><span class="err">\</span><span class="n">x2E</span><span class="o">/</span><span class="n">eToken</span><span class="cm">/******/</span><span class="o">*****/***************</span><span class="err">&#39;</span>
+<span class="err">#</span><span class="n">pkcs11</span><span class="o">-</span><span class="n">id</span><span class="o">-</span><span class="n">management</span></code></pre></div>
+
+<p>4.命令启动openvpn</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">sudo</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">openvpn</span> <span class="o">--</span><span class="n">config</span> <span class="n">config</span><span class="o">.</span><span class="na">ovpn</span></code></pre></div>
+
+<p>5.输入用户名和密码，ukey pin码，应该就大功告成了</p>
 
         
       </div><!-- /.entry-content -->
     </div><!-- /.entry-wrapper -->
     <nav class="pagination" role="navigation">
       
-        <a href="http://yangqiju.github.io/mvn-deploy" class="btn" title="mvn deploy 方法">Previous article</a>
+        <a href="http://yangqiju.github.io/java-bitset" class="btn" title="java bitset之set方法解惑">Previous article</a>
       
-      
-        <a href="http://yangqiju.github.io/openvpn-mac" class="btn" title="mac上安装openvpn支持pkcs11">Next article</a>
       
     </nav><!-- /.pagination -->
   </article>
