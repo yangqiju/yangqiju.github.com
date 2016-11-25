@@ -9,7 +9,7 @@ tags: [mac,openvpn,pkcs11]
 由于公司的vpn需要通过Ukey身份认证才能进行连接，在mac上一直没有很好的解决方法，Tunnelblick也
 一直有问题,所以问题就搁置了。目前对openvpn的需求有些迫切，所以把这件事情重新抓起来。
 
-这里假设已经有了.ovpn 文件，只是没有调试通pkcs11.
+这里假设已经有了.ovpn 文件，并且已经有了pkcs11 的动态库，只是没有调试通pkcs11.
 
 1.首先安装openvpn，记得添加'--with-pkcs11-helper' 选项，因为默认pkcs11的依赖是不安装的
 {% highlight java %}
