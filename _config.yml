@@ -1,6 +1,6 @@
 title:            Orange
-description:      心甘情愿做个coder.
-logo:             logo.jpg
+description:      做个简单的coder.
+logo:             logo.png
 disqus_shortname:
 search:           true
 #Change url to your domain. Leave localhost server or blank when working locally.
@@ -10,7 +10,7 @@ url:              http://yangqiju.github.io
 # Owner/author information
 owner:
   name:           yangqiju
-  avatar:         logo.jpg
+  avatar:         logo.png
   email:          362991493@qq.com
   # Social networking links used in footer. Update and remove as you like.
   twitter:
