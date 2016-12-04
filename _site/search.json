@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "httpclient对pkcs11 https的支持",
+		  "category"   : "",
+		  "url"        : "http://yangqiju.github.io/pkcs11-https-httpclient",
+		  "date"       : "2016-12-04 00:00:00 -0500",
+		  "shortdate"  : "December 04, 2016"
+		} ,
+	
+		{
 		  "title"      : "mac上安装openvpn支持pkcs11",
 		  "category"   : "",
 		  "url"        : "http://yangqiju.github.io/openvpn-mac",
