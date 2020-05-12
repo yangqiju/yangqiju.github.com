@@ -18,7 +18,7 @@ tags: [mybatis,generate,plugin]
 {% highlight java %}
 	public class MysqlTestPlugin extends PluginAdapter {
 		@Override
-		public boolean validate(List<String> warnings) {
+		public boolean validate(List<String warnings) {
 			// TODO Auto-generated method stub
 			return false;
 		}
@@ -82,10 +82,10 @@ tags: [mybatis,generate,plugin]
 			IntrospectedTable introspectedTable) {
 		XmlElement rootelement = document.getRootElement();
 		//TODO 分页实现,名字为 mysql_Pagination_Tail
-		String template = "<sql id=\"mysql_Pagination_Tail\" >\r\n"
-				+ "	<if test=\"offset !=null and limit !=null\">\r\n"
-				+ "		limit #{offset} ,#{limit} \r\n" + "		 </if> \r\n"
-				+ "  </sql>\r\n";
+		String template = "<sql id=\"mysql_Pagination_Tail\" \r\n"
+				+ "	<if test=\"offset !=null and limit !=null\"\r\n"
+				+ "		limit #{offset} ,#{limit} \r\n" + "		 </if \r\n"
+				+ "  </sql\r\n";
 		Element groupByExample = new TextElement(template);
 		rootelement.addElement(groupByExample);
 		return true;
@@ -106,24 +106,24 @@ tags: [mybatis,generate,plugin]
 {% endhighlight %}
 	 上面的代码就实现了,在selectByExample 的最下面,添加个 limit 分页。
 {% highlight xml %}
-<select id="selectByExample" resultMap="BaseResultMap" parameterClass="..." >
+<select id="selectByExample" resultMap="BaseResultMap" parameterClass="..." 
     select
-    <isParameterPresent >
-      <isEqual property="distinct" compareValue="true" >
+    <isParameterPresent 
+      <isEqual property="distinct" compareValue="true" 
         distinct
-      </isEqual>
-    </isParameterPresent>
-    <include refid="T_ACC_USERINFO.Base_Column_List" />
+      </isEqual
+    </isParameterPresent
+    <include refid="T_ACC_USERINFO.Base_Column_List" /
     from T_ACC_USERINFO
-    <isParameterPresent >
-      <include refid="T_ACC_USERINFO.Example_Where_Clause" />
-      <isNotNull property="orderByClause" >
+    <isParameterPresent 
+      <include refid="T_ACC_USERINFO.Example_Where_Clause" /
+      <isNotNull property="orderByClause" 
         order by $orderByClause$
-      </isNotNull>
-    </isParameterPresent>
-    <!-- add ....-->
-    <include refid="mysql_Pagination_Tail" />
-  </select>
+      </isNotNull
+    </isParameterPresent
+    <!-- add ....--
+    <include refid="mysql_Pagination_Tail" /
+  </select
 {% endhighlight %}
 
 
@@ -131,12 +131,12 @@ tags: [mybatis,generate,plugin]
 	这里就用eclipse 插件吧。将写好的pluin 放到配置文件中。
 	
 {% highlight xml %}
-<generatorConfiguration>
-	 <context id="CoreGenconfig" targetRuntime="MyBatis3" defaultModelType="hierarchical">
-		<plugin type="com.joyveb.....MysqlTestPlugin" />
+<generatorConfiguration
+	 <context id="CoreGenconfig" targetRuntime="MyBatis3" defaultModelType="hierarchical"
+		<plugin type="com.joyveb.....MysqlTestPlugin" /
 		.......
-		</context>  
-</generatorConfiguration>
+		</context  
+</generatorConfiguration
 {% endhighlight %}
 
 	这样就完成了全部的配置了,run一下eclipse 的mybatis generatr 插件,代码应该就都直接生成了。 

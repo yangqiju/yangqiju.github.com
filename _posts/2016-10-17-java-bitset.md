@@ -22,7 +22,7 @@ public void set(int bitIndex) {
 }
 
 private static int wordIndex(int bitIndex) {
-       return bitIndex >> ADDRESS_BITS_PER_WORD;
+       return bitIndex  ADDRESS_BITS_PER_WORD;
 }
 
 private final static int ADDRESS_BITS_PER_WORD = 6;

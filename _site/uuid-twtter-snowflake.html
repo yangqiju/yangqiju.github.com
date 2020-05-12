@@ -1,0 +1,340 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>twtter 全局id snowflake 算法 &#8211; Orange</title>
+<meta name="description" content="twtter snowflake ">
+<meta name="keywords" content="twtter, snowflake, uuid">
+
+
+<meta name="baidu-site-verification" content="kGTic24zBh" />
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="twtter 全局id snowflake 算法">
+<meta property="og:description" content="twtter snowflake ">
+<meta property="og:url" content="http://localhost:4000/uuid-twtter-snowflake">
+<meta property="og:site_name" content="Orange">
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/uuid-twtter-snowflake">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Orange Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.min.css">
+<!-- Webfonts 
+<script src="//use.edgefonts.net/source-sans-pro:n2,i2,n3,i3,n4,i4,n6,i6,n7,i7,n9,i9;source-code-pro:n4,n7;volkhov.js"></script>
+-->
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="http://localhost:4000/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://localhost:4000/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://localhost:4000/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://localhost:4000/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body id="post" itemscope itemtype="http://schema.org/WebPage">
+
+<div class="navigation-wrapper">
+	<nav role="navigation" id="site-nav" class="animated drop" itemscope itemtype="http://schema.org/SiteNavigationElement">
+	    <ul>
+	        
+			<li>
+				
+					<a href="http://localhost:4000/about">Home</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="http://localhost:4000/work">Work</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="http://localhost:4000/interest">Interest</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="http://localhost:4000/life">life</a>
+				 
+			</li>
+	        
+	        <!-- 
+	        <li><a href="http://localhost:4000/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
+	         -->
+	        <li class="dosearch"><i class="icon-search"></i> Search</li>
+	    </ul>
+	</nav>
+</div><!-- /.navigation-wrapper -->
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+
+<div class="search-wrapper">
+	<div class="search-form">
+		<input type="text" class="search-field" placeholder="Search...">
+		<i class="icon-remove-sign icon-2x"></i>
+		<ul class="search-results post-list"></ul><!-- /.search-results -->
+	</div><!-- /.search-form -->
+</div><!-- ./search-wrapper -->
+
+<header class="masthead" itemscope itemtype="http://schema.org/Organization">
+	<div class="wrap">
+		<a href="http://localhost:4000" class="site-logo" rel="home" title="Orange" itemprop="url"><img src="http://localhost:4000/images/logo.jpeg" width="200" height="200" alt="Orange logo" class="animated fadeInUp" itemprop="logo"></a>
+		<h1 class="site-title animated fadeIn"><a href="http://localhost:4000">Orange</a></h1>
+		<h2 class="site-description animated fadeIn" itemprop="description">做个简单的coder.</h2>
+	</div>
+</header><!-- /.masthead -->
+
+
+<div id="main" role="main" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/Blog">
+  <article class="hentry" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="entry-wrapper">
+      <header class="entry-header">
+        <span class="entry-tags"><a href="http://localhost:4000/tags.html#twtter" title="Pages tagged twtter" rel="tag">twtter</a>&nbsp;&bull;&nbsp;<a href="http://localhost:4000/tags.html#snowflake" title="Pages tagged snowflake" rel="tag">snowflake</a>&nbsp;&bull;&nbsp;<a href="http://localhost:4000/tags.html#uuid" title="Pages tagged uuid" rel="tag">uuid</a></span>
+        
+          <h1 class="entry-title" itemprop="headline">twtter 全局id snowflake 算法</h1>
+        
+      </header>
+      <footer class="entry-meta">
+        <img src="http://localhost:4000/images/logo.jpeg" alt="yangqiju photo" class="author-photo">
+        <span class="author vcard" itemprop="author" itemscope itemtype="http://schema.org/Person">By <span itemprop="name" class="fn"><a href="http://localhost:4000/about" title="About yangqiju" itemprop="url">yangqiju</a></span></span>
+        <span class="entry-date date published"><time datetime="2016-05-07T00:00:00-04:00" itemprop="datePublished"><i class="icon-calendar-empty"></i> May 07, 2016</time></span>
+        
+        
+        <span><a href="http://localhost:4000/uuid-twtter-snowflake" rel="bookmark" title="twtter 全局id snowflake 算法" itemprop="url"><i class="icon-link"></i> Permalink</a></span>
+      </footer>
+      <div class="entry-content" style="font-size:14px" itemprop="description">
+        <p>snowflake是twtter开源的分布式全局id算法<a href="https://github.com/twitter/snowflake">github地址</a>。</p>
+
+<p>google能搜出很多相关内容，那我为什么还要写呢，原因是很多博客都很不责任的粘贴了来自不同地方的文章，最后拼凑在了一起，导致我刚开始看关于这个算法的时候，算法描述和展示代码完全就不是同一个内容，害得我质疑自己所学的知识。并且搜到的很多blog居然都有此类情况。</p>
+
+<p>以下只作为自己对该算法的记录。</p>
+
+<p>snowflake是个分布式唯一编号的方案，对于全局唯一编号，基本满足了如下内容：</p>
+
+<ul>
+  <li>支持分布式</li>
+  <li>高并发</li>
+  <li>长时间可用，至少10年以上吧</li>
+  <li>基本可排序</li>
+</ul>
+
+<p>该算法采用了64位long类型作为基础，分成多段，代表不同的意义，如下：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">符号位</th>
+      <th style="text-align: left">时间戳</th>
+      <th style="text-align: left">服务器id</th>
+      <th style="text-align: left">序列号</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">1位</td>
+      <td style="text-align: left">41位</td>
+      <td style="text-align: left">10位</td>
+      <td style="text-align: left">12位</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>第一位始终是符号位，不会考虑去修改它</li>
+  <li>41位时间戳可代表69年的时间戳</li>
+  <li>10位能代表1023个工作机</li>
+  <li>12位序列号能代表4095个序列号</li>
+</ul>
+
+<p>在使用时，只需要对每台机器进行编号，即可达到分布式不重复的效果，并且通过时间戳在高位，也能满足通过时间排序的需求。</p>
+
+<p>服务器id中，服务器id采用5位datacenter+5位workid的方式进行再次划分。</p>
+
+<p>代码如下：</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">IdWorker</span> <span class="o">{</span>
+	<span class="kd">private</span> <span class="kd">final</span> <span class="kt">long</span> <span class="n">workerId</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="kd">final</span> <span class="kt">long</span> <span class="n">datacenterId</span><span class="o">;</span>
+	<span class="c1">// private final static long twepoch = 1288834974657L;</span>
+	<span class="kd">private</span> <span class="kd">final</span> <span class="kd">static</span> <span class="kt">long</span> <span class="n">twepoch</span> <span class="o">=</span> <span class="mi">1457936936799L</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="kt">long</span> <span class="n">sequence</span> <span class="o">=</span> <span class="mi">0L</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="kd">final</span> <span class="kd">static</span> <span class="kt">long</span> <span class="n">workerIdBits</span> <span class="o">=</span> <span class="mi">5L</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="kd">final</span> <span class="kd">static</span> <span class="kt">long</span> <span class="n">datacenterIdBits</span> <span class="o">=</span> <span class="mi">5L</span><span class="o">;</span>
+	<span class="kd">public</span> <span class="kd">final</span> <span class="kd">static</span> <span class="kt">long</span> <span class="n">maxWorkerId</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1L</span> <span class="o">^</span> <span class="o">(-</span><span class="mi">1L</span> <span class="o">&lt;&lt;</span> <span class="n">workerIdBits</span><span class="o">);</span>
+	<span class="kd">private</span> <span class="kd">final</span> <span class="kd">static</span> <span class="kt">long</span> <span class="n">maxDatacenterId</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1L</span> <span class="o">^</span> <span class="o">(-</span><span class="mi">1L</span> <span class="o">&lt;&lt;</span> <span class="n">datacenterIdBits</span><span class="o">);</span>
+	<span class="kd">private</span> <span class="kd">final</span> <span class="kd">static</span> <span class="kt">long</span> <span class="n">sequenceBits</span> <span class="o">=</span> <span class="mi">12L</span><span class="o">;</span>
+
+	<span class="kd">private</span> <span class="kd">final</span> <span class="kd">static</span> <span class="kt">long</span> <span class="n">workerIdShift</span> <span class="o">=</span> <span class="n">sequenceBits</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="kd">final</span> <span class="kd">static</span> <span class="kt">long</span> <span class="n">datacenterIdShift</span> <span class="o">=</span> <span class="n">sequenceBits</span> <span class="o">+</span> <span class="n">workerIdBits</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="kd">final</span> <span class="kd">static</span> <span class="kt">long</span> <span class="n">timestampLeftShift</span> <span class="o">=</span> <span class="n">sequenceBits</span> <span class="o">+</span> <span class="n">workerIdBits</span>
+			<span class="o">+</span> <span class="n">datacenterIdBits</span><span class="o">;</span>
+	<span class="kd">public</span> <span class="kd">final</span> <span class="kd">static</span> <span class="kt">long</span> <span class="n">sequenceMask</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1L</span> <span class="o">^</span> <span class="o">(-</span><span class="mi">1L</span> <span class="o">&lt;&lt;</span> <span class="n">sequenceBits</span><span class="o">);</span>
+
+	<span class="kd">private</span> <span class="kt">long</span> <span class="n">lastTimestamp</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1L</span><span class="o">;</span>
+
+	<span class="kd">public</span> <span class="nf">IdWorker</span><span class="o">(</span><span class="kd">final</span> <span class="kt">long</span> <span class="n">workerId</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">this</span><span class="o">(</span><span class="n">workerId</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
+	<span class="o">}</span>
+
+	<span class="kd">public</span> <span class="nf">IdWorker</span><span class="o">(</span><span class="kd">final</span> <span class="kt">long</span> <span class="n">workerId</span><span class="o">,</span> <span class="kd">final</span> <span class="kt">long</span> <span class="n">datacenterId</span><span class="o">)</span> <span class="o">{</span>
+		<span class="kd">super</span><span class="o">();</span>
+		<span class="k">if</span> <span class="o">(</span><span class="n">workerId</span>  <span class="n">maxWorkerId</span> <span class="o">||</span> <span class="n">workerId</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+			<span class="k">throw</span> <span class="k">new</span> <span class="nf">IllegalArgumentException</span><span class="o">(</span><span class="nc">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span>
+					<span class="s">"worker Id can't be greater than %d or less than 0"</span><span class="o">,</span>
+					<span class="n">maxWorkerId</span><span class="o">));</span>
+		<span class="o">}</span>
+		<span class="k">if</span> <span class="o">(</span><span class="n">datacenterId</span>  <span class="n">maxDatacenterId</span> <span class="o">||</span> <span class="n">datacenterId</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+			<span class="k">throw</span> <span class="k">new</span> <span class="nf">IllegalArgumentException</span><span class="o">(</span><span class="nc">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span>
+					<span class="s">"datacenter Id can't be greater than %d or less than 0"</span><span class="o">,</span>
+					<span class="n">maxDatacenterId</span><span class="o">));</span>
+		<span class="o">}</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">workerId</span> <span class="o">=</span> <span class="n">workerId</span><span class="o">;</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">datacenterId</span> <span class="o">=</span> <span class="n">datacenterId</span><span class="o">;</span>
+	<span class="o">}</span>
+
+	<span class="kd">public</span> <span class="kd">synchronized</span> <span class="kt">long</span> <span class="nf">nextId</span><span class="o">()</span> <span class="o">{</span>
+		<span class="kt">long</span> <span class="n">timestamp</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">timeGen</span><span class="o">();</span>
+		<span class="k">if</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">lastTimestamp</span> <span class="o">==</span> <span class="n">timestamp</span><span class="o">)</span> <span class="o">{</span>
+			<span class="k">this</span><span class="o">.</span><span class="na">sequence</span> <span class="o">=</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">sequence</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span> <span class="o">&amp;</span> <span class="n">sequenceMask</span><span class="o">;</span>
+			<span class="k">if</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">sequence</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+				<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"###########"</span> <span class="o">+</span> <span class="n">sequenceMask</span><span class="o">);</span>
+				<span class="n">timestamp</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">tilNextMillis</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">lastTimestamp</span><span class="o">);</span>
+			<span class="o">}</span>
+		<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+			<span class="k">this</span><span class="o">.</span><span class="na">sequence</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+		<span class="o">}</span>
+		<span class="k">if</span> <span class="o">(</span><span class="n">timestamp</span> <span class="o">&lt;</span> <span class="k">this</span><span class="o">.</span><span class="na">lastTimestamp</span><span class="o">)</span> <span class="o">{</span>
+				<span class="k">throw</span> <span class="k">new</span> <span class="nf">RuntimeException</span><span class="o">(</span>
+						<span class="nc">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span>
+								<span class="s">"Clock moved backwards.  Refusing to generate id for %d milliseconds"</span><span class="o">,</span>
+								<span class="k">this</span><span class="o">.</span><span class="na">lastTimestamp</span> <span class="o">-</span> <span class="n">timestamp</span><span class="o">));</span>
+		<span class="o">}</span>
+
+		<span class="k">this</span><span class="o">.</span><span class="na">lastTimestamp</span> <span class="o">=</span> <span class="n">timestamp</span><span class="o">;</span>
+		<span class="kt">long</span> <span class="n">nextId</span> <span class="o">=</span> <span class="o">((</span><span class="n">timestamp</span> <span class="o">-</span> <span class="n">twepoch</span><span class="o">)</span> <span class="o">&lt;&lt;</span> <span class="n">timestampLeftShift</span><span class="o">)</span>
+				<span class="o">|</span> <span class="o">(</span><span class="n">datacenterId</span> <span class="o">&lt;&lt;</span> <span class="n">datacenterIdShift</span><span class="o">)</span>
+				<span class="o">|</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">workerId</span> <span class="o">&lt;&lt;</span> <span class="n">workerIdShift</span><span class="o">)</span> <span class="o">|</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">sequence</span><span class="o">);</span>
+		<span class="k">return</span> <span class="n">nextId</span><span class="o">;</span>
+	<span class="o">}</span>
+
+	<span class="kd">private</span> <span class="kt">long</span> <span class="nf">tilNextMillis</span><span class="o">(</span><span class="kd">final</span> <span class="kt">long</span> <span class="n">lastTimestamp</span><span class="o">)</span> <span class="o">{</span>
+		<span class="kt">long</span> <span class="n">timestamp</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">timeGen</span><span class="o">();</span>
+		<span class="k">while</span> <span class="o">(</span><span class="n">timestamp</span> <span class="o">&lt;=</span> <span class="n">lastTimestamp</span><span class="o">)</span> <span class="o">{</span>
+			<span class="n">timestamp</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">timeGen</span><span class="o">();</span>
+		<span class="o">}</span>
+		<span class="k">return</span> <span class="n">timestamp</span><span class="o">;</span>
+	<span class="o">}</span>
+
+	<span class="kd">private</span> <span class="kt">long</span> <span class="nf">timeGen</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="nc">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">();</span>
+	<span class="o">}</span>
+
+<span class="o">}</span></code></pre></figure>
+
+
+        
+      </div><!-- /.entry-content -->
+    </div><!-- /.entry-wrapper -->
+    <nav class="pagination" role="navigation">
+      
+        <a href="http://localhost:4000/paldb-disruptor" class="btn" title="无锁的队列 disruptor">Previous article</a>
+      
+      
+        <a href="http://localhost:4000/https-stress-1" class="btn" title="https压力测试(1)">Next article</a>
+      
+    </nav><!-- /.pagination -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2020 yangqiju. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">So Simple Theme</a>.</span>
+<div class="social-icons">
+	
+	
+	
+	
+	
+	
+	
+	<a href="http://github.com/yangqiju" title="yangqiju on Github" target="_blank"><i class="icon-github icon-2x"></i></a>
+	
+</div><!-- /.social-icons -->
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://localhost:4000/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://localhost:4000/assets/js/scripts.min.js"></script>
+
+<!-- Jekyll Simple Search option -->
+<script>
+  $(document).ready(function() {
+      $('.search-field').simpleJekyllSearch({
+          jsonFile : 'http://localhost:4000/search.json',
+          searchResults : '.search-results',
+          template : '<li><article><a href="{url}">{title} <span class="entry-date"><time datetime="{date}">{shortdate}</time></span></a></article></li>',
+          noResults: '<p>Nothing found.</p>'
+        });
+  });
+
+  (function( $, window, undefined ) {
+    
+     var bs = {
+          close: $(".icon-remove-sign"),
+          searchform: $(".search-form"),
+          canvas: $("body"),
+          dothis: $('.dosearch')
+      };
+    
+    bs.dothis.on('click', function() {
+      $('.search-wrapper').css({ display: "block" });
+      bs.searchform.toggleClass('active');
+      bs.searchform.find('input').focus();
+      bs.canvas.toggleClass('search-overlay');
+    });
+    
+      bs.close.on('click', function() {
+        $('.search-wrapper').removeAttr( 'style' );
+        bs.searchform.toggleClass('active');
+        bs.canvas.removeClass('search-overlay');
+    });
+  })( jQuery, window );
+</script>
+
+
+	        
+
+</body>
+</html>

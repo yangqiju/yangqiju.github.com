@@ -19,7 +19,7 @@ tags: [mybatis,generate,plugin]
 	在 ObjectFactory 中 有如下方法,用来判断是否使用我们自己的类型。
 {% highlight java %}
 	public static JavaTypeResolver createJavaTypeResolver(Context context,
-            List<String> warnings) {
+            List<String warnings) {
         JavaTypeResolverConfiguration config = context.getJavaTypeResolverConfiguration();
         String type;
         if (config != null && config.getConfigurationType() != null) {
@@ -47,15 +47,15 @@ tags: [mybatis,generate,plugin]
 	  public static Object createInternalObject(String type) {
         Object answer;
         try {
-            Class<?> clazz = internalClassForName(type);
+            Class<? clazz = internalClassForName(type);
             answer = clazz.newInstance();
         } catch (Exception e) {
             throw new RuntimeException(getString("RuntimeError.6", type), e); //$NON-NLS-1$
         }
         return answer;
     }
-    public static Class<?> internalClassForName(String type) throws ClassNotFoundException {
-        Class<?> clazz = null;
+    public static Class<? internalClassForName(String type) throws ClassNotFoundException {
+        Class<? clazz = null;
         try {
             ClassLoader cl = Thread.currentThread().getContextClassLoader();
             clazz = Class.forName(type, true, cl);
@@ -71,10 +71,10 @@ tags: [mybatis,generate,plugin]
 
 	看到这里,我们不难看出,他需要的这个type,就是用来获得这个class 的。ok。那我配置给他就好了。
 {% highlight xml %}
-<generatorConfiguration>
-	 <context id="CoreGenconfig" targetRuntime="MyBatis3" defaultModelType="hierarchical">
-		<javaTypeResolver type="com.joyveb.。。.JavaTypeResolverJoyvebImpl"/>
-</generatorConfiguration>
+<generatorConfiguration
+	 <context id="CoreGenconfig" targetRuntime="MyBatis3" defaultModelType="hierarchical"
+		<javaTypeResolver type="com.joyveb.。。.JavaTypeResolverJoyvebImpl"/
+</generatorConfiguration
 {% endhighlight %}
 	
 	这样就搞定了。

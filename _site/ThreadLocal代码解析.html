@@ -1,0 +1,748 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>ThreadLocal代码解析 &#8211; Orange</title>
+<meta name="description" content="ThreadLocal代码解析">
+<meta name="keywords" content="java, ThreadLocal">
+
+
+<meta name="baidu-site-verification" content="kGTic24zBh" />
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ThreadLocal代码解析">
+<meta property="og:description" content="ThreadLocal代码解析">
+<meta property="og:url" content="http://localhost:4000/ThreadLocal%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90">
+<meta property="og:site_name" content="Orange">
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/ThreadLocal%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Orange Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.min.css">
+<!-- Webfonts 
+<script src="//use.edgefonts.net/source-sans-pro:n2,i2,n3,i3,n4,i4,n6,i6,n7,i7,n9,i9;source-code-pro:n4,n7;volkhov.js"></script>
+-->
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="http://localhost:4000/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://localhost:4000/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://localhost:4000/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://localhost:4000/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body id="post" itemscope itemtype="http://schema.org/WebPage">
+
+<div class="navigation-wrapper">
+	<nav role="navigation" id="site-nav" class="animated drop" itemscope itemtype="http://schema.org/SiteNavigationElement">
+	    <ul>
+	        
+			<li>
+				
+					<a href="http://localhost:4000/about">Home</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="http://localhost:4000/work">Work</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="http://localhost:4000/interest">Interest</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="http://localhost:4000/life">life</a>
+				 
+			</li>
+	        
+	        <!-- 
+	        <li><a href="http://localhost:4000/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
+	         -->
+	        <li class="dosearch"><i class="icon-search"></i> Search</li>
+	    </ul>
+	</nav>
+</div><!-- /.navigation-wrapper -->
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+
+<div class="search-wrapper">
+	<div class="search-form">
+		<input type="text" class="search-field" placeholder="Search...">
+		<i class="icon-remove-sign icon-2x"></i>
+		<ul class="search-results post-list"></ul><!-- /.search-results -->
+	</div><!-- /.search-form -->
+</div><!-- ./search-wrapper -->
+
+<header class="masthead" itemscope itemtype="http://schema.org/Organization">
+	<div class="wrap">
+		<a href="http://localhost:4000" class="site-logo" rel="home" title="Orange" itemprop="url"><img src="http://localhost:4000/images/logo.jpeg" width="200" height="200" alt="Orange logo" class="animated fadeInUp" itemprop="logo"></a>
+		<h1 class="site-title animated fadeIn"><a href="http://localhost:4000">Orange</a></h1>
+		<h2 class="site-description animated fadeIn" itemprop="description">做个简单的coder.</h2>
+	</div>
+</header><!-- /.masthead -->
+
+
+<div id="main" role="main" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/Blog">
+  <article class="hentry" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="entry-wrapper">
+      <header class="entry-header">
+        <span class="entry-tags"><a href="http://localhost:4000/tags.html#java" title="Pages tagged java" rel="tag">java</a>&nbsp;&bull;&nbsp;<a href="http://localhost:4000/tags.html#ThreadLocal" title="Pages tagged ThreadLocal" rel="tag">ThreadLocal</a></span>
+        
+          <h1 class="entry-title" itemprop="headline">ThreadLocal代码解析</h1>
+        
+      </header>
+      <footer class="entry-meta">
+        <img src="http://localhost:4000/images/logo.jpeg" alt="yangqiju photo" class="author-photo">
+        <span class="author vcard" itemprop="author" itemscope itemtype="http://schema.org/Person">By <span itemprop="name" class="fn"><a href="http://localhost:4000/about" title="About yangqiju" itemprop="url">yangqiju</a></span></span>
+        <span class="entry-date date published"><time datetime="2018-04-05T00:00:00-04:00" itemprop="datePublished"><i class="icon-calendar-empty"></i> April 05, 2018</time></span>
+        
+        
+        <span><a href="http://localhost:4000/ThreadLocal%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90" rel="bookmark" title="ThreadLocal代码解析" itemprop="url"><i class="icon-link"></i> Permalink</a></span>
+      </footer>
+      <div class="entry-content" style="font-size:14px" itemprop="description">
+        <h1 id="概述">概述</h1>
+
+<p>ThreadLocal类用来提供线程内部的局部变量。这种变量在多线程环境下访问(通过get或set方法访问)时能保证各个线程里的变量相对独立于其他线程内的变量。ThreadLocal实例通常来说都是private
+static类型的，用于关联线程和线程的上下文。</p>
+
+<h1 id="源码解析">源码解析</h1>
+
+<p>ThreadLocal
+在很多开源框架中使用的还是比较广泛的，通常使用时都是用set、get、remove还有initialValue。jdk8源码示例如下，李东initialValue方法和get方法可以获得一个获得线程id的方法。get方法线程安全，每个线程都会获得不一样的id编号。</p>
+
+<p>+———————————————————————–+
+| private static final AtomicInteger nextId = new AtomicInteger(0);     |
+|                                                                       |
+| // Thread local variable containing each thread's ID                 |
+|                                                                       |
+| private static final ThreadLocal&lt;Integer\ threadId =                |
+|                                                                       |
+| new ThreadLocal&lt;Integer() {                                        |
+|                                                                       |
+| \@Override                                                            |
+|                                                                       |
+| protected Integer initialValue() {                                    |
+|                                                                       |
+| return nextId.getAndIncrement();                                      |
+|                                                                       |
+| }                                                                     |
+|                                                                       |
+| };                                                                    |
+|                                                                       |
+| // Returns the current thread's unique ID, assigning it if necessary |
+|                                                                       |
+| public static int get() {                                             |
+|                                                                       |
+| return threadId.get();                                                |
+|                                                                       |
+| }                                                                     |
++———————————————————————–+</p>
+
+<p>在我们普遍使用过程中，通常会是使用set、get、remove。</p>
+
+<p><img src="../images/ThreadLocal代码解析/image1.jpeg" alt="1F3A247C-092E-4867-B2BA-191EB02116E4.png" />{width=”5.768055555555556in”
+height=”1.3908912948381453in”}</p>
+
+<h2 id="set方法">Set方法</h2>
+
+<p>+—————————————————————-+
+| public void set(T value) {                                     |
+|                                                                |
+| Thread t = Thread.currentThread();                             |
+|                                                                |
+| //获得一个map，map是当前线程的threadLocals变量                 |
+|                                                                |
+| ThreadLocalMap map = getMap(t);                                |
+|                                                                |
+| if (map != null)                                               |
+|                                                                |
+| //map 的key 是ThreadLocal value是set的值                       |
+|                                                                |
+| map.set(this, value);                                          |
+|                                                                |
+| else                                                           |
+|                                                                |
+| createMap(t, value);                                           |
+|                                                                |
+| }                                                              |
+|                                                                |
+| //返回的map是当前线程的threadLocals变量                        |
+|                                                                |
+| ThreadLocalMap getMap(Thread t) {                              |
+|                                                                |
+| return t.threadLocals;                                         |
+|                                                                |
+| }                                                              |
+|                                                                |
+| //new了个ThreadLocalMap，并设置给了当前线程的threadLocals 变量 |
+|                                                                |
+| void createMap(Thread t, T firstValue) {                       |
+|                                                                |
+| t.threadLocals = new ThreadLocalMap(this, firstValue);         |
+|                                                                |
+| }                                                              |
++—————————————————————-+</p>
+
+<p>可以看出来，当调用ThreadLocal的Set方法的时候，是从当前线程里面拿出了一个Map，也就是每个线程都有自己的Map，所以这个方法是绝对安全的，不涉及到共享数据。而这个map以ThreadLocal这个对象为key，需要set的值为value，set到map里。</p>
+
+<p>也就是这个值存在了每个线程的threadLocals
+里，对应的类型为ThreadLocalMap。它是ThreadLocal的一个内部类。而存储使用Entry数组，Entry继承了弱引用，如果有这个key（ThreadLocal）没有外部强引用引用它，在系统GC的时候，Key会被回收，变为null。</p>
+
+<p>+—————————————————————–+
+| static class ThreadLocalMap {                                   |
+|                                                                 |
+| static class Entry extends WeakReference&lt;ThreadLocal&lt;?\ {  |
+|                                                                 |
+| Object value;                                                   |
+|                                                                 |
+| Entry(ThreadLocal&lt;?\ k, Object v) {                           |
+|                                                                 |
+| super(k);                                                       |
+|                                                                 |
+| value = v;                                                      |
+|                                                                 |
+| }                                                               |
+|                                                                 |
+| }                                                               |
+|                                                                 |
+| ThreadLocalMap(ThreadLocal&lt;?\ firstKey, Object firstValue) {  |
+|                                                                 |
+| // INITIAL_CAPACITY 为16，指定一个entry数组用于存储            |
+|                                                                 |
+| table = new Entry[INITIAL_CAPACITY];                         |
+|                                                                 |
+| int i = firstKey.threadLocalHashCode &amp; (INITIAL_CAPACITY - 1); |
+|                                                                 |
+| table[i] = new Entry(firstKey, firstValue);                   |
+|                                                                 |
+| size = 1;                                                       |
+|                                                                 |
+| setThreshold(INITIAL_CAPACITY);                                |
+|                                                                 |
+| }                                                               |
++—————————————————————–+</p>
+
+<p>ThreadLocalMap 的set方法如下：</p>
+
+<p>+————————————————————-+
+| private void set(ThreadLocal&lt;?\ key, Object value) {      |
+|                                                             |
+| Entry[] tab = table;                                      |
+|                                                             |
+| int len = tab.length;                                       |
+|                                                             |
+| //获得该ThreadLocal的索引位置                               |
+|                                                             |
+| int i = key.threadLocalHashCode &amp; (len-1);                  |
+|                                                             |
+| //通过索引位置查找存储的Entry，                             |
+|                                                             |
+| for (Entry e = tab[i];                                    |
+|                                                             |
+| e != null;                                                  |
+|                                                             |
+| e = tab[i = nextIndex(i, len)]) {                         |
+|                                                             |
+| ThreadLocal&lt;?\ k = e.get();                               |
+|                                                             |
+| //Entry的ThreadLocal对象对应上了，就赋值                    |
+|                                                             |
+| if (k == key) {                                             |
+|                                                             |
+| e.value = value;                                            |
+|                                                             |
+| return;                                                     |
+|                                                             |
+| }                                                           |
+|                                                             |
+| //key已经是null，说明被回收了，                             |
+|                                                             |
+| //该索引Entry没用了，用要保存的键值替换该位置上的 Entry     |
+|                                                             |
+| if (k == null) {                                            |
+|                                                             |
+| replaceStaleEntry(key, value, i);                           |
+|                                                             |
+| return;                                                     |
+|                                                             |
+| }                                                           |
+|                                                             |
+| }                                                           |
+|                                                             |
+| //要存放的索引位置没有 Entry，                              |
+|                                                             |
+| //将当前键值作为一个 Entry 保存在该位置                     |
+|                                                             |
+| tab[i] = new Entry(key, value);                           |
+|                                                             |
+| int sz = ++size;                                            |
+|                                                             |
+| //清除一些无效的条目并判断 table 中的条目数是否已经超出阈值 |
+|                                                             |
+| if (!cleanSomeSlots(i, sz) &amp;&amp; sz = threshold)             |
+|                                                             |
+| //扩容两倍                                                  |
+|                                                             |
+| rehash();                                                   |
+|                                                             |
+| }                                                           |
++————————————————————-+</p>
+
+<h2 id="get方法">Get方法</h2>
+
+<p>+————————————————–+
+| <strong>public</strong> T get() {                             |
+|                                                  |
+| Thread t = Thread.<em>currentThread</em>();             |
+|                                                  |
+| ThreadLocalMap map = getMap(t);                  |
+|                                                  |
+| <strong>if</strong> (map != <strong>null</strong>) {                       |
+|                                                  |
+| //直接调用map的getEntry方法                      |
+|                                                  |
+| ThreadLocalMap.Entry e = map.getEntry(<strong>this</strong>); |
+|                                                  |
+| <strong>if</strong> (e != <strong>null</strong>) {                         |
+|                                                  |
+| \@SuppressWarnings(<strong>"unchecked"</strong>)            |
+|                                                  |
+| T result = (T)e.<strong>value</strong>;                       |
+|                                                  |
+| <strong>return</strong> result;                               |
+|                                                  |
+| }                                                |
+|                                                  |
+| }                                                |
+|                                                  |
+| //没有则初始化一个,过程类似set可以设置初始值     |
+|                                                  |
+| <strong>return</strong> setInitialValue();                    |
+|                                                  |
+| }                                                |
+|                                                  |
+| <strong>private</strong> T setInitialValue() {                |
+|                                                  |
+| T value = initialValue();                        |
+|                                                  |
+| Thread t = Thread.<em>currentThread</em>();             |
+|                                                  |
+| ThreadLocalMap map = getMap(t);                  |
+|                                                  |
+| <strong>if</strong> (map != <strong>null</strong>)                         |
+|                                                  |
+| map.set(<strong>this</strong>, value);                        |
+|                                                  |
+| <strong>else</strong>                                         |
+|                                                  |
+| createMap(t, value);                             |
+|                                                  |
+| <strong>return</strong> value;                                |
+|                                                  |
+| }                                                |
+|                                                  |
+| <strong>protected</strong> T initialValue() {                 |
+|                                                  |
+| <strong>return null</strong>;                                 |
+|                                                  |
+| }                                                |
++————————————————–+</p>
+
+<p>map的getEntry方法</p>
+
+<p>+———————————————————————-+
+| <strong>private</strong> Entry getEntry(ThreadLocal&lt;?\ key) {                   |
+|                                                                      |
+| <strong>int</strong> i = key.<strong>threadLocalHashCode</strong> &amp; (<strong>table</strong>.<strong>length</strong> -    |
+| 1);                                                                  |
+|                                                                      |
+| //通过hash后的值获得entry                                            |
+|                                                                      |
+| Entry e = <strong>table</strong>[i];                                            |
+|                                                                      |
+| //因为有hash碰撞的可能，需要比较一下对象                             |
+|                                                                      |
+| <strong>if</strong> (e != <strong>null</strong> &amp;&amp; e.get() == key)                             |
+|                                                                      |
+| <strong>return</strong> e;                                                        |
+|                                                                      |
+| <strong>else</strong>                                                             |
+|                                                                      |
+| <strong>return</strong> getEntryAfterMiss(key, i, e);                             |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| <strong>private</strong> Entry getEntryAfterMiss(ThreadLocal&lt;?\ key, <strong>int</strong> i, |
+| Entry e) {                                                           |
+|                                                                      |
+| Entry[] tab = <strong>table</strong>;                                           |
+|                                                                      |
+| <strong>int</strong> len = tab.<strong>length</strong>;                                        |
+|                                                                      |
+| //从i坐标以后循环着找，知道获得null                                  |
+|                                                                      |
+| <strong>while</strong> (e != <strong>null</strong>) {                                          |
+|                                                                      |
+| ThreadLocal&lt;?\ k = e.get();                                        |
+|                                                                      |
+| //能对上就返回                                                       |
+|                                                                      |
+| <strong>if</strong> (k == key)                                                    |
+|                                                                      |
+| <strong>return</strong> e;                                                        |
+|                                                                      |
+| //key为null被GC回收了，清理                                          |
+|                                                                      |
+| <strong>if</strong> (k == <strong>null</strong>)                                               |
+|                                                                      |
+| expungeStaleEntry(i);                                                |
+|                                                                      |
+| <strong>else</strong>                                                             |
+|                                                                      |
+| i = <em>nextIndex</em>(i, len);                                             |
+|                                                                      |
+| e = tab[i];                                                        |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| <strong>return null</strong>;                                                     |
+|                                                                      |
+| }                                                                    |
++———————————————————————-+</p>
+
+<h2 id="remove方法">Remove方法</h2>
+
+<p>+——————————————————+
+| <strong>public void</strong> remove() {                           |
+|                                                      |
+| ThreadLocalMap m = getMap(Thread.<em>currentThread</em>()); |
+|                                                      |
+| <strong>if</strong> (m != <strong>null</strong>)                               |
+|                                                      |
+| m.remove(<strong>this</strong>);                                  |
+|                                                      |
+| }                                                    |
++——————————————————+</p>
+
+<p>map的remove</p>
+
+<p>+—————————————————-+
+| <strong>private void</strong> remove(ThreadLocal&lt;?\ key) {    |
+|                                                    |
+| Entry[] tab = <strong>table</strong>;                         |
+|                                                    |
+| <strong>int</strong> len = tab.<strong>length</strong>;                      |
+|                                                    |
+| <strong>int</strong> i = key.<strong>threadLocalHashCode</strong> &amp; (len-1); |
+|                                                    |
+| <strong>for</strong> (Entry e = tab[i];                       |
+|                                                    |
+| e != <strong>null</strong>;                                     |
+|                                                    |
+| e = tab[i = <em>nextIndex</em>(i, len)]) {              |
+|                                                    |
+| //如果key对上了就清除                              |
+|                                                    |
+| <strong>if</strong> (e.get() == key) {                          |
+|                                                    |
+| e.clear();                                         |
+|                                                    |
+| expungeStaleEntry(i);                              |
+|                                                    |
+| <strong>return</strong>;                                        |
+|                                                    |
+| }                                                  |
+|                                                    |
+| }                                                  |
+|                                                    |
+| }                                                  |
++—————————————————-+</p>
+
+<h2 id="清理方法">清理方法</h2>
+
+<p>expungeStaleEntry是主要的清理方法，里面主要就是将key已经被回收的和需要回收的key和value都设置为null，等待gc回收。</p>
+
+<p>+———————————————————————-+
+| <strong>private int</strong> expungeStaleEntry(<strong>int</strong> staleSlot) {               |
+|                                                                      |
+| Entry[] tab = <strong>table</strong>;                                           |
+|                                                                      |
+| <strong>int</strong> len = tab.<strong>length</strong>;                                        |
+|                                                                      |
+| <em>//值和引用都设置null</em>                                               |
+|                                                                      |
+| tab[staleSlot].<strong>value</strong> = <strong>null</strong>;                               |
+|                                                                      |
+| tab[staleSlot] = <strong>null</strong>;                                         |
+|                                                                      |
+| <strong>size</strong>--;                                                         |
+|                                                                      |
+| Entry e;                                                             |
+|                                                                      |
+| <strong>int</strong> i;                                                           |
+|                                                                      |
+| //找到                                                               |
+| i坐标后面连续的有值的，因为hash碰撞，相同的hash值会存放在一个坐标，  |
+| 如果有值了就往后排，所以清理的时候也需要向后查找，直到坐标内容为null |
+|                                                                      |
+| <strong>for</strong> (i = <em>nextIndex</em>(staleSlot, len);                            |
+|                                                                      |
+| (e = tab[i]) != <strong>null</strong>;                                          |
+|                                                                      |
+| i = <em>nextIndex</em>(i, len)) {                                           |
+|                                                                      |
+| ThreadLocal&lt;?\ k = e.get();                                        |
+|                                                                      |
+| //key被gc回收，则把value也回收了                                     |
+|                                                                      |
+| <strong>if</strong> (k == <strong>null</strong>) {                                             |
+|                                                                      |
+| e.<strong>value</strong> = <strong>null</strong>;                                              |
+|                                                                      |
+| tab[i] = <strong>null</strong>;                                                 |
+|                                                                      |
+| <strong>size</strong>--;                                                         |
+|                                                                      |
+| } <strong>else</strong> {                                                         |
+|                                                                      |
+| //如果找到entry，计算出他不应该在这个位置，就往后挪，                |
+|                                                                      |
+| //并且把这个位置设置为null                                           |
+|                                                                      |
+| <strong>int</strong> h = k.<strong>threadLocalHashCode</strong> &amp; (len - 1);                   |
+|                                                                      |
+| <strong>if</strong> (h != i) {                                                    |
+|                                                                      |
+| tab[i] = <strong>null</strong>;                                                 |
+|                                                                      |
+| <strong>while</strong> (tab[h] != <strong>null</strong>)                                     |
+|                                                                      |
+| h = <em>nextIndex</em>(h, len);                                             |
+|                                                                      |
+| tab[h] = e;                                                        |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| <strong>return</strong> i;                                                        |
+|                                                                      |
+| }                                                                    |
++———————————————————————-+</p>
+
+<h2 id="内存泄漏">内存泄漏</h2>
+
+<p>ThreadLocal的结构如下：</p>
+
+<p><img src="../images/ThreadLocal代码解析/image2.png" alt="" />{width=”5.768055555555556in”
+height=”3.2555555555555555in”}</p>
+
+<p>每个Thread 维护一个 ThreadLocalMap 映射表，这个映射表的 key 是
+ThreadLocal 实例本身，value 是真正需要存储的 Object。ThreadLocal
+本身并不存储值，它只是作为一个 key 来让线程从 ThreadLocalMap 获取
+value。</p>
+
+<p>值得注意的是图中的虚线，表示 ThreadLocalMap 是使用 ThreadLocal
+的弱引用作为 Key 的，意味着没有强引用指向 ThreadLocal
+变量时，ThreadLocal会在 GC 时被回收。</p>
+
+<p>如果是强引用的话ThreadLocal就不会被回收了，造成了内存泄漏。</p>
+
+<p>由于是弱引用，没有强引用指向ThreadLocal变量了，GC后将ThreadLocal对象回收了，所以key就变成null了，也就没有人访问key为null的entry了，如果线程不销毁那value就无法被GC了。</p>
+
+<p>所以在ThreadLocal中的get、set、remove都根据条件调用了ThreadLocalMap的expungeStaleEntry，用来将key已经成为null的内容清理掉。已经失效的value只能在下一次调用这几个方法的时候才能被清理，所以在结束使用ThreadLocal时，调用remove方法清理。</p>
+
+<p>ThreadLocal使用通常被申明为static，意味着多个相同的对象只会在方法区中存在一份，JDK建议将ThreadLocal变量定义成private
+static的，这样的话ThreadLocal的生命周期就更长，由于一直存在ThreadLocal的强引用，所以ThreadLocal也就不会被回收，也就能保证任何时候都能根据ThreadLocal的弱引用访问到Entry的value值，然后remove它，防止内存泄露。</p>
+
+<p>生命周期的变成使得操作不当，造成内存泄漏，例如以下示例:</p>
+
+<p>&lt;http://blog.xiaohansong.com/2016/08/09/ThreadLocal-leak-analyze/</p>
+
+<p>调用remove解决。</p>
+
+<p>参考：</p>
+
+<p>&lt;http://blog.xiaohansong.com/2016/08/06/ThreadLocal-memory-leak/</p>
+
+<p>&lt;https://www.zhihu.com/question/35250439</p>
+
+<p>&lt;https://blog.csdn.net/winwill2012/article/details/71625570</p>
+
+<h2 id="例子">例子</h2>
+
+<p>&lt;http://blog.xiaohansong.com/2016/08/09/ThreadLocal-leak-analyze/</p>
+
+<p>+———————————————————————-+
+| public class MyCounter {                                             |
+|                                                                      |
+| private int count = 0;                                               |
+|                                                                      |
+| public void increment() {                                            |
+|                                                                      |
+| count++;                                                             |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| public int getCount() {                                              |
+|                                                                      |
+| return count;                                                        |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| public class MyThreadLocal extends ThreadLocal&lt;MyCounter\ {        |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| public class LeakingServlet extends HttpServlet {                    |
+|                                                                      |
+| private static MyThreadLocal myThreadLocal = new MyThreadLocal();    |
+|                                                                      |
+| protected void doGet(HttpServletRequest request,                     |
+|                                                                      |
+| HttpServletResponse response) throws ServletException, IOException { |
+|                                                                      |
+| MyCounter counter = myThreadLocal.get();                             |
+|                                                                      |
+| if (counter == null) {                                               |
+|                                                                      |
+| counter = new MyCounter();                                           |
+|                                                                      |
+| myThreadLocal.set(counter);                                          |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| response.getWriter().println(                                        |
+|                                                                      |
+| "The current thread served this servlet " + counter.getCount()     |
+|                                                                      |
+| + " times");                                                      |
+|                                                                      |
+| counter.increment();                                                 |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| }                                                                    |
++———————————————————————-+</p>
+
+<p>在 Tomcat 中，下面的代码都在 webapp
+内，会导致WebappClassLoader泄漏，无法被回收。上面的代码中，只要LeakingServlet被调用过一次，且执行它的线程没有停止，就会导致WebappClassLoader泄漏。每次你
+reload 一下应用，就会多一份WebappClassLoader实例，最后导致 PermGen
+OutOfMemoryException。</p>
+
+<p>tomcat请求线程是个线程池，所以当调用完set之后，myThreadLocal就被设置到了线程池的thread里的threadLocalMap变量，而myThreadLocal又是static的。所以类的引用一直存在。所以需要调用remove方法清理myThreadLocal
+和Thrad引用。</p>
+
+        
+      </div><!-- /.entry-content -->
+    </div><!-- /.entry-wrapper -->
+    <nav class="pagination" role="navigation">
+      
+        <a href="http://localhost:4000/infer-gradle-jenkins" class="btn" title="infer 对idea和jenkins的支持">Previous article</a>
+      
+      
+        <a href="http://localhost:4000/%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6" class="btn" title="虚拟机类加载机制">Next article</a>
+      
+    </nav><!-- /.pagination -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2020 yangqiju. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">So Simple Theme</a>.</span>
+<div class="social-icons">
+	
+	
+	
+	
+	
+	
+	
+	<a href="http://github.com/yangqiju" title="yangqiju on Github" target="_blank"><i class="icon-github icon-2x"></i></a>
+	
+</div><!-- /.social-icons -->
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://localhost:4000/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://localhost:4000/assets/js/scripts.min.js"></script>
+
+<!-- Jekyll Simple Search option -->
+<script>
+  $(document).ready(function() {
+      $('.search-field').simpleJekyllSearch({
+          jsonFile : 'http://localhost:4000/search.json',
+          searchResults : '.search-results',
+          template : '<li><article><a href="{url}">{title} <span class="entry-date"><time datetime="{date}">{shortdate}</time></span></a></article></li>',
+          noResults: '<p>Nothing found.</p>'
+        });
+  });
+
+  (function( $, window, undefined ) {
+    
+     var bs = {
+          close: $(".icon-remove-sign"),
+          searchform: $(".search-form"),
+          canvas: $("body"),
+          dothis: $('.dosearch')
+      };
+    
+    bs.dothis.on('click', function() {
+      $('.search-wrapper').css({ display: "block" });
+      bs.searchform.toggleClass('active');
+      bs.searchform.find('input').focus();
+      bs.canvas.toggleClass('search-overlay');
+    });
+    
+      bs.close.on('click', function() {
+        $('.search-wrapper').removeAttr( 'style' );
+        bs.searchform.toggleClass('active');
+        bs.canvas.removeClass('search-overlay');
+    });
+  })( jQuery, window );
+</script>
+
+
+	        
+
+</body>
+</html>

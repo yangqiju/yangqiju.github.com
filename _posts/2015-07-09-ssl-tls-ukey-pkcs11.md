@@ -35,7 +35,7 @@ char[] pin = "password".toCharArray();
 KeyStore testKeystore = KeyStore.getInstance("PKCS11","SunPKCS11-safenetSC");//必须添加SunPKCS11前缀
 testKeystore.load(null, pin);
 
-Enumeration<String> aliasesEnum = testKeystore.aliases();
+Enumeration<String aliasesEnum = testKeystore.aliases();
 while (aliasesEnum.hasMoreElements()) {
 	String alias = (String) aliasesEnum.nextElement();
 	X509Certificate cert = (X509Certificate) testKeystore.getCertificate(alias);

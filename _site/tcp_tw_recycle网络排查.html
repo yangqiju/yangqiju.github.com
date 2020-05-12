@@ -1,0 +1,398 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>tcp_tw_recycle问题排查 &#8211; Orange</title>
+<meta name="description" content="tcp_tw_recycle问题排查">
+<meta name="keywords" content="tcp_tw_recycle, 网络">
+
+
+<meta name="baidu-site-verification" content="kGTic24zBh" />
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="tcp_tw_recycle问题排查">
+<meta property="og:description" content="tcp_tw_recycle问题排查">
+<meta property="og:url" content="http://localhost:4000/tcp_tw_recycle%E7%BD%91%E7%BB%9C%E6%8E%92%E6%9F%A5">
+<meta property="og:site_name" content="Orange">
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/tcp_tw_recycle%E7%BD%91%E7%BB%9C%E6%8E%92%E6%9F%A5">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Orange Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.min.css">
+<!-- Webfonts 
+<script src="//use.edgefonts.net/source-sans-pro:n2,i2,n3,i3,n4,i4,n6,i6,n7,i7,n9,i9;source-code-pro:n4,n7;volkhov.js"></script>
+-->
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="http://localhost:4000/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://localhost:4000/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://localhost:4000/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://localhost:4000/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body id="post" itemscope itemtype="http://schema.org/WebPage">
+
+<div class="navigation-wrapper">
+	<nav role="navigation" id="site-nav" class="animated drop" itemscope itemtype="http://schema.org/SiteNavigationElement">
+	    <ul>
+	        
+			<li>
+				
+					<a href="http://localhost:4000/about">Home</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="http://localhost:4000/work">Work</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="http://localhost:4000/interest">Interest</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="http://localhost:4000/life">life</a>
+				 
+			</li>
+	        
+	        <!-- 
+	        <li><a href="http://localhost:4000/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
+	         -->
+	        <li class="dosearch"><i class="icon-search"></i> Search</li>
+	    </ul>
+	</nav>
+</div><!-- /.navigation-wrapper -->
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+
+<div class="search-wrapper">
+	<div class="search-form">
+		<input type="text" class="search-field" placeholder="Search...">
+		<i class="icon-remove-sign icon-2x"></i>
+		<ul class="search-results post-list"></ul><!-- /.search-results -->
+	</div><!-- /.search-form -->
+</div><!-- ./search-wrapper -->
+
+<header class="masthead" itemscope itemtype="http://schema.org/Organization">
+	<div class="wrap">
+		<a href="http://localhost:4000" class="site-logo" rel="home" title="Orange" itemprop="url"><img src="http://localhost:4000/images/logo.jpeg" width="200" height="200" alt="Orange logo" class="animated fadeInUp" itemprop="logo"></a>
+		<h1 class="site-title animated fadeIn"><a href="http://localhost:4000">Orange</a></h1>
+		<h2 class="site-description animated fadeIn" itemprop="description">做个简单的coder.</h2>
+	</div>
+</header><!-- /.masthead -->
+
+
+<div id="main" role="main" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/Blog">
+  <article class="hentry" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="entry-wrapper">
+      <header class="entry-header">
+        <span class="entry-tags"><a href="http://localhost:4000/tags.html#tcp_tw_recycle" title="Pages tagged tcp_tw_recycle" rel="tag">tcp_tw_recycle</a>&nbsp;&bull;&nbsp;<a href="http://localhost:4000/tags.html#网络" title="Pages tagged 网络" rel="tag">网络</a></span>
+        
+          <h1 class="entry-title" itemprop="headline">tcp_tw_recycle问题排查</h1>
+        
+      </header>
+      <footer class="entry-meta">
+        <img src="http://localhost:4000/images/logo.jpeg" alt="yangqiju photo" class="author-photo">
+        <span class="author vcard" itemprop="author" itemscope itemtype="http://schema.org/Person">By <span itemprop="name" class="fn"><a href="http://localhost:4000/about" title="About yangqiju" itemprop="url">yangqiju</a></span></span>
+        <span class="entry-date date published"><time datetime="2019-08-10T00:00:00-04:00" itemprop="datePublished"><i class="icon-calendar-empty"></i> August 10, 2019</time></span>
+        
+        
+        <span><a href="http://localhost:4000/tcp_tw_recycle%E7%BD%91%E7%BB%9C%E6%8E%92%E6%9F%A5" rel="bookmark" title="tcp_tw_recycle问题排查" itemprop="url"><i class="icon-link"></i> Permalink</a></span>
+      </footer>
+      <div class="entry-content" style="font-size:14px" itemprop="description">
+        <h1 id="问题描述">问题描述</h1>
+
+<p>两台内网机器，通过NAT映射访问一台公网服务器，公网服务器同时开启了tcp_tw_recycle和tcp_timestamps。</p>
+
+<p><img src="../images/tcp_tw_recycle/image1.png" alt="" />{width=”4.327160979877515in”
+height=”3.8306780402449694in”}</p>
+
+<p>将会导致Client1 和 Client2
+请求Server服务器时，其中一台（例如Client2）服务器会出现间歇性的连接不上。</p>
+
+<p>通过在Server上抓包发现，Client1、Client2发送的请求均被Server收到，造成Client2连接不上的现象的原因是因为Server将Client2的SYN包收到后没有选择回复ACK，与Client2建立TCP，而是直接丢弃了。</p>
+
+<p><img src="../images/tcp_tw_recycle/image2.png" alt="" />{width=”5.768055555555556in” height=”1.55in”}</p>
+
+<p>Google一下”tcp_timestamps问题”或者”tcp_tw_recycle问题”，其实直接就能知道大概出了什么问题：</p>
+
+<p>由于client1、client2都开启tcp_timestamps，server开启了tcp_timestampls、tcp_tw_recycle，导致了服务端会指挥收同一个IP，时间戳（TSval）较之前更大、递增的连接，否则将会把TSval值小的包当作旧包直接丢弃。</p>
+
+<p>然而又因为TSval的值是每台机器根据系统启动而来计算的，所以必然Client1和Client2是不一样的。如果TSval大的先连接成功，TSval小的再连接就连接不上了。</p>
+
+<p>解决方案：</p>
+
+<p>Server端关闭tcp_tw_recycle即可。方法如下:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="err">##</span> <span class="n">编辑sysctl</span><span class="o">.</span><span class="na">conf</span> <span class="n">修改配置或删除配置</span>
+<span class="err">##</span> <span class="n">该配置默认为0</span>
+<span class="err">##</span> <span class="n">vi</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">sysctl</span><span class="o">.</span><span class="na">conf</span>
+<span class="n">net</span><span class="o">.</span><span class="na">ipv4</span><span class="o">.</span><span class="na">tcp_timestamps</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="err">##</span> <span class="n">使配置生效</span>
+<span class="n">sysctl</span> <span class="o">-</span><span class="n">p</span></code></pre></figure>
+
+<p>Timestamps计算：&lt;https://www.cnblogs.com/good90/p/3911110.html</p>
+
+<h1 id="其他思考">其他思考</h1>
+
+<p>以上描述基本就是网上”快餐版”问题描述以及解决方案了，按照上面的操作即可解决问题，但是有些细节还是值得人思考的。</p>
+
+<h2 id="丢弃条件是什么">丢弃条件是什么？</h2>
+
+<p>不论是问题描述还是测试过程中都会发现，是”时不时”连接不上，并不是小的那台机器所有的SYN不能连接。</p>
+
+<p><img src="../images/tcp_tw_recycle/image3.png" alt="" />{width=”5.768055555555556in”
+height=”1.0083333333333333in”}</p>
+
+<p><img src="../images/tcp_tw_recycle/image4.png" alt="" />{width=”5.768055555555556in”
+height=”0.9736111111111111in”}</p>
+
+<p>通过测试也能发现当11:57:25的时候发起SYN，期间server没有回包，client2重试了6次，在11:58:28的时候，server回复了ACK包，随后握手成功。再次连接成功间隔约63秒。</p>
+
+<p>也就是TSval小的client 2 还是有机会连接成功的，并不是全部丢弃。</p>
+
+<p>那么丢弃条件是什么呢？</p>
+
+<p>Linux源码net/ipv4/tcp_input.c的tcp_v4_conn_request方法中有如下描述：</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="cm">/* VJ's idea. We save last timestamp seen
+     * from the destination in peer table, when entering
+     * state TIME-WAIT, and check against it before
+     * accepting new connection request.
+     *
+     * If "isn" is not zero, this request hit alive
+     * timewait bucket, so that all the necessary checks
+     * are made in the function processing timewait state.
+     */</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">tmp_opt</span><span class="o">.</span><span class="na">saw_tstamp</span> <span class="o">&amp;&amp;</span>
+        <span class="n">tcp_death_row</span><span class="o">.</span><span class="na">sysctl_tw_recycle</span> <span class="o">&amp;&amp;</span>
+        <span class="o">(</span><span class="n">dst</span> <span class="o">=</span> <span class="n">inet_csk_route_req</span><span class="o">(</span><span class="n">sk</span><span class="o">,</span> <span class="n">req</span><span class="o">))</span> <span class="o">!=</span> <span class="no">NULL</span> <span class="o">&amp;&amp;</span>
+        <span class="o">(</span><span class="n">peer</span> <span class="o">=</span> <span class="n">rt_get_peer</span><span class="o">((</span><span class="n">struct</span> <span class="n">rtable</span> <span class="o">*)</span><span class="n">dst</span><span class="o">))</span> <span class="o">!=</span> <span class="no">NULL</span> <span class="o">&amp;&amp;</span>
+        <span class="n">peer</span><span class="o">-</span><span class="n">v4daddr</span> <span class="o">==</span> <span class="n">saddr</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">get_seconds</span><span class="o">()</span> <span class="o">&lt;</span> <span class="n">peer</span><span class="o">-</span><span class="n">tcp_ts_stamp</span> <span class="o">+</span> <span class="no">TCP_PAWS_MSL</span> <span class="o">&amp;&amp;</span>
+            <span class="o">(</span><span class="n">s32</span><span class="o">)(</span><span class="n">peer</span><span class="o">-</span><span class="n">tcp_ts</span> <span class="o">-</span> <span class="n">req</span><span class="o">-</span><span class="n">ts_recent</span><span class="o">)</span> 
+                        <span class="no">TCP_PAWS_WINDOW</span><span class="o">)</span> <span class="o">{</span>
+            <span class="no">NET_INC_STATS_BH</span><span class="o">(</span><span class="n">sock_net</span><span class="o">(</span><span class="n">sk</span><span class="o">),</span> <span class="no">LINUX_MIB_PAWSPASSIVEREJECTED</span><span class="o">);</span>
+            <span class="k">goto</span> <span class="n">drop_and_release</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="err">#</span><span class="n">define</span> <span class="no">TCP_PAWS_MSL</span>    <span class="mi">60</span>      <span class="cm">/* Per-host timestamps are invalidated
+                     * after this time. It should be equal
+                     * (or greater than) TCP_TIMEWAIT_LEN
+                     * to provide reliability equal to one
+                     * provided by timewait state.
+                     */</span>
+<span class="err">#</span><span class="n">define</span> <span class="no">TCP_PAWS_WINDOW</span> <span class="mi">1</span>       <span class="cm">/* Replay window for per-host
+                     * timestamps. It must be less than
+                     * minimal timewait lifetime.
+                     */</span></code></pre></figure>
+
+<p>借用网络上的描述：</p>
+
+<p><img src="../images/tcp_tw_recycle/image5.png" alt="" />{width=”5.768055555555556in”
+height=”1.3006944444444444in”}</p>
+
+<p>网络文章：</p>
+
+<p>&lt;http://www.just4coding.com/blog/2017/11/09/timewait/</p>
+
+<p>&lt;https://www.cnblogs.com/jdonson/p/4760130.html</p>
+
+<h2 id="tsval大的成功后60秒小的都不能连接">TSval大的成功后60秒，小的都不能连接？</h2>
+
+<p>通过以上描述对具体的原因也应该有了大致的理解了，但是在实际测试过程中，发现并不是只要TSVal大的连接连上后，TSval小的就连接不上。Server端起的nginx服务，分别使用curl和telnet，具体表现并不相同。</p>
+
+<p>Client1 TSval 值比Client2的大。</p>
+
+<p>使用curl测试情况如下:</p>
+
+<ol>
+  <li>使用curl，无论client端谁先请求，推出都不会出现连接失败</li>
+</ol>
+
+<p>使用telnet测试情况如下:</p>
+
+<ol>
+  <li>
+    <p>同时使用Client1 Client2 进行telnet，均能连接成功</p>
+  </li>
+  <li>
+    <p>Client 2 telnet连接成功后退出，Client1再连接，Client1连接成功</p>
+  </li>
+  <li>
+    <p>Client 1 telnet连接成功后退出，Client2再连接，Client2连接失败</p>
+  </li>
+</ol>
+
+<p>所以发现只有当telnet时间戳大的一方连接成功并且退出才会出现问题，并不是文章中描述的只要TSval大的连接成功后，TSval小的就连接失败。那原因是什么呢？</p>
+
+<p>通过抓包可发现telnet关闭时，并不是client发起了四次挥手，而是server。并且telnet也给了相应的提示：</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"> <span class="o">[</span><span class="n">root</span><span class="err">\</span><span class="nd">@automatic</span> <span class="o">~]</span><span class="err">#</span> <span class="n">telnet</span> <span class="mi">117</span><span class="o">.*.*.</span><span class="mi">154</span> <span class="mi">80</span> 
+ <span class="nc">Trying</span> <span class="mi">117</span><span class="o">.*.*.</span><span class="mi">154</span><span class="o">..</span>                         
+ <span class="nc">Connected</span> <span class="n">to</span> <span class="mi">117</span><span class="o">.*.*.</span><span class="mi">154</span><span class="o">.</span>                      
+ <span class="nc">Escape</span> <span class="n">character</span> <span class="n">is</span> <span class="err">'</span><span class="o">^]</span><span class="err">'</span><span class="o">.</span>                        
+ <span class="o">^</span><span class="no">C</span> <span class="nc">Connection</span> <span class="n">closed</span> <span class="n">by</span> <span class="n">foreign</span> <span class="n">host</span><span class="o">.</span>                </code></pre></figure>
+
+<p><img src="../images/tcp_tw_recycle/image6.jpeg" alt="https://img-blog.csdnimg.cn/2018122410082654.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Blbmd6aG91emhvdQ==,size_16,color_FFFFFF,t_70" />{width=”4.617835739282589in”
+height=”3.19371719160105in”}</p>
+
+<p>和curl不同，curl是client发起了FIN，而telnet是server发起了FIN，只有发起方才会进入TIME_WAIT状态，结合之前的源码上的注释，60秒范围的起始时间并不是上个连接成功的时间，而是TIME_WAIT产生的时间。</p>
+
+<p>服务器会拿到这个时间，和后续的连接请求发起比较，如果请求与上次的TIME_WAIT间隔在60秒之内，并且timestamp还比上次的小，那么这个包将直接丢弃。</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="no">VJ</span><span class="err">\'</span><span class="n">s</span> <span class="n">idea</span><span class="o">.</span> <span class="nc">We</span> <span class="n">save</span> <span class="n">last</span> <span class="n">timestamp</span> <span class="n">seen</span> <span class="n">from</span> <span class="n">the</span> <span class="n">destination</span> 
+<span class="n">in</span> <span class="n">peer</span> <span class="n">table</span><span class="o">,</span> <span class="n">when</span> <span class="n">entering</span> <span class="n">state</span> <span class="no">TIME</span><span class="o">-</span><span class="no">WAIT</span><span class="o">,</span> <span class="n">and</span> <span class="n">check</span> 
+<span class="n">against</span> <span class="n">it</span> <span class="n">before</span> <span class="n">accepting</span> <span class="k">new</span> <span class="n">connection</span> <span class="n">request</span><span class="o">.</span></code></pre></figure>
+
+<p>所以需要注意的是比较的时间是上次服务端的TIME_WAIT发生的时间，而不是建立连接成功的时间。</p>
+
+<p>其他：</p>
+
+<ol>
+  <li>
+    <p>Server主动断开会产生TIME_WAIT连接，通常可以通过netstat -n -t
+查看，但是可能很难看到，因为tcp_tw_recycle就是为了快速回收TIME_WAIT的连接的。</p>
+  </li>
+  <li>
+    <p>上面的示例（&lt;http://www.just4coding.com/blog/2017/11/09/timewait/）文章做测试的时候，将nginx的keepalive关闭，让server上的nginx主动断开，所以curl也能复现，但实际使用nginx不会这么用，带来了一定的误解。</p>
+  </li>
+</ol>
+
+<h1 id="其他">其他</h1>
+
+<ul>
+  <li>
+    <p>tcp_tw_recycle 已经不建议使用，4.12内核中被移除</p>
+  </li>
+  <li>
+    <p>客户端和服务端必须开启tw_timestamp才会出现这种情况</p>
+  </li>
+</ul>
+
+<h1 id="引用文章">引用文章</h1>
+
+<p>&lt;https://blog.csdn.net/pengzhouzhou/article/details/85229437</p>
+
+<p>&lt;https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=4396e46187ca5070219b81773c4e65088dac50cc</p>
+
+<p>&lt;https://www.cnblogs.com/good90/p/3911110.html</p>
+
+<p>&lt;https://www.iteye.com/blog/elf8848-2089414</p>
+
+<p>&lt;https://www.cnblogs.com/10087622blog/p/11017455.html</p>
+
+<p>&lt;https://www.cnblogs.com/jdonson/p/4760130.html</p>
+
+<p>&lt;https://blog.51cto.com/fuyuan2016/1795998</p>
+
+        
+      </div><!-- /.entry-content -->
+    </div><!-- /.entry-wrapper -->
+    <nav class="pagination" role="navigation">
+      
+        <a href="http://localhost:4000/java-lock" class="btn" title="java synchronized的实现">Previous article</a>
+      
+      
+        <a href="http://localhost:4000/go-shadowsocks" class="btn" title="go shadowsocks源码分析">Next article</a>
+      
+    </nav><!-- /.pagination -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2020 yangqiju. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">So Simple Theme</a>.</span>
+<div class="social-icons">
+	
+	
+	
+	
+	
+	
+	
+	<a href="http://github.com/yangqiju" title="yangqiju on Github" target="_blank"><i class="icon-github icon-2x"></i></a>
+	
+</div><!-- /.social-icons -->
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://localhost:4000/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://localhost:4000/assets/js/scripts.min.js"></script>
+
+<!-- Jekyll Simple Search option -->
+<script>
+  $(document).ready(function() {
+      $('.search-field').simpleJekyllSearch({
+          jsonFile : 'http://localhost:4000/search.json',
+          searchResults : '.search-results',
+          template : '<li><article><a href="{url}">{title} <span class="entry-date"><time datetime="{date}">{shortdate}</time></span></a></article></li>',
+          noResults: '<p>Nothing found.</p>'
+        });
+  });
+
+  (function( $, window, undefined ) {
+    
+     var bs = {
+          close: $(".icon-remove-sign"),
+          searchform: $(".search-form"),
+          canvas: $("body"),
+          dothis: $('.dosearch')
+      };
+    
+    bs.dothis.on('click', function() {
+      $('.search-wrapper').css({ display: "block" });
+      bs.searchform.toggleClass('active');
+      bs.searchform.find('input').focus();
+      bs.canvas.toggleClass('search-overlay');
+    });
+    
+      bs.close.on('click', function() {
+        $('.search-wrapper').removeAttr( 'style' );
+        bs.searchform.toggleClass('active');
+        bs.canvas.removeClass('search-overlay');
+    });
+  })( jQuery, window );
+</script>
+
+
+	        
+
+</body>
+</html>

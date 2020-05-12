@@ -1,0 +1,718 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>OPENWRT自定义固件 &#8211; Orange</title>
+<meta name="description" content="OPENWRT自定义固件">
+<meta name="keywords" content="openwrt, 网络">
+
+
+<meta name="baidu-site-verification" content="kGTic24zBh" />
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OPENWRT自定义固件">
+<meta property="og:description" content="OPENWRT自定义固件">
+<meta property="og:url" content="http://localhost:4000/openwrt%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9B%BA%E4%BB%B6">
+<meta property="og:site_name" content="Orange">
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/openwrt%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9B%BA%E4%BB%B6">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Orange Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.min.css">
+<!-- Webfonts 
+<script src="//use.edgefonts.net/source-sans-pro:n2,i2,n3,i3,n4,i4,n6,i6,n7,i7,n9,i9;source-code-pro:n4,n7;volkhov.js"></script>
+-->
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="http://localhost:4000/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://localhost:4000/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://localhost:4000/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://localhost:4000/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body id="post" itemscope itemtype="http://schema.org/WebPage">
+
+<div class="navigation-wrapper">
+	<nav role="navigation" id="site-nav" class="animated drop" itemscope itemtype="http://schema.org/SiteNavigationElement">
+	    <ul>
+	        
+			<li>
+				
+					<a href="http://localhost:4000/about">Home</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="http://localhost:4000/work">Work</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="http://localhost:4000/interest">Interest</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="http://localhost:4000/life">life</a>
+				 
+			</li>
+	        
+	        <!-- 
+	        <li><a href="http://localhost:4000/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
+	         -->
+	        <li class="dosearch"><i class="icon-search"></i> Search</li>
+	    </ul>
+	</nav>
+</div><!-- /.navigation-wrapper -->
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+
+<div class="search-wrapper">
+	<div class="search-form">
+		<input type="text" class="search-field" placeholder="Search...">
+		<i class="icon-remove-sign icon-2x"></i>
+		<ul class="search-results post-list"></ul><!-- /.search-results -->
+	</div><!-- /.search-form -->
+</div><!-- ./search-wrapper -->
+
+<header class="masthead" itemscope itemtype="http://schema.org/Organization">
+	<div class="wrap">
+		<a href="http://localhost:4000" class="site-logo" rel="home" title="Orange" itemprop="url"><img src="http://localhost:4000/images/logo.jpeg" width="200" height="200" alt="Orange logo" class="animated fadeInUp" itemprop="logo"></a>
+		<h1 class="site-title animated fadeIn"><a href="http://localhost:4000">Orange</a></h1>
+		<h2 class="site-description animated fadeIn" itemprop="description">做个简单的coder.</h2>
+	</div>
+</header><!-- /.masthead -->
+
+
+<div id="main" role="main" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/Blog">
+  <article class="hentry" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="entry-wrapper">
+      <header class="entry-header">
+        <span class="entry-tags"><a href="http://localhost:4000/tags.html#openwrt" title="Pages tagged openwrt" rel="tag">openwrt</a>&nbsp;&bull;&nbsp;<a href="http://localhost:4000/tags.html#网络" title="Pages tagged 网络" rel="tag">网络</a></span>
+        
+          <h1 class="entry-title" itemprop="headline">OPENWRT自定义固件</h1>
+        
+      </header>
+      <footer class="entry-meta">
+        <img src="http://localhost:4000/images/logo.jpeg" alt="yangqiju photo" class="author-photo">
+        <span class="author vcard" itemprop="author" itemscope itemtype="http://schema.org/Person">By <span itemprop="name" class="fn"><a href="http://localhost:4000/about" title="About yangqiju" itemprop="url">yangqiju</a></span></span>
+        <span class="entry-date date published"><time datetime="2019-07-21T00:00:00-04:00" itemprop="datePublished"><i class="icon-calendar-empty"></i> July 21, 2019</time></span>
+        
+        
+        <span><a href="http://localhost:4000/openwrt%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9B%BA%E4%BB%B6" rel="bookmark" title="OPENWRT自定义固件" itemprop="url"><i class="icon-link"></i> Permalink</a></span>
+      </footer>
+      <div class="entry-content" style="font-size:14px" itemprop="description">
+        <h1 id="概述">概述</h1>
+
+<p>本文讲述自定义固件相关操作。</p>
+
+<h1 id="自定义固件">自定义固件</h1>
+
+<h2 id="下载源代码">下载源代码</h2>
+
+<p>&lt;https://github.com/openwrt/openwrt</p>
+
+<p>本文示例为17.0.6</p>
+
+<h2 id="申明镜像">申明镜像</h2>
+
+<p>根据cpu选择相应的架构，例如我们选择ramips的mt7621 cpu。</p>
+
+<p>vi openwrt-17.01.6/target/linux/ramips/image/mt7621.mk</p>
+
+<p>添加如下自定义（xcv1）</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">define</span> <span class="nc">Device</span><span class="o">/</span><span class="n">unlto</span><span class="o">-</span><span class="n">g3</span>
+  <span class="no">DTS</span> <span class="o">:=</span> <span class="no">UNLTO</span><span class="o">-</span><span class="no">G3</span>
+  <span class="no">IMAGE_SIZE</span> <span class="o">:=</span> <span class="err">$</span><span class="o">(</span><span class="n">ralink_default_fw_size_16M</span><span class="o">)</span>
+  <span class="no">DEVICE_TITLE</span> <span class="o">:=</span> <span class="n">unlto</span> <span class="n">g3</span>
+  <span class="no">DEVICE_PACKAGES</span> <span class="o">:=</span> <span class="n">kmod</span><span class="o">-</span><span class="n">usb3</span> <span class="n">kmod</span><span class="o">-</span><span class="n">usb</span><span class="o">-</span><span class="n">ledtrig</span><span class="o">-</span><span class="n">usbport</span> <span class="n">kmod</span><span class="o">-</span><span class="n">ata</span><span class="o">-</span><span class="n">core</span> <span class="n">kmod</span><span class="o">-</span><span class="n">ata</span><span class="o">-</span><span class="n">ahci</span>
+<span class="n">endef</span>
+<span class="no">TARGET_DEVICES</span> <span class="o">+=</span> <span class="n">unlto</span><span class="o">-</span><span class="n">g3</span></code></pre></figure>
+
+<h2 id="添加板子基本配置">添加板子基本配置</h2>
+
+<h3 id="添加名称对应">添加名称对应</h3>
+
+<p>在 target/linux/ramips/base-files/lib/ramips.sh 文件中添加新设备名称。</p>
+
+<p><img src="../images/openwrt自定义固件/image1.png" alt="" />{width=”2.7in” height=”1.4574398512685913in”}</p>
+
+<h3 id="添加led-sys灯支持">添加led sys灯支持</h3>
+
+<p>编辑 target/linux/ramips/base-files/etc/diag.sh</p>
+
+<p><img src="../images/openwrt自定义固件/image2.png" alt="" />{width=”5.153042432195975in”
+height=”1.6945319335083115in”}</p>
+
+<h3 id="network设置">Network设置</h3>
+
+<p>编辑 target/linux/ramips/base-files/etc/board.d/02_network</p>
+
+<p><img src="../images/openwrt自定义固件/image3.png" alt="" />{width=”5.768055555555556in”
+height=”1.6916666666666667in”}</p>
+
+<p>注意：因为我们主板的特殊性， 0是wan口，4是lan口，所以需要调整</p>
+
+<h3 id="添加">添加</h3>
+
+<p>编辑openwrt-17.01.6/target/linux/ramips/image/mt7621.mk文件，添加内容</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">define</span> <span class="nc">Device</span><span class="o">/</span><span class="n">unlto</span><span class="o">-</span><span class="n">g3</span>
+  <span class="no">DTS</span> <span class="o">:=</span> <span class="no">UNLTO</span><span class="o">-</span><span class="no">G3</span>
+  <span class="no">IMAGE_SIZE</span> <span class="o">:=</span> <span class="err">$</span><span class="o">(</span><span class="n">ralink_default_fw_size_16M</span><span class="o">)</span>
+  <span class="no">DEVICE_TITLE</span> <span class="o">:=</span> <span class="n">unlto</span> <span class="n">g3</span>
+  <span class="no">DEVICE_PACKAGES</span> <span class="o">:=</span> <span class="n">kmod</span><span class="o">-</span><span class="n">usb3</span> <span class="n">kmod</span><span class="o">-</span><span class="n">usb</span><span class="o">-</span><span class="n">ledtrig</span><span class="o">-</span><span class="n">usbport</span> <span class="n">kmod</span><span class="o">-</span><span class="n">ata</span><span class="o">-</span><span class="n">core</span> <span class="n">kmod</span><span class="o">-</span><span class="n">ata</span><span class="o">-</span><span class="n">ahci</span>
+<span class="n">endef</span>
+<span class="no">TARGET_DEVICES</span> <span class="o">+=</span> <span class="n">unlto</span><span class="o">-</span><span class="n">g3</span></code></pre></figure>
+
+<h2 id="添加硬件配置">添加硬件配置</h2>
+
+<p>在openwrt-17.01.6/target/linux/ramips/dts 目录中添加UNLTO-G3.dts</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="o">/</span><span class="n">dts</span><span class="o">-</span><span class="n">v1</span><span class="o">/;</span>
+
+<span class="err">#</span><span class="n">include</span> <span class="s">"mt7621.dtsi"</span>
+
+<span class="err">#</span><span class="n">include</span> <span class="o">&lt;</span><span class="n">dt</span><span class="o">-</span><span class="n">bindings</span><span class="o">/</span><span class="n">input</span><span class="o">/</span><span class="n">input</span><span class="o">.</span><span class="na">h</span>
+
+<span class="o">/</span> <span class="o">{</span>
+	<span class="n">model</span> <span class="o">=</span> <span class="s">"UNLTO-G3"</span><span class="o">;</span>
+
+	<span class="n">memory</span><span class="err">@</span><span class="mi">0</span> <span class="o">{</span>
+		<span class="n">device_type</span> <span class="o">=</span> <span class="s">"memory"</span><span class="o">;</span>
+        <span class="err">##</span> <span class="n">内存大小</span>
+		<span class="n">reg</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mh">0x0</span> <span class="mh">0x8000000</span><span class="o">;</span>
+	<span class="o">};</span>
+
+	<span class="n">chosen</span> <span class="o">{</span>
+        <span class="err">##</span> <span class="mi">115200</span> <span class="n">调试串口波特率</span>
+		<span class="n">bootargs</span> <span class="o">=</span> <span class="s">"console=ttyS0,115200"</span><span class="o">;</span>
+	<span class="o">};</span>
+
+	<span class="n">gpio</span><span class="o">-</span><span class="n">leds</span> <span class="o">{</span>
+                <span class="n">compatible</span> <span class="o">=</span> <span class="s">"gpio-leds"</span><span class="o">;</span>
+
+                <span class="n">buzzer</span> <span class="o">{</span>
+                        <span class="n">label</span> <span class="o">=</span> <span class="s">"buzzer"</span><span class="o">;</span>
+                     <span class="n">gpios</span> <span class="o">=</span> <span class="o">&lt;&amp;</span><span class="n">gpio0</span> <span class="mi">0</span> <span class="mi">0</span><span class="o">;</span>
+                <span class="o">};</span>
+                <span class="n">aerial</span> <span class="o">{</span>
+                        <span class="n">label</span> <span class="o">=</span> <span class="s">"aerial"</span><span class="o">;</span>
+                     <span class="n">gpios</span> <span class="o">=</span> <span class="o">&lt;&amp;</span><span class="n">gpio0</span> <span class="mi">26</span> <span class="mi">0</span><span class="o">;</span>
+                <span class="o">};</span>
+                <span class="n">sim</span> <span class="o">{</span>
+                        <span class="n">label</span> <span class="o">=</span> <span class="s">"sim"</span><span class="o">;</span>
+                     <span class="n">gpios</span> <span class="o">=</span> <span class="o">&lt;&amp;</span><span class="n">gpio0</span> <span class="mi">22</span> <span class="mi">1</span><span class="o">;</span>
+                <span class="o">};</span>
+                <span class="n">modpower</span> <span class="o">{</span>
+                     <span class="n">label</span> <span class="o">=</span> <span class="s">"modpower"</span><span class="o">;</span>
+                     <span class="n">gpios</span> <span class="o">=</span> <span class="o">&lt;&amp;</span><span class="n">gpio0</span> <span class="mi">24</span> <span class="mi">0</span><span class="o">;</span>
+                <span class="o">};</span>
+                <span class="n">stormgreen</span> <span class="o">{</span>
+                     <span class="n">label</span> <span class="o">=</span> <span class="s">"storm:green"</span><span class="o">;</span>
+                     <span class="n">gpios</span> <span class="o">=</span> <span class="o">&lt;&amp;</span><span class="n">gpio0</span> <span class="mi">16</span> <span class="mi">0</span><span class="o">;</span>
+                <span class="o">};</span>
+                <span class="n">stormred</span> <span class="o">{</span>
+                     <span class="n">label</span> <span class="o">=</span> <span class="s">"storm:red"</span><span class="o">;</span>
+                     <span class="n">gpios</span> <span class="o">=</span> <span class="o">&lt;&amp;</span><span class="n">gpio0</span> <span class="mi">28</span> <span class="mi">0</span><span class="o">;</span>
+                <span class="o">};</span>
+                <span class="n">wangreen</span> <span class="o">{</span>
+                     <span class="n">label</span> <span class="o">=</span> <span class="s">"wan:green"</span><span class="o">;</span>
+                     <span class="n">gpios</span> <span class="o">=</span> <span class="o">&lt;&amp;</span><span class="n">gpio0</span> <span class="mi">13</span> <span class="mi">1</span><span class="o">;</span>
+                <span class="o">};</span>
+                <span class="n">wanred</span> <span class="o">{</span>
+                     <span class="n">label</span> <span class="o">=</span> <span class="s">"wan:red"</span><span class="o">;</span>
+                     <span class="n">gpios</span> <span class="o">=</span> <span class="o">&lt;&amp;</span><span class="n">gpio0</span> <span class="mi">14</span> <span class="mi">1</span><span class="o">;</span>
+                <span class="o">};</span>
+                <span class="mi">4</span><span class="n">g1</span> <span class="o">{</span>
+                     <span class="n">label</span> <span class="o">=</span> <span class="s">"4g:1"</span><span class="o">;</span>
+                     <span class="n">gpios</span> <span class="o">=</span> <span class="o">&lt;&amp;</span><span class="n">gpio0</span> <span class="mi">29</span> <span class="mi">1</span><span class="o">;</span>
+                <span class="o">};</span>
+                <span class="mi">4</span><span class="n">g2</span> <span class="o">{</span>
+                     <span class="n">label</span> <span class="o">=</span> <span class="s">"4g:2"</span><span class="o">;</span>
+                     <span class="n">gpios</span> <span class="o">=</span> <span class="o">&lt;&amp;</span><span class="n">gpio0</span> <span class="mi">31</span> <span class="mi">1</span><span class="o">;</span>
+                <span class="o">};</span>
+                <span class="err">###</span><span class="n">每组gpio为32</span><span class="err">，</span><span class="mi">4</span><span class="n">g3为32所以修改为gpio1</span> <span class="mi">0</span> 
+                <span class="mi">4</span><span class="n">g3</span> <span class="o">{</span>
+                     <span class="n">label</span> <span class="o">=</span> <span class="s">"4g:3"</span><span class="o">;</span>
+                     <span class="n">gpios</span> <span class="o">=</span> <span class="o">&lt;&amp;</span><span class="n">gpio1</span> <span class="mi">0</span> <span class="mi">1</span><span class="o">;</span>
+                <span class="o">};</span>
+        <span class="o">};</span>
+
+	<span class="nl">palmbus:</span> <span class="n">palmbus</span><span class="err">@</span><span class="mi">1</span><span class="no">E000000</span> <span class="o">{</span>
+		<span class="n">i2c</span><span class="err">@</span><span class="mi">900</span> <span class="o">{</span>
+			<span class="n">status</span> <span class="o">=</span> <span class="s">"okay"</span><span class="o">;</span>
+
+			<span class="nl">pcf8563:</span> <span class="n">rtc</span><span class="err">@</span><span class="mi">51</span> <span class="o">{</span>
+				<span class="n">status</span> <span class="o">=</span> <span class="s">"okay"</span><span class="o">;</span>
+				<span class="n">compatible</span> <span class="o">=</span> <span class="s">"nxp,pcf8563"</span><span class="o">;</span>
+				<span class="n">reg</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mh">0x51</span><span class="o">;</span>
+			<span class="o">};</span>
+		<span class="o">};</span>
+	<span class="o">};</span>
+
+	<span class="n">gpio</span><span class="o">-</span><span class="n">keys</span><span class="o">-</span><span class="n">polled</span> <span class="o">{</span>
+		<span class="n">compatible</span> <span class="o">=</span> <span class="s">"gpio-keys-polled"</span><span class="o">;</span>
+		<span class="err">#</span><span class="n">address</span><span class="o">-</span><span class="n">cells</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mi">1</span><span class="o">;</span>
+		<span class="err">#</span><span class="n">size</span><span class="o">-</span><span class="n">cells</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mi">0</span><span class="o">;</span>
+		<span class="n">poll</span><span class="o">-</span><span class="n">interval</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mi">20</span><span class="o">;</span>
+
+		<span class="n">reset</span> <span class="o">{</span>
+			<span class="n">label</span> <span class="o">=</span> <span class="s">"reset"</span><span class="o">;</span>
+			<span class="n">gpios</span> <span class="o">=</span> <span class="o">&lt;&amp;</span><span class="n">gpio0</span> <span class="mi">17</span> <span class="mi">1</span><span class="o">;</span>
+			<span class="n">linux</span><span class="o">,</span><span class="n">code</span> <span class="o">=</span> <span class="o">&lt;</span><span class="no">KEY_RESTART</span><span class="o">;</span>
+		<span class="o">};</span>
+	<span class="o">};</span>
+<span class="o">};</span>
+
+<span class="o">&amp;</span><span class="n">sdhci</span> <span class="o">{</span>
+	<span class="n">status</span> <span class="o">=</span> <span class="s">"okay"</span><span class="o">;</span>
+<span class="o">};</span>
+
+<span class="o">&amp;</span><span class="n">gpio1</span> <span class="o">{</span>
+	<span class="n">status</span> <span class="o">=</span> <span class="s">"okay"</span><span class="o">;</span>
+<span class="o">};</span>
+
+
+<span class="o">&amp;</span><span class="n">spi0</span> <span class="o">{</span>
+	<span class="n">status</span> <span class="o">=</span> <span class="s">"okay"</span><span class="o">;</span>
+
+	<span class="n">m25p80</span><span class="err">@</span><span class="mi">0</span> <span class="o">{</span>
+		<span class="err">#</span><span class="n">address</span><span class="o">-</span><span class="n">cells</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mi">1</span><span class="o">;</span>
+		<span class="err">#</span><span class="n">size</span><span class="o">-</span><span class="n">cells</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mi">1</span><span class="o">;</span>
+		<span class="n">compatible</span> <span class="o">=</span> <span class="s">"jedec,spi-nor"</span><span class="o">;</span>
+		<span class="n">reg</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mi">0</span><span class="o">;</span>
+		<span class="n">spi</span><span class="o">-</span><span class="n">max</span><span class="o">-</span><span class="n">frequency</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mi">10000000</span><span class="o">;</span>
+		<span class="n">m25p</span><span class="o">,</span><span class="n">chunked</span><span class="o">-</span><span class="n">io</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mi">32</span><span class="o">;</span>
+
+		<span class="n">partition</span><span class="err">@</span><span class="mi">0</span> <span class="o">{</span>
+			<span class="n">label</span> <span class="o">=</span> <span class="s">"u-boot"</span><span class="o">;</span>
+			<span class="n">reg</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mh">0x0</span> <span class="mh">0x30000</span><span class="o">;</span>
+			<span class="n">read</span><span class="o">-</span><span class="n">only</span><span class="o">;</span>
+		<span class="o">};</span>
+
+		<span class="n">partition</span><span class="err">@</span><span class="mi">30000</span> <span class="o">{</span>
+			<span class="n">label</span> <span class="o">=</span> <span class="s">"u-boot-env"</span><span class="o">;</span>
+			<span class="n">reg</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mh">0x30000</span> <span class="mh">0x10000</span><span class="o">;</span>
+			<span class="n">read</span><span class="o">-</span><span class="n">only</span><span class="o">;</span>
+		<span class="o">};</span>
+
+		<span class="nl">factory:</span> <span class="n">partition</span><span class="err">@</span><span class="mi">40000</span> <span class="o">{</span>
+			<span class="n">label</span> <span class="o">=</span> <span class="s">"factory"</span><span class="o">;</span>
+			<span class="n">reg</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mh">0x40000</span> <span class="mh">0x10000</span><span class="o">;</span>
+		<span class="o">};</span>
+
+		<span class="n">partition</span><span class="err">@</span><span class="mi">50000</span> <span class="o">{</span>
+			<span class="n">label</span> <span class="o">=</span> <span class="s">"firmware"</span><span class="o">;</span>
+			<span class="n">reg</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mh">0x50000</span> <span class="mh">0x1fb0000</span><span class="o">;</span>
+		<span class="o">};</span>
+
+        <span class="err">##</span><span class="n">这里单独做了一份32m</span> <span class="n">的rootfs_data</span><span class="err">，</span><span class="n">是因为uboot要求会从0x2000000开始识别</span><span class="err">，</span><span class="n">用于存储uboot需要的数据</span>
+		<span class="n">partition</span><span class="err">@</span><span class="mi">2000000</span> <span class="o">{</span>
+			<span class="n">label</span> <span class="o">=</span> <span class="s">"rootfs_data"</span><span class="o">;</span>
+			<span class="n">reg</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mh">0x2000000</span> <span class="mh">0x2000000</span><span class="o">;</span>
+		<span class="o">};</span>
+	<span class="o">};</span>
+<span class="o">};</span>
+
+<span class="o">&amp;</span><span class="n">pcie</span> <span class="o">{</span>
+	<span class="n">status</span> <span class="o">=</span> <span class="s">"okay"</span><span class="o">;</span>
+
+	<span class="n">pcie0</span> <span class="o">{</span>
+		<span class="n">mt76</span><span class="err">@</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span> <span class="o">{</span>
+			<span class="n">reg</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mh">0x0000</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span><span class="o">;</span>
+			<span class="n">device_type</span> <span class="o">=</span> <span class="s">"pci"</span><span class="o">;</span>
+			<span class="n">mediatek</span><span class="o">,</span><span class="n">mtd</span><span class="o">-</span><span class="n">eeprom</span> <span class="o">=</span> <span class="o">&lt;&amp;</span><span class="n">factory</span> <span class="mh">0x8000</span><span class="o">;</span>
+			<span class="n">ieee80211</span><span class="o">-</span><span class="n">freq</span><span class="o">-</span><span class="n">limit</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mi">5000000</span> <span class="mi">6000000</span><span class="o">;</span>
+			<span class="n">mtd</span><span class="o">-</span><span class="n">mac</span><span class="o">-</span><span class="n">address</span> <span class="o">=</span> <span class="o">&lt;&amp;</span><span class="n">factory</span> <span class="mh">0xe000</span><span class="o">;</span>
+		<span class="o">};</span>
+	<span class="o">};</span>
+
+	<span class="n">pcie1</span> <span class="o">{</span>
+		<span class="n">mt76</span><span class="err">@</span><span class="mi">1</span><span class="o">,</span><span class="mi">0</span> <span class="o">{</span>
+			<span class="n">reg</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mh">0x0000</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span><span class="o">;</span>
+			<span class="n">device_type</span> <span class="o">=</span> <span class="s">"pci"</span><span class="o">;</span>
+			<span class="n">mediatek</span><span class="o">,</span><span class="n">mtd</span><span class="o">-</span><span class="n">eeprom</span> <span class="o">=</span> <span class="o">&lt;&amp;</span><span class="n">factory</span> <span class="mh">0x0000</span><span class="o">;</span>
+			<span class="n">ieee80211</span><span class="o">-</span><span class="n">freq</span><span class="o">-</span><span class="n">limit</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mi">2400000</span> <span class="mi">2500000</span><span class="o">;</span>
+			<span class="n">mtd</span><span class="o">-</span><span class="n">mac</span><span class="o">-</span><span class="n">address</span> <span class="o">=</span> <span class="o">&lt;&amp;</span><span class="n">factory</span> <span class="mh">0xe000</span><span class="o">;</span>
+		<span class="o">};</span>
+	<span class="o">};</span>
+<span class="o">};</span>
+
+<span class="o">&amp;</span><span class="n">ethernet</span> <span class="o">{</span>
+	<span class="n">mtd</span><span class="o">-</span><span class="n">mac</span><span class="o">-</span><span class="n">address</span> <span class="o">=</span> <span class="o">&lt;&amp;</span><span class="n">factory</span> <span class="mh">0xe000</span><span class="o">;</span>
+<span class="o">};</span>
+
+<span class="o">&amp;</span><span class="n">pinctrl</span> <span class="o">{</span>
+	<span class="nl">state_default:</span> <span class="n">pinctrl0</span> <span class="o">{</span>
+		<span class="n">gpio</span> <span class="o">{</span>
+			<span class="n">ralink</span><span class="o">,</span><span class="n">group</span> <span class="o">=</span> <span class="s">"wdt"</span><span class="o">,</span> <span class="s">"rgmii2"</span><span class="o">,</span> <span class="s">"jtag"</span><span class="o">,</span> <span class="s">"mdio"</span><span class="o">;</span>
+			<span class="n">ralink</span><span class="o">,</span><span class="n">function</span> <span class="o">=</span> <span class="s">"gpio"</span><span class="o">;</span>
+		<span class="o">};</span>
+	<span class="o">};</span>
+<span class="o">};</span></code></pre></figure>
+
+<h2 id="执行">执行</h2>
+
+<p>删除openwrt/tmp 执行make menuconfig</p>
+
+<p><img src="../images/openwrt自定义固件/image4.png" alt="" />{width=”5.768055555555556in”
+height=”6.094444444444444in”}</p>
+
+<h1 id="编译自己的软件">编译自己的软件</h1>
+
+<p>参考
+《openwrt,Lede深入学习笔记v2.0.pdf》中编译软件的方法。这里描述了一个compile
+c的方法并将代码打成安装包。</p>
+
+<p>还有另外一种，直接将执行文件拷贝的方法，例如mwan3.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">include</span> <span class="err">$</span><span class="o">(</span><span class="no">TOPDIR</span><span class="o">)/</span><span class="n">rules</span><span class="o">.</span><span class="na">mk</span>
+
+<span class="nl">PKG_NAME:</span><span class="o">=</span><span class="n">mwan3</span>
+<span class="nl">PKG_VERSION:</span><span class="o">=</span><span class="mf">2.0</span><span class="o">.</span><span class="mi">2</span>
+<span class="nl">PKG_RELEASE:</span><span class="o">=</span><span class="mi">1</span>
+<span class="nl">PKG_MAINTAINER:</span><span class="o">=</span><span class="nc">Florian</span> <span class="nc">Eckert</span> <span class="o">&lt;</span><span class="n">fe</span><span class="nd">@dev</span><span class="o">.</span><span class="na">tdt</span><span class="o">.</span><span class="na">de</span>
+<span class="nl">PKG_LICENSE:</span><span class="o">=</span><span class="nc">GPLv2</span>
+
+<span class="n">include</span> <span class="err">$</span><span class="o">(</span><span class="no">INCLUDE_DIR</span><span class="o">)/</span><span class="kn">package</span><span class="nn">.mk</span>
+
+<span class="n">define</span> <span class="nc">Package</span><span class="o">/</span><span class="n">mwan3</span>
+   <span class="nl">SECTION:</span><span class="o">=</span><span class="n">net</span>
+   <span class="nl">CATEGORY:</span><span class="o">=</span><span class="nc">Network</span>
+   <span class="nl">SUBMENU:</span><span class="o">=</span><span class="nc">Routing</span> <span class="n">and</span> <span class="nc">Redirection</span>
+   <span class="nl">DEPENDS:</span><span class="o">=+</span><span class="n">ip</span> <span class="o">+</span><span class="n">ipset</span> <span class="o">+</span><span class="n">iptables</span> <span class="o">+</span><span class="n">iptables</span><span class="o">-</span><span class="n">mod</span><span class="o">-</span><span class="n">conntrack</span><span class="o">-</span><span class="n">extra</span> <span class="o">+</span><span class="n">iptables</span><span class="o">-</span><span class="n">mod</span><span class="o">-</span><span class="n">ipopt</span>
+   <span class="nl">TITLE:</span><span class="o">=</span><span class="nc">Multiwan</span> <span class="n">hotplug</span> <span class="n">script</span> <span class="n">with</span> <span class="n">connection</span> <span class="n">tracking</span> <span class="n">support</span>
+   <span class="nl">PKGARCH:</span><span class="o">=</span><span class="n">all</span>
+<span class="n">endef</span>
+
+<span class="n">define</span> <span class="nc">Package</span><span class="o">/</span><span class="n">mwan3</span><span class="o">/</span><span class="n">conffiles</span>
+<span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="n">mwan3</span>
+<span class="n">endef</span>
+
+<span class="n">define</span> <span class="nc">Build</span><span class="o">/</span><span class="nc">Compile</span>
+<span class="n">endef</span>
+
+<span class="n">define</span> <span class="nc">Package</span><span class="o">/</span><span class="n">mwan3</span><span class="o">/</span><span class="n">install</span>
+<span class="err">$</span><span class="o">(</span><span class="no">CP</span><span class="o">)</span> <span class="o">./</span><span class="n">files</span><span class="o">/*</span> <span class="err">$</span><span class="o">(</span><span class="mi">1</span><span class="o">)</span>
+<span class="n">endef</span>
+
+<span class="err">$</span><span class="o">(</span><span class="n">eval</span> <span class="err">$</span><span class="o">(</span><span class="n">call</span> <span class="nc">BuildPackage</span><span class="o">,</span><span class="n">mwan3</span><span class="o">))</span></code></pre></figure>
+
+<h1 id="打包基础固件">打包基础固件</h1>
+
+<p>通过openwert编译后，会生成一个基本可用能上网的路由器固件，但是如果我们有一些特殊的业务需要持续增加的时候怎么办呢？例如向增加一个/etc/config/test</p>
+
+<p>Openwrt提供了 image builder 的功能，make
+menuconfig的时候，选择相应的选项后，会在bin/targets目录下生成镜像的同时，也生成一个builder。</p>
+
+<p><img src="../images/openwrt自定义固件/image5.png" alt="" />{width=”5.768055555555556in”
+height=”2.9472222222222224in”}</p>
+
+<p>解压后，在文件夹下创建一个files目录，files/etc/config/test，并执行</p>
+
+<p>make image FILES=files/ PROFILE=unlto-g3 PACKAGES=" mwan3 "</p>
+
+<p>这个语句会将
+files里面的文件直接覆盖到系统的/下，packages执行将那些软件打入image中。</p>
+
+<p>编译成功后，会在bin/targets/ramips/mt7621/ 目录下生成相应的bin。</p>
+
+<h1 id="注意问题">注意&amp;问题</h1>
+
+<h2 id="设定一个大的可写空间">设定一个大的可写空间</h2>
+
+<p><img src="../images/openwrt自定义固件/image6.png" alt="https://img-blog.csdn.net/20180724131607373?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Nhb2Zlbmd0YW8xMzE0/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" />{width=”4.552777777777778in”
+height=”4.282638888888889in”}<img src="../images/openwrt自定义固件/image7.png" alt="" />{width=”5.768055555555556in”
+height=”5.151388888888889in”}</p>
+
+<p>在linux系统中对闪存类存储器是采用MTD（内存技术设备）类设备驱动实现的，MTD是用于访问闪存类设备(ROM,FLASH)的linux驱动子系统。在openwrt中会将flash进行分区，内容为上图。固件中只有rootfs_data区域是可以写的。如果需要写入，并且重启不会消失。</p>
+
+<p>这样就需要在dts配置里添加一个名字为rootfs_data的32m的分区，但是由于在默认情况下，rootfs中就会包含一个rootfs_data，所以就会出现两个rootfs_data。</p>
+
+<p><img src="../images/openwrt自定义固件/image8.png" alt="" />{width=”5.768055555555556in”
+height=”2.482638888888889in”}</p>
+
+<p>这种情况下就需要修改配置 target/linux/ramips/mt7621/config-4.4
+,添加如下配置，这样就明确申明不需要从rootfs中切分出一个小的rootfs_data，而是用我们申明的32m空间。</p>
+
+<hr />
+<p># CONFIG_MTD_SPLIT_SQUASHFS_ROOT is not set
+  ————————————————–</p>
+
+<p><img src="../images/openwrt自定义固件/image9.png" alt="" />{width=”5.222490157480315in”
+height=”2.2640048118985128in”}</p>
+
+<h2 id="双镜像uboot">双镜像uboot</h2>
+
+<p>双镜像的uboot</p>
+
+<p>&lt;https://github.com/angusding/witi-uboot</p>
+
+<h2 id="reboot-卡死问题">Reboot 卡死问题</h2>
+
+<p>MT7621完美支持32M SPI Flash(W25Q256) 修复 soft reset fail</p>
+
+<p>&lt;https://blog.csdn.net/yubing_615/article/details/52649489</p>
+
+<h2 id="添加第三方包">添加第三方包</h2>
+
+<p>默认的openwrt只有核心源码，如果需要拓展新的功能，就需要导入packages，checkout到相应的版本，进行导入。</p>
+
+<p>&lt;https://github.com/openwrt/packages</p>
+
+<h2 id="模组上网方式不同">模组上网方式不同</h2>
+
+<p>红茶的模组使用了移远和广和通的模组，启动模组后通过ifconfig -a
+可进行查看。</p>
+
+<p>移远为usb0
+  ————–
+  广和同为eth1</p>
+
+<p>为什么有这样的区别呢？猜测（）</p>
+
+<p>广和通用的是 cdc Ethernet
+support，系统分为为eth1（因为eth0已经给默认网卡了），而移远使用usb
+support的 cdc acm，分配为usb0。</p>
+
+<p><img src="../images/openwrt自定义固件/image10.png" alt="" />{width=”5.768055555555556in”
+height=”1.636111111111111in”}</p>
+
+<p><img src="../images/openwrt自定义固件/image11.png" alt="" />{width=”5.768055555555556in”
+height=”3.171527777777778in”}</p>
+
+<h2 id="wan口也需要dhcp">Wan口也需要dhcp？</h2>
+
+<p>平常我们接触到的是，电脑连接路由器，路由器会有dhcp服务，分给电脑一个ip。那问题来了，路由器的ip谁给分的呢？</p>
+
+<p>所以不论是wan口插线，还是4g信号联网，很重要的一部也是需要发起dhcp
+client请求，让server分配一个ip。对应到openwrt配置里面，就是proto=dhcp。</p>
+
+<p>例如使用uci 设置。</p>
+
+<p><img src="../images/openwrt自定义固件/image12.png" alt="" />{width=”3.0557130358705162in”
+height=”1.2639534120734908in”}</p>
+
+<h2 id="主板相关信息">主板相关信息</h2>
+
+<p><img src="../images/openwrt自定义固件/image13.jpeg" alt="" />{width=”5.768055555555556in”
+height=”4.361805555555556in”}</p>
+
+<h1 id="刷机流程">刷机流程</h1>
+
+<ol>
+  <li>
+    <p>所有操作在windows上完成</p>
+  </li>
+  <li>
+    <p>将设备的console口通过串口线与电脑连接，将lan口通过网线与电脑连接</p>
+  </li>
+  <li>
+    <p>将电脑的IP地址设为固定IP:192.168.128.10,不要设置网关</p>
+  </li>
+  <li>
+    <p>通过windows的设备管理理器器查看串口的编号地址，一般为COM3（查看硬件设备可获知）</p>
+  </li>
+  <li>
+    <p>使用putty连接设备的串口连接</p>
+  </li>
+</ol>
+
+<p><img src="../images/openwrt自定义固件/image14.png" alt="" />{width=”5.768055555555556in”
+height=”5.348611111111111in”}</p>
+
+<ol>
+  <li>开启TFTP服务，设置IP和固件存放的目录</li>
+</ol>
+
+<p><img src="../images/openwrt自定义固件/image15.png" alt="" />{width=”5.768055555555556in”
+height=”4.884722222222222in”}</p>
+
+<ol>
+  <li>
+    <p>将设备断电重连，会在putty看到设备启动时候的日志，当出现数字选项时(0-9的数
+字)，快速输入9(快速输⼊入防⽌止⾃自动进⼊入默认的选项，9对应的应该是:Load
+U-Boot code then write to Flash via
+TFTP，以实际的显示为准)，回车，输入IP填
+192.168.128.1，输出IP填192.168.128.10，然后输入uboot固件的名称(与固件存放目
+录下的⽂文件名保持一致)。回车后开始刷uboot。</p>
+  </li>
+  <li>
+    <p>uboot刷成功以后设备会⾃自动重启，再次进⼊入数字选项时输入4，回车进入命令模式，此时输入”erase
+linux”命令，擦出旧版本的系统，命令会处理理一段时间，处理完成后执行reset命令。</p>
+  </li>
+  <li>
+    <p>重新启动后进入数字选项阶段，此时输入2选项”Load system code then
+write to Flash via
+TFTP”。操作步骤与刷入uboot相同，只有最后一步的⽂文件名需要改为系统固件的的名称</p>
+  </li>
+  <li>
+    <p>刷机操作需要执行行几分钟，此后不不需要在做其他操作，putty会一直显示设备的操作日志。刷机完成后会进入默认选项，默认选项是启动系统，此时会显示设备启动的相关信
+息，包含4G模块，wifi状态及wan口lan口状态，等待一会日志不在刷新时，按回车进入新的系统。出现下图代表刷机成功</p>
+  </li>
+</ol>
+
+<h2 id="附件">附件</h2>
+
+<h2 id="uboot刷完后配置参数">Uboot刷完后配置参数</h2>
+
+<p>ETH_STATE_ACTIVE!!</p>
+
+<p>*** ERROR: `ethaddr' not set</p>
+
+<p>刷完uboot后可能会报上面的错误，这是需要设置相关参数</p>
+
+<ol>
+  <li>
+    <p>重新上电</p>
+  </li>
+  <li>
+    <p>选择4 enter boot command line interface</p>
+  </li>
+  <li>
+    <p>执行erase linux 擦除原系统</p>
+  </li>
+  <li>
+    <p>执行setenv ethaddr “00:0c:43:0a:0b:0d”</p>
+  </li>
+  <li>
+    <p>执行saveenv保存</p>
+  </li>
+  <li>
+    <p>执行reset重启</p>
+  </li>
+</ol>
+
+<h1 id="刷看门狗">刷看门狗</h1>
+
+<ol>
+  <li>设备先不上电，并且用串口连接看门狗的串口，并按上跳帽</li>
+</ol>
+
+<p><img src="../images/openwrt自定义固件/image18.png" alt="" />{width=”5.768055555555556in”
+ height=”4.368055555555555in”}</p>
+
+<ol>
+  <li>先按照下图进行配置</li>
+</ol>
+
+<p><img src="../images/openwrt自定义固件/image19.jpeg" alt="操作指南.jpeg" />{width=”5.768055555555556in”
+height=”4.156944444444444in”}</p>
+
+<ol>
+  <li>上电</li>
+</ol>
+
+<p>附件中的pro_1726_2.hex设定时间为50秒，需要持续喂狗，50秒没有收到信息设备将会重启</p>
+
+<h2 id="附件-1">附件</h2>
+
+        
+      </div><!-- /.entry-content -->
+    </div><!-- /.entry-wrapper -->
+    <nav class="pagination" role="navigation">
+      
+        <a href="http://localhost:4000/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%A7%84%E8%8C%83%E5%BF%AB%E6%9F%A5" class="btn" title="Java虚拟机规范笔记">Previous article</a>
+      
+      
+        <a href="http://localhost:4000/ubus%E5%AD%A6%E4%B9%A0" class="btn" title="openwrt ubus学习">Next article</a>
+      
+    </nav><!-- /.pagination -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2020 yangqiju. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">So Simple Theme</a>.</span>
+<div class="social-icons">
+	
+	
+	
+	
+	
+	
+	
+	<a href="http://github.com/yangqiju" title="yangqiju on Github" target="_blank"><i class="icon-github icon-2x"></i></a>
+	
+</div><!-- /.social-icons -->
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://localhost:4000/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://localhost:4000/assets/js/scripts.min.js"></script>
+
+<!-- Jekyll Simple Search option -->
+<script>
+  $(document).ready(function() {
+      $('.search-field').simpleJekyllSearch({
+          jsonFile : 'http://localhost:4000/search.json',
+          searchResults : '.search-results',
+          template : '<li><article><a href="{url}">{title} <span class="entry-date"><time datetime="{date}">{shortdate}</time></span></a></article></li>',
+          noResults: '<p>Nothing found.</p>'
+        });
+  });
+
+  (function( $, window, undefined ) {
+    
+     var bs = {
+          close: $(".icon-remove-sign"),
+          searchform: $(".search-form"),
+          canvas: $("body"),
+          dothis: $('.dosearch')
+      };
+    
+    bs.dothis.on('click', function() {
+      $('.search-wrapper').css({ display: "block" });
+      bs.searchform.toggleClass('active');
+      bs.searchform.find('input').focus();
+      bs.canvas.toggleClass('search-overlay');
+    });
+    
+      bs.close.on('click', function() {
+        $('.search-wrapper').removeAttr( 'style' );
+        bs.searchform.toggleClass('active');
+        bs.canvas.removeClass('search-overlay');
+    });
+  })( jQuery, window );
+</script>
+
+
+	        
+
+</body>
+</html>

@@ -62,12 +62,12 @@ public class IdWorker {
 
 	public IdWorker(final long workerId, final long datacenterId) {
 		super();
-		if (workerId > maxWorkerId || workerId < 0) {
+		if (workerId  maxWorkerId || workerId < 0) {
 			throw new IllegalArgumentException(String.format(
 					"worker Id can't be greater than %d or less than 0",
 					maxWorkerId));
 		}
-		if (datacenterId > maxDatacenterId || datacenterId < 0) {
+		if (datacenterId  maxDatacenterId || datacenterId < 0) {
 			throw new IllegalArgumentException(String.format(
 					"datacenter Id can't be greater than %d or less than 0",
 					maxDatacenterId));

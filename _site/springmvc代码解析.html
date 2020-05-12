@@ -1,0 +1,697 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>springmvc代码解析 &#8211; Orange</title>
+<meta name="description" content="springmvc代码解析">
+<meta name="keywords" content="java, springmvc">
+
+
+<meta name="baidu-site-verification" content="kGTic24zBh" />
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="springmvc代码解析">
+<meta property="og:description" content="springmvc代码解析">
+<meta property="og:url" content="http://localhost:4000/springmvc%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90">
+<meta property="og:site_name" content="Orange">
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/springmvc%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Orange Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.min.css">
+<!-- Webfonts 
+<script src="//use.edgefonts.net/source-sans-pro:n2,i2,n3,i3,n4,i4,n6,i6,n7,i7,n9,i9;source-code-pro:n4,n7;volkhov.js"></script>
+-->
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="http://localhost:4000/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://localhost:4000/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://localhost:4000/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://localhost:4000/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body id="post" itemscope itemtype="http://schema.org/WebPage">
+
+<div class="navigation-wrapper">
+	<nav role="navigation" id="site-nav" class="animated drop" itemscope itemtype="http://schema.org/SiteNavigationElement">
+	    <ul>
+	        
+			<li>
+				
+					<a href="http://localhost:4000/about">Home</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="http://localhost:4000/work">Work</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="http://localhost:4000/interest">Interest</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="http://localhost:4000/life">life</a>
+				 
+			</li>
+	        
+	        <!-- 
+	        <li><a href="http://localhost:4000/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
+	         -->
+	        <li class="dosearch"><i class="icon-search"></i> Search</li>
+	    </ul>
+	</nav>
+</div><!-- /.navigation-wrapper -->
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+
+<div class="search-wrapper">
+	<div class="search-form">
+		<input type="text" class="search-field" placeholder="Search...">
+		<i class="icon-remove-sign icon-2x"></i>
+		<ul class="search-results post-list"></ul><!-- /.search-results -->
+	</div><!-- /.search-form -->
+</div><!-- ./search-wrapper -->
+
+<header class="masthead" itemscope itemtype="http://schema.org/Organization">
+	<div class="wrap">
+		<a href="http://localhost:4000" class="site-logo" rel="home" title="Orange" itemprop="url"><img src="http://localhost:4000/images/logo.jpeg" width="200" height="200" alt="Orange logo" class="animated fadeInUp" itemprop="logo"></a>
+		<h1 class="site-title animated fadeIn"><a href="http://localhost:4000">Orange</a></h1>
+		<h2 class="site-description animated fadeIn" itemprop="description">做个简单的coder.</h2>
+	</div>
+</header><!-- /.masthead -->
+
+
+<div id="main" role="main" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/Blog">
+  <article class="hentry" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="entry-wrapper">
+      <header class="entry-header">
+        <span class="entry-tags"><a href="http://localhost:4000/tags.html#java" title="Pages tagged java" rel="tag">java</a>&nbsp;&bull;&nbsp;<a href="http://localhost:4000/tags.html#springmvc" title="Pages tagged springmvc" rel="tag">springmvc</a></span>
+        
+          <h1 class="entry-title" itemprop="headline">springmvc代码解析</h1>
+        
+      </header>
+      <footer class="entry-meta">
+        <img src="http://localhost:4000/images/logo.jpeg" alt="yangqiju photo" class="author-photo">
+        <span class="author vcard" itemprop="author" itemscope itemtype="http://schema.org/Person">By <span itemprop="name" class="fn"><a href="http://localhost:4000/about" title="About yangqiju" itemprop="url">yangqiju</a></span></span>
+        <span class="entry-date date published"><time datetime="2018-01-02T00:00:00-05:00" itemprop="datePublished"><i class="icon-calendar-empty"></i> January 02, 2018</time></span>
+        
+        
+        <span><a href="http://localhost:4000/springmvc%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90" rel="bookmark" title="springmvc代码解析" itemprop="url"><i class="icon-link"></i> Permalink</a></span>
+      </footer>
+      <div class="entry-content" style="font-size:14px" itemprop="description">
+        <h1 id="概述">概述</h1>
+
+<p>信息版本为：3.1.x</p>
+
+<p>springmvc支持纯javaconfig模式，这里记录的为xml配置模式。</p>
+
+<p>这次代码解析主要想弄明白以下几个部分内容：</p>
+
+<ul>
+  <li>
+    <p>标签如何被加载（例如：RequestMapping）</p>
+  </li>
+  <li>
+    <p>请求如何被处理到指定处理类</p>
+  </li>
+  <li>
+    <p>如何用标签进行数据格式的转换</p>
+  </li>
+  <li>
+    <p>异常是如何处理</p>
+  </li>
+  <li>
+    <p>请求参数如何映射</p>
+  </li>
+  <li>
+    <p>Servlet多线程在哪里实现</p>
+  </li>
+</ul>
+
+<h1 id="标签如何被加载">标签如何被加载</h1>
+
+<p>RequestMapping标签的加载必然是在启动过程中了，web项目直接加载web.xml。</p>
+
+<p>以下为一个简单的web.xml配置，里面常用的配置用颜色标注。</p>
+
+<p>+———————————————————————-+
+| &lt;?xml version="1.0" encoding="UTF-8"?\                         |
+|                                                                      |
+| &lt;web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"    |
+|                                                                      |
+| xmlns="http://java.sun.com/xml/ns/javaee"                          |
+|                                                                      |
+| xsi:schemaLocation="http://java.sun.com/xml/ns/javaee               |
+| http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"                |
+|                                                                      |
+| version="3.0"\                                                    |
+|                                                                      |
+| &lt;display-name\webtest&lt;/display-name\                             |
+|                                                                      |
+| &lt;!-- 提供ContextLoaderListener 并设置相关参数 --\                |
+|                                                                      |
+| &lt;context-param\                                                    |
+|                                                                      |
+| &lt;param-name\contextConfigLocation&lt;/param-name\                   |
+|                                                                      |
+| &lt;param-value\classpath:spring-core.xml&lt;/param-value\             |
+|                                                                      |
+| &lt;/context-param\                                                   |
+|                                                                      |
+| &lt;listener\                                                         |
+|                                                                      |
+| &lt;listener-class\org.                                               |
+| springframework.web.context.ContextLoaderListener&lt;/listener-class\ |
+|                                                                      |
+| &lt;/listener\                                                        |
+|                                                                      |
+| &lt;servlet\                                                          |
+|                                                                      |
+| &lt;servlet-name\webtest&lt;/servlet-name\                             |
+|                                                                      |
+| &lt;servlet-class\                                                     |
+| org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class\ |
+|                                                                      |
+| &lt;load-on-startup\1&lt;/load-on-startup\                             |
+|                                                                      |
+| &lt;/servlet\                                                         |
+|                                                                      |
+| &lt;servlet-mapping\                                                  |
+|                                                                      |
+| &lt;servlet-name\webtest&lt;/servlet-name\                             |
+|                                                                      |
+| &lt;url-pattern\/&lt;/url-pattern\                                     |
+|                                                                      |
+| &lt;/servlet-mapping\                                                 |
+|                                                                      |
+| &lt;filter\                                                           |
+|                                                                      |
+| &lt;filter-name\Set Character Encoding&lt;/filter-name\                |
+|                                                                      |
+| &lt;filter-class\org                                                  |
+| .springframework.web.filter.CharacterEncodingFilter&lt;/filter-class\ |
+|                                                                      |
+| &lt;init-param\                                                       |
+|                                                                      |
+| &lt;param-name\encoding&lt;/param-name\                                |
+|                                                                      |
+| &lt;param-value\utf8&lt;/param-value\                                  |
+|                                                                      |
+| &lt;/init-param\                                                      |
+|                                                                      |
+| &lt;/filter\                                                          |
+|                                                                      |
+| &lt;filter-mapping\                                                   |
+|                                                                      |
+| &lt;filter-name\Set Character Encoding&lt;/filter-name\                |
+|                                                                      |
+| &lt;url-pattern\/*&lt;/url-pattern\                                   |
+|                                                                      |
+| &lt;/filter-mapping\                                                  |
+|                                                                      |
+| &lt;/web-app\                                                         |
++———————————————————————-+</p>
+
+<p>主要分为三类标签（其他标签作为辅助），listener、servlet、filter。</p>
+
+<p>先看一下tomcat是如何加载它们的，tomcat启动时会调用
+StandardContext的startInternal：</p>
+
+<p>+———————————————————————-+
+| //省略之前                                                           |
+|                                                                      |
+| <em>// 加载listener</em>                                                    |
+|                                                                      |
+| <strong>if</strong> (ok) {                                                        |
+|                                                                      |
+| <strong>if</strong> (!listenerStart()) {                                          |
+|                                                                      |
+| <strong><em>log                                                               |
+| **</em>.error(</strong><em>sm</em><strong>.getString(</strong>"standardContext.listenerFail"<strong>)); |
+|                                                                      |
+| ok = **false</strong>;                                                      |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| //省略                                                               |
+|                                                                      |
+| <em>// 加载fileter</em>                                                     |
+|                                                                      |
+| <strong>if</strong> (ok) {                                                        |
+|                                                                      |
+| <strong>if</strong> (!filterStart()) {                                            |
+|                                                                      |
+| <strong><em>l                                                                 |
+| og</em></strong>.error(<strong><em>sm</em></strong>.getString(<strong>"standardContext.filterFail"</strong>)); |
+|                                                                      |
+| ok = <strong>false</strong>;                                                      |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| <em>// 加载初始化”load on startup”的servlet</em>                            |
+|                                                                      |
+| <em>// Load and initialize all "load on startup" servlets</em>            |
+|                                                                      |
+| <strong>if</strong> (ok) {                                                        |
+|                                                                      |
+| <strong>if</strong> (!loadOnStartup(findChildren())){                             |
+|                                                                      |
+| <strong><em>lo                                                                |
+| g</em></strong>.error(<strong><em>sm</em></strong>.getString(<strong>"standardContext.servletFail"</strong>)); |
+|                                                                      |
+| ok = <strong>false</strong>;                                                      |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| }                                                                    |
++———————————————————————-+</p>
+
+<p>以上内容省略了其他的加载执行步骤，但是可以看到这三个加载顺序，在这里内容如下：</p>
+
+<ul>
+  <li>listener</li>
+</ul>
+
+<p>在web.xml中加载spring
+ web的ContextLoaderListener，启动会调用contextInitialized方法，会根据加载spring容器，示例中会加载spring-core.xml配置文件。</p>
+
+<ul>
+  <li>filter</li>
+</ul>
+
+<p>加载配置中的Fileter，例如示例中的encoding处理</p>
+
+<ul>
+  <li>servlet</li>
+</ul>
+
+<p>servlet的加载和处理，在示例中就是springmvc核心的DispatcherServlet，在启动时会springmvc的配置文件，默认以项目名加”-servlet.xml”的配置文件，启动后所有的servlet请求都会到这里进行统一分发处理。</p>
+
+<p>DispatcherServlet是springmvc的核心，所有的请求都是通过它来处理的，类的结构如下：</p>
+
+<p><img src="../images/Springmvc源码解析/image1.png" alt="" />{width=”5.768055555555556in”
+height=”3.7979166666666666in”}</p>
+
+<p>通过上图能够看出DispatcherServlet是实现了Servlet，集成了GenericServlet、HttpServlet，这三个都是javax.servlet.http包中的，Servlet提供了基本的init、service、destroy方法，GenericServlet提供了通用的实现，而HttpServlet实现了具体的Http相关的功能（例如：doGet、doPut、doPost、doDelete、doHead、doTrace、doOption）。</p>
+
+<p>HttpServletBean就是Springmvc的具体的实现了。在FrameworkServlet中实现了构造Springmvc容器（parent
+为spring容器）。</p>
+
+<p>servlet的基本操作如下图：</p>
+
+<p><img src="../images/Springmvc源码解析/image2.png" alt="" />{width=”5.768055555555556in”
+height=”3.428472222222222in”}</p>
+
+<p>比较重要的就是servlet的init、service、destroy了。在tomcat的代码中，tomcat启动项目时，会在StandardWrapper的loadServlet方法中new
+Instance出DispatcherServlet，然后执行init方法。</p>
+
+<p>+———————————————————————-+
+| package org.apache.catalina.core;                                    |
+|                                                                      |
+| public class StandardWrapper extends ContainerBase                   |
+|                                                                      |
+| implements ServletConfig, Wrapper, NotificationEmitter {             |
+|                                                                      |
+| //省略                                                               |
+|                                                                      |
+| public synchronized Servlet loadServlet() throws ServletException {  |
+|                                                                      |
+| //省略                                                               |
+|                                                                      |
+| InstanceManager instanceManager =                                    |
+| ((StandardContext)getParent()).getInstanceManager();                 |
+|                                                                      |
+| try {                                                                |
+|                                                                      |
+| //这里的servletClass                                                 |
+| 就是org.springframework.web.servlet.DispatcherServlet                |
+|                                                                      |
+| // newInstance                                                       |
+| 方法实现为通过类加载器找到class，然后clazz.newInstance()             |
+|                                                                      |
+| servlet = (Servlet) instanceManager.newInstance(servletClass);       |
+|                                                                      |
+| } catch (ClassCastException e) {                                     |
+|                                                                      |
+| //省略                                                               |
+|                                                                      |
+| //调用servlet的init方法                                              |
+|                                                                      |
+| initServlet(servlet);                                                |
+|                                                                      |
+| //省略                                                               |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| }                                                                    |
++———————————————————————-+</p>
+
+<p>在init方法执行后，会调用FrameworkServlet的initServletBean方法，进行springmvc的容器加载。加载过程中，会将spring容器设为parent容器，并加载servlet配置文件。</p>
+
+<p><img src="../images/Springmvc源码解析/image3.png" alt="" />{width=”5.768055555555556in”
+height=”4.315972222222222in”}</p>
+
+<p>加载配置文件会进行解析，解析过程使用org.springframework.web.servlet.config.
+AnnotationDrivenBeanDefinitionParser进行处理，例如&lt;mvc:annotation-driven\、&lt;mvc:argument-resolvers\等等标签。在处理这些标签的同时，会构建RequestMappingHandlerMapping实例的定义，并注册到Springmvc容器中。</p>
+
+<p><img src="../images/Springmvc源码解析/image4.png" alt="" />{width=”5.768055555555556in”
+height=”1.9854166666666666in”}</p>
+
+<p>然后会执行ApplicationContext的refresh动作，对类进行实例化。</p>
+
+<p><img src="../images/Springmvc源码解析/image5.jpeg" alt="\\psf\Home\Library\Containers\com.tencent.qq\Data\Library\Application
+Support\QQ\Users\362991493\QQ\Temp.db\9B8B3230-E611-4CB3-B9CD-6496222229EC.png" />{width=”5.768055555555556in”
+height=”3.642652012248469in”}</p>
+
+<h1 id="方法如何执行">方法如何执行</h1>
+
+<p>由于对tomcat注册了DispatchServlet，所以当有符合该项目路径进行请求后，tomcat会分配当该模块中，例如请求时个Post方法，则会调用doPost方法。</p>
+
+<p><img src="../images/Springmvc源码解析/image6.jpeg" alt="\\psf\Home\Library\Containers\com.tencent.qq\Data\Library\Application
+Support\QQ\Users\362991493\QQ\Temp.db\5F8A9939-8871-413F-B9E1-66C27E074ABE.png" />{width=”5.768055555555556in”
+height=”1.8624376640419948in”}</p>
+
+<p>然后会调用到DispatchServlet的doService，最后会执行到doDispatch方法。</p>
+
+<p>+———————————————————————-+
+| <strong>protected void</strong> doDispatch(HttpServletRequest request,            |
+| HttpServletResponse response) <strong>throws</strong> Exception {                 |
+|                                                                      |
+| HttpServletRequest processedRequest = request;                       |
+|                                                                      |
+| HandlerExecutionChain mappedHandler = <strong>null</strong>;                      |
+|                                                                      |
+| <strong>boolean</strong> multipartRequestParsed = <strong>false</strong>;                      |
+|                                                                      |
+| WebAsyncManager asyncManager =                                       |
+| WebAsyncUtils.<em>getAsyncManager</em>(request);                            |
+|                                                                      |
+| <strong>try</strong> {                                                            |
+|                                                                      |
+| ModelAndView mv = <strong>null</strong>;                                          |
+|                                                                      |
+| Exception dispatchException = <strong>null</strong>;                              |
+|                                                                      |
+| <strong>try</strong> {                                                            |
+|                                                                      |
+| processedRequest = checkMultipart(request);                          |
+|                                                                      |
+| multipartRequestParsed = processedRequest != request;                |
+|                                                                      |
+| <em>// Determine handler for the current request.根据请求，找到handler</em> |
+|                                                                      |
+| mappedHandler = getHandler(processedRequest, <strong>false</strong>);             |
+|                                                                      |
+| <strong>if</strong> (mappedHandler == <strong>null</strong> || mappedHandler.getHandler() == |
+| <strong>null</strong>) {                                                          |
+|                                                                      |
+| noHandlerFound(processedRequest, response);                          |
+|                                                                      |
+| <strong>return</strong>;                                                          |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| <em>// Determine handler adapter for the current                        |
+| request.获得handler的adapter</em>                                        |
+|                                                                      |
+| HandlerAdapter ha = getHandlerAdapter(mappedHandler.getHandler());   |
+|                                                                      |
+| <em>// Process last-modified header, if supported by the handler.</em>      |
+|                                                                      |
+| <em>//如果是get或者head，可以考虑换从相关的内容</em>                        |
+|                                                                      |
+| String method = request.getMethod();                                 |
+|                                                                      |
+| <strong>boolean</strong> isGet = <strong>"GET"</strong>.equals(method);                      |
+|                                                                      |
+| <strong>if</strong> (isGet || <strong>"HEAD"</strong>.equals(method)) {                    |
+|                                                                      |
+| <strong>long</strong> lastModified = ha.getLastModified(request,                  |
+| mappedHandler.getHandler());                                         |
+|                                                                      |
+| <strong>if</strong> (<strong>logger</strong>.isDebugEnabled()) {                               |
+|                                                                      |
+| <strong>logger</strong>.debug(<strong>"Last-Modified value for ["</strong> +                |
+| <em>getRequestUri</em>(request) + <strong>"] is: "</strong> + lastModified);          |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| <strong>if</strong> (<strong>new</strong> ServletWebRequest(request,                           |
+| response).checkNotModified(lastModified) &amp;&amp; isGet) {                 |
+|                                                                      |
+| <strong>return</strong>;                                                          |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| <strong>if</strong> (!mappedHandler.applyPreHandle(processedRequest, response)) { |
+|                                                                      |
+| <strong>return</strong>;                                                          |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| <strong>try</strong> {                                                            |
+|                                                                      |
+| <em>// Actually invoke the handler.</em>                                    |
+|                                                                      |
+| <em>//执行方法</em>                                                         |
+|                                                                      |
+| mv = ha.handle(processedRequest, response,                           |
+| mappedHandler.getHandler());                                         |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| <strong>finally</strong> {                                                        |
+|                                                                      |
+| <strong>if</strong> (asyncManager.isConcurrentHandlingStarted()) {                |
+|                                                                      |
+| <strong>return</strong>;                                                          |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| applyDefaultViewName(request, mv);                                   |
+|                                                                      |
+| mappedHandler.applyPostHandle(processedRequest, response, mv);       |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| <strong>catch</strong> (Exception ex) {                                           |
+|                                                                      |
+| dispatchException = ex;                                              |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| processDispatchResult(processedRequest, response, mappedHandler, mv, |
+| dispatchException);                                                  |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| <strong>catch</strong> (Exception ex) {                                           |
+|                                                                      |
+| triggerAfterCompletion(processedRequest, response, mappedHandler,    |
+| ex);                                                                 |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| <strong>catch</strong> (Error err) {                                              |
+|                                                                      |
+| triggerAfterCompletionWithError(processedRequest, response,          |
+| mappedHandler, err);                                                 |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| <strong>finally</strong> {                                                        |
+|                                                                      |
+| <strong>if</strong> (asyncManager.isConcurrentHandlingStarted()) {                |
+|                                                                      |
+| <em>// Instead of postHandle and afterCompletion</em>                       |
+|                                                                      |
+| mappedHandler.applyAfterConcurrentHandlingStarted(processedRequest,  |
+| response);                                                           |
+|                                                                      |
+| <strong>return</strong>;                                                          |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| <em>// Clean up any resources used by a multipart request.</em>             |
+|                                                                      |
+| <strong>if</strong> (multipartRequestParsed) {                                    |
+|                                                                      |
+| cleanupMultipart(processedRequest);                                  |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| }                                                                    |
++———————————————————————-+</p>
+
+<p>通过上面代码可以看到，先是根据request请求，找到模块启动时注册的handler，然后进行执行。具体的执行方法在InvocableHandlerMethod类中的invokeForRequest体现。</p>
+
+<p>+———————————————————————-+
+| <strong>public final</strong> Object invokeForRequest(NativeWebRequest request,   |
+| ModelAndViewContainer mavContainer,                                  |
+|                                                                      |
+| Object... providedArgs) <strong>throws</strong> Exception {                      |
+|                                                                      |
+| //获得请求参数                                                       |
+|                                                                      |
+| Object[] args = getMethodArgumentValues(request, mavContainer,     |
+| providedArgs);                                                       |
+|                                                                      |
+| //通过反射执行                                                       |
+|                                                                      |
+| Object returnValue = invoke(args);                                   |
+|                                                                      |
+| <strong>return</strong> returnValue;                                              |
+|                                                                      |
+| }                                                                    |
++———————————————————————-+</p>
+
+<p>该方法先是获得请求内容，也就是方法中的具体参数，然后执行invoke反射，执行具体的RequestMapping方法。</p>
+
+<p>而获得参数的方法，这里会进行数据转换的判断和具体的转换方案。</p>
+
+<p><img src="../images/Springmvc源码解析/image7.jpeg" alt="\\psf\Home\Library\Containers\com.tencent.qq\Data\Library\Application
+Support\QQ\Users\362991493\QQ\Temp.db\570FD148-A874-4F62-A7DB-72B8746C0089.png" />{width=”5.768055555555556in”
+height=”3.5730391513560806in”}</p>
+
+<p>而argumentResolver就是请求的转换处理了，比如常用的\@RequestParam、\@PathVariable等。</p>
+
+<p><img src="../images/Springmvc源码解析/image8.jpeg" alt="\\psf\Home\Library\Containers\com.tencent.qq\Data\Library\Application
+Support\QQ\Users\362991493\QQ\Temp.db\245A6BD0-8F74-42C5-801A-F59BB25088EE.png" />{width=”5.768055555555556in”
+height=”5.798038057742782in”}</p>
+
+<p>当请求处理完成后，就会进行返回内容的处理。</p>
+
+<p><img src="../images/Springmvc源码解析/image9.png" alt="" />{width=”5.768055555555556in”
+height=”3.7222222222222223in”}</p>
+
+<p>通常我们使用的\@ResponseBody标签就是在AbstractMessageConverterMethodProcessor中进行处理。</p>
+
+<p><img src="../images/Springmvc源码解析/image10.png" alt="" />{width=”5.768055555555556in”
+height=”2.5756944444444443in”}</p>
+
+<p>而转换的内容就是在配置文件中的具体转换器，例如json、xml的格式转换。</p>
+
+<p><img src="../images/Springmvc源码解析/image11.jpeg" alt="\\psf\Home\Library\Containers\com.tencent.qq\Data\Library\Application
+Support\QQ\Users\362991493\QQ\Temp.db\95AE37F3-DCB4-4AEF-90C1-A7E6092CFB0B.png" />{width=”5.768055555555556in”
+height=”0.7720253718285215in”}</p>
+
+        
+      </div><!-- /.entry-content -->
+    </div><!-- /.entry-wrapper -->
+    <nav class="pagination" role="navigation">
+      
+        <a href="http://localhost:4000/session%E6%80%BB%E7%BB%93" class="btn" title="session总结">Previous article</a>
+      
+      
+        <a href="http://localhost:4000/infer-gradle-jenkins" class="btn" title="infer 对idea和jenkins的支持">Next article</a>
+      
+    </nav><!-- /.pagination -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2020 yangqiju. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">So Simple Theme</a>.</span>
+<div class="social-icons">
+	
+	
+	
+	
+	
+	
+	
+	<a href="http://github.com/yangqiju" title="yangqiju on Github" target="_blank"><i class="icon-github icon-2x"></i></a>
+	
+</div><!-- /.social-icons -->
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://localhost:4000/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://localhost:4000/assets/js/scripts.min.js"></script>
+
+<!-- Jekyll Simple Search option -->
+<script>
+  $(document).ready(function() {
+      $('.search-field').simpleJekyllSearch({
+          jsonFile : 'http://localhost:4000/search.json',
+          searchResults : '.search-results',
+          template : '<li><article><a href="{url}">{title} <span class="entry-date"><time datetime="{date}">{shortdate}</time></span></a></article></li>',
+          noResults: '<p>Nothing found.</p>'
+        });
+  });
+
+  (function( $, window, undefined ) {
+    
+     var bs = {
+          close: $(".icon-remove-sign"),
+          searchform: $(".search-form"),
+          canvas: $("body"),
+          dothis: $('.dosearch')
+      };
+    
+    bs.dothis.on('click', function() {
+      $('.search-wrapper').css({ display: "block" });
+      bs.searchform.toggleClass('active');
+      bs.searchform.find('input').focus();
+      bs.canvas.toggleClass('search-overlay');
+    });
+    
+      bs.close.on('click', function() {
+        $('.search-wrapper').removeAttr( 'style' );
+        bs.searchform.toggleClass('active');
+        bs.canvas.removeClass('search-overlay');
+    });
+  })( jQuery, window );
+</script>
+
+
+	        
+
+</body>
+</html>

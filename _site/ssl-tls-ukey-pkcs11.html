@@ -1,0 +1,286 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>使用UKEY调用PKCS11做SSL/TLS的验证  &#8211; Orange</title>
+<meta name="description" content="SSL/TLS  ukey pkcs11">
+<meta name="keywords" content="SSL, TLS, Java, PKCS11, Ukey">
+
+
+<meta name="baidu-site-verification" content="kGTic24zBh" />
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用UKEY调用PKCS11做SSL/TLS的验证 ">
+<meta property="og:description" content="SSL/TLS  ukey pkcs11">
+<meta property="og:url" content="http://localhost:4000/ssl-tls-ukey-pkcs11">
+<meta property="og:site_name" content="Orange">
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/ssl-tls-ukey-pkcs11">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Orange Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.min.css">
+<!-- Webfonts 
+<script src="//use.edgefonts.net/source-sans-pro:n2,i2,n3,i3,n4,i4,n6,i6,n7,i7,n9,i9;source-code-pro:n4,n7;volkhov.js"></script>
+-->
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="http://localhost:4000/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://localhost:4000/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://localhost:4000/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://localhost:4000/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body id="post" itemscope itemtype="http://schema.org/WebPage">
+
+<div class="navigation-wrapper">
+	<nav role="navigation" id="site-nav" class="animated drop" itemscope itemtype="http://schema.org/SiteNavigationElement">
+	    <ul>
+	        
+			<li>
+				
+					<a href="http://localhost:4000/about">Home</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="http://localhost:4000/work">Work</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="http://localhost:4000/interest">Interest</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="http://localhost:4000/life">life</a>
+				 
+			</li>
+	        
+	        <!-- 
+	        <li><a href="http://localhost:4000/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
+	         -->
+	        <li class="dosearch"><i class="icon-search"></i> Search</li>
+	    </ul>
+	</nav>
+</div><!-- /.navigation-wrapper -->
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+
+<div class="search-wrapper">
+	<div class="search-form">
+		<input type="text" class="search-field" placeholder="Search...">
+		<i class="icon-remove-sign icon-2x"></i>
+		<ul class="search-results post-list"></ul><!-- /.search-results -->
+	</div><!-- /.search-form -->
+</div><!-- ./search-wrapper -->
+
+<header class="masthead" itemscope itemtype="http://schema.org/Organization">
+	<div class="wrap">
+		<a href="http://localhost:4000" class="site-logo" rel="home" title="Orange" itemprop="url"><img src="http://localhost:4000/images/logo.jpeg" width="200" height="200" alt="Orange logo" class="animated fadeInUp" itemprop="logo"></a>
+		<h1 class="site-title animated fadeIn"><a href="http://localhost:4000">Orange</a></h1>
+		<h2 class="site-description animated fadeIn" itemprop="description">做个简单的coder.</h2>
+	</div>
+</header><!-- /.masthead -->
+
+
+<div id="main" role="main" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/Blog">
+  <article class="hentry" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="entry-wrapper">
+      <header class="entry-header">
+        <span class="entry-tags"><a href="http://localhost:4000/tags.html#SSL" title="Pages tagged SSL" rel="tag">SSL</a>&nbsp;&bull;&nbsp;<a href="http://localhost:4000/tags.html#TLS" title="Pages tagged TLS" rel="tag">TLS</a>&nbsp;&bull;&nbsp;<a href="http://localhost:4000/tags.html#Java" title="Pages tagged Java" rel="tag">Java</a>&nbsp;&bull;&nbsp;<a href="http://localhost:4000/tags.html#PKCS11" title="Pages tagged PKCS11" rel="tag">PKCS11</a>&nbsp;&bull;&nbsp;<a href="http://localhost:4000/tags.html#Ukey" title="Pages tagged Ukey" rel="tag">Ukey</a></span>
+        
+          <h1 class="entry-title" itemprop="headline">使用UKEY调用PKCS11做SSL/TLS的验证 </h1>
+        
+      </header>
+      <footer class="entry-meta">
+        <img src="http://localhost:4000/images/logo.jpeg" alt="yangqiju photo" class="author-photo">
+        <span class="author vcard" itemprop="author" itemscope itemtype="http://schema.org/Person">By <span itemprop="name" class="fn"><a href="http://localhost:4000/about" title="About yangqiju" itemprop="url">yangqiju</a></span></span>
+        <span class="entry-date date published"><time datetime="2015-07-09T00:00:00-04:00" itemprop="datePublished"><i class="icon-calendar-empty"></i> July 09, 2015</time></span>
+        
+        
+        <span><a href="http://localhost:4000/ssl-tls-ukey-pkcs11" rel="bookmark" title="使用UKEY调用PKCS11做SSL/TLS的验证 " itemprop="url"><i class="icon-link"></i> Permalink</a></span>
+      </footer>
+      <div class="entry-content" style="font-size:14px" itemprop="description">
+        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>之前使用SSL/TLS 做client和server的双向验证,为了进一步提高安全性，我们设定只允许和指定的client进
+行连接，并且保证client的私钥无法复制,我们采取使用Ukey的方案.
+
+UKey是一种通过USB (通用串行总线接口)直接与计算机相连、具有密码验证功能、可靠高速的小型存储设
+备。Ukey 是对现行的网络安全体系是一个极为有力的补充,Ukey更形象的描述就是以前我们银行使用的Ｕ盾,
+他能确定你的唯一身份,U盾还使用了双因子验证,就是你插了U盾还需要输入pin码.尽可能的提高安全性.
+
+更加详细的Ukey描述就不陈述了,他能使用非对称加密算法，对信息进行数字签名，并且他无法导出私钥,这
+样它能保证身份唯一, 他人不可能造假.
+
+当我们使用java进行对Ukey的调用之前,我们需要了解PKCS11.
+PKCS#11是公钥加密标准（PKCS, Public-Key Cryptography Standards）中的一份子 ，由RSA实验室(RSA 
+Laboratories)发布[1]，它为加密令牌定义了一组平台无关的API ，如硬件安全模块和智能卡.PKCS#11称为
+Cyptoki，定义了一套独立于技术的程序设计接口，UKey安全应用需要实现的接口.
+
+Ukey都遵循PKCS11标准,java也支持对PKCS11的调用,在之前需要如下准备:
+1.Ukey
+2.Ukey驱动或调用库
+
+我手上有safenet的Ukey和本系统调用库,然后直接上代码吧
+</code></pre></div></div>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="nc">String</span> <span class="n">pkcs11config</span> <span class="o">=</span> <span class="s">"library = /home/yangqiju/libeTPkcs11.so\n name = safenetSC\n "</span><span class="o">;</span><span class="c1">//设定算法名称和库地址
+</span>
+<span class="nc">Provider</span> <span class="n">testProvider</span> <span class="o">=</span> <span class="k">new</span> <span class="n">sun</span><span class="o">.</span><span class="na">security</span><span class="o">.</span><span class="na">pkcs11</span><span class="o">.</span><span class="na">SunPKCS11</span><span class="o">(</span><span class="k">new</span> <span class="nc">ByteArrayInputStream</span><span class="o">(</span><span class="n">pkcs11config</span><span class="o">.</span><span class="na">getBytes</span><span class="o">()));</span>
+<span class="nc">Security</span><span class="o">.</span><span class="na">addProvider</span><span class="o">(</span><span class="n">testProvider</span><span class="o">);</span><span class="c1">//添加提供者
+</span>
+<span class="kt">char</span><span class="o">[]</span> <span class="n">pin</span> <span class="o">=</span> <span class="s">"password"</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">();</span>
+<span class="c1">//加载自定义的算法
+</span>
+<span class="nc">KeyStore</span> <span class="n">testKeystore</span> <span class="o">=</span> <span class="nc">KeyStore</span><span class="o">.</span><span class="na">getInstance</span><span class="o">(</span><span class="s">"PKCS11"</span><span class="o">,</span><span class="s">"SunPKCS11-safenetSC"</span><span class="o">);</span><span class="c1">//必须添加SunPKCS11前缀
+</span>
+<span class="n">testKeystore</span><span class="o">.</span><span class="na">load</span><span class="o">(</span><span class="kc">null</span><span class="o">,</span> <span class="n">pin</span><span class="o">);</span>
+
+<span class="nc">Enumeration</span><span class="o">&lt;</span><span class="nc">String</span> <span class="n">aliasesEnum</span> <span class="o">=</span> <span class="n">testKeystore</span><span class="o">.</span><span class="na">aliases</span><span class="o">();</span>
+<span class="k">while</span> <span class="o">(</span><span class="n">aliasesEnum</span><span class="o">.</span><span class="na">hasMoreElements</span><span class="o">())</span> <span class="o">{</span>
+	<span class="nc">String</span> <span class="n">alias</span> <span class="o">=</span> <span class="o">(</span><span class="nc">String</span><span class="o">)</span> <span class="n">aliasesEnum</span><span class="o">.</span><span class="na">nextElement</span><span class="o">();</span>
+	<span class="nc">X509Certificate</span> <span class="n">cert</span> <span class="o">=</span> <span class="o">(</span><span class="nc">X509Certificate</span><span class="o">)</span> <span class="n">testKeystore</span><span class="o">.</span><span class="na">getCertificate</span><span class="o">(</span><span class="n">alias</span><span class="o">);</span>
+	<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Certificate: "</span> <span class="o">+</span> <span class="n">cert</span><span class="o">);</span><span class="c1">//查看证书
+</span>
+<span class="o">}</span></code></pre></figure>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>这是个很简单但是很直接的例子,需要注意的是load 的时候必须要SunPKCS11前缀.
+
+下一步就是使用Ukey和SSL/TLS结合
+</code></pre></div></div>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="nc">System</span><span class="o">.</span><span class="na">setProperty</span><span class="o">(</span><span class="s">"javax.net.ssl.keyStoreType"</span><span class="o">,</span> <span class="s">"pkcs11"</span><span class="o">);</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">setProperty</span><span class="o">(</span><span class="s">"javax.net.ssl.keyStore"</span><span class="o">,</span> <span class="s">"NONE"</span><span class="o">);</span> <span class="c1">//必须NONE
+</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">setProperty</span><span class="o">(</span><span class="s">"javax.net.ssl.keyStorePassword"</span><span class="o">,</span> <span class="s">"password"</span><span class="o">);</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">setProperty</span><span class="o">(</span><span class="s">"javax.net.ssl.keyStoreProvider"</span><span class="o">,</span><span class="s">"SunPKCS11-safenetSC"</span><span class="o">);</span><span class="c1">//设定提供者
+</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">setProperty</span><span class="o">(</span><span class="s">"javax.net.debug"</span><span class="o">,</span> <span class="s">"ssl"</span><span class="o">);</span>
+<span class="nc">String</span> <span class="n">pkcs11config</span> <span class="o">=</span> <span class="s">"library = /home/yangqiju/libeTPkcs11.so\n name = safenetSC\n "</span><span class="o">;</span><span class="c1">//设定算法名称和库地址
+</span>
+<span class="nc">Provider</span> <span class="n">testProvider</span> <span class="o">=</span> <span class="k">new</span> <span class="n">sun</span><span class="o">.</span><span class="na">security</span><span class="o">.</span><span class="na">pkcs11</span><span class="o">.</span><span class="na">SunPKCS11</span><span class="o">(</span><span class="k">new</span> <span class="nc">ByteArrayInputStream</span><span class="o">(</span><span class="n">pkcs11config</span><span class="o">.</span><span class="na">getBytes</span><span class="o">()));</span>
+<span class="nc">Security</span><span class="o">.</span><span class="na">addProvider</span><span class="o">(</span><span class="n">p</span><span class="o">);</span><span class="c1">//添加算法提供者
+</span>
+<span class="nc">SSLSocketFactory</span> <span class="n">factory</span> <span class="o">=</span> <span class="o">(</span><span class="nc">SSLSocketFactory</span><span class="o">)</span> <span class="nc">SSLSocketFactory</span><span class="o">.</span><span class="na">getDefault</span><span class="o">();</span>
+<span class="nc">SSLSocket</span> <span class="n">socket</span> <span class="o">=</span> <span class="o">(</span><span class="nc">SSLSocket</span><span class="o">)</span> <span class="n">factory</span><span class="o">.</span><span class="na">createSocket</span><span class="o">(</span><span class="s">"localhost"</span><span class="o">,</span> <span class="mi">10036</span><span class="o">);</span><span class="c1">//建立连接
+</span>
+<span class="k">try</span> <span class="o">{</span>
+	<span class="n">socket</span><span class="o">.</span><span class="na">startHandshake</span><span class="o">();</span><span class="c1">//执行握手协议
+</span>
+	<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"success.."</span><span class="o">);</span>
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+	<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"error..."</span><span class="o">);</span>
+	<span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+<span class="o">}</span></code></pre></figure>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>以上的代码是client 的代码,server的代码和其他的SSL/TLS 相同,网上查查有很多.
+在握手之前,记得把双方证书相互添加信任.
+</code></pre></div></div>
+
+        
+      </div><!-- /.entry-content -->
+    </div><!-- /.entry-wrapper -->
+    <nav class="pagination" role="navigation">
+      
+        <a href="http://localhost:4000/ssl-tls-pkcs12-JSSE" class="btn" title="java SSL/TLS ">Previous article</a>
+      
+      
+        <a href="http://localhost:4000/glassfish-osgi-deploy" class="btn" title="glassfish OSGi 环境使用obr部署选择版本部署 ">Next article</a>
+      
+    </nav><!-- /.pagination -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2020 yangqiju. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">So Simple Theme</a>.</span>
+<div class="social-icons">
+	
+	
+	
+	
+	
+	
+	
+	<a href="http://github.com/yangqiju" title="yangqiju on Github" target="_blank"><i class="icon-github icon-2x"></i></a>
+	
+</div><!-- /.social-icons -->
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://localhost:4000/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://localhost:4000/assets/js/scripts.min.js"></script>
+
+<!-- Jekyll Simple Search option -->
+<script>
+  $(document).ready(function() {
+      $('.search-field').simpleJekyllSearch({
+          jsonFile : 'http://localhost:4000/search.json',
+          searchResults : '.search-results',
+          template : '<li><article><a href="{url}">{title} <span class="entry-date"><time datetime="{date}">{shortdate}</time></span></a></article></li>',
+          noResults: '<p>Nothing found.</p>'
+        });
+  });
+
+  (function( $, window, undefined ) {
+    
+     var bs = {
+          close: $(".icon-remove-sign"),
+          searchform: $(".search-form"),
+          canvas: $("body"),
+          dothis: $('.dosearch')
+      };
+    
+    bs.dothis.on('click', function() {
+      $('.search-wrapper').css({ display: "block" });
+      bs.searchform.toggleClass('active');
+      bs.searchform.find('input').focus();
+      bs.canvas.toggleClass('search-overlay');
+    });
+    
+      bs.close.on('click', function() {
+        $('.search-wrapper').removeAttr( 'style' );
+        bs.searchform.toggleClass('active');
+        bs.canvas.removeClass('search-overlay');
+    });
+  })( jQuery, window );
+</script>
+
+
+	        
+
+</body>
+</html>

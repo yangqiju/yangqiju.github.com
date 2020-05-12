@@ -1,0 +1,349 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Rocketmq学习 &#8211; Orange</title>
+<meta name="description" content="Rocketmq学习">
+<meta name="keywords" content="java, Rocketmq, kafka">
+
+
+<meta name="baidu-site-verification" content="kGTic24zBh" />
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Rocketmq学习">
+<meta property="og:description" content="Rocketmq学习">
+<meta property="og:url" content="http://localhost:4000/rocketmq%E5%AD%A6%E4%B9%A0">
+<meta property="og:site_name" content="Orange">
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/rocketmq%E5%AD%A6%E4%B9%A0">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Orange Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.min.css">
+<!-- Webfonts 
+<script src="//use.edgefonts.net/source-sans-pro:n2,i2,n3,i3,n4,i4,n6,i6,n7,i7,n9,i9;source-code-pro:n4,n7;volkhov.js"></script>
+-->
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="http://localhost:4000/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://localhost:4000/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://localhost:4000/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://localhost:4000/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body id="post" itemscope itemtype="http://schema.org/WebPage">
+
+<div class="navigation-wrapper">
+	<nav role="navigation" id="site-nav" class="animated drop" itemscope itemtype="http://schema.org/SiteNavigationElement">
+	    <ul>
+	        
+			<li>
+				
+					<a href="http://localhost:4000/about">Home</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="http://localhost:4000/work">Work</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="http://localhost:4000/interest">Interest</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="http://localhost:4000/life">life</a>
+				 
+			</li>
+	        
+	        <!-- 
+	        <li><a href="http://localhost:4000/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
+	         -->
+	        <li class="dosearch"><i class="icon-search"></i> Search</li>
+	    </ul>
+	</nav>
+</div><!-- /.navigation-wrapper -->
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+
+<div class="search-wrapper">
+	<div class="search-form">
+		<input type="text" class="search-field" placeholder="Search...">
+		<i class="icon-remove-sign icon-2x"></i>
+		<ul class="search-results post-list"></ul><!-- /.search-results -->
+	</div><!-- /.search-form -->
+</div><!-- ./search-wrapper -->
+
+<header class="masthead" itemscope itemtype="http://schema.org/Organization">
+	<div class="wrap">
+		<a href="http://localhost:4000" class="site-logo" rel="home" title="Orange" itemprop="url"><img src="http://localhost:4000/images/logo.jpeg" width="200" height="200" alt="Orange logo" class="animated fadeInUp" itemprop="logo"></a>
+		<h1 class="site-title animated fadeIn"><a href="http://localhost:4000">Orange</a></h1>
+		<h2 class="site-description animated fadeIn" itemprop="description">做个简单的coder.</h2>
+	</div>
+</header><!-- /.masthead -->
+
+
+<div id="main" role="main" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/Blog">
+  <article class="hentry" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="entry-wrapper">
+      <header class="entry-header">
+        <span class="entry-tags"><a href="http://localhost:4000/tags.html#java" title="Pages tagged java" rel="tag">java</a>&nbsp;&bull;&nbsp;<a href="http://localhost:4000/tags.html#Rocketmq" title="Pages tagged Rocketmq" rel="tag">Rocketmq</a>&nbsp;&bull;&nbsp;<a href="http://localhost:4000/tags.html#kafka" title="Pages tagged kafka" rel="tag">kafka</a></span>
+        
+          <h1 class="entry-title" itemprop="headline">Rocketmq学习</h1>
+        
+      </header>
+      <footer class="entry-meta">
+        <img src="http://localhost:4000/images/logo.jpeg" alt="yangqiju photo" class="author-photo">
+        <span class="author vcard" itemprop="author" itemscope itemtype="http://schema.org/Person">By <span itemprop="name" class="fn"><a href="http://localhost:4000/about" title="About yangqiju" itemprop="url">yangqiju</a></span></span>
+        <span class="entry-date date published"><time datetime="2019-03-04T00:00:00-05:00" itemprop="datePublished"><i class="icon-calendar-empty"></i> March 04, 2019</time></span>
+        
+        
+        <span><a href="http://localhost:4000/rocketmq%E5%AD%A6%E4%B9%A0" rel="bookmark" title="Rocketmq学习" itemprop="url"><i class="icon-link"></i> Permalink</a></span>
+      </footer>
+      <div class="entry-content" style="font-size:14px" itemprop="description">
+        <h1 id="概述">概述</h1>
+
+<p>RocketMQ是一个分布式开放消息中间件，底层基于队列模型来实现消息收发功能。RocketMQ集群中包含4个模块：Namesrv,Broker, Producer, Consumer。</p>
+
+<ul>
+  <li>
+    <p>Namesrv: 存储当前集群所有Brokers信息、Topic跟Broker的对应关系。</p>
+  </li>
+  <li>
+    <p>Broker:
+集群最核心模块，主要负责Topic消息存储、消费者的消费位点管理（消费进度）。</p>
+  </li>
+  <li>
+    <p>Producer:
+消息生产者，每个生产者都有一个ID(编号)，多个生产者实例可以共用同一个ID。同一个ID下所有实例组成一个生产者集群。</p>
+  </li>
+  <li>
+    <p>Consumer:
+消息消费者，每个订阅者也有一个ID(编号)，多个消费者实例可以共用同一个ID。同一个ID下所有实例组成一个消费者集群。</p>
+  </li>
+</ul>
+
+<p><img src="../images/Rocketmq学习/image1.png" alt="" />{width=”5.768055555555556in” height=”3.436111111111111in”}</p>
+
+<h2 id="设计理念">设计理念</h2>
+
+<p>RocketMq设计基于主题的发育与订阅模式，其核心功能包括消息发送、消息存储、消息消费，整体设计追求简单与性能第一，主要体现在如下三个方面。</p>
+
+<p>首先NameServer设计极其简单，摒弃了业界常用的zookeeper充当信息管理的注册中心，而是自研NameServer来实现元数据的管理（topic路由信息等），从实际需求出发，应为topic路由信息无需在集群之间保持
+ 一直，追求最终一致性，并且能容忍分钟级的不一致，正式基于此情况，RocketMQ的NameServer集群之间互不通讯，极大的降低了NameServer实现的复杂程度，对网络的要求也降低了不少，但是性能相比较Zookeeper有了极大的提升。</p>
+
+<p>其次是高效的IO存储机制，RokcetMQ最求消息发送到高吞吐量，RocketMQ的消息存储文件设计成文件组的概念，组内单个文件大小固定，方便引入内存映射机制，所有主题的消息存储基于顺序写，极大的提供了消息写性能，同时为了兼顾消息消费与消息查找，映入了消息消费队列与索引文件队列。</p>
+
+<p>最后是容忍存在的设计缺陷，如何保证消息一定能被消费者消费，并且只能消费一次，这个问题让使用中间件的人员用业务来实现，保证了内核的简化。</p>
+
+<h2 id="路由通讯">路由通讯</h2>
+
+<p><img src="../images/Rocketmq学习/image2.png" alt="" />{width=”5.768055555555556in”
+ height=”3.234722222222222in”}</p>
+
+<p>结合部署结构图，描述集群工作流程:</p>
+
+<p>1，启动Namesrv，Namesrv起来后监听端口，等待Broker、Produer、Consumer连上来，相当于一个路由控制中心。</p>
+
+<p>2，Broker启动，跟所有的Namesrv保持长连接，定时发送心跳包。心跳包中包含当前Broker信息(IP+端口等)以及存储所有topic信息。注册成功后，namesrv集群中就有Topic跟Broker的映射关系。</p>
+
+<p>3，收发消息前，先创建topic，创建topic时需要指定该topic要存储在哪些Broker上。也可以在发送消息时自动创建Topic。</p>
+
+<p>4，Producer发送消息，启动时先跟Namesrv集群中的其中一台建立长连接，并从Namesrv中获取当前发送的Topic存在哪些Broker上，然后跟对应的Broker建立长连接，直接向Broker发消息。</p>
+
+<p>5，Consumer跟Producer类似。跟其中一台Namesrv建立长连接，获取当前订阅Topic存在哪些Broker上，然后直接跟Broker建立连接通道，开始消费消息。</p>
+
+<h2 id="与kafka存储的不同">与kafka存储的不同</h2>
+
+<p>Kafka的存储设计：</p>
+
+<p><img src="../images/Rocketmq学习/image3.png" alt="" />{width=”5.768055555555556in”
+ height=”2.2895833333333333in”}</p>
+
+<p>中每个topic_partition对应一个日志文件，Producer对该日志文件进行”顺序写”，Consumer对该文件进行”顺序读”。这种存储方式，对于每个文件来说是顺序IO，但是当并发的读写多个partition的时候，对应多个文件的顺序IO，表现在文件系统的磁盘层面，还是随机IO。因此出现了当partition或者topic个数过多时，Kafka的性能急剧下降。</p>
+
+<p>RocketMQ的存储文件设计：</p>
+
+<p><img src="../images/Rocketmq学习/image4.png" alt="" />{width=”5.768055555555556in”
+ height=”1.7763888888888888in”}</p>
+
+<p>为了解决上述问题，RocketMQ采用了单一的日志文件，即把同1台机器上面所有topic的所有queue的消息，存放在一个文件里面，从而避免了随机的磁盘写入。所有消息都存在一个单一的CommitLog文件里面，然后有后台线程异步的同步到ConsumeQueue，再由Consumer进行消费。</p>
+
+<p>对于ConsumeQueue，是完全的顺序读写。可是对于CommitLog，Producer对其”顺序写”，Consumer却是对其”随机读”。</p>
+
+<p>对于这样的一个大型文件，又要随机读，如何提高读写效率呢？</p>
+
+<p>答案就是”内存映射文件”。关于内存映射文件的原理，以后有机会，可以在LInux的篇章中，详细分析。此处就不展开了。</p>
+
+<p>对于RocketMQ来说，它是把内存映射文件串联起来，组成了链表。因为内存映射文件本身大小有限制，只能是2G。所以需要把多个内存映射文件串联成一个链表，来和一个屋里文件对应起来。</p>
+
+<p>所以：当topic很多的时候，RocketMQ是个好的选择</p>
+
+<p>原文： &lt;https://blog.csdn.net/chunlongyu/article/details/54576649</p>
+
+<h2 id="ms架构">M/S架构</h2>
+
+<p>高可用性几乎是每个分布式系统在设计时必须要考虑的一个重要特性，在遵 循
+ CAP 原则(即:一致性、可用性和分区容错性三者无法在分布式系统中被同
+ 时满足，并且最多只能满足其中两个)基础上，业界也提出了一些针对分布式系
+ 统通用的高可用解决方案，如下图所示:</p>
+
+<p><img src="../images/Rocketmq学习/image5.png" alt="" />{width=”5.768055555555556in”
+height=”3.390972222222222in”}</p>
+
+<p>其中，行代表了分布式系统中通用的高可用解决方案，包括冷备、
+ Master/Slave、Master/Master、两阶段提交以及基于 Paxos 算法的解决方案;
+ 列代表了分布式系统所关心的各项指标，包括数据一致性、事务支持程度、数据
+ 延迟、系统吞吐量、数据丢失可能性、故障自动恢复方式。</p>
+
+<p>从图中可以看出，不同的解决方案对各项指标的支持程度各有侧重。基于 CAP
+ 原则，很难设计出一种高可用方案能同时够满足所有指标的最优值，以
+ Master/Slave 为例，一般满足如下几个特性:</p>
+
+<p>1) Slave 是 Master 的备份，可以根据数据的重要程度设置 Slave 的个数。
+ 数据写请求命中 Master，读请求可命中 Master 或者 Slave。</p>
+
+<p>2) 写请求命中 Master 之后，数据可通过同步或者异步的方式从 Master</p>
+
+<p>复制到 Slave 上;其中同步复制模式需要保证 Master 和 Slave
+ 均写成功后才反馈给客户端成功;异步复制模式只需要保证Master
+ 写成功即可反馈给客户端成 功。</p>
+
+<p>数据通过同步或者异步方式从 Master 复制到 Slave 上，因此 Master/Slave
+ 结构至少能保证数据的最终一致性;异步复制模式下，数据在 Master 写成功后
+ 即可反馈给客户端成功，因此系统拥有较低的延迟和较高的吞吐量，但同时会带
+ 来 Master 故障丢数据的可能性;如期望异步复制模式下 Master 故障时数据仍
+ 不丢，Slave 只能以 Read-Only 的方式等待 Master
+ 的恢复，即延长了系统的故障恢复时间。相反，Master/Slave
+ 结构中的同步复制模式会以增大数据写入延迟、降低系统吞吐量的代价来保证机器故障时数据不丢，同时降低系统故障恢复时间。</p>
+
+<p>RocketMQ 以 Master/Slave 结构实现多机房对等部署，消息的写请求会命中
+ Master，然后通过同步或者异步方式复制到 Slave
+ 上进行持久化存储;消息的读请求会优先命中Master，当消息堆积导致磁盘压力大时，读请求转移至
+ Slave。</p>
+
+<p>出于对系统复杂性以及消息引擎本身对 CAP 原则适配的考虑，RocketMQ
+ 高可用架构的设计采用了 Master/Slave 结构，在提供低延迟、高吞吐量消息服
+ 务的基础上，采用主备同步复制的方式避免故障时消息的丢失。数据同步过程中，
+ 通过维护一个递增的全局唯一 SequenceID 来保证数据强一致。同时引入故障
+ 自动恢复机制以降低故障恢复时间，提升系统的可用性。</p>
+
+<h3 id="到底会不会丢数据">到底会不会丢数据？</h3>
+<p>首先消息borker收到消息后会顺序写入CommitLog，数据会同步或者异步的方式进行master/slave复制，然后异步刷盘（默认，要求数据安全性的可改成同步）。所以当主从复制是异步的，刷盘也是异步的时候，主从都挂的情况下，数据就丢了。</p>
+
+<h2 id="其他">其他</h2>
+
+<p>&lt;https://www.jianshu.com/p/eece39beee20</p>
+
+<p>&lt;https://blog.51cto.com/13925625/2276357</p>
+
+<p>&lt;https://www.songma.com/news/txtlist_i24016v.html</p>
+
+        
+      </div><!-- /.entry-content -->
+    </div><!-- /.entry-wrapper -->
+    <nav class="pagination" role="navigation">
+      
+        <a href="http://localhost:4000/nacos%E5%AD%A6%E4%B9%A0" class="btn" title="nacos学习">Previous article</a>
+      
+      
+        <a href="http://localhost:4000/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%A7%84%E8%8C%83%E5%BF%AB%E6%9F%A5" class="btn" title="Java虚拟机规范笔记">Next article</a>
+      
+    </nav><!-- /.pagination -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2020 yangqiju. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">So Simple Theme</a>.</span>
+<div class="social-icons">
+	
+	
+	
+	
+	
+	
+	
+	<a href="http://github.com/yangqiju" title="yangqiju on Github" target="_blank"><i class="icon-github icon-2x"></i></a>
+	
+</div><!-- /.social-icons -->
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://localhost:4000/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://localhost:4000/assets/js/scripts.min.js"></script>
+
+<!-- Jekyll Simple Search option -->
+<script>
+  $(document).ready(function() {
+      $('.search-field').simpleJekyllSearch({
+          jsonFile : 'http://localhost:4000/search.json',
+          searchResults : '.search-results',
+          template : '<li><article><a href="{url}">{title} <span class="entry-date"><time datetime="{date}">{shortdate}</time></span></a></article></li>',
+          noResults: '<p>Nothing found.</p>'
+        });
+  });
+
+  (function( $, window, undefined ) {
+    
+     var bs = {
+          close: $(".icon-remove-sign"),
+          searchform: $(".search-form"),
+          canvas: $("body"),
+          dothis: $('.dosearch')
+      };
+    
+    bs.dothis.on('click', function() {
+      $('.search-wrapper').css({ display: "block" });
+      bs.searchform.toggleClass('active');
+      bs.searchform.find('input').focus();
+      bs.canvas.toggleClass('search-overlay');
+    });
+    
+      bs.close.on('click', function() {
+        $('.search-wrapper').removeAttr( 'style' );
+        bs.searchform.toggleClass('active');
+        bs.canvas.removeClass('search-overlay');
+    });
+  })( jQuery, window );
+</script>
+
+
+	        
+
+</body>
+</html>

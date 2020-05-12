@@ -10,33 +10,33 @@ tags: [mvn,java,deploy]
 在pox.xml 中添加如下配置：
 
 {% highlight xml %}
-<distributionManagement>
-  <repository>
-    <id>joyveb-releases</id>
-    <url>http://192.168.3.10:8081/nexus/content/repositories/joyvebhost</url>
-    </repository>
-  <snapshotRepository>
-    <id>joyveb-snapshots</id>
-    <url>http://192.168.3.10:8081/nexus/content/repositories/joyvebhost</url>
-  </snapshotRepository>
-</distributionManagement>
+<distributionManagement
+  <repository
+    <idjoyveb-releases</id
+    <urlhttp://192.168.3.10:8081/nexus/content/repositories/joyvebhost</url
+    </repository
+  <snapshotRepository
+    <idjoyveb-snapshots</id
+    <urlhttp://192.168.3.10:8081/nexus/content/repositories/joyvebhost</url
+  </snapshotRepository
+</distributionManagement
 {% endhighlight %}
 
 在/.m2/settings.xml 中配置如下：
 
 {% highlight xml %}
-<servers>
-  <server>
-        <id>joyveb-releases</id>
-          <username>username</username>
-          <password>password</password>
-  </server>
-  <server>
-          <id>joyveb-snapshots</id>
-          <username>username</username>
-          <password>password</password>
-  </server>
-</servers>
+<servers
+  <server
+        <idjoyveb-releases</id
+          <usernameusername</username
+          <passwordpassword</password
+  </server
+  <server
+          <idjoyveb-snapshots</id
+          <usernameusername</username
+          <passwordpassword</password
+  </server
+</servers
 {% endhighlight %}
 
 在终端中运行

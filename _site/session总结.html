@@ -1,0 +1,833 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>session总结 &#8211; Orange</title>
+<meta name="description" content="session总结">
+<meta name="keywords" content="java, session">
+
+
+<meta name="baidu-site-verification" content="kGTic24zBh" />
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="session总结">
+<meta property="og:description" content="session总结">
+<meta property="og:url" content="http://localhost:4000/session%E6%80%BB%E7%BB%93">
+<meta property="og:site_name" content="Orange">
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/session%E6%80%BB%E7%BB%93">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Orange Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.min.css">
+<!-- Webfonts 
+<script src="//use.edgefonts.net/source-sans-pro:n2,i2,n3,i3,n4,i4,n6,i6,n7,i7,n9,i9;source-code-pro:n4,n7;volkhov.js"></script>
+-->
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="http://localhost:4000/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://localhost:4000/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://localhost:4000/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://localhost:4000/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body id="post" itemscope itemtype="http://schema.org/WebPage">
+
+<div class="navigation-wrapper">
+	<nav role="navigation" id="site-nav" class="animated drop" itemscope itemtype="http://schema.org/SiteNavigationElement">
+	    <ul>
+	        
+			<li>
+				
+					<a href="http://localhost:4000/about">Home</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="http://localhost:4000/work">Work</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="http://localhost:4000/interest">Interest</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="http://localhost:4000/life">life</a>
+				 
+			</li>
+	        
+	        <!-- 
+	        <li><a href="http://localhost:4000/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
+	         -->
+	        <li class="dosearch"><i class="icon-search"></i> Search</li>
+	    </ul>
+	</nav>
+</div><!-- /.navigation-wrapper -->
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+
+<div class="search-wrapper">
+	<div class="search-form">
+		<input type="text" class="search-field" placeholder="Search...">
+		<i class="icon-remove-sign icon-2x"></i>
+		<ul class="search-results post-list"></ul><!-- /.search-results -->
+	</div><!-- /.search-form -->
+</div><!-- ./search-wrapper -->
+
+<header class="masthead" itemscope itemtype="http://schema.org/Organization">
+	<div class="wrap">
+		<a href="http://localhost:4000" class="site-logo" rel="home" title="Orange" itemprop="url"><img src="http://localhost:4000/images/logo.jpeg" width="200" height="200" alt="Orange logo" class="animated fadeInUp" itemprop="logo"></a>
+		<h1 class="site-title animated fadeIn"><a href="http://localhost:4000">Orange</a></h1>
+		<h2 class="site-description animated fadeIn" itemprop="description">做个简单的coder.</h2>
+	</div>
+</header><!-- /.masthead -->
+
+
+<div id="main" role="main" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/Blog">
+  <article class="hentry" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="entry-wrapper">
+      <header class="entry-header">
+        <span class="entry-tags"><a href="http://localhost:4000/tags.html#java" title="Pages tagged java" rel="tag">java</a>&nbsp;&bull;&nbsp;<a href="http://localhost:4000/tags.html#session" title="Pages tagged session" rel="tag">session</a></span>
+        
+          <h1 class="entry-title" itemprop="headline">session总结</h1>
+        
+      </header>
+      <footer class="entry-meta">
+        <img src="http://localhost:4000/images/logo.jpeg" alt="yangqiju photo" class="author-photo">
+        <span class="author vcard" itemprop="author" itemscope itemtype="http://schema.org/Person">By <span itemprop="name" class="fn"><a href="http://localhost:4000/about" title="About yangqiju" itemprop="url">yangqiju</a></span></span>
+        <span class="entry-date date published"><time datetime="2017-12-01T00:00:00-05:00" itemprop="datePublished"><i class="icon-calendar-empty"></i> December 01, 2017</time></span>
+        
+        
+        <span><a href="http://localhost:4000/session%E6%80%BB%E7%BB%93" rel="bookmark" title="session总结" itemprop="url"><i class="icon-link"></i> Permalink</a></span>
+      </footer>
+      <div class="entry-content" style="font-size:14px" itemprop="description">
+        <h2 id="session-是什么">Session 是什么</h2>
+
+<p>在计算机科学领域来说，尤其是在网络领域，会话（session）是一种持久网络协议，在用户（或用户代理）端和服务器端之间创建关联，从而起到交换数据包的作用机制，session在网络协议（例如telnet或FTP）中是非常重要的部分。（wikipedia）</p>
+
+<p>结合应用场景来说，当用户登录成功后，server端需要记录用户的状态，需要用某种机制来识别具体的用户，这个机制就是Session。</p>
+
+<p>用java开发web服务时，通常会在server端新建session，并存储在内存中，会在session放入一些必要的属性，例如username。</p>
+
+<p>但是HTTP通常是短链接，并且是无状态的，server端是如何知道发起者是否已经登录的？所以通常会有个标识，该标识能够证明”我”是谁。</p>
+
+<p>在JAVA中，标识通常为JSESSIONID，PHP中为PHPSESSID。</p>
+
+<h2 id="标识">标识</h2>
+
+<p>在Session机制中，需要个标识证明请求者的身份，最简单的方式就是透明化SESSIONID，直接将sessionid放在url上。例如：</p>
+
+<p>+————————————————————+
+| &lt;http://www.xxx.com/xxx_app;jsessionid=xxxxxxxxxx?a=x&amp;b=x |
+|                                                            |
+| # request.getParameter()方法还取不到jsessionid            |
++————————————————————+</p>
+
+<p>但是这种方法很不好，url是明文并且很容易被劫持，如果B获得了A的sessionid，那B就能假冒A发起请求了。该方法太过简陋，也不建议被使用。</p>
+
+<p>再一个方案就是用的很广泛的cookie了。对于web开发，session和cookie一点也不陌生，随口就会说session存储在服务端，cookie存储在客户端。开发购物车将物品信息放在cookie中，方便用户下次点开还能看到购物车中没有购买的内容。</p>
+
+<p>同购物车的例子相同，在session机制中，cookie担当的就是存储session标识的责任。下面以登录为例：</p>
+
+<p>当登录成功后，server会在 response headers中set
+cookie。让浏览器将sessionid记录下来。（key为session，sessionid的标识，可自己定义）</p>
+
+<p><img src="../images/Session总结/image1.png" alt="" />{width=”5.768055555555556in”
+height=”0.9881944444444445in”}</p>
+
+<p>当登录后请求其他页面时，可以查看requeset
+headers，cookie中标识了session的id。</p>
+
+<p><img src="../images/Session总结/image2.png" alt="" />{width=”5.768055555555556in”
+height=”1.604861111111111in”}</p>
+
+<p>当客户端携带cookie发起请求时，服务端会解析cookie内容，并通过sessionid找到相应的session。</p>
+
+<p>或者通过curl直接设置cookie请求，可以直接获得session。</p>
+
+<hr />
+<p>curl -i --cookie "SESSION=3e4fb030-c085-4c2c-bc31-6a9d3ac6c115;" http://localhost:8080/webtest/test
+  ——————————————————————————————————–</p>
+
+<h2 id="xss攻击">XSS攻击</h2>
+
+<p>跨站脚本（英语：Cross-site
+scripting，通常简称为：XSS）是一种网站应用程序的安全漏洞攻击，是代码注入的一种。它允许恶意用户将代码注入到网页上，其他用户在观看网页时就会受到影响。这类攻击通常包含了HTML以及用户端脚本语言。</p>
+
+<p>*Cross-site
+scripting的英文首字母缩写本应为CSS，但因为CSS在网页设计领域已经被广泛指层叠样式表（Cascading
+Style
+Sheets），所以将Cross（意为”交叉”）改以交叉形的X做为缩写。但早期的文件还是会使用CSS表示Cross-site
+scripting。</p>
+
+<p><img src="../images/Session总结/image3.jpeg" alt="\\psf\Home\Library\Containers\com.tencent.qq\Data\Library\Application
+Support\QQ\Users\362991493\QQ\Temp.db\24ECE278-A137-4108-A6A4-96EB47476C39.png" />{width=”4.84375in”
+height=”3.376466535433071in”}</p>
+
+<p>以上最关键的一部是通过JavaScript从Cookie中获得Session编号。例如如下代码：</p>
+
+<p><img src="../images/Session总结/image4.jpeg" alt="\\psf\Home\Library\Containers\com.tencent.qq\Data\Library\Application
+Support\QQ\Users\362991493\QQ\Temp.db\4146B27F-221E-4CA7-B93C-31EA977A49F6.png" />{width=”5.768055555555556in”
+height=”1.1661767279090114in”}</p>
+
+<p>先放入将username放入cookie中，再通过alert将cookie内容数据。结果如下：</p>
+
+<p><img src="../images/Session总结/image5.png" alt="" />{width=”5.768055555555556in”
+height=”2.3881944444444443in”}</p>
+
+<p>可以看到输出的内容有_ga、manager、username三个cookie的内容。</p>
+
+<p>说明刚刚放入的username直接被打印了出来。</p>
+
+<p>*manager是用go语言的gin框架开发的web服务的sessionid。HttpOnly默认为false。</p>
+
+<p>再查看一下浏览器中的cookie内容。</p>
+
+<p><img src="../images/Session总结/image6.png" alt="" />{width=”5.768055555555556in”
+height=”1.0520833333333333in”}</p>
+
+<p>实际内容的SESSION没有被打印出来，而username则被js读取出来了。所以为了安全，需要将HttpOnly设置为true，设置完该参数后，js将无法读取该cookie的值。</p>
+
+<h2 id="cors">CORS</h2>
+
+<p>CORS（Cross-Origin Resource Sharing
+跨源资源共享），当一个请求url的协议、域名、端口三者之间任意一与当前页面地址不同即为跨域。</p>
+
+<p>No 'Access-Control-Allow-Origin' header is present on the requested
+resource.</p>
+
+<p><img src="../images/Session总结/image7.png" alt="" />{width=”5.768055555555556in”
+height=”0.3034722222222222in”}</p>
+
+<p>例如A域名中引入的B域名的图片，或者管理后台web端的js代码直接向ElasticSearch发起查询请求。ElasticSearch默认是关闭了该功能。</p>
+
+<p>跨域请求和Ajax技术都会极大地提高页面的体验，但同时也会带来安全的隐患，其中最主要的隐患来自于CSRF（Cross-site
+request forgery）跨站请求伪造</p>
+
+<p><img src="../images/Session总结/image8.jpeg" alt="\\psf\Home\Library\Containers\com.tencent.qq\Data\Library\Application
+Support\QQ\Users\362991493\QQ\Temp.db\F35F0A9C-DC06-4932-ADCF-D7E2B851742A.png" />{width=”5.768055555555556in”
+height=”3.418360673665792in”}</p>
+
+<p>CSRF攻击的大致原理是：</p>
+
+<ol>
+  <li>
+    <p>用户通过浏览器，访问正常网站A（例如某银行），通过用户的身份认证（比如用户名/密码）成功A网站。</p>
+  </li>
+  <li>
+    <p>网站A产生Cookie信息并返回给用户的浏览器；</p>
+  </li>
+  <li>
+    <p>用户保持A网站页面登录状态，在同一浏览器中，打开一个新的TAB页访问恶意网站B；</p>
+  </li>
+  <li>
+    <p>网站B接收到用户请求后，返回一些攻击性代码，请求A网站的资源（例如转账请求）；</p>
+  </li>
+  <li>
+    <p>浏览器执行恶意代码，在用户不知情的情况下携带Cookie信息，向网站A发出请求。</p>
+  </li>
+  <li>
+    <p>网站A根据用户的Cookie信息核实用户身份（此时用户在A网站是已登录状态），A网站会处理该请求，导致来自网站B的恶意请求被执行。</p>
+  </li>
+</ol>
+
+<p>分析上面的情景，原因就是当用户在B网站发起对A网站的操作是，A并没有拒绝，也就是信任了B网站，所以导致了问题。</p>
+
+<p>通过上面就能获知为什么ES为什么关闭了该功能。当管理员登录了ES后，再登录一个恶意网页，网页中向ES发起delete操作，那么数据也就没了。</p>
+
+<p>目前我们为了对ES进行了简单的cors开启，此类开启也就信任的所有的网站了，不够安全。</p>
+
+<p>+———————————–+
+| http.cors.allow-origin: "/.*/" |
+|                                   |
+| http.cors.enabled: true           |
++———————————–+</p>
+
+<p>对参数应该更加细化的配置，保证安全，例如只允许GET方法。</p>
+
+<p>http.cors.allow-origin        Which origins to allow. Defaults to no origins allowed. If you prepend and append a / to the value, this will be treated as a regular expression, allowing you to support HTTP and HTTPs. for example using /https?:\/\/localhost(:[0-9]+)?/ would return the request header appropriately in both cases. * is a valid value but is considered a security risk as your Elasticsearch instance is open to cross origin requests from anywhere.
+  —————————– —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————-
+  http.cors.max-age             Browsers send a "preflight" OPTIONS-request to determine CORS settings. max-age defines how long the result should be cached for. Defaults to 1728000 (20 days)
+  http.cors.allow-methods       Which methods to allow. Defaults to OPTIONS, HEAD, GET, POST, PUT, DELETE.
+  http.cors.allow-headers       Which headers to allow. Defaults to X-Requested-With, Content-Type, Content-Length.
+  http.cors.allow-credentials   Whether the Access-Control-Allow-Credentials header should be returned. Note: This header is only returned, when the setting is set to true. Defaults to false</p>
+
+<p>当配置了cors后，request将会用origin表述自己的身份，response也会描述cors允许的结果。</p>
+
+<p><img src="../images/Session总结/image9.jpeg" alt="\\psf\Home\Library\Containers\com.tencent.qq\Data\Library\Application
+Support\QQ\Users\362991493\QQ\Temp.db\6780A0A5-0006-4E72-A258-0C71CE9C014B.png" />{width=”4.791666666666667in”
+height=”2.0552099737532807in”}</p>
+
+<h2 id="分布式session">分布式Session</h2>
+
+<p>如果应用只是单节点的话，用普通的内存存储session没有问题，当时当系统变成多节点的分布式了怎么办？例如下图，通常在分布式架构中，为了负载均衡请求都是随机或轮训服务器，当用户在A中登录后，再次发起请求，请求到B服务器，如果验证登录状态，则验证失败。</p>
+
+<p><img src="../images/Session总结/image10.png" alt="" />{width=”3.6009700349956257in”
+height=”2.307292213473316in”}</p>
+
+<h3 id="session复制">Session复制</h3>
+
+<p>session复制很容易理解，就是配置web容器让每个容器都存储session。目前Tomcat、Glassfish
+Cluster都能提供此功能。但是每台机器都需要存储，只适合用户数不多且服务器不多的情况。</p>
+
+<h3 id="session集中管理">Session集中管理</h3>
+
+<p>集中式管理就是将所有的Session集中起来统一管理，例如所有模块集成spring
+session，将session存储到Redis中，当再次请求时将会查看Redis中是否有该用户的session。</p>
+
+<p><img src="../images/Session总结/image11.jpeg" alt="\\psf\Home\Library\Containers\com.tencent.qq\Data\Library\Application
+Support\QQ\Users\362991493\QQ\Temp.db\0C0DF304-99E0-42B2-9DF5-06A7D069A256.png" />{width=”3.9166666666666665in”
+height=”2.262979002624672in”}</p>
+
+<p>集中式管理解决多个节点的问题，但是也增加了相应的网络开销，并且存储最好使用分布式集群，否则存储挂了所有的业务都会受到影响。</p>
+
+<h3 id="基于cookie">基于Cookie</h3>
+
+<p>基于cookie是指用户对session添加内容时，server端将会把数据要求client将数据写入cookie中，这样server端什么都不用存了，用户每次请求时将cookie数据带到server端即可。</p>
+
+<p>这个缺点就是cookie的承载是有限的，并且每次传输都会消耗宽带，并且存储到cookie中不安全，最好是加密。</p>
+
+<p>*golang的gin框架用到的session就是这样做的。将数据序列化后写入cookie。</p>
+
+<h3 id="session-stick">Session Stick</h3>
+
+<p>Session
+Stick的方式就是在多个节点的情况下，保证每次请求都落在同一台机器上，这样就没有了session校验失败的问题。</p>
+
+<p>例如在Docker中使用，所有的请求都会先到Træfik，然后由他统一分发，如有用户在A上登录了，那么用户的每个请求都会活在A上。</p>
+
+<p><img src="../images/Session总结/image12.jpeg" alt="\\psf\Home\Library\Containers\com.tencent.qq\Data\Library\Application
+Support\QQ\Users\362991493\QQ\Temp.db\31D4B529-A066-4CBB-A56C-C62F26798DC2.png" />{width=”5.768055555555556in”
+height=”3.337331583552056in”}</p>
+
+<p>该方案的缺点就是，当A机器挂了，那么用户必须要重新登录。并且为了安全，需要保证该代理为集群模式。</p>
+
+<h1 id="spring-session">Spring Session</h1>
+
+<p>&lt;https://github.com/spring-projects/spring-session</p>
+
+<p>spring session
+提供了分布式的session，使用了集中式管理的方式，将session存储在独立的存储中，目前官方支持了redis、JDBC和apache
+geode。</p>
+
+<p>spring
+session默认使用cookie传递sessionid，同样也适应了目前流行的Restful风格，可以使用http
+header传递sessionid。</p>
+
+<p>+—————————————————-+
+| GET /messages/ HTTP/1.1                            |
+|                                                    |
+| Host: example.com                                  |
+|                                                    |
+| x-auth-token: f81d4fae-7dec-11d0-a765-00a0c91e6bf6 |
++—————————————————-+</p>
+
+<p>在此基础之上，我们实现了spring-session-cassandra，将session数据存储在Cassandra中。</p>
+
+<p>使用方法为：</p>
+
+<ol>
+  <li>web.xml中添加配置</li>
+</ol>
+
+<p><img src="../images/Session总结/image13.jpeg" alt="\\psf\Home\Library\Containers\com.tencent.qq\Data\Library\Application
+ Support\QQ\Users\362991493\QQ\Temp.db\BA829B9E-654B-47EB-8C1C-A7F3EE478BD4.png" />{width=”5.768055555555556in”
+ height=”1.15709208223972in”}</p>
+
+<ol>
+  <li>添加spring配置</li>
+</ol>
+
+<p><img src="../images/Session总结/image14.png" alt="" />{width=”5.768055555555556in”
+ height=”1.7326388888888888in”}</p>
+
+<h2 id="扩展知识">扩展知识</h2>
+
+<h3 id="servletcontainerinitializer">ServletContainerInitializer</h3>
+
+<p>javax.servlet.ServletContainerInitializer是servlet里面的一个web容器初始化的一个初始化扩展接口。通过它能够实现在web容器中进行初始化，例如注册servlet或者filtes。同时也可以免去web.xml配置文件启动web项目。</p>
+
+<p>例如spring-session中添加springSessionRepositoryFilter可以使用该方法。使用springSessionRepositoryFilter可以在web.xml中注册。web.xml中注册方法如下：</p>
+
+<p>+———————————————————————-+
+| &lt;filter\                                                           |
+|                                                                      |
+| &lt;filter-name\springSessionRepositoryFilter&lt;/filter-name\         |
+|                                                                      |
+| &lt;filter-class\o                                                    |
+| rg.springframework.web.filter.DelegatingFilterProxy&lt;/filter-class\ |
+|                                                                      |
+| &lt;/filter\                                                          |
+|                                                                      |
+| &lt;filter-mapping\                                                   |
+|                                                                      |
+| &lt;filter-name\springSessionRepositoryFilter&lt;/filter-name\         |
+|                                                                      |
+| &lt;url-pattern\/*&lt;/url-pattern\                                   |
+|                                                                      |
+| &lt;/filter-mapping\                                                  |
++———————————————————————-+</p>
+
+<p>也可以使用纯代码方法实现，例如官方给出的示例：</p>
+
+<p>+———————————————————————-+
+| //写出一个j                                                          |
+| ava类，继承AbstractHttpSessionApplicationInitializer，构造其中放java |
+| config类                                                             |
+|                                                                      |
+| public class Initializer extends                                     |
+| AbstractHttpSessionApplicationInitializer {                          |
+|                                                                      |
+| public Initializer() {                                               |
+|                                                                      |
+| super(Config.class); //spring java config                            |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| //类实现了spring-web 包中的org.springframework.web.                  |
+| WebApplicationInitializer                                            |
+|                                                                      |
+| // WebApplicationInitializer 中就一个方法就是onStartup               |
+|                                                                      |
+| public abstract class AbstractHttpSessionApplicationInitializer      |
+| implements WebApplicationInitializer {                               |
+|                                                                      |
+| public void onStartup(ServletContext servletContext) throws          |
+| ServletException {                                                   |
+|                                                                      |
+| 省略...                                                             |
+|                                                                      |
+| //这个方法中会向servletContext 中注册springSessionRepositoryFilter   |
+|                                                                      |
+| insertSessionRepositoryFilter(servletContext);                       |
+|                                                                      |
+| 省略...                                                             |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| }                                                                    |
++———————————————————————-+</p>
+
+<p>通过上面的代码就完成了和在web.xml中一样的filter注册功能。但是到这里就有个疑问，filter如何是注册的，onStartup
+为什么会被执行？</p>
+
+<p>对代码进行逆推如下：</p>
+
+<ol>
+  <li>AbstractHttpSessionApplicationInitializer
+实现了spring-web里的WebApplicationInitializer</li>
+</ol>
+
+<p>AbstractHttpSessionApplicationInitializer
+ 实现了WebApplicationInitializer中的onStartup方法，在onStartup方法中执行了filter注册的操作</p>
+
+<ol>
+  <li>SpringServletContainerInitializer
+对WebApplicationInitializer执行onStartup方法</li>
+</ol>
+
+<p>在spring-web包中，有个SpringServletContainerInitializer类，代码如下：</p>
+
+<p>+———————————————————————-+
+| //对WebApplicationInitializer进行监控,功能是只监控WebAp              |
+| plicationInitializer，这样在onStartup方法中获得的class都是它的实现类 |
+|                                                                      |
+| \@HandlesTypes(WebApplicationInitializer.class)                      |
+|                                                                      |
+| //实现了servlet包的ServletContainerInitializer接口                   |
+|                                                                      |
+| public class SpringServletContainerInitializer implements            |
+| ServletContainerInitializer {                                        |
+|                                                                      |
+| \@Override                                                           |
+|                                                                      |
+| public void onStartup(Set&lt;Class&lt;?\ webAppInitializerClasses,    |
+| ServletContext servletContext)                                       |
+|                                                                      |
+| throws ServletException {                                            |
+|                                                                      |
+| List&lt;WebApplicationInitializer\ initializers = new                 |
+| LinkedList&lt;WebApplicationInitializer();                           |
+|                                                                      |
+| if (webAppInitializerClasses != null) {                              |
+|                                                                      |
+| for (Class&lt;?\ waiClass : webAppInitializerClasses) {               |
+|                                                                      |
+| if (!waiClass.isInterface() &amp;&amp;                                       |
+| !Modifier.isAbstract(waiClass.getModifiers()) &amp;&amp;                     |
+|                                                                      |
+| WebApplicationInitializer.class.isAssignableFrom(waiClass)) {        |
+|                                                                      |
+| try {                                                                |
+|                                                                      |
+| //对实现WebApplicationInitializer的类进行实例化                      |
+|                                                                      |
+| initializers.add((WebApplicationInitializer)                         |
+| waiClass.newInstance());                                             |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| catch (Throwable ex) {                                               |
+|                                                                      |
+| throw new ServletException("Failed to instantiate                   |
+| WebApplicationInitializer class", ex);                              |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| //省略...                                                           |
+|                                                                      |
+| for (WebApplicationInitializer initializer : initializers) {         |
+|                                                                      |
+| initializer.onStartup(servletContext);//执行onStartup方法            |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| }                                                                    |
++———————————————————————-+</p>
+
+<ol>
+  <li>为什么SpringServletContainerInitializer的实现类执行onStartup方法？</li>
+</ol>
+
+<p>+———————————————————————-+
+| SpringServletContainerInitializer在web项目启动的时候就会             |
+| 执行onStartup方法，是因为它满足了servlet对第三方包初始化扩展的条件。 |
+|                                                                      |
+| 1. 实现ServletContainerInitializer                                  |
+|                                                                      |
+| <a href="mailto:2.使用@HandlesTypes">2.                                                                  |
+| 使用\@HandlesTypes</a>对关注的类进行注册    |
+|                                                                      |
+| 3.                                                                  |
+| 添加META-INF/se                                                      |
+| rvices/javax.servlet.ServletContainerInitializer配置文件，里面内容为 |
+|                                                                      |
+|   ———————————————————–        |
+|   org.springframework.web.SpringServletContainerInitializer          |
+|   ———————————————————–        |
+|                                                                      |
+| 这样在tomcat启动的时候，就会去加载SpringServletContainerInitialize   |
+| r这个类，并且加载完成之后，会调用onStartup方法，进行具体的启动流程。 |
++———————————————————————-+</p>
+
+<ol>
+  <li>tomcat如何根绝配置文件和标签去加载的？</li>
+</ol>
+
+<p>在tomcat初始化过程中会执行org.apache.catalina.startup.ContextConfig中的processServletContainerInitializers方法，方法内容如下：</p>
+
+<p>+———————————————————————-+
+| protected void processServletContainerInitializers() {               |
+|                                                                      |
+| List&lt;ServletContainerInitializer\ detectedScis;                    |
+|                                                                      |
+| try {                                                                |
+|                                                                      |
+| WebappServiceLoader&lt;ServletContainerInitializer\ loader = new      |
+| WebappServiceLoader&lt;(context);                                    |
+|                                                                      |
+| //通过加载li                                                         |
+| b包里面的META-INF/services/javax.servlet.ServletContainerInitializer |
+|                                                                      |
+| detectedScis = loader.load(ServletContainerInitializer.class);       |
+|                                                                      |
+| } catch (IOException e) {                                            |
+|                                                                      |
+| 省略...                                                             |
+|                                                                      |
+| return;                                                              |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| for (ServletContainerInitializer sci : detectedScis) {               |
+|                                                                      |
+| initializerClassMap.put(sci, new HashSet&lt;Class&lt;?\());           |
+|                                                                      |
+| HandlesTypes ht;                                                     |
+|                                                                      |
+| try {                                                                |
+|                                                                      |
+| //获得关注的类                                                       |
+|                                                                      |
+| ht = sci.getClass().getAnnotation(HandlesTypes.class);               |
+|                                                                      |
+| } catch (Exception e) {                                              |
+|                                                                      |
+| 省略...                                                             |
+|                                                                      |
+| continue;                                                            |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| if (ht == null) { continue; }                                        |
+|                                                                      |
+| Class&lt;?\[] types = ht.value();                                   |
+|                                                                      |
+| if (types == null) { continue; }                                     |
+|                                                                      |
+| for (Class&lt;?\ type : types) {                                      |
+|                                                                      |
+| if (type.isAnnotation()) {                                           |
+|                                                                      |
+| handlesTypesAnnotations = true;                                      |
+|                                                                      |
+| } else {                                                             |
+|                                                                      |
+| handlesTypesNonAnnotations = true;                                   |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| Set&lt;ServletContainerInitializer\ scis =                            |
+|                                                                      |
+| typeInitializerMap.get(type);                                        |
+|                                                                      |
+| if (scis == null) {                                                  |
+|                                                                      |
+| scis = new HashSet&lt;();                                            |
+|                                                                      |
+| typeInitializerMap.put(type, scis);                                  |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| //将关注的类放到ServletContainerInitializer关注的容器中              |
+|                                                                      |
+| scis.add(sci);                                                       |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| }                                                                    |
++———————————————————————-+</p>
+
+<ol>
+  <li>
+    <p>使用processServletContainerInitializers将HandlesTypes标签里的class获取到后，有个processAnnotations方法，会对项目中的jar包进行扫描，将监控的类获取出后，使用context的classloader进行类加载操作。</p>
+  </li>
+  <li>
+    <p>总结</p>
+  </li>
+</ol>
+
+<p>通过上面的代码能看到，tomcat在启动时，会通过lib包中的配置获取到spring
+web包下的SpringServletContainerInitializer配置，然后将SpringServletContainerInitializer实例化，对WebApplicationInitializer进行关注，并在SpringServletContainerInitializer的onstartup方法中循环调用所有实现了WebApplicationInitializer接口的onstartup方法，当tomcat初始化完成后，会调用SpringServletContainerInitializer的onstartup方法，也就会调用所有spring中实现了WebApplicationInitializer
+onstartup方法的类。由于AbstractHttpSessionApplicationInitializer实现了WebApplicationInitializer，并在onstartup中进行springSessionRepositoryFilter的注册，所有在没有web.xml的情况下，就完成了对filter的注册。</p>
+
+<h3 id="springmvc的无标识参数">Springmvc的无标识参数</h3>
+
+<p>+———————————————————————-+
+| \@ResponseBody                                                       |
+|                                                                      |
+| \@RequestMapping(method = RequestMethod.GET)                         |
+|                                                                      |
+| public TestBean hello(HttpServletRequest request,                    |
+| HttpServletResponse response,HttpSession                             |
+| session,\@RequestParam("q1") String q1,String q2) {                |
+|                                                                      |
+| }                                                                    |
++———————————————————————-+</p>
+
+<p>问题：</p>
+
+<ol>
+  <li>
+    <p>请求时，请求端q1是否必须</p>
+  </li>
+  <li>
+    <p>q2 为什么没有标签？是否必须？</p>
+  </li>
+  <li>
+    <p>q2、HttpSession 如何注入？</p>
+  </li>
+</ol>
+
+<p>问题一：</p>
+
+<p>q1必须，spring注解明确说明，RequestParam注解中，required没有写时，默认为true。当调用者没有提供该值时，将报400.</p>
+
+<p><img src="../images/Session总结/image15.jpeg" alt="\\psf\Home\Library\Containers\com.tencent.qq\Data\Library\Application
+Support\QQ\Users\362991493\QQ\Temp.db\20711B2F-0E1C-49E9-852D-FDD62DC4D0A9.png" />{width=”5.768055555555556in”
+height=”2.636075021872266in”}</p>
+
+<p>问题二：</p>
+
+<p>q2在不加标签的情况下，非必须传入，如果已经传入将会赋值，如果没有传入q2将会是null，不会报400错误。在方法中，不建议对需要的参数不加注解，对方法应该表示需要什么和不需要什么。例如：</p>
+
+<p>+———————————————————————-+
+| public TestBean hello(HttpServletRequest request,                    |
+| HttpServletResponse response,HttpSession                             |
+| session,\@RequestParam("q1") String q1,                            |
+| \@RequestParam(value="q2",required=false)String q2) {              |
+|                                                                      |
+| }                                                                    |
++———————————————————————-+</p>
+
+<p>问题三：</p>
+
+<p>为什么q2、HttpSession 没有加注解，spring也注入了？</p>
+
+<p>具体流程如下：</p>
+
+<ol>
+  <li>
+    <p>请求会先到org.springframework.web.servlet.DispatcherServlet</p>
+  </li>
+  <li>
+    <p>然后会到org.springframework.web.method.support.InvocableHandlerMethod的invokeAndHandle方法</p>
+  </li>
+  <li>
+    <p>获得方法需要的参数，然后反射执行</p>
+  </li>
+</ol>
+
+<p><img src="../images/Session总结/image16.png" alt="" />{width=”5.768055555555556in”
+height=”2.6256944444444446in”}</p>
+
+<ol>
+  <li>获得参数时，spring会查看是否有支持该参数的解析器，找到后进行相应的解析和处理，RequestBody，RequestParam就是在这一步处理的。</li>
+</ol>
+
+<p><img src="../images/Session总结/image17.png" alt="" />{width=”5.768055555555556in”
+height=”2.9409722222222223in”}</p>
+
+<ol>
+  <li>HttpServletRequest 、HttpServletResponse
+、HttpSession都可找到对应的解析器</li>
+</ol>
+
+<p><img src="../images/Session总结/image18.png" alt="" />{width=”5.768055555555556in”
+height=”4.78125in”}</p>
+
+<p>httpSession也使用ServletRequestMethodArgumentResolver注入。</p>
+
+<p><img src="../images/Session总结/image19.png" alt="" />{width=”5.768055555555556in”
+height=”1.66875in”}</p>
+
+<ol>
+  <li>q2在不明确的情况下</li>
+</ol>
+
+<p>在org.springframework.web.method.annotation.
+AbstractNamedValueMethodArgumentResolver中进行处理。</p>
+
+<p><img src="../images/Session总结/image20.png" alt="" />{width=”5.768055555555556in”
+height=”2.6743055555555557in”}</p>
+
+        
+      </div><!-- /.entry-content -->
+    </div><!-- /.entry-wrapper -->
+    <nav class="pagination" role="navigation">
+      
+        <a href="http://localhost:4000/%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8%E7%9B%B8%E5%85%B3%E6%96%B9%E6%A1%88" class="btn" title="数据安全相关方案">Previous article</a>
+      
+      
+        <a href="http://localhost:4000/springmvc%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90" class="btn" title="springmvc代码解析">Next article</a>
+      
+    </nav><!-- /.pagination -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2020 yangqiju. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">So Simple Theme</a>.</span>
+<div class="social-icons">
+	
+	
+	
+	
+	
+	
+	
+	<a href="http://github.com/yangqiju" title="yangqiju on Github" target="_blank"><i class="icon-github icon-2x"></i></a>
+	
+</div><!-- /.social-icons -->
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://localhost:4000/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://localhost:4000/assets/js/scripts.min.js"></script>
+
+<!-- Jekyll Simple Search option -->
+<script>
+  $(document).ready(function() {
+      $('.search-field').simpleJekyllSearch({
+          jsonFile : 'http://localhost:4000/search.json',
+          searchResults : '.search-results',
+          template : '<li><article><a href="{url}">{title} <span class="entry-date"><time datetime="{date}">{shortdate}</time></span></a></article></li>',
+          noResults: '<p>Nothing found.</p>'
+        });
+  });
+
+  (function( $, window, undefined ) {
+    
+     var bs = {
+          close: $(".icon-remove-sign"),
+          searchform: $(".search-form"),
+          canvas: $("body"),
+          dothis: $('.dosearch')
+      };
+    
+    bs.dothis.on('click', function() {
+      $('.search-wrapper').css({ display: "block" });
+      bs.searchform.toggleClass('active');
+      bs.searchform.find('input').focus();
+      bs.canvas.toggleClass('search-overlay');
+    });
+    
+      bs.close.on('click', function() {
+        $('.search-wrapper').removeAttr( 'style' );
+        bs.searchform.toggleClass('active');
+        bs.canvas.removeClass('search-overlay');
+    });
+  })( jQuery, window );
+</script>
+
+
+	        
+
+</body>
+</html>

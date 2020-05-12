@@ -32,7 +32,7 @@ obr javadoc
 	
 {% highlight java %}
 Syntax:
-obr deploy <bundle-name>[;<version>] ... | <bundle-id> ...
+obr deploy <bundle-name[;<version] ... | <bundle-id ...
 
 This command tries to install or update the specified bundles and all of their dependencies by default. 
 You can specify either the bundle name or the bundle identifier. If a bundle's name contains spaces, 
@@ -60,14 +60,14 @@ bash: 1.0.0: command not found
 
 于是乎我想起了之前使用的`Apache Karaf`
 	
-> Apache Karaf is a small OSGi based runtime which provides a lightweight container onto which various 
+ Apache Karaf is a small OSGi based runtime which provides a lightweight container onto which various 
 components and applications can be deployed.
 
 
 看看Karaf是如何部署带版本号的bundle的呢？
 	
 {% highlight java %}
-karaf@root()> obr:deploy org.apache.karaf.wrapper.core,4.0.0
+karaf@root() obr:deploy org.apache.karaf.wrapper.core,4.0.0
 {% endhighlight %}
 	
 呵呵，他居然直接用的逗号`,` 
@@ -87,7 +87,7 @@ karaf@root()> obr:deploy org.apache.karaf.wrapper.core,4.0.0
 我把所有的bundlerepository包都删除了，手动导入我自己的包，好吧，不论这么样还是不行，依旧没有走我的代码。
 	
 	
->Apache Felix Gogo is a subproject of Apache Felix implementing the OSGi RFC 147, which describes a standard shell for OSGi-based environments
+Apache Felix Gogo is a subproject of Apache Felix implementing the OSGi RFC 147, which describes a standard shell for OSGi-based environments
 
 偶然在google错误的时候发现了，gogo.runtime 有deploy的方法,好吧，我觉得我找到问题了，因为在我们找错的时候
 发现在 `glassfish4/glassfish/modules/autostart`的目录中有如下文件：
@@ -117,7 +117,7 @@ osgi-web-container.jar
 @Descriptor("deploy resource from repository")
   public void deploy(@Descriptor("start deployed bundles") 
   @Parameter(names={"-s", "--start"}, presentValue="true", absentValue="false") 
-  boolean start, @Descriptor("( <bundle-name> | <symbolic-name> | <bundle-id> )[@<version>] ...") String[] args)
+  boolean start, @Descriptor("( <bundle-name | <symbolic-name | <bundle-id )[@<version] ...") String[] args)
     throws IOException, InvalidSyntaxException
   {
   ...

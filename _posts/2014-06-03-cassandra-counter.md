@@ -17,7 +17,7 @@ tags: [cassandra,counter]
 	2.insert data
 		UPDATE expendbulk SET expend = expend + 1 WHERE key = 'TJ';
 	3.select data
-		cqlsh:lottery> SELECT * FROM expendbulk ;
+		cqlsh:lottery SELECT * FROM expendbulk ;
 				key | expend
 				----+-------
 				TJ  | 1
@@ -26,7 +26,7 @@ tags: [cassandra,counter]
 	5.insert data
 		UPDATE expendbulk SET expend = expend + 1 WHERE key = 'TJ';
 	6.select data
-		cqlsh:lottery> SELECT * FROM expendbulk ;
+		cqlsh:lottery SELECT * FROM expendbulk ;
 				(0 rows)
 	这样一个流程下来，这个问题就出现了，只要对这个Key进行delete之后，update就失效了。
 	后来提给Cassandra提了一个关于这个的bug.

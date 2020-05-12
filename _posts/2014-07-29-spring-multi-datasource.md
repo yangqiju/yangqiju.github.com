@@ -45,7 +45,7 @@ public void afterPropertiesSet() {
 	if (this.targetDataSources == null) {
 		throw new IllegalArgumentException("Property 'targetDataSources' is required");
 	}
-	this.resolvedDataSources = new HashMap<Object, DataSource>(this.targetDataSources.size());
+	this.resolvedDataSources = new HashMap<Object, DataSource(this.targetDataSources.size());
 	for (Map.Entry entry : this.targetDataSources.entrySet()) {
 		Object lookupKey = resolveSpecifiedLookupKey(entry.getKey());
 		DataSource dataSource = resolveSpecifiedDataSource(entry.getValue());
@@ -63,7 +63,7 @@ public void afterPropertiesSet() {
 {% highlight java %}
 public class DynamicDataSource extends AbstractRoutingDataSource {
 	private @Setter DataSource defaultDataSource;
-	private @Setter Map<Object,Object> targetDataSources;
+	private @Setter Map<Object,Object targetDataSources;
 	@PostConstruct
 	private void init(){
 		if(defaultDataSource==null){
@@ -83,21 +83,21 @@ public class DynamicDataSource extends AbstractRoutingDataSource {
 
 	在spring.xml 中配置:
 {% highlight xml %}
-	<bean id="dataSource_main" class="org.springframework.jndi.JndiObjectFactoryBean">
-		<property name="jndiName" value="jndi/jpa"></property>
-		<property name="resourceRef">
-			<value>true</value>
-		</property>
-	</bean>  
+	<bean id="dataSource_main" class="org.springframework.jndi.JndiObjectFactoryBean"
+		<property name="jndiName" value="jndi/jpa"</property
+		<property name="resourceRef"
+			<valuetrue</value
+		</property
+	</bean  
 	
-	<bean id="dynamicDataSource" class="com.cwl.iso.db.mysql.DynamicDataSource" >
-    <property name="targetDataSources">
-        <map key-type="java.lang.String">
-           	<entry key="dataSource_main" value-ref="dataSource_main"></entry>
-            <entry key="dataSource_bak" value-ref="dataSource_bak"></entry>
-        </map>
-    </property>
-    <property name="defaultDataSource" ref="dataSource_main"/>
+	<bean id="dynamicDataSource" class="com.cwl.iso.db.mysql.DynamicDataSource" 
+    <property name="targetDataSources"
+        <map key-type="java.lang.String"
+           	<entry key="dataSource_main" value-ref="dataSource_main"</entry
+            <entry key="dataSource_bak" value-ref="dataSource_bak"</entry
+        </map
+    </property
+    <property name="defaultDataSource" ref="dataSource_main"/
 {% endhighlight %}
 
    	到这里，差不多dataSource 的init 任务就完成了。那如何去切换这个当前的数据源呢?
@@ -107,7 +107,7 @@ public class DynamicDataSource extends AbstractRoutingDataSource {
    	这时候我们就需要用到个 ThreadLocal 用来设置当前线程的这个参数：
 {% highlight java %}
 public class DataSourcesHolder {
-	private static ThreadLocal<String> dataSources = new ThreadLocal<String>();
+	private static ThreadLocal<String dataSources = new ThreadLocal<String();
 	public static String getDataSource(){
 		return dataSources.get();
 	}

@@ -17,7 +17,7 @@ tags: [gradle,jar,shell,application]
 
 	然后运行 gradle distZip 就可以打包成zip包了，当然还可以打包成tar包(distTar)
 	这个还是比较好的，直接打包成了包含shell脚本和bat脚本的工具。
-	在build -> distributions 中可以找到打好的包
+	在build - distributions 中可以找到打好的包
 	当然，还可以把自己想加的配置文件放到里面
 
 {% highlight ruby %}	

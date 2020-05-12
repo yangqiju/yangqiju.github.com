@@ -1,0 +1,603 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>ThreadPoolExecutor代码解析 &#8211; Orange</title>
+<meta name="description" content="ThreadPoolExecutor代码解析">
+<meta name="keywords" content="java, thread">
+
+
+<meta name="baidu-site-verification" content="kGTic24zBh" />
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ThreadPoolExecutor代码解析">
+<meta property="og:description" content="ThreadPoolExecutor代码解析">
+<meta property="og:url" content="http://localhost:4000/ThreadPoolExecutor%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90">
+<meta property="og:site_name" content="Orange">
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/ThreadPoolExecutor%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Orange Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.min.css">
+<!-- Webfonts 
+<script src="//use.edgefonts.net/source-sans-pro:n2,i2,n3,i3,n4,i4,n6,i6,n7,i7,n9,i9;source-code-pro:n4,n7;volkhov.js"></script>
+-->
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="http://localhost:4000/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://localhost:4000/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://localhost:4000/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://localhost:4000/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body id="post" itemscope itemtype="http://schema.org/WebPage">
+
+<div class="navigation-wrapper">
+	<nav role="navigation" id="site-nav" class="animated drop" itemscope itemtype="http://schema.org/SiteNavigationElement">
+	    <ul>
+	        
+			<li>
+				
+					<a href="http://localhost:4000/about">Home</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="http://localhost:4000/work">Work</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="http://localhost:4000/interest">Interest</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="http://localhost:4000/life">life</a>
+				 
+			</li>
+	        
+	        <!-- 
+	        <li><a href="http://localhost:4000/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
+	         -->
+	        <li class="dosearch"><i class="icon-search"></i> Search</li>
+	    </ul>
+	</nav>
+</div><!-- /.navigation-wrapper -->
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+
+<div class="search-wrapper">
+	<div class="search-form">
+		<input type="text" class="search-field" placeholder="Search...">
+		<i class="icon-remove-sign icon-2x"></i>
+		<ul class="search-results post-list"></ul><!-- /.search-results -->
+	</div><!-- /.search-form -->
+</div><!-- ./search-wrapper -->
+
+<header class="masthead" itemscope itemtype="http://schema.org/Organization">
+	<div class="wrap">
+		<a href="http://localhost:4000" class="site-logo" rel="home" title="Orange" itemprop="url"><img src="http://localhost:4000/images/logo.jpeg" width="200" height="200" alt="Orange logo" class="animated fadeInUp" itemprop="logo"></a>
+		<h1 class="site-title animated fadeIn"><a href="http://localhost:4000">Orange</a></h1>
+		<h2 class="site-description animated fadeIn" itemprop="description">做个简单的coder.</h2>
+	</div>
+</header><!-- /.masthead -->
+
+
+<div id="main" role="main" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/Blog">
+  <article class="hentry" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="entry-wrapper">
+      <header class="entry-header">
+        <span class="entry-tags"><a href="http://localhost:4000/tags.html#java" title="Pages tagged java" rel="tag">java</a>&nbsp;&bull;&nbsp;<a href="http://localhost:4000/tags.html#thread" title="Pages tagged thread" rel="tag">thread</a></span>
+        
+          <h1 class="entry-title" itemprop="headline">ThreadPoolExecutor代码解析</h1>
+        
+      </header>
+      <footer class="entry-meta">
+        <img src="http://localhost:4000/images/logo.jpeg" alt="yangqiju photo" class="author-photo">
+        <span class="author vcard" itemprop="author" itemscope itemtype="http://schema.org/Person">By <span itemprop="name" class="fn"><a href="http://localhost:4000/about" title="About yangqiju" itemprop="url">yangqiju</a></span></span>
+        <span class="entry-date date published"><time datetime="2017-04-02T00:00:00-04:00" itemprop="datePublished"><i class="icon-calendar-empty"></i> April 02, 2017</time></span>
+        
+        
+        <span><a href="http://localhost:4000/ThreadPoolExecutor%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90" rel="bookmark" title="ThreadPoolExecutor代码解析" itemprop="url"><i class="icon-link"></i> Permalink</a></span>
+      </footer>
+      <div class="entry-content" style="font-size:14px" itemprop="description">
+        <h1 id="概述">概述</h1>
+
+<p>此次源码解析，主要实现以下目标：</p>
+
+<ol>
+  <li>
+    <p>基本使用</p>
+  </li>
+  <li>
+    <p>基本源码结构查看</p>
+  </li>
+  <li>
+    <p>submit和execute的区别</p>
+  </li>
+</ol>
+
+<h1 id="源码解析">源码解析</h1>
+
+<h2 id="基本使用">基本使用</h2>
+
+<p>引用网络上对线程池的优点描述：</p>
+
+<ol>
+  <li>
+    <p>降低资源消耗。通过重复利用已创建的线程降低线程创建和销毁造成的消耗。</p>
+  </li>
+  <li>
+    <p>提高响应速度。当任务到达时，任务可以不需要的等到线程创建就能立即执行。</p>
+  </li>
+  <li>
+    <p>提高线程的可管理性。线程是稀缺资源，如果无限制的创建，不仅会消耗系统资源，还会降低系统的稳定性，使用线程池可以进行统一的分配，调优和监控。</p>
+  </li>
+</ol>
+
+<p>当开发者使用线程池时，就基本知道线程池的好处了。通常为了为了能区分出代线程池的用处，最好对业务进行归类，线程归类，方便统一操作。指定线程池的名称，并设定当线程发生未捕获异常时的处理（只对execute提交的task有用）。</p>
+
+<p>例如：</p>
+
+<p>+———————————————————————-+
+| <strong>private static class</strong> SnifferPoolExecutor <strong>extends</strong>             |
+| ThreadPoolExecutor {                                                 |
+|                                                                      |
+| SnifferPoolExecutor(<strong>int</strong> corePoolSize, <strong>int</strong> maximumPoolSize,   |
+|                                                                      |
+| <strong>long</strong> keepAliveTime,                                              |
+|                                                                      |
+| TimeUnit unit,                                                       |
+|                                                                      |
+| BlockingQueue&lt;Runnable\ workQueue) {                               |
+|                                                                      |
+| <strong>super</strong>(corePoolSize, maximumPoolSize, keepAliveTime, unit,        |
+| workQueue,                                                           |
+|                                                                      |
+| <strong>new</strong>                                                              |
+| Bas                                                                  |
+| icThreadFactory.Builder().namingPattern(<strong>"数据抓取工作线程-%d"</strong>) |
+|                                                                      |
+| .uncaughtExceptionHandler(<strong>new</strong> UncaughtExceptionHandler() {       |
+|                                                                      |
+| \@Override                                                           |
+|                                                                      |
+| <strong>public void</strong> uncaughtException(Thread t, Throwable e) {           |
+|                                                                      |
+| <strong><em>log</em></strong>.warn(<strong>"线程["</strong> + t.getName() +                        |
+| <strong>"]发生未捕获异常"</strong>, e);                                        |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| }).build());                                                         |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| }                                                                    |
++———————————————————————-+</p>
+
+<h2 id="参数描述">参数描述</h2>
+
+<p>+———————————————————————-+
+| <strong>public</strong> ThreadPoolExecutor(<strong>int</strong> corePoolSize,                  |
+|                                                                      |
+| <strong>int</strong> maximumPoolSize,                                             |
+|                                                                      |
+| <strong>long</strong> keepAliveTime,                                              |
+|                                                                      |
+| TimeUnit unit,                                                       |
+|                                                                      |
+| BlockingQueue&lt;Runnable\ workQueue,                                 |
+|                                                                      |
+| ThreadFactory threadFactory,                                         |
+|                                                                      |
+| RejectedExecutionHandler handler) {                                  |
+|                                                                      |
+| <strong>if</strong> (corePoolSize &lt; 0 ||                                       |
+|                                                                      |
+| maximumPoolSize &lt;= 0 ||                                           |
+|                                                                      |
+| maximumPoolSize &lt; corePoolSize ||                                 |
+|                                                                      |
+| keepAliveTime &lt; 0)                                                  |
+|                                                                      |
+| <strong>throw new</strong> IllegalArgumentException();                            |
+|                                                                      |
+| <strong>if</strong> (workQueue == <strong>null</strong> || threadFactory == <strong>null</strong> ||    |
+| handler == <strong>null</strong>)                                                 |
+|                                                                      |
+| <strong>throw new</strong> NullPointerException();                                |
+|                                                                      |
+| <strong>this</strong>.<strong>corePoolSize</strong> = corePoolSize;                            |
+|                                                                      |
+| <strong>this</strong>.<strong>maximumPoolSize</strong> = maximumPoolSize;                      |
+|                                                                      |
+| <strong>this</strong>.<strong>workQueue</strong> = workQueue;                                  |
+|                                                                      |
+| <strong>this</strong>.<strong>keepAliveTime</strong> = unit.toNanos(keepAliveTime);            |
+|                                                                      |
+| <strong>this</strong>.<strong>threadFactory</strong> = threadFactory;                          |
+|                                                                      |
+| <strong>this</strong>.<strong>handler</strong> = handler;                                      |
+|                                                                      |
+| }                                                                    |
++———————————————————————-+</p>
+
+<ul>
+  <li>corePoolSize</li>
+</ul>
+
+<p>核心线程数量，用来描述worker的数量。worker是线程池真正能够执行的线程。提交的Runnable就像个工单，submit或execute后，worker是真正执行Runnable的线程。</p>
+
+<ul>
+  <li>maximumPoolSize</li>
+</ul>
+
+<p>最大线程数量，用来描述worker的最大数量。</p>
+
+<ul>
+  <li>keepAliveTime</li>
+</ul>
+
+<p>是指线程池worker所允许的空闲时间。当线程池中的worker数量大于corePoolSize的时候，如果这时没有新的Runnable提交，核心线程外的worker不会立即销毁，而是会等待，直到等待的时间超过keepAliveTime</p>
+
+<ul>
+  <li>unit</li>
+</ul>
+
+<p>时间的单位</p>
+
+<ul>
+  <li>workQueue</li>
+</ul>
+
+<p>Runnable提交的队列。这里需要注意的是，这个队列是用来存放Runnable任务的，这个参数和corePoolSize用来决定何时执行任务。提交的Runnable是否被立即执行，判断顺序为：先判断是否小于corePoolSize，如果当前worker数小于CorePoolSize，那就启动worker执行任务，如果大于了corePoolSize，那就先放workQueue，如何workQueue也放不下了，那就再启动worker立即执行当前的Runnable。举个例子，当corePoolSize为2，workQueue为10，当提交了2个Runnable时，将会启动两个worker工作，当提交了3-12时，都还是只有2个worker，只有当提交到13个时，队列装不下了，就在启动一个worker进行执行Runnable。</p>
+
+<ul>
+  <li>threadFactory</li>
+</ul>
+
+<p>用来创建新线程。默认使用Executors.defaultThreadFactory()
+ 来创建线程。建议自己实现该类，提供业务相应的名称，并在newThread方法中实现自己业务的Thread，并实现setUncaughtExceptionHandler方法设定线程发生未捕获异常后的处理，例如打日志，该方法对submit无效。</p>
+
+<ul>
+  <li>handler</li>
+</ul>
+
+<p>表示线程池的饱和策略。如果阻塞队列满了并且没有空闲的线程，这时如果继续提交任务，就需要采取一种策略处理该任务。</p>
+
+<p>线程池提供了4种策略：</p>
+
+<ul>
+  <li>
+    <p>AbortPolicy：直接抛出异常，这是默认策略；</p>
+  </li>
+  <li>
+    <p>CallerRunsPolicy：用调用者所在的线程来执行任务；</p>
+  </li>
+  <li>
+    <p>DiscardOldestPolicy：丢弃阻塞队列中靠最前的任务，并执行当前任务；</p>
+  </li>
+  <li>
+    <p>DiscardPolicy：直接丢弃任务</p>
+  </li>
+</ul>
+
+<p><img src="../images/ThreadPoolExecutor代码解析/image1.png" alt="" />{width=”5.768055555555556in”
+height=”4.600694444444445in”}</p>
+
+<h2 id="worker的概念">worker的概念</h2>
+
+<p>在线程池中，池里装的就是worker，他也是个线程实现了Runnable接口，他会从workQueue里面去获得Runnable，然后执行。并继承AbstractQueuedSynchronizer，以完成锁的相关操作。</p>
+
+<p><img src="../images/ThreadPoolExecutor代码解析/image2.png" alt="" />{width=”5.768055555555556in”
+height=”4.309722222222222in”}</p>
+
+<p>+—————————————————–+
+| private final class Worker                          |
+|                                                     |
+| extends AbstractQueuedSynchronizer                  |
+|                                                     |
+| implements Runnable                                 |
+|                                                     |
+| {                                                   |
+|                                                     |
+| //省略                                              |
+|                                                     |
+| Worker(Runnable firstTask) {                        |
+|                                                     |
+| setState(-1); // inhibit interrupts until runWorker |
+|                                                     |
+| this.firstTask = firstTask;                         |
+|                                                     |
+| this.thread = getThreadFactory().newThread(this);   |
+|                                                     |
+| }                                                   |
+|                                                     |
+| public void run() {                                 |
+|                                                     |
+| //执行ThreadPoolExecutor的runWorker                 |
+|                                                     |
+| runWorker(this);                                    |
+|                                                     |
+| }                                                   |
+|                                                     |
+| //省略                                              |
+|                                                     |
+| }                                                   |
++—————————————————–+</p>
+
+<p>当Worker启动后，会执行ThreadPoolExecutor的runWorker方法，通过代码可以看到，worker启动后就会循环通过getTask从workQueue中获得Runnable来执行。除非获得不到Runnable了，就跳出循环，这个worker的run也就即将走完，完成任务了，在最后的processWorkerExit方法，用来判断是否还需要再addWorker重新启动woker，以满足corePoolSize，这里应该只是一个再次确认的操作，因为在getTask里有相应的处理。<img src="../images/ThreadPoolExecutor代码解析/image3.jpeg" alt="\\psf\Home\Library\Containers\com.tencent.qq\Data\Library\Application
+Support\QQ\Users\362991493\QQ\Temp.db\109625C8-939B-4081-B23F-2D19DCB0F1A5.png" />{width=”5.768055555555556in”
+height=”5.987936351706037in”}</p>
+
+<p><img src="../images/ThreadPoolExecutor代码解析/image4.jpeg" alt="\\psf\Home\Library\Containers\com.tencent.qq\Data\Library\Application
+Support\QQ\Users\362991493\QQ\Temp.db\D8CFC9DE-9C29-4060-A705-3CD1DCCBACAE.png" />{width=”5.768055555555556in”
+height=”1.0313713910761155in”}</p>
+
+<p><img src="../images/ThreadPoolExecutor代码解析/image5.png" alt="" />{width=”5.768055555555556in”
+height=”5.476388888888889in”}</p>
+
+<p>timed用于判断对满足corePoolSize以内worker的策略，allowCoreThreadTimeOut意思为是否允许核心worker
+timeout，默认为false，而wc为当前worker的数量。通过以上的红框就能知道，当worker的数量没有超过corePoolSize是不启用超市策略的，也就是使用workQueue的take进行阻塞，否则就等待keepAliveTime的时间，返回null时，就是上面的runWorker方法的处理了。</p>
+
+<h2 id="submit和execute的区别">submit和execute的区别</h2>
+
+<p>+———————————————————————-+
+| <strong>public</strong> Future&lt;?\ submit(Runnable task) {                       |
+|                                                                      |
+| <strong>if</strong> (task == <strong>null</strong>) <strong>throw new</strong> NullPointerException();      |
+|                                                                      |
+| RunnableFuture&lt;Void\ ftask = newTaskFor(task, <strong>null</strong>);           |
+|                                                                      |
+| execute(ftask);                                                      |
+|                                                                      |
+| <strong>return</strong> ftask;                                                    |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| <strong>public void</strong> execute(Runnable command) {                          |
+|                                                                      |
+| <strong>if</strong> (command == <strong>null</strong>)                                         |
+|                                                                      |
+| <strong>throw new</strong> NullPointerException();                                |
+|                                                                      |
+| <strong>int</strong> c = <strong>ctl</strong>.get();                                           |
+|                                                                      |
+| //判断当前worker大小是否超过了核心大小                               |
+|                                                                      |
+| <strong>if</strong> (<em>workerCountOf</em>(c) &lt; <strong>corePoolSize</strong>) {                    |
+|                                                                      |
+| //没有超过就增加worker                                               |
+|                                                                      |
+| <strong>if</strong> (addWorker(command, <strong>true</strong>))                                |
+|                                                                      |
+| <strong>return</strong>;                                                          |
+|                                                                      |
+| c = <strong>ctl</strong>.get();                                                   |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| //当线程池在运行并且添加到队列成功                                   |
+|                                                                      |
+| <strong>if</strong> (<em>isRunning</em>(c) &amp;&amp; <strong>workQueue</strong>.offer(command)) {            |
+|                                                                      |
+| <strong>int</strong> recheck = <strong>ctl</strong>.get();                                     |
+|                                                                      |
+| //再次确认，如果添加成功后，线                                       |
+| 程池不是运行中了，就删除刚刚添加的Runnable，并执行相应策略。否则wor  |
+| ker大小为0了，就启动一个worker，通过getTask阻塞着等待workQueue的任务 |
+|                                                                      |
+| <strong>if</strong> (! <em>isRunning</em>(recheck) &amp;&amp; remove(command))                   |
+|                                                                      |
+| reject(command);                                                     |
+|                                                                      |
+| <strong>else if</strong> (<em>workerCountOf</em>(recheck) == 0)                          |
+|                                                                      |
+| addWorker(<strong>null</strong>, <strong>false</strong>);                                      |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| //如                                                                 |
+| 果添加到队列失败，就直接启动worker执行任务，如果失败了则执行拒绝操作 |
+|                                                                      |
+| <strong>else if</strong> (!addWorker(command, <strong>false</strong>))                         |
+|                                                                      |
+| reject(command);                                                     |
+|                                                                      |
+| }                                                                    |
++———————————————————————-+</p>
+
+<p>sumbit同样也会执行execute方法，只不过在之前将Runnable在封装了一层FutureTask，同样它也实现了Runnable接口。所以当submit中的execute方法执行的其实就是FutureTask了。</p>
+
+<p><img src="../images/ThreadPoolExecutor代码解析/image6.png" alt="" />{width=”2.8750503062117234in”
+height=”2.9927384076990378in”}</p>
+
+<p>+———————————————————————-+
+| <strong>public</strong> Future&lt;?\ submit(Runnable task) {                       |
+|                                                                      |
+| <strong>if</strong> (task == <strong>null</strong>) <strong>throw new</strong> NullPointerException();      |
+|                                                                      |
+| RunnableFuture&lt;Void\ ftask = newTaskFor(task, <strong>null</strong>);           |
+|                                                                      |
+| execute(ftask);                                                      |
+|                                                                      |
+| <strong>return</strong> ftask;                                                    |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| <strong>protected</strong> &lt;T\ RunnableFuture&lt;T\ newTaskFor(Runnable          |
+| runnable, T value) {                                                 |
+|                                                                      |
+| <strong>return new</strong> FutureTask&lt;T(runnable, value);                     |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| <strong>public</strong> FutureTask(Runnable runnable, V result) {                 |
+|                                                                      |
+| <strong>this</strong>.<strong>callable</strong> = Executors.<em>callable</em>(runnable, result);      |
+|                                                                      |
+| <strong>this</strong>.<strong>state</strong> = <strong><em>NEW</em></strong>; <em>// ensure visibility of callable</em>   |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| <strong>public void</strong> run() {                                              |
+|                                                                      |
+| <strong>//省略</strong>                                                           |
+|                                                                      |
+| <strong>try</strong> {                                                            |
+|                                                                      |
+| //这里就是Runnable的run方法                                          |
+|                                                                      |
+| result = c.call();                                                   |
+|                                                                      |
+| ran = <strong>true</strong>;                                                      |
+|                                                                      |
+| } <strong>catch</strong> (Throwable ex) {                                         |
+|                                                                      |
+| result = <strong>null</strong>;                                                   |
+|                                                                      |
+| ran = <strong>false</strong>;                                                     |
+|                                                                      |
+| //封装异常                                                           |
+|                                                                      |
+| setException(ex);                                                    |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| <strong>if</strong> (ran)                                                         |
+|                                                                      |
+| set(result);                                                         |
+|                                                                      |
+| <strong>//省略</strong>                                                           |
+|                                                                      |
+| }                                                                    |
++———————————————————————-+</p>
+
+<p>执行流程为worker的run --\ FutureTask 的run --\ 业务的run。</p>
+
+<p>并且当FutureTask发生异常后，并不会将异常执行抛出，而是封装起来，而对于worker的run，Throwable就不可兼了，当调用get方法时才能捕获到Exception。这也就是为什么当使用submit方法提交Runnable时，setUncaughtExceptionHandler不能捕获到异常。</p>
+
+<p><img src="../images/ThreadPoolExecutor代码解析/image7.png" alt="" />{width=”2.234303368328959in”
+height=”3.0434930008748906in”}<img src="../images/ThreadPoolExecutor代码解析/image8.png" alt="" />{width=”3.491428258967629in”
+height=”2.07259186351706in”}</p>
+
+<p><img src="../images/ThreadPoolExecutor代码解析/image9.jpeg" alt="\\psf\Home\Library\Containers\com.tencent.qq\Data\Library\Application
+Support\QQ\Users\362991493\QQ\Temp.db\5B11D595-6EF8-45A1-B3BA-FA7FB749348E.png" />{width=”3.757515310586177in”
+height=”4.760204505686789in”}</p>
+
+<p>当调用worker的run方法时，执行的业务的run报出RuntimeException、Error、Throwable时，会直接抛出。而异常将会由jvm的底层代码调用Thread的dispatchUncaughtException这个方法，执行线程未捕获异常后的处理。http://a-ray-of-sunshine.github.io/2016/08/22/%E7%BA%BF%E7%A8%8B-%E5%88%9B%E5%BB%BA%E5%92%8C%E5%90%AF%E5%8A%A8/#Thread-UncaughtExceptionHandler</p>
+
+<p><img src="../images/ThreadPoolExecutor代码解析/image10.png" alt="" />{width=”4.45918416447944in”
+height=”1.2337882764654418in”}</p>
+
+<h1 id="其他">其他</h1>
+
+        
+      </div><!-- /.entry-content -->
+    </div><!-- /.entry-wrapper -->
+    <nav class="pagination" role="navigation">
+      
+        <a href="http://localhost:4000/pkcs11-https-httpclient" class="btn" title="httpclient对pkcs11 https的支持">Previous article</a>
+      
+      
+        <a href="http://localhost:4000/gc%E7%9B%B8%E5%85%B3" class="btn" title="java gc笔记">Next article</a>
+      
+    </nav><!-- /.pagination -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2020 yangqiju. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">So Simple Theme</a>.</span>
+<div class="social-icons">
+	
+	
+	
+	
+	
+	
+	
+	<a href="http://github.com/yangqiju" title="yangqiju on Github" target="_blank"><i class="icon-github icon-2x"></i></a>
+	
+</div><!-- /.social-icons -->
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://localhost:4000/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://localhost:4000/assets/js/scripts.min.js"></script>
+
+<!-- Jekyll Simple Search option -->
+<script>
+  $(document).ready(function() {
+      $('.search-field').simpleJekyllSearch({
+          jsonFile : 'http://localhost:4000/search.json',
+          searchResults : '.search-results',
+          template : '<li><article><a href="{url}">{title} <span class="entry-date"><time datetime="{date}">{shortdate}</time></span></a></article></li>',
+          noResults: '<p>Nothing found.</p>'
+        });
+  });
+
+  (function( $, window, undefined ) {
+    
+     var bs = {
+          close: $(".icon-remove-sign"),
+          searchform: $(".search-form"),
+          canvas: $("body"),
+          dothis: $('.dosearch')
+      };
+    
+    bs.dothis.on('click', function() {
+      $('.search-wrapper').css({ display: "block" });
+      bs.searchform.toggleClass('active');
+      bs.searchform.find('input').focus();
+      bs.canvas.toggleClass('search-overlay');
+    });
+    
+      bs.close.on('click', function() {
+        $('.search-wrapper').removeAttr( 'style' );
+        bs.searchform.toggleClass('active');
+        bs.canvas.removeClass('search-overlay');
+    });
+  })( jQuery, window );
+</script>
+
+
+	        
+
+</body>
+</html>

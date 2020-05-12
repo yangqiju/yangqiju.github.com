@@ -1,0 +1,467 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>虚拟机类加载机制 &#8211; Orange</title>
+<meta name="description" content="虚拟机类加载机制">
+<meta name="keywords" content="java, jvm">
+
+
+<meta name="baidu-site-verification" content="kGTic24zBh" />
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="虚拟机类加载机制">
+<meta property="og:description" content="虚拟机类加载机制">
+<meta property="og:url" content="http://localhost:4000/%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6">
+<meta property="og:site_name" content="Orange">
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Orange Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.min.css">
+<!-- Webfonts 
+<script src="//use.edgefonts.net/source-sans-pro:n2,i2,n3,i3,n4,i4,n6,i6,n7,i7,n9,i9;source-code-pro:n4,n7;volkhov.js"></script>
+-->
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="http://localhost:4000/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://localhost:4000/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://localhost:4000/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://localhost:4000/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body id="post" itemscope itemtype="http://schema.org/WebPage">
+
+<div class="navigation-wrapper">
+	<nav role="navigation" id="site-nav" class="animated drop" itemscope itemtype="http://schema.org/SiteNavigationElement">
+	    <ul>
+	        
+			<li>
+				
+					<a href="http://localhost:4000/about">Home</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="http://localhost:4000/work">Work</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="http://localhost:4000/interest">Interest</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="http://localhost:4000/life">life</a>
+				 
+			</li>
+	        
+	        <!-- 
+	        <li><a href="http://localhost:4000/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
+	         -->
+	        <li class="dosearch"><i class="icon-search"></i> Search</li>
+	    </ul>
+	</nav>
+</div><!-- /.navigation-wrapper -->
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+
+<div class="search-wrapper">
+	<div class="search-form">
+		<input type="text" class="search-field" placeholder="Search...">
+		<i class="icon-remove-sign icon-2x"></i>
+		<ul class="search-results post-list"></ul><!-- /.search-results -->
+	</div><!-- /.search-form -->
+</div><!-- ./search-wrapper -->
+
+<header class="masthead" itemscope itemtype="http://schema.org/Organization">
+	<div class="wrap">
+		<a href="http://localhost:4000" class="site-logo" rel="home" title="Orange" itemprop="url"><img src="http://localhost:4000/images/logo.jpeg" width="200" height="200" alt="Orange logo" class="animated fadeInUp" itemprop="logo"></a>
+		<h1 class="site-title animated fadeIn"><a href="http://localhost:4000">Orange</a></h1>
+		<h2 class="site-description animated fadeIn" itemprop="description">做个简单的coder.</h2>
+	</div>
+</header><!-- /.masthead -->
+
+
+<div id="main" role="main" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/Blog">
+  <article class="hentry" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="entry-wrapper">
+      <header class="entry-header">
+        <span class="entry-tags"><a href="http://localhost:4000/tags.html#java" title="Pages tagged java" rel="tag">java</a>&nbsp;&bull;&nbsp;<a href="http://localhost:4000/tags.html#jvm" title="Pages tagged jvm" rel="tag">jvm</a></span>
+        
+          <h1 class="entry-title" itemprop="headline">虚拟机类加载机制</h1>
+        
+      </header>
+      <footer class="entry-meta">
+        <img src="http://localhost:4000/images/logo.jpeg" alt="yangqiju photo" class="author-photo">
+        <span class="author vcard" itemprop="author" itemscope itemtype="http://schema.org/Person">By <span itemprop="name" class="fn"><a href="http://localhost:4000/about" title="About yangqiju" itemprop="url">yangqiju</a></span></span>
+        <span class="entry-date date published"><time datetime="2018-04-10T00:00:00-04:00" itemprop="datePublished"><i class="icon-calendar-empty"></i> April 10, 2018</time></span>
+        
+        
+        <span><a href="http://localhost:4000/%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6" rel="bookmark" title="虚拟机类加载机制" itemprop="url"><i class="icon-link"></i> Permalink</a></span>
+      </footer>
+      <div class="entry-content" style="font-size:14px" itemprop="description">
+        <h1 id="章节">章节</h1>
+
+<h2 id="类加载的时机">类加载的时机</h2>
+
+<p>类从被加载到虚拟机内存开始，到卸载出内存，整个生命周期分为：加载（loading）、验证（verification）、准备（preparation）、解析（resolution）、初始化（initialization）、使用（using）、卸载（unloading）7个阶段，其中验证、准备、解析统称连接（Linking）。</p>
+
+<p>虚拟机严格规定有且只有5中情况必须立即对类进行”初始化”：</p>
+
+<ul>
+  <li>
+    <p>遇到new、getstaic、putstatic或者invokestatic这四个字节码指令，如果类没有初始化，则需要先触发其初始化。场景为：使用new关键字实例化对象时、读取或设置一个类的静态字段时（被final修饰、已在编译期把结果放入常量池的静态字段除外）、以及调用类的静态方法时。</p>
+  </li>
+  <li>
+    <p>使用java.lang.reflect包的方法对类进行反射调用的时候</p>
+  </li>
+  <li>
+    <p>初始化类时，先触发父类的初始化</p>
+  </li>
+  <li>
+    <p>当虚拟机启动时，它会先初始化指定的主类（有main方法的类）</p>
+  </li>
+  <li>
+    <p>当使用JDK1.7的动态语言支持时，如果一个java.lang.invoke.MethodHandle实例最后的解析结果是REF_getStatic、REF_putStatic、REF_invokeStatic的方法句柄，并这个方法的句柄所对应的类没有实例化。</p>
+  </li>
+</ul>
+
+<p>加载过程如下：</p>
+
+<p><img src="../images/虚拟机类加载机制/image1.png" alt="" />{width=”5.768055555555556in”
+height=”2.051388888888889in”}</p>
+
+<ol>
+  <li>加载</li>
+</ol>
+
+<p>获取类的二进制流，转化为方法区的运行时数据结构，在内存中生成一个代表这个类的java.lang.Class对象，作为方法区这个类的各种数据的访问入口</p>
+
+<ol>
+  <li>验证</li>
+</ol>
+
+<p>确保class文件字节流的信息符合虚拟机要求</p>
+
+<ol>
+  <li>
+    <p>文件格式验证</p>
+  </li>
+  <li>
+    <p>元数据验证</p>
+  </li>
+  <li>
+    <p>字节码验证</p>
+  </li>
+  <li>
+    <p>符号引用验证</p>
+  </li>
+</ol>
+
+<pre><code class="language-{=html}">&lt;!-- --
+</code></pre>
+<ol>
+  <li>准备</li>
+</ol>
+
+<p>为类变量分配内存并设置初始值，变量使用的内存都在方法区。例如（static
+ int
+ value=123）在这个阶段会被初始化为0，把value赋值运算的putstatic指令编译后放在了&lt;clinit\方法中，所以初始化阶段才会将value赋值为123。但如果value修饰为static
+ final，则准备阶段就会赋值为123。</p>
+
+<ol>
+  <li>
+    <p>解析</p>
+  </li>
+  <li>
+    <p>初始化</p>
+  </li>
+</ol>
+
+<p>&lt;clinit()方法是由编译器收集类变量的赋值动作和静态语句块合并产生的，如果两个都没有，则不生成该方法。它不需要显示调用父类构造器，虚拟机自动执行（&lt;init\不会）。父类的&lt;clinit\先执行，所以父类的静态语句要优先于子类。但接口不需要执行父类的&lt;clinit\方法。接口的实现和子接口在初始化时，接口都不会被初始化，除非调用了变量。（接口没有静态方法块）。虚拟机用锁保证了&lt;clinit\的多线程安全，有阻塞的可能。</p>
+
+<ol>
+  <li></li>
+</ol>
+
+<h2 id="类加载器">类加载器</h2>
+
+<p>比较两个类是否”相等”，只有在这两个类是由同一个类加载器加载的前提下才有意义。这里的”相等”包括类的Class对象的equals()方法、isAssignableFrom()方法、isInstance()方法的返回结果，也包括使用instanceof关键字做对象所属关系判定等情况。</p>
+
+<p>类加载器：</p>
+
+<ul>
+  <li>启动器加载器（Bootstrap classLoader）</li>
+</ul>
+
+<p>这个类加载器负责加载java_home\lib目录中的jar，或者被-Xbootclasspath参数所指定的路径的，如果需要把加载请求委派给它，直接使用null代替</p>
+
+<ul>
+  <li>扩展类加载器（Extension ClassLoader）</li>
+</ul>
+
+<p>这个加载器由sun.misc.Launcher$ExtClassLoader实现，它负责加载java_home\lib\ext目录中的，或者被java.ext.dirs系统变量指定路径的所有类库</p>
+
+<ul>
+  <li>应用程序类加载器（Application ClassLoader）或系统加载器</li>
+</ul>
+
+<p>这个类加载器有sun.misc.Launcher$AppClassLoader实现，负责加载用户类路径（ClassPath）上所指定的类库。它是ClassLoader中的getSystemClassLoader()方法的返回值，所以也叫系统加载器，通常就是程序的默认加载器。</p>
+
+<p><img src="../images/虚拟机类加载机制/image2.png" alt="" />{width=”3.9227263779527557in” height=”3.16in”}</p>
+
+<p>图中这种关系被称为类加载器的双亲委派模型，除了bootstrap
+classloader其他的类加载器都有自己的父类加载器。父子关系不是用继承，而是组合的方式复用父类加载器的代码。</p>
+
+<p>它的工作过程是：如果有一个类加载器收到了类加载的请求，它首先不自己加载这个类，而是委托给父类去加载，每个层次的类加载都是如此，只有父加载器反馈自己无法完成加载请求（它的搜索范围没有找到这个类），子加载器才会自己加载。</p>
+
+<p>+———————————————————————-+
+| protected synchronized Class&lt;?\ loadClass(String name,boolean      |
+| resolve) throws ClassNotFoundException {                             |
+|                                                                      |
+| Class c = findLoaderClass(name);                                     |
+|                                                                      |
+| if (c==null){                                                        |
+|                                                                      |
+| try{                                                                 |
+|                                                                      |
+| if (parent != null){                                                 |
+|                                                                      |
+| c = parent.loadClass(name,flase);                                    |
+|                                                                      |
+| }else{                                                               |
+|                                                                      |
+| c = findBootstrapClassOrNull(name);                                  |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| }catch(ClassNotFoundException e ){                                   |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| if(c==null){                                                         |
+|                                                                      |
+| c = findClass(name);                                                 |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| if(resolve){                                                         |
+|                                                                      |
+| resolveClass(c);                                                     |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| return c;                                                            |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| }                                                                    |
++———————————————————————-+</p>
+
+<h2 id="破坏双亲委派">破坏双亲委派</h2>
+
+<p>破坏双亲委派最直接的例子就是OSGi和java的SPI（service provider
+interface）了。</p>
+
+<p>举个SPI的例子JDBC来说：</p>
+
+<p>最简单的实现就是：</p>
+
+<p>+———————————————————————-+
+| Class.forName("com.mysql.jdbc.Driver");                            |
+|                                                                      |
+| String url =                                                         |
+| "jdbc:mysql://localhost:3306/test?characterEncoding=UTF-8";        |
+|                                                                      |
+| Connection conn = java.sql.DriverManager.getConnection(url,          |
+| "root", "passwd");                                               |
+|                                                                      |
+| //conn execute sql                                                   |
++———————————————————————-+</p>
+
+<p>先通过Class.forName进行注册</p>
+
+<p>+———————————————————————-+
+| package com.mysql.jdbc;                                              |
+|                                                                      |
+| public class Driver extends NonRegisteringDriver implements          |
+| java.sql.Driver {                                                    |
+|                                                                      |
+| // 注册到DriverManager                                               |
+|                                                                      |
+| static {                                                             |
+|                                                                      |
+| try {                                                                |
+|                                                                      |
+| java.sql.DriverManager.registerDriver(new Driver());                 |
+|                                                                      |
+| } catch (SQLException E) {                                           |
+|                                                                      |
+| throw new RuntimeException("Can't register driver!");             |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| public Driver() throws SQLException {                                |
+|                                                                      |
+| // Required for Class.forName().newInstance()                        |
+|                                                                      |
+| }                                                                    |
+|                                                                      |
+| }                                                                    |
++———————————————————————-+</p>
+
+<p>然后就执行DriverManager.getConnection方法</p>
+
+<p>+———————————————-+
+| package java.sql;                            |
+|                                              |
+| public class DriverManager {                 |
+|                                              |
+| static {                                     |
+|                                              |
+| //执行ServiceLoader.load(Driver.class);      |
+|                                              |
+| loadInitialDrivers();                        |
+|                                              |
+| println("JDBC DriverManager initialized"); |
+|                                              |
+| }                                            |
+|                                              |
+| }                                            |
++———————————————-+</p>
+
+<p>loadInitialDrivers方法会直接利用SPI加载Driver。因为驱动里面已经实现了SPI的配置。如下：</p>
+
+<p><img src="../images/虚拟机类加载机制/image3.jpeg" alt="\\psf\Home\Library\Containers\com.tencent.qq\Data\Library\Application
+Support\QQ\Users\362991493\QQ\Temp.db\5FD56F7C-23EF-43F3-B3B5-ECED51EEE8F3.png" />{width=”5.768055555555556in”
+height=”1.640384951881015in”}</p>
+
+<p>所以在loadInitialDrivers执行的时候，会通过ServiceLoader把他们加载器来。这时候问题来了，DriverManager的代码是在rt.jar
+的java.sql包里面，根据上面双亲委派的图来看能加载它的也就只有Bootstarp
+ClassLoder来加载DriverManager了，但是如果他要想加载mysql驱动的话是不可能的，它只能加载java_home\lib下的包，所以可以看到在ServiceLoader.load(Driver.class)的时候，有些技巧。</p>
+
+<p>+———————————————————————–+
+| <strong>public static</strong> &lt;S\ ServiceLoader&lt;S\ load(Class&lt;S\ service) { |
+|                                                                       |
+| ClassLoader cl = Thread.<em>currentThread</em>().getContextClassLoader();    |
+|                                                                       |
+| <strong>return</strong> ServiceLoader.<em>load</em>(service, cl);                         |
+|                                                                       |
+| }                                                                     |
++———————————————————————–+</p>
+
+<p>通过代码可以看到，在加载Driver的时候指定了Thread.<em>currentThread</em>().getContextClassLoader()进行加载，而Thread在init的时候会将AppClassLoader设置ContentClassLoader，所以当进行JDBC进行加载的时候就又回到了加载器的最底层，加载的步骤为BootStrap-\Ext-\App。</p>
+
+<p>有些容器（例如Glassfish）会将JDBC驱动放到lib\ext下面，这样的话直接使用ExtClassLoader就加载成功了，而有的程序（main方法直接跑）加载就是用了AppClassLoader进行加载了。</p>
+
+        
+      </div><!-- /.entry-content -->
+    </div><!-- /.entry-wrapper -->
+    <nav class="pagination" role="navigation">
+      
+        <a href="http://localhost:4000/ThreadLocal%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90" class="btn" title="ThreadLocal代码解析">Previous article</a>
+      
+      
+        <a href="http://localhost:4000/nacos%E5%AD%A6%E4%B9%A0" class="btn" title="nacos学习">Next article</a>
+      
+    </nav><!-- /.pagination -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2020 yangqiju. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">So Simple Theme</a>.</span>
+<div class="social-icons">
+	
+	
+	
+	
+	
+	
+	
+	<a href="http://github.com/yangqiju" title="yangqiju on Github" target="_blank"><i class="icon-github icon-2x"></i></a>
+	
+</div><!-- /.social-icons -->
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://localhost:4000/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://localhost:4000/assets/js/scripts.min.js"></script>
+
+<!-- Jekyll Simple Search option -->
+<script>
+  $(document).ready(function() {
+      $('.search-field').simpleJekyllSearch({
+          jsonFile : 'http://localhost:4000/search.json',
+          searchResults : '.search-results',
+          template : '<li><article><a href="{url}">{title} <span class="entry-date"><time datetime="{date}">{shortdate}</time></span></a></article></li>',
+          noResults: '<p>Nothing found.</p>'
+        });
+  });
+
+  (function( $, window, undefined ) {
+    
+     var bs = {
+          close: $(".icon-remove-sign"),
+          searchform: $(".search-form"),
+          canvas: $("body"),
+          dothis: $('.dosearch')
+      };
+    
+    bs.dothis.on('click', function() {
+      $('.search-wrapper').css({ display: "block" });
+      bs.searchform.toggleClass('active');
+      bs.searchform.find('input').focus();
+      bs.canvas.toggleClass('search-overlay');
+    });
+    
+      bs.close.on('click', function() {
+        $('.search-wrapper').removeAttr( 'style' );
+        bs.searchform.toggleClass('active');
+        bs.canvas.removeClass('search-overlay');
+    });
+  })( jQuery, window );
+</script>
+
+
+	        
+
+</body>
+</html>

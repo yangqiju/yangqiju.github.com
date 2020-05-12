@@ -1,0 +1,573 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>openwrt ubus学习 &#8211; Orange</title>
+<meta name="description" content="openwrt ubus学习">
+<meta name="keywords" content="openwrt, ubus">
+
+
+<meta name="baidu-site-verification" content="kGTic24zBh" />
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="openwrt ubus学习">
+<meta property="og:description" content="openwrt ubus学习">
+<meta property="og:url" content="http://localhost:4000/ubus%E5%AD%A6%E4%B9%A0">
+<meta property="og:site_name" content="Orange">
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/ubus%E5%AD%A6%E4%B9%A0">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Orange Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.min.css">
+<!-- Webfonts 
+<script src="//use.edgefonts.net/source-sans-pro:n2,i2,n3,i3,n4,i4,n6,i6,n7,i7,n9,i9;source-code-pro:n4,n7;volkhov.js"></script>
+-->
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="http://localhost:4000/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://localhost:4000/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://localhost:4000/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://localhost:4000/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body id="post" itemscope itemtype="http://schema.org/WebPage">
+
+<div class="navigation-wrapper">
+	<nav role="navigation" id="site-nav" class="animated drop" itemscope itemtype="http://schema.org/SiteNavigationElement">
+	    <ul>
+	        
+			<li>
+				
+					<a href="http://localhost:4000/about">Home</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="http://localhost:4000/work">Work</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="http://localhost:4000/interest">Interest</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="http://localhost:4000/life">life</a>
+				 
+			</li>
+	        
+	        <!-- 
+	        <li><a href="http://localhost:4000/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
+	         -->
+	        <li class="dosearch"><i class="icon-search"></i> Search</li>
+	    </ul>
+	</nav>
+</div><!-- /.navigation-wrapper -->
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+
+<div class="search-wrapper">
+	<div class="search-form">
+		<input type="text" class="search-field" placeholder="Search...">
+		<i class="icon-remove-sign icon-2x"></i>
+		<ul class="search-results post-list"></ul><!-- /.search-results -->
+	</div><!-- /.search-form -->
+</div><!-- ./search-wrapper -->
+
+<header class="masthead" itemscope itemtype="http://schema.org/Organization">
+	<div class="wrap">
+		<a href="http://localhost:4000" class="site-logo" rel="home" title="Orange" itemprop="url"><img src="http://localhost:4000/images/logo.jpeg" width="200" height="200" alt="Orange logo" class="animated fadeInUp" itemprop="logo"></a>
+		<h1 class="site-title animated fadeIn"><a href="http://localhost:4000">Orange</a></h1>
+		<h2 class="site-description animated fadeIn" itemprop="description">做个简单的coder.</h2>
+	</div>
+</header><!-- /.masthead -->
+
+
+<div id="main" role="main" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/Blog">
+  <article class="hentry" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="entry-wrapper">
+      <header class="entry-header">
+        <span class="entry-tags"><a href="http://localhost:4000/tags.html#openwrt" title="Pages tagged openwrt" rel="tag">openwrt</a>&nbsp;&bull;&nbsp;<a href="http://localhost:4000/tags.html#ubus" title="Pages tagged ubus" rel="tag">ubus</a></span>
+        
+          <h1 class="entry-title" itemprop="headline">openwrt ubus学习</h1>
+        
+      </header>
+      <footer class="entry-meta">
+        <img src="http://localhost:4000/images/logo.jpeg" alt="yangqiju photo" class="author-photo">
+        <span class="author vcard" itemprop="author" itemscope itemtype="http://schema.org/Person">By <span itemprop="name" class="fn"><a href="http://localhost:4000/about" title="About yangqiju" itemprop="url">yangqiju</a></span></span>
+        <span class="entry-date date published"><time datetime="2019-08-03T00:00:00-04:00" itemprop="datePublished"><i class="icon-calendar-empty"></i> August 03, 2019</time></span>
+        
+        
+        <span><a href="http://localhost:4000/ubus%E5%AD%A6%E4%B9%A0" rel="bookmark" title="openwrt ubus学习" itemprop="url"><i class="icon-link"></i> Permalink</a></span>
+      </footer>
+      <div class="entry-content" style="font-size:14px" itemprop="description">
+        <h1 id="概述">概述</h1>
+
+<p>ubus为openwrt平台开发中的进程间通信提供了一个通用的框架，类似linux桌面操作系统的d-bus，目标是提供系统级的进程间通信（IPC）功能,它让进程间通信的实现变得非常简单，并且ubus具有很强的可移植性，可以很方便地移植到其他linux平台上使用。ubus是为进程间发送消息而设计的，不适合传输大量数据（进程间传输大量数据应采用共享内存）</p>
+
+<p>ubus源码可通过Git库git://nbd.name/luci2/ubus.git获得，其依赖的ubox库的git库git://nbd.name/luci2/ubox.git。</p>
+
+<p><img src="../images/ubus源码分析/image1.png" alt="" />{width=”4.861360454943132in”
+height=”3.5696281714785654in”}</p>
+
+<p>简单理解它就是一个消息总线，用来串联服务之间的通讯，所有的消息均通过ubus进行转发处理。</p>
+
+<p>就是我们的消息 Route。</p>
+
+<h1 id="基本使用">基本使用</h1>
+
+<p><img src="../images/ubus源码分析/image2.png" alt="" />{width=”5.768055555555556in”
+height=”3.0659722222222223in”}</p>
+
+<h2 id="示例">示例</h2>
+
+<p>列出已经注册的服务：</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">root</span><span class="nd">@uplink</span><span class="o">:~</span><span class="err">#</span> <span class="n">ubus</span> <span class="n">list</span>
+<span class="n">network</span>
+<span class="n">network</span><span class="o">.</span><span class="na">device</span>
+<span class="n">network</span><span class="o">.</span><span class="na">interface</span><span class="o">.</span><span class="na">lan</span>
+<span class="n">network</span><span class="o">.</span><span class="na">interface</span><span class="o">.</span><span class="na">loopback</span>
+<span class="n">network</span><span class="o">.</span><span class="na">interface</span><span class="o">.</span><span class="na">wan</span></code></pre></figure>
+
+<p>添加-v 指令，并查看具体可执行方法</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">root</span><span class="nd">@uplink</span><span class="o">:~</span><span class="err">#</span> <span class="n">ubus</span> <span class="o">-</span><span class="n">v</span> <span class="n">list</span> <span class="n">network</span><span class="o">.</span><span class="na">interface</span><span class="o">.</span><span class="na">lan</span>
+<span class="err">'</span><span class="n">network</span><span class="o">.</span><span class="na">interface</span><span class="o">.</span><span class="na">lan</span><span class="err">'</span> <span class="err">@</span><span class="mi">099</span><span class="n">f0c8b</span>
+	<span class="s">"up"</span><span class="o">:</span> <span class="o">{</span>  <span class="o">}</span>
+	<span class="s">"down"</span><span class="o">:</span> <span class="o">{</span>  <span class="o">}</span>
+	<span class="s">"status"</span><span class="o">:</span> <span class="o">{</span>  <span class="o">}</span>
+	<span class="s">"prepare"</span><span class="o">:</span> <span class="o">{</span>  <span class="o">}</span>
+	<span class="s">"add_device"</span><span class="o">:</span> <span class="o">{</span> <span class="s">"name"</span><span class="o">:</span> <span class="s">"String"</span> <span class="o">}</span>
+	<span class="s">"remove_device"</span><span class="o">:</span> <span class="o">{</span> <span class="s">"name"</span><span class="o">:</span> <span class="s">"String"</span> <span class="o">}</span>
+	<span class="s">"notify_proto"</span><span class="o">:</span> <span class="o">{</span>  <span class="o">}</span>
+	<span class="s">"remove"</span><span class="o">:</span> <span class="o">{</span>  <span class="o">}</span>
+	<span class="s">"set_data"</span><span class="o">:</span> <span class="o">{</span>  <span class="o">}</span></code></pre></figure>
+
+<p>调用call方法进行跨进程rpc调用，并获得相应的返回值</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">root</span><span class="nd">@uplink</span><span class="o">:~</span><span class="err">#</span> <span class="n">ubus</span> <span class="n">call</span> <span class="n">network</span><span class="o">.</span><span class="na">interface</span><span class="o">.</span><span class="na">wan</span> <span class="n">status</span>
+<span class="o">{</span>
+	<span class="s">"up"</span><span class="o">:</span> <span class="kc">true</span><span class="o">,</span>
+	<span class="s">"pending"</span><span class="o">:</span> <span class="kc">false</span><span class="o">,</span>
+	<span class="s">"available"</span><span class="o">:</span> <span class="kc">true</span><span class="o">,</span>
+	<span class="s">"autostart"</span><span class="o">:</span> <span class="kc">true</span><span class="o">,</span>
+	<span class="s">"uptime"</span><span class="o">:</span> <span class="mi">86017</span><span class="o">,</span>
+	<span class="s">"l3_device"</span><span class="o">:</span> <span class="s">"eth1"</span><span class="o">,</span>
+	<span class="s">"device"</span><span class="o">:</span> <span class="s">"eth1"</span><span class="o">,</span>
+	<span class="s">"address"</span><span class="o">:</span> <span class="o">[</span>
+		<span class="o">{</span>
+			<span class="s">"address"</span><span class="o">:</span> <span class="s">"178.25.65.236"</span><span class="o">,</span>
+			<span class="s">"mask"</span><span class="o">:</span> <span class="mi">21</span>
+		<span class="o">}</span>
+	<span class="o">],</span>
+	<span class="s">"route"</span><span class="o">:</span> <span class="o">[</span>
+		<span class="o">{</span>
+			<span class="s">"target"</span><span class="o">:</span> <span class="s">"0.0.0.0"</span><span class="o">,</span>
+			<span class="s">"mask"</span><span class="o">:</span> <span class="mi">0</span><span class="o">,</span>
+			<span class="s">"nexthop"</span><span class="o">:</span> <span class="s">"178.25.71.254"</span>
+		<span class="o">}</span>
+	<span class="o">],</span>
+	<span class="s">"data"</span><span class="o">:</span> <span class="o">{</span>
+		
+	<span class="o">}</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>通过listen 监听所有的消息情况</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">root</span><span class="nd">@uplink</span><span class="o">:~</span><span class="err">#</span> <span class="n">ubus</span> <span class="n">listen</span> <span class="o">&amp;</span>
+<span class="n">root</span><span class="nd">@uplink</span><span class="o">:~</span><span class="err">#</span> <span class="n">ubus</span> <span class="n">call</span> <span class="n">network</span><span class="o">.</span><span class="na">interface</span><span class="o">.</span><span class="na">wan</span> <span class="n">down</span>
+<span class="o">{</span> <span class="s">"network.interface"</span><span class="o">:</span> <span class="o">{</span> <span class="s">"action"</span><span class="o">:</span> <span class="s">"ifdown"</span><span class="o">,</span> <span class="s">"interface"</span><span class="o">:</span> <span class="s">"wan"</span> <span class="o">}</span> <span class="o">}</span>
+<span class="n">root</span><span class="nd">@uplink</span><span class="o">:~</span><span class="err">#</span> <span class="n">ubus</span> <span class="n">call</span> <span class="n">network</span><span class="o">.</span><span class="na">interface</span><span class="o">.</span><span class="na">wan</span> <span class="n">up</span>
+<span class="o">{</span> <span class="s">"network.interface"</span><span class="o">:</span> <span class="o">{</span> <span class="s">"action"</span><span class="o">:</span> <span class="s">"ifup"</span><span class="o">,</span> <span class="s">"interface"</span><span class="o">:</span> <span class="s">"wan"</span> <span class="o">}</span> <span class="o">}</span>
+<span class="o">{</span> <span class="s">"network.interface"</span><span class="o">:</span> <span class="o">{</span> <span class="s">"action"</span><span class="o">:</span> <span class="s">"ifdown"</span><span class="o">,</span> <span class="s">"interface"</span><span class="o">:</span> <span class="s">"he"</span> <span class="o">}</span> <span class="o">}</span>
+<span class="o">{</span> <span class="s">"network.interface"</span><span class="o">:</span> <span class="o">{</span> <span class="s">"action"</span><span class="o">:</span> <span class="s">"ifdown"</span><span class="o">,</span> <span class="s">"interface"</span><span class="o">:</span> <span class="s">"v6"</span> <span class="o">}</span> <span class="o">}</span>
+<span class="o">{</span> <span class="s">"network.interface"</span><span class="o">:</span> <span class="o">{</span> <span class="s">"action"</span><span class="o">:</span> <span class="s">"ifup"</span><span class="o">,</span> <span class="s">"interface"</span><span class="o">:</span> <span class="s">"he"</span> <span class="o">}</span> <span class="o">}</span>
+<span class="o">{</span> <span class="s">"network.interface"</span><span class="o">:</span> <span class="o">{</span> <span class="s">"action"</span><span class="o">:</span> <span class="s">"ifup"</span><span class="o">,</span> <span class="s">"interface"</span><span class="o">:</span> <span class="s">"v6"</span> <span class="o">}</span> <span class="o">}</span></code></pre></figure>
+
+<p>通过send发送消息:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">root</span><span class="err">\</span><span class="nd">@uplink</span><span class="o">:</span><span class="err">\</span><span class="o">~</span><span class="err">\#</span> <span class="n">ubus</span> <span class="n">send</span> <span class="n">foo</span> <span class="err">\'</span><span class="o">{</span> <span class="err">\</span><span class="s">"bar\": \"baz\"</span> <span class="o">}</span><span class="err">\'</span></code></pre></figure>
+
+<h1 id="结构">结构</h1>
+
+<p><img src="../images/ubus源码分析/image3.png" alt="https://img-blog.csdn.net/20170926223729369?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaWFtcGlzZmFu/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" />{width=”5.594444444444444in”
+height=”4.017361111111111in”}</p>
+
+<p>工程的核心是ubusd精灵进程，它提供了一个总线层，在系统启动时运行，负责进程间的消息路由和传递。</p>
+
+<p>Ubus
+client注册到ubusd进程进行消息的发送和接收，它实际上是一个操作库或接口，相当于sdk。相对于ubusd它是一个客户端，所以称它为ubus
+client（ubus service更贴切）。例如下图的session和uci。</p>
+
+<p>这个接口是用linux文件socket和TVL（Type-length-value）实现的，每一个进程在指定命名空间下注册自己的路径。每一个路径都可以提供带有各种参数的多个函数处理过程。函数处理过程程序可以在完成处理后返回消息。</p>
+
+<p>Ubus cli 是ubus提供的操作工具，我们通过它能够对ubus进行操作。例如 ubus
+list就是中的ubus即为cli。</p>
+
+<p><img src="../images/ubus源码分析/image4.png" alt="" />{width=”5.768055555555556in”
+height=”3.2527777777777778in”}</p>
+
+<h1 id="代码分析">代码分析</h1>
+
+<p>代码地址：</p>
+
+<p>根据代码分析可知，ubus是依赖了一个ubox的库，进行相应的socket操作。使得socket编程更为简单。</p>
+
+<h2 id="ubusd分析">ubusd分析</h2>
+
+<p>ubusd.c中入口</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kt">int</span> <span class="nf">main</span><span class="o">(</span><span class="kt">int</span> <span class="n">argc</span><span class="o">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="o">)</span>
+<span class="o">{</span>
+	<span class="kd">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">ubus_socket</span> <span class="o">=</span> <span class="no">UBUS_UNIX_SOCKET</span><span class="o">;</span>
+	<span class="kt">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+	<span class="kt">int</span> <span class="n">ch</span><span class="o">;</span>
+
+	<span class="n">signal</span><span class="o">(</span><span class="no">SIGPIPE</span><span class="o">,</span> <span class="no">SIG_IGN</span><span class="o">);</span>
+	<span class="c1">//uloop初始化</span>
+	<span class="n">uloop_init</span><span class="o">();</span>
+
+	<span class="k">while</span> <span class="o">((</span><span class="n">ch</span> <span class="o">=</span> <span class="n">getopt</span><span class="o">(</span><span class="n">argc</span><span class="o">,</span> <span class="n">argv</span><span class="o">,</span> <span class="s">"s:"</span><span class="o">))</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">switch</span> <span class="o">(</span><span class="n">ch</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">case</span> <span class="sc">'s'</span><span class="o">:</span>
+			<span class="n">ubus_socket</span> <span class="o">=</span> <span class="n">optarg</span><span class="o">;</span>
+			<span class="k">break</span><span class="o">;</span>
+		<span class="k">default</span><span class="o">:</span>
+			<span class="k">return</span> <span class="nf">usage</span><span class="o">(</span><span class="n">argv</span><span class="o">[</span><span class="mi">0</span><span class="o">]);</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+	<span class="n">unlink</span><span class="o">(</span><span class="n">ubus_socket</span><span class="o">);</span>
+	<span class="n">umask</span><span class="o">(</span><span class="mo">0177</span><span class="o">);</span>
+	<span class="c1">//建立一个非阻塞 sock 服务，并赋值给 server_df</span>
+	<span class="n">server_fd</span><span class="o">.</span><span class="na">fd</span> <span class="o">=</span> <span class="n">usock</span><span class="o">(</span><span class="no">USOCK_UNIX</span> <span class="o">|</span> <span class="no">USOCK_SERVER</span> <span class="o">|</span> <span class="no">USOCK_NONBLOCK</span><span class="o">,</span> <span class="n">ubus_socket</span><span class="o">,</span> <span class="no">NULL</span><span class="o">);</span>
+	<span class="k">if</span> <span class="o">(</span><span class="n">server_fd</span><span class="o">.</span><span class="na">fd</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">perror</span><span class="o">(</span><span class="s">"usock"</span><span class="o">);</span>
+		<span class="n">ret</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+		<span class="k">goto</span> <span class="n">out</span><span class="o">;</span>
+	<span class="o">}</span>
+	<span class="c1">//添加read 事件监听</span>
+	<span class="n">uloop_fd_add</span><span class="o">(&amp;</span><span class="n">server_fd</span><span class="o">,</span> <span class="no">ULOOP_READ</span> <span class="o">|</span> <span class="no">ULOOP_EDGE_TRIGGER</span><span class="o">);</span>
+	<span class="c1">//uloop 并阻塞 ，里面会回调 server_fd.cb 方法</span>
+	<span class="n">uloop_run</span><span class="o">();</span>
+	<span class="n">unlink</span><span class="o">(</span><span class="n">ubus_socket</span><span class="o">);</span>
+<span class="nl">out:</span>
+	<span class="n">uloop_done</span><span class="o">();</span>
+	<span class="k">return</span> <span class="n">ret</span><span class="o">;</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>在main函数中，可看到uloop相关都是ubox的标准接口，初始化、添加fd、run、done。按照上面的流程写也能写一个简单的socket
+server。</p>
+
+<p>上面很重要的一个uloop_fd_add(&amp;server_fd)方法。server_fd是一个uloop_fd结构里面需要设置callback方法，用于数据处理。</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">static</span> <span class="n">struct</span> <span class="n">uloop_fd</span> <span class="n">server_fd</span> <span class="o">=</span> <span class="o">{</span>
+	<span class="o">.</span><span class="na">cb</span> <span class="o">=</span> <span class="n">server_cb</span><span class="o">,</span>
+<span class="o">};</span>
+
+<span class="n">struct</span> <span class="n">uloop_fd</span>
+<span class="o">{</span>
+	<span class="n">uloop_fd_handler</span> <span class="n">cb</span><span class="o">;</span>
+	<span class="kt">int</span> <span class="n">fd</span><span class="o">;</span>
+	<span class="n">bool</span> <span class="n">eof</span><span class="o">;</span>
+	<span class="n">bool</span> <span class="n">error</span><span class="o">;</span>
+	<span class="n">bool</span> <span class="n">registered</span><span class="o">;</span>
+	<span class="n">uint8_t</span> <span class="n">flags</span><span class="o">;</span>
+<span class="o">};</span></code></pre></figure>
+
+<p>server_cb 是 uloop_fd_handler ，该类型在uloop.h中已经定义。</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"> <span class="err">##</span><span class="n">typedef</span> <span class="nf">void</span> <span class="o">(*</span><span class="n">uloop_fd_handler</span><span class="o">)(</span><span class="n">struct</span> <span class="n">uloop_fd</span> <span class="o">*</span><span class="n">u</span><span class="o">,</span> <span class="n">unsigned</span> <span class="kt">int</span> <span class="n">events</span><span class="o">);</span>
+
+<span class="kd">static</span> <span class="kt">void</span> <span class="nf">server_cb</span><span class="o">(</span><span class="n">struct</span> <span class="n">uloop_fd</span> <span class="o">*</span><span class="n">fd</span><span class="o">,</span> <span class="n">unsigned</span> <span class="kt">int</span> <span class="n">events</span><span class="o">)</span>
+<span class="o">{</span>
+	<span class="n">bool</span> <span class="n">next</span><span class="o">;</span>
+	<span class="k">do</span> <span class="o">{</span>
+		<span class="n">next</span> <span class="o">=</span> <span class="n">get_next_connection</span><span class="o">(</span><span class="n">fd</span><span class="o">-</span><span class="n">fd</span><span class="o">);</span>
+	<span class="o">}</span> <span class="k">while</span> <span class="o">(</span><span class="n">next</span><span class="o">);</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>uloop_fd_handler在什么时候被调用呢？可以在uloop_run方法中看到，当事件触发时，会回调cb方法。</p>
+
+<p><img src="../images/ubus源码分析/image5.png" alt="" />{width=”5.0974846894138235in”
+height=”2.138999343832021in”}</p>
+
+<p>那么重点就是get_next_connection方法了。</p>
+
+<p><img src="../images/ubus源码分析/image6.png" alt="" />{width=”5.768055555555556in”
+height=”4.472222222222222in”}</p>
+
+<p>accept是socket的方法，accpet之后，会建立一个socket连接,ubusd_proto_new_client会将client_fd添加到二叉树中，存储所有的client。并注册client_cb。</p>
+
+<p>client_cb即描述了发送消息，接收消息、处理消息等方法。由于内容较多，这里只描述重要的方法，其他方法可自行查看。</p>
+
+<p><img src="../images/ubus源码分析/image7.png" alt="" />{width=”5.768055555555556in”
+height=”5.768055555555556in”}</p>
+
+<p>我们挑选一个rpc的方法进行查看，即ubusd_handle_invoke方法。</p>
+
+<p><img src="../images/ubus源码分析/image8.png" alt="" />{width=”5.768055555555556in” height=”3.28125in”}</p>
+
+<p>由于ubusd是一个转发器，所以它并不处理真实的rpc请求，而是将它转发给实际要执行的client。</p>
+
+<h2 id="ubus-service">ubus service</h2>
+
+<p>在ubus源码中example文件夹中有server.c，它就是一个ubus service的demo。</p>
+
+<p><img src="../images/ubus源码分析/image9.png" alt="" />{width=”5.768055555555556in”
+height=”6.233333333333333in”}</p>
+
+<p>可以看到同样适用了标准化的init
+、add_uloop、done等方法。最主要的是server_main方法，</p>
+
+<p><img src="../images/ubus源码分析/image10.png" alt="" />{width=”5.768055555555556in”
+height=”2.3881944444444443in”}</p>
+
+<p>ubus_add_object方法进行服务的注册，test_object则是个ubus_object对象，里面定义了name、method等信息。</p>
+
+<p><img src="../images/ubus源码分析/image11.png" alt="" />{width=”5.768055555555556in”
+height=”2.004166666666667in”}</p>
+
+<p>这里挑选一个hello方法进行查看。Hello方法收到消息后，对数据进行解析，并组合需要返回的内容，由于本service的名字为test，即test
+receiverd a message %s ,%s为具体接收到的数据。</p>
+
+<p><img src="../images/ubus源码分析/image12.png" alt="" />{width=”5.768055555555556in”
+height=”2.752083333333333in”}</p>
+
+<h2 id="ubus-cli">ubus cli</h2>
+
+<p><img src="../images/ubus源码分析/image13.png" alt="" />{width=”5.768055555555556in” height=”5.3875in”}</p>
+
+<p><img src="../images/ubus源码分析/image14.png" alt="" />{width=”5.768055555555556in”
+height=”2.907638888888889in”}</p>
+
+<p><img src="../images/ubus源码分析/image15.png" alt="" />{width=”5.768055555555556in”
+height=”1.3215277777777779in”}</p>
+
+<h2 id="demo">demo</h2>
+
+<p>将源码在openwrt的编译环境编译后，放到openwrt中，先执行service</p>
+
+<p><img src="../images/ubus源码分析/image17.png" alt="" />{width=”5.583619860017498in”
+height=”1.027830271216098in”}</p>
+
+<p>再执行client</p>
+
+<p><img src="../images/ubus源码分析/image18.png" alt="" />{width=”5.2502701224846895in”
+height=”1.2083956692913387in”}</p>
+
+<h2 id="官方的log">官方的log</h2>
+
+<p>通过执行ubus –v list，可以看到log 有
+read、write方法，我们可以借此来分析一下源码，以确认我们前面的推理。</p>
+
+<p><img src="../images/ubus源码分析/image19.png" alt="" />{width=”5.768055555555556in”
+height=”0.55625in”}</p>
+
+<p>Log的service源码是在ubox中，名字为logd.c。</p>
+
+<p><img src="../images/ubus源码分析/image20.png" alt="" />{width=”5.768055555555556in”
+height=”5.7555555555555555in”}</p>
+
+<p><img src="../images/ubus源码分析/image21.png" alt="" />{width=”5.768055555555556in”
+height=”2.0118055555555556in”}</p>
+
+<p><img src="../images/ubus源码分析/image22.png" alt="" />{width=”5.768055555555556in”
+height=”1.83125in”}</p>
+
+<h2 id="rpcd">Rpcd</h2>
+
+<p><img src="../images/ubus源码分析/image23.png" alt="image.png" />{width=”5.768055555555556in”
+height=”2.2503215223097115in”}</p>
+
+<p>Rpcd是一个比较特殊的实现，它在实现了ubus
+service的基础上，进行了扩展，可以实现通过 http 来访问 ubus
+总线（luci实现），并且也支持了加载本地shell。</p>
+
+<p>这里介绍一下本地shell的加载(mwan3的通过该方法实现ubus调用)</p>
+
+<p>下载rpcd源码进行查看，发现session、uci、iwinfo、file是通过rpcd实现的。</p>
+
+<p><img src="../images/ubus源码分析/image24.png" alt="" />{width=”5.028035870516185in”
+height=”4.2502187226596675in”}</p>
+
+<p><img src="../images/ubus源码分析/image25.png" alt="" />{width=”5.278048993875766in”
+height=”5.028035870516185in”}</p>
+
+<p>Rpcd加载shell的目录如下：</p>
+
+<p><img src="../images/ubus源码分析/image26.png" alt="" />{width=”5.583619860017498in”
+height=”0.6805905511811023in”}</p>
+
+<p>按照过则编辑一个脚本：/usr/libexec/rpcd/foo</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="err">#</span><span class="o">!/</span><span class="n">bin</span><span class="o">/</span><span class="n">sh</span>
+
+<span class="k">case</span> <span class="s">"$1"</span> <span class="n">in</span>
+        <span class="n">list</span><span class="o">)</span>
+                <span class="n">echo</span> <span class="err">'</span><span class="o">{</span> <span class="s">"bar"</span><span class="o">:</span> <span class="o">{</span> <span class="s">"arg1"</span><span class="o">:</span> <span class="kc">true</span><span class="o">,</span> <span class="s">"arg2"</span><span class="o">:</span> <span class="mi">32</span><span class="o">,</span> <span class="s">"arg3"</span><span class="o">:</span> <span class="s">"str"</span> <span class="o">},</span> <span class="s">"toto"</span><span class="o">:</span> <span class="o">{</span> <span class="o">}</span> <span class="o">}</span><span class="err">'</span>
+        <span class="o">;;</span>
+        <span class="n">call</span><span class="o">)</span>
+                <span class="k">case</span> <span class="s">"$2"</span> <span class="n">in</span>
+                        <span class="n">bar</span><span class="o">)</span>
+                                <span class="err">#</span> <span class="n">read</span> <span class="n">the</span> <span class="n">arguments</span>
+                                <span class="n">read</span> <span class="n">input</span><span class="o">;</span>
+                                <span class="err">#</span> <span class="n">optionally</span> <span class="n">log</span> <span class="n">the</span> <span class="n">call</span>
+                                <span class="n">logger</span> <span class="o">-</span><span class="n">t</span> <span class="s">"foo"</span> <span class="s">"call"</span> <span class="s">"$2"</span> <span class="s">"$input"</span>
+                                <span class="err">#</span> <span class="k">return</span> <span class="n">json</span> <span class="n">object</span> <span class="n">or</span> <span class="n">an</span> <span class="n">array</span>
+                                <span class="n">echo</span> <span class="err">'</span><span class="o">{</span> <span class="s">"hello"</span><span class="o">:</span> <span class="s">"world"</span> <span class="o">}</span><span class="err">'</span>
+                        <span class="o">;;</span>
+                        <span class="n">toto</span><span class="o">)</span>
+                                <span class="err">#</span> <span class="k">return</span> <span class="n">json</span> <span class="n">object</span> <span class="n">or</span> <span class="n">an</span> <span class="n">array</span>
+                                <span class="n">echo</span> <span class="err">'</span><span class="o">[</span> <span class="s">"item1"</span><span class="o">,</span> <span class="s">"item2"</span><span class="o">,</span> <span class="s">"item3"</span> <span class="o">]</span><span class="err">'</span>
+                        <span class="o">;;</span>
+                <span class="n">esac</span>
+        <span class="o">;;</span>
+<span class="n">esac</span></code></pre></figure>
+
+<p>/etc/init.d/rpcd reload 或 重启。</p>
+
+<p><img src="../images/ubus源码分析/image27.png" alt="" />{width=”3.180718503937008in”
+height=”1.4584087926509186in”}</p>
+
+<p><img src="../images/ubus源码分析/image28.png" alt="" />{width=”5.768055555555556in” height=”0.8625in”}</p>
+
+<p><img src="../images/ubus源码分析/image29.png" alt="" />{width=”3.597407042869641in”
+height=”1.0000513998250218in”}</p>
+
+<h1 id="其他">其他</h1>
+
+<h2 id="什么是tvl">什么是TVL</h2>
+
+<p>&lt;http://www.wtango.com/tlv%E7%BC%96%E7%A0%81%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE%E8%AE%BE%E8%AE%A1/</p>
+
+<h2 id="bus的意义是什么">Bus的意义是什么？</h2>
+
+<p>有人整理了Unix/Linux IPC的七大分类：</p>
+
+<p><img src="../images/ubus源码分析/image30.png" alt="" />{width=”5.768055555555556in”
+height=”4.064583333333333in”}</p>
+
+<p>原文：&lt;https://github.com/robbie-cao/kb-openwrt/blob/master/UBUS.md</p>
+
+<p>这有涉及到SOA中esb相关知识了。</p>
+
+<p>&lt;https://www.cnblogs.com/zdz8207/p/java-esb.html</p>
+
+<p><img src="../images/ubus源码分析/image31.png" alt="https://images2018.cnblogs.com/blog/47685/201806/47685-20180627204743899-564991765.png" />{width=”5.768055555555556in”
+height=”3.365980971128609in”}</p>
+
+<h2 id="我们怎么使用">我们怎么使用？</h2>
+
+<p>Mqtt
+client可以参考之前的servcie进行实现，通过ubus进行跨进程间的通讯，将数据交付到mqtt
+服务中，这样mqtt client与mqtt borker就只有一个连接了。</p>
+
+        
+      </div><!-- /.entry-content -->
+    </div><!-- /.entry-wrapper -->
+    <nav class="pagination" role="navigation">
+      
+        <a href="http://localhost:4000/openwrt%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9B%BA%E4%BB%B6" class="btn" title="OPENWRT自定义固件">Previous article</a>
+      
+      
+        <a href="http://localhost:4000/java-lock" class="btn" title="java synchronized的实现">Next article</a>
+      
+    </nav><!-- /.pagination -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2020 yangqiju. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">So Simple Theme</a>.</span>
+<div class="social-icons">
+	
+	
+	
+	
+	
+	
+	
+	<a href="http://github.com/yangqiju" title="yangqiju on Github" target="_blank"><i class="icon-github icon-2x"></i></a>
+	
+</div><!-- /.social-icons -->
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://localhost:4000/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://localhost:4000/assets/js/scripts.min.js"></script>
+
+<!-- Jekyll Simple Search option -->
+<script>
+  $(document).ready(function() {
+      $('.search-field').simpleJekyllSearch({
+          jsonFile : 'http://localhost:4000/search.json',
+          searchResults : '.search-results',
+          template : '<li><article><a href="{url}">{title} <span class="entry-date"><time datetime="{date}">{shortdate}</time></span></a></article></li>',
+          noResults: '<p>Nothing found.</p>'
+        });
+  });
+
+  (function( $, window, undefined ) {
+    
+     var bs = {
+          close: $(".icon-remove-sign"),
+          searchform: $(".search-form"),
+          canvas: $("body"),
+          dothis: $('.dosearch')
+      };
+    
+    bs.dothis.on('click', function() {
+      $('.search-wrapper').css({ display: "block" });
+      bs.searchform.toggleClass('active');
+      bs.searchform.find('input').focus();
+      bs.canvas.toggleClass('search-overlay');
+    });
+    
+      bs.close.on('click', function() {
+        $('.search-wrapper').removeAttr( 'style' );
+        bs.searchform.toggleClass('active');
+        bs.canvas.removeClass('search-overlay');
+    });
+  })( jQuery, window );
+</script>
+
+
+	        
+
+</body>
+</html>

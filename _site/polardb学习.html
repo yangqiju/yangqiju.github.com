@@ -1,0 +1,599 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>polardb源码学习 &#8211; Orange</title>
+<meta name="description" content="polardb源码学习">
+<meta name="keywords" content="java, polardb">
+
+
+<meta name="baidu-site-verification" content="kGTic24zBh" />
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="polardb源码学习">
+<meta property="og:description" content="polardb源码学习">
+<meta property="og:url" content="http://localhost:4000/polardb%E5%AD%A6%E4%B9%A0">
+<meta property="og:site_name" content="Orange">
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/polardb%E5%AD%A6%E4%B9%A0">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Orange Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.min.css">
+<!-- Webfonts 
+<script src="//use.edgefonts.net/source-sans-pro:n2,i2,n3,i3,n4,i4,n6,i6,n7,i7,n9,i9;source-code-pro:n4,n7;volkhov.js"></script>
+-->
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="http://localhost:4000/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://localhost:4000/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://localhost:4000/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://localhost:4000/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body id="post" itemscope itemtype="http://schema.org/WebPage">
+
+<div class="navigation-wrapper">
+	<nav role="navigation" id="site-nav" class="animated drop" itemscope itemtype="http://schema.org/SiteNavigationElement">
+	    <ul>
+	        
+			<li>
+				
+					<a href="http://localhost:4000/about">Home</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="http://localhost:4000/work">Work</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="http://localhost:4000/interest">Interest</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="http://localhost:4000/life">life</a>
+				 
+			</li>
+	        
+	        <!-- 
+	        <li><a href="http://localhost:4000/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
+	         -->
+	        <li class="dosearch"><i class="icon-search"></i> Search</li>
+	    </ul>
+	</nav>
+</div><!-- /.navigation-wrapper -->
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+
+<div class="search-wrapper">
+	<div class="search-form">
+		<input type="text" class="search-field" placeholder="Search...">
+		<i class="icon-remove-sign icon-2x"></i>
+		<ul class="search-results post-list"></ul><!-- /.search-results -->
+	</div><!-- /.search-form -->
+</div><!-- ./search-wrapper -->
+
+<header class="masthead" itemscope itemtype="http://schema.org/Organization">
+	<div class="wrap">
+		<a href="http://localhost:4000" class="site-logo" rel="home" title="Orange" itemprop="url"><img src="http://localhost:4000/images/logo.jpeg" width="200" height="200" alt="Orange logo" class="animated fadeInUp" itemprop="logo"></a>
+		<h1 class="site-title animated fadeIn"><a href="http://localhost:4000">Orange</a></h1>
+		<h2 class="site-description animated fadeIn" itemprop="description">做个简单的coder.</h2>
+	</div>
+</header><!-- /.masthead -->
+
+
+<div id="main" role="main" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/Blog">
+  <article class="hentry" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="entry-wrapper">
+      <header class="entry-header">
+        <span class="entry-tags"><a href="http://localhost:4000/tags.html#java" title="Pages tagged java" rel="tag">java</a>&nbsp;&bull;&nbsp;<a href="http://localhost:4000/tags.html#polardb" title="Pages tagged polardb" rel="tag">polardb</a></span>
+        
+          <h1 class="entry-title" itemprop="headline">polardb源码学习</h1>
+        
+      </header>
+      <footer class="entry-meta">
+        <img src="http://localhost:4000/images/logo.jpeg" alt="yangqiju photo" class="author-photo">
+        <span class="author vcard" itemprop="author" itemscope itemtype="http://schema.org/Person">By <span itemprop="name" class="fn"><a href="http://localhost:4000/about" title="About yangqiju" itemprop="url">yangqiju</a></span></span>
+        <span class="entry-date date published"><time datetime="2019-08-21T00:00:00-04:00" itemprop="datePublished"><i class="icon-calendar-empty"></i> August 21, 2019</time></span>
+        
+        
+        <span><a href="http://localhost:4000/polardb%E5%AD%A6%E4%B9%A0" rel="bookmark" title="polardb源码学习" itemprop="url"><i class="icon-link"></i> Permalink</a></span>
+      </footer>
+      <div class="entry-content" style="font-size:14px" itemprop="description">
+        <h1 id="背景">背景</h1>
+
+<p>原文：&lt;http://neoremind.com/2018/12/2018-polar-race-java-no-1/</p>
+
+<p>参加天池大赛-阿里云第一届PolarDB数据库性能大赛，比赛以NVME Optane
+SSD为背景，在此之上开发单机存储引擎比拼性能，支持C++和Java语言。完赛成绩是Java语言排名第一，总排名20（共1653人参赛，队伍名称：neoremind），与C++第一差距在2.1%（&lt;9s）。</p>
+
+<h1 id="赛题介绍">赛题介绍</h1>
+
+<p>使用Intel Optane
+SSD作为存储，cgroup限制内存3G（针对Java）。实现一个简化、高效的kv存储引擎，支持Write、Read、Range接口。</p>
+
+<p>评测程序分为2个阶段：</p>
+
+<p>1. 正确性评测</p>
+
+<p>此阶段评测程序会并发写入特定数据（key 8B、value 4KB）同时进行任意次kill
+-9来模拟进程意外退出（参赛引擎需要保证进程意外退出时数据持久化不丢失），接着重新打开DB，调用Read、Range接口来进行正确性校验。</p>
+
+<p>2. 性能评测</p>
+
+<p>2.1
+随机写入：64个线程并发随机写入，每个线程使用Write各写100万次随机数据（key
+8B、value 4KB）。</p>
+
+<p>2.2
+随机读取：64个线程并发随机读取，每个线程各使用Read读取100万次随机数据。</p>
+
+<p>2.3
+顺序读取：64个线程并发顺序读取，每个线程使用Range全局顺序迭代DB数据2次。</p>
+
+<p>补充下：</p>
+
+<p>1）每个阶段结束后都会清page cache，清理时间也算在总时长里。</p>
+
+<p>2）Read、Range会验证key、value是否match，Range验证是否保序。</p>
+
+<h1 id="知识点">知识点</h1>
+
+<h2 id="lsm-tree">LSM-tree</h2>
+
+<p>Log Structured Merge Tree，下面简称 LSM。</p>
+
+<p>2006年，Google 发表了 BigTable 的论文。这篇论文提到 BigTable
+单机上所使用的数据结构就是 LSM。目前，LSM
+被很多存储产品作为存储结构，比如 Apache HBase, Apache Cassandra, MongoDB
+的 Wired Tiger 存储引擎, LevelDB 存储引擎, RocksDB 存储引擎等。</p>
+
+<p><img src="../images/polardb源码学习/image1.png" alt="" />{width=”5.768055555555556in”
+height=”2.5236111111111112in”}</p>
+
+<p><img src="../images/polardb源码学习/image2.png" alt="https://img-blog.csdn.net/20180320194747640?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3NkdWxpYmg=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" />{width=”5.5in”
+height=”4.323611111111111in”}</p>
+
+<p>简单地说，LSM 的设计目标是提供比传统的 B+
+树更好的写性能。LSM通过将磁盘的随机写转化为顺序写来提高写性能，而付出的代价就是牺牲部分读性能、写放大（B+树同样有写放大的问题）。LSM
+相比 B+ 树能提高写性能的本质原因是无论磁盘还是
+SSD，其随机读写都要慢于顺序读写。</p>
+
+<p>随机读写比顺序读写慢？</p>
+
+<h2 id="随机读写比顺序读写慢">随机读写比顺序读写慢</h2>
+
+<p>在HDD（Hard Disk
+Drive，硬件驱动器）的时代，要考虑磁头。Hdd的单位是扇区，通常是512byte，ssd是以页为单位，通常是4k。</p>
+
+<p>SSD不是用的磁头了，那为什么相比之下随机读写还是慢呢？</p>
+
+<p><img src="../images/polardb源码学习/image3.png" alt="" />{width=”5.768055555555556in”
+height=”3.1631944444444446in”}</p>
+
+<p>SSD以Page为单位做读写，以Block为单位做垃圾回收，Page一般有16KB大小，Block一般有几MB大小（例如256
+KB and 4 MB），SSD写数据的逻辑是：</p>
+
+<p>1）将该Block块数据所在的Page读出</p>
+
+<p>2）修改该Page中该Block块数据的内容</p>
+
+<p>3）找出一个新的空闲Block将2)中的Page写入，并将1)中提到的Page所在的Block中的Page标志为脏。</p>
+
+<p>由于随机数据通常由多个应用程序写入，因此页面顺序写入闪存的各个块中。随机写会导致随机的页面失效，顺序写会导致连续的大块页面失效。页面随机失效时，要回收block，需要将block中的有效页面读出并写到新位置，然后erase
+block，而连续的大块页面失效时，由于要erase的block中一般已没有有效页面，拷贝写到新位置的过程就没有了。</p>
+
+<h2 id="wisckey">WiscKey</h2>
+
+<p><img src="../images/polardb源码学习/image4.jpeg" alt="https://ask.qcloudimg.com/http-save/developer-news/032ygdzn3u.jpeg?imageView2/2/w/1620" />{width=”5.217361111111111in”
+height=”4.282638888888889in”}</p>
+
+<p>LSM-tree的问题：</p>
+
+<ul>
+  <li>
+    <p>读放大。LSM-Tree
+的读操作需要从新到旧（从上到下）一层一层查找，直到找到想要的数据。这个过程可能需要不止一次
+I/O。特别是 range query 的情况，影响很明显。</p>
+  </li>
+  <li>
+    <p>空间放大。因为所有的写入都是顺序写（append-only）的，不是 in-place
+update ，所以过期数据不会马上被清理掉。</p>
+  </li>
+  <li>
+    <p>写放大。compaction 时为了保证数据有序进行大量数据（key 和
+value）重写。层层合并。</p>
+  </li>
+</ul>
+
+<p>实际上，需要保持有序的只有 key，如果将 key 和 value 分开存储，compaction
+重写数据的时候，就只需要重写 key（和 value 的位置，简称 vpos）。这在 key
+size （简称 ksize）远小于 value size （简称
+vsize）的场景（现实场景基本都是这样）降低写放大的效果十分明显。</p>
+
+<ul>
+  <li>
+    <p>LSM-Tree Compaction 不需要重写 value，大大减小写放大。</p>
+  </li>
+  <li>
+    <p>LSM-Tree 不存储 value，体积更小，一个 block 能存更多的
+key，有利于减少读 LSM-Tree 的 I/O。</p>
+  </li>
+  <li>
+    <p>LSM-Tree 的体积小，cache 效果应该会更好。LSM-Tree
+的上面几层基本都可以 cache 在内存中。</p>
+  </li>
+</ul>
+
+<h2 id="参赛者的设计结构">参赛者的设计结构</h2>
+
+<p><img src="../images/polardb源码学习/image5.png" alt="http://neoremind.com/wp-content/uploads/data_storage_format.png" />{width=”5.768055555555556in”
+height=”4.663152887139107in”}</p>
+
+<p>wal（Write Ahead
+Log）存key和value在vlog中的offset，vlog是顺序写入的value，wal和vlog都是append-only的定长写入，所以wal只用存vlog的sequence，vlog
+seq用4byte
+Int表示存储，大尾端/小尾端程序自己定，然后乘以4096就是在vlog文件中的偏移量。wal和vlog都是顺序IO写入，不存在LSM-tree模型的写放大问题。</p>
+
+<p>由于kv分离，写入必须lock，有锁就会限制性能，由于是随机写入，所以按照分治的思路，减少冲突即可，数据要分片sharding。我的策略是按照key的字典序分成1024个分片。把key的第一个字节8byte+第二个字节的前2个bit取出，转成int，经过分区函数就可以路由到正确的分片上。</p>
+
+<p><img src="../images/polardb源码学习/image6.png" alt="http://neoremind.com/wp-content/uploads/shareddb.png" />{width=”5.768055555555556in”
+height=”1.9387084426946632in”}</p>
+
+<h2 id="高速写入的实现">高速写入的实现</h2>
+
+<p><img src="../images/polardb源码学习/image7.png" alt="" />{width=”5.768055555555556in” height=”4.20625in”}</p>
+
+<p>Mmap是程序写入到page
+cache就算写成功了，默认系统调用刷盘，所以是写内存，速度很快。</p>
+
+<p><img src="../images/polardb源码学习/image8.png" alt="" />{width=”5.768055555555556in”
+height=”3.497916666666667in”}</p>
+
+<p>这里面vlog是用mmap写入的，而wal使用dio+mmap实现的。</p>
+
+<p>mmap写入快，所以vlog使用mmap进行数据操作，这个好理解。</p>
+
+<p>但是wal为什么是dio+mmap？</p>
+
+<p>先说一下为什么要DIO？</p>
+
+<h2 id="高速读取">高速读取</h2>
+
+<p>顺序读为什么会比随机读要快？</p>
+
+<p><img src="../images/polardb源码学习/image9.gif" alt="PageCache" />{width=”5.768055555555556in”
+height=”1.7203488626421697in”}</p>
+
+<p>以顺序读为例，当用户发起一个 fileChannel.read(4kb)
+之后，实际发生了两件事</p>
+
+<p>操作系统从磁盘加载了 16kb 进入 PageCache，这被称为预读</p>
+
+<p>操作通从 PageCache 拷贝 4kb 进入用户内存</p>
+
+<p>最终我们在用户内存访问到了
+4kb，为什么顺序读快？很容量想到，当用户继续访问接下来的[4kb,16kb]的磁盘内容时，便是直接从
+PageCache 去访问了。试想一下，当需要访问 16kb
+的磁盘内容时，是发生4次磁盘 IO 快，还是发生1次磁盘 IO+4 次内存 IO
+快呢？答案是显而易见的，这一切都是 PageCache 带来的优化。</p>
+
+<p>那如果是随机读怎么办呢？</p>
+
+<p>当使用 fileChannel.read() 这类会触发 PageCache 预读的 IO
+方式时，我们其实并不希望操作系统帮我们干太多事，除非真的踩了狗屎运，随机读都能命中
+PageCache，但几率可想而知。</p>
+
+<p>所以这种情况下，我们是希望绕过page cache的。</p>
+
+<p><img src="../images/polardb源码学习/image10.png" alt="linux io" />{width=”5.376388888888889in”
+height=”4.5in”}</p>
+
+<h2 id="为什么要diommap">为什么要DIO+MMAP</h2>
+
+<p>评测程序分为2个阶段中，第一阶段正确性评测中，提到进行任意次kill
+-9来模拟进程意外退出（参赛引擎需要保证进程意外退出时数据持久化不丢失）。</p>
+
+<p>Kill -9
+只是杀了进程，但是mmap的内容是还在的，所以当写了vlog，所以value还在page
+cache中，可以恢复，但是如果是wal只是dio操作，那数据就丢失了key
+offsize了。</p>
+
+<p>所以在wal写的时候，是先写了个tmp文件。</p>
+
+<p><img src="../images/polardb源码学习/image11.png" alt="" />{width=”5.768055555555556in”
+height=”2.5680555555555555in”}</p>
+
+<p>而在启动的时候，进行数据的恢复。也就是将page cache 的内容写到文件中。</p>
+
+<p><img src="../images/polardb源码学习/image12.png" alt="" />{width=”5.768055555555556in”
+height=”1.3854166666666667in”}</p>
+
+<h2 id="随机读的实现">随机读的实现</h2>
+
+<p>读取测试方法：</p>
+
+<p>随机读取：64个线程并发随机读取，每个线程各使用Read读取100万次随机数据。</p>
+
+<p>首先要创建索引，通过key查找value。</p>
+
+<p><img src="../images/polardb源码学习/image13.png" alt="http://neoremind.com/wp-content/uploads/data_storage_format.png" />{width=”3.3176476377952757in”
+height=”2.682133639545057in”}</p>
+
+<p>总的wal文件大小=（8byte key+4byte vlog
+seq）*64并发*100w=768MB。完全可以放内存中。</p>
+
+<p><img src="../images/polardb源码学习/image14.png" alt="" />{width=”5.768055555555556in”
+height=”2.0277777777777777in”}</p>
+
+<p>在读之前先进行初始化：</p>
+
+<ol>
+  <li>
+    <p>多线程（10个线程）同时通过mmap加载1024个wal文件</p>
+  </li>
+  <li>
+    <p>申请同样大小的堆外内存，通过堆外内存进行排序，构建出一个index，用于二分查找</p>
+  </li>
+  <li>
+    <p>用DIO的方式初始化vlog</p>
+  </li>
+</ol>
+
+<p>初始化完成后，就可以通过二分查找找到key，在通过偏移量找到value</p>
+
+<p><img src="../images/polardb源码学习/image15.png" alt="" />{width=”5.768055555555556in”
+height=”1.5229166666666667in”}</p>
+
+<h2 id="scan扫描">Scan扫描</h2>
+
+<p>测试方法：</p>
+
+<p>顺序读取：64个线程并发顺序读取，每个线程使用Range全局顺序迭代DB数据2次。</p>
+
+<p>题目中会64并发Range2次，相当于128次全数据扫描，肯定是有问题的。</p>
+
+<p>作者先描述了搭车模型，再使用了滑动窗口。但感觉事后先描述滑动窗口，再描述搭车模型就更加明白。</p>
+
+<p>基本思想就是顺序遍历1024个分片，每个分片放到内存中访问，无缝的衔接每个分片，走完即可。每个分片的访问都分为3个步骤。</p>
+
+<p>1）prefetch预读：wal排序好建立索引，vlog load到内存。</p>
+
+<p>2）Range读取：iterate排序好的wal，针对每个key和vlog
+seq找value，就变成了内存访问，也就是”并发内存查询”的精髓。</p>
+
+<p>3）评测程序visit：评测程序需要验证有序、值正确等，也有一定消耗。</p>
+
+<p><img src="../images/polardb源码学习/image16.png" alt="http://neoremind.com/wp-content/uploads/slidingwindow.png" />{width=”5.768055555555556in”
+height=”3.009304461942257in”}</p>
+
+<p>为了无缝衔接1024个分片做上述3个步骤，使用滑动窗口，如下图，滑动窗口分为5类：</p>
+
+<p>– 已访问结束的</p>
+
+<p>– 正在Range读取的和visit的</p>
+
+<p>– prefetch预读结束，准备被读取的</p>
+
+<p>– prefetching中</p>
+
+<p>– 未访问的</p>
+
+<p>滑动窗口最大容量是3个分片，占用内存最大=vlog（256MB*3）+wal索引（750KB*3）=770MB。</p>
+
+<p>这样只要将64个并发线程控制在这滑动窗口中，就相当于全是内存操作了。所以搭车模型就可以运用如下了：</p>
+
+<p><img src="../images/polardb源码学习/image17.png" alt="http://neoremind.com/wp-content/uploads/acc_runner.png" />{width=”5.768055555555556in”
+height=”2.1248239282589676in”}</p>
+
+<h1 id="扩展点">扩展点</h1>
+
+<h2 id="kernel-bypass">Kernel bypass</h2>
+
+<p>kernel
+bypass(绕过内核)是解决系统网络栈和存储栈性能瓶颈的另外一种方式，与传统的中断机制不同，kernel
+bypass的核心思想是：内核只用来处理控制流，所有数据流相关操作都在用户态进行处理，从而规避内核的包拷贝、线程调度、系统调用、中断等性能瓶颈，并辅以各种性能调优手段(如：CPU
+pin、无锁队列)，从而达到更高的性能。</p>
+
+<h3 id="dpdk">DPDK</h3>
+
+<p>DPDK(Data Plane Development
+Kit)是由Intel发起，主要基于Linux系统运行，用于快速数据包处理的函数库与驱动集合，可以极大提高数据处理性能和吞吐量，提高数据平面应用程序的工作效率。DPDK使用了轮询(polling)而不是中断来处理数据包。在收到数据包时，经DPDK重载的网卡驱动不会通过中断通知CPU，而是直接将数据包存入内存，交付应用层软件通过DPDK提供的接口来直接处理，这样节省了大量的CPU中断时间和内存拷贝时间。</p>
+
+<p>&lt;https://www.cnblogs.com/qcloud1001/p/9585724.html</p>
+
+<h3 id="spdk">SPDK</h3>
+
+<p>众所周知，在Linux起源之初，文件系统io栈针对机械盘进行了众多优化，包括page、cache等多种优化方式。内核采用中断的方式进行DMA将数据从内核态拷贝回用户态，再交由用户程序处理，这是机械硬盘时代的io处理方式。而随着nvme-ssd的出现，如果再采用此种方式就会导致大量的硬盘空闲，浪费硬盘性能。为了帮助上游的应用厂商以及存储厂商更好的发挥ssd磁盘的性能，intel开发了一套基于nvme-ssd的开发套件，SPDK。SPDK的目标是通过使用Intel的网络，处理，存储技术，将固态存储介质出色的功效发挥到极致。</p>
+
+<p>首先，将设备驱动代码运行在用户态，避免内核上下文切换和中断将会节省大量的处理开销，允许更多的时钟周期被用来做实际的数据存储。其次，采用轮询模式改变了传统I/O的基本模型。在传统的I/O模型中，应用程序提交读写请求后进入睡眠状态，一旦I/O完成，中断就会将其唤醒。轮询的工作方式则不同，应用程序提交读写请求后继续执行其他工作，以一定的时间间隔回头检查I/O是否已经完成。这种方式避免了中断带来的延迟和开销，并使得应用程序提高了I/O效率。</p>
+
+<p>SPDK用于加速使用NVMe
+SSD作为后端存储的应用软件加速库，该软件库的核心是用户态、异步、轮询方式的NVMe驱动。与内核态的NVMe驱动相比，它可以大幅度降低延迟，同时提升单CPU核的IOPS。</p>
+
+<p><img src="../images/polardb源码学习/image18.png" alt="" />{width=”5.768055555555556in”
+height=”1.6583333333333334in”}</p>
+
+<p>&lt;https://blog.csdn.net/zlarm/article/details/79140299</p>
+
+<h3 id="rdma">RDMA</h3>
+
+<p>RDMA(Remote Direct Memory
+Access)全称远程直接数据存取，就是为了解决网络传输中服务器端数据处理的延迟而产生的。RDMA通过网络把资料直接传入计算机的存储区，将数据从一个系统快速移动到远程系统存储器中，而不对操作系统造成任何影响，这样就不需要用到多少计算机的处理功能。它消除了外部存储器复制和上下文切换的开销，因而能解放内存带宽和CPU周期用于改进应用系统性能。下图直观的展示了传统模式和RDMA模式下的差异。</p>
+
+<p><img src="../images/polardb源码学习/image19.png" alt="" />{width=”5.768055555555556in”
+height=”3.0756944444444443in”}</p>
+
+<h2 id="细节是魔鬼">细节是魔鬼</h2>
+
+<p>这里有一个小点可以避免频繁的Young GC，64个线程通过ThreadLocal读4k
+value，避免频繁的分配内存。</p>
+
+<h2 id="dio库">DIO库</h2>
+
+<p>&lt;https://github.com/smacke/jaydio</p>
+
+<p>据说java 10
+会添加上（&lt;https://bugs.openjdk.java.net/browse/JDK-8164900）</p>
+
+<h2 id="重点">重点</h2>
+
+<p>作为Java选手要克服上面的困难，必然要使出一些大杀器，下面依次总结下。</p>
+
+<p>1、mmap</p>
+
+<p>写入阶段写wal，保证crash
+consistency。JDK提供原生的API，但是释放相对麻烦。</p>
+
+<p>2、direct io</p>
+
+<p>JNA封装，或者使用jaydio，拼接小IO为大块IO写入。FileChannel在本次比赛都没有使用，原因就是内部有个position
+lock并且走buffer
+io，在这个场景不适合，但是大多数Java涉及IO的场景，NIO的FileChannel都是首选。</p>
+
+<p>3、堆外内存</p>
+
+<p>offheap可以用DirectBuffer，或者Unsafe的malloc、free。</p>
+
+<p>4、gc控制</p>
+
+<p>比赛用参数如下，</p>
+
+<p>-server -XX:-UseBiasedLocking -Xms2000m -Xmx2000m -XX:NewSize=1400m
+-XX:MaxMetaspaceSize=32m -XX:MaxDirectMemorySize=1G -XX:+UseG1GC</p>
+
+<p>write和read阶段young
+gc都很少，主要为range阶段使用，由于使用了多级流水线架构，所以吃内存比较严重，young
+gc相对频繁，但没有full gc所以可接受。</p>
+
+<p>5、池化技术</p>
+
+<p>DirectMemory先分配好，然后池化，使用时候反复擦写，可以复用资源。read阶段用ThreadLocal复用value避免频繁young
+gc。</p>
+
+<p>6、锁控制</p>
+
+<p>kv分离的写入，必然加锁。read阶段的direct io
+load同一块内存，然后返回给user
+space的过程也需要加锁，尽量小的控制锁粒度，分散锁的冲突，就像ConcurrentHashMap思想一样，就可以把锁的消耗降到最低。</p>
+
+<p>7、并发利器</p>
+
+<p>java.util.concurrent要用好，Range阶段的搭车模型，并行load
+vlog，滑动窗口都用到了线程池、lock、condition、mutex等。同时一些无锁并发的类库例如ConcurrentLinkedQueue，jctools的MpmcArrayQueue，disruptor的无锁队列也可以尝试，比赛中都有实验，其实无锁就足够了，瓶颈在IO，这些可以忽略。</p>
+
+<p>8、减少上下文切换</p>
+
+<p>由于比赛使用了Alijdk，而Alijdk有个Wisp
+API，可以做Java协程，在一些资源释放无需等待的场景可以使用，亲试后通过vmstat
+-w 1命令看cs列确实少了一些，但是对提高成绩没有很大帮忙。</p>
+
+        
+      </div><!-- /.entry-content -->
+    </div><!-- /.entry-wrapper -->
+    <nav class="pagination" role="navigation">
+      
+        <a href="http://localhost:4000/go-shadowsocks" class="btn" title="go shadowsocks源码分析">Previous article</a>
+      
+      
+        <a href="http://localhost:4000/kcp%E5%AD%A6%E4%B9%A0" class="btn" title="KCP学习">Next article</a>
+      
+    </nav><!-- /.pagination -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2020 yangqiju. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">So Simple Theme</a>.</span>
+<div class="social-icons">
+	
+	
+	
+	
+	
+	
+	
+	<a href="http://github.com/yangqiju" title="yangqiju on Github" target="_blank"><i class="icon-github icon-2x"></i></a>
+	
+</div><!-- /.social-icons -->
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://localhost:4000/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://localhost:4000/assets/js/scripts.min.js"></script>
+
+<!-- Jekyll Simple Search option -->
+<script>
+  $(document).ready(function() {
+      $('.search-field').simpleJekyllSearch({
+          jsonFile : 'http://localhost:4000/search.json',
+          searchResults : '.search-results',
+          template : '<li><article><a href="{url}">{title} <span class="entry-date"><time datetime="{date}">{shortdate}</time></span></a></article></li>',
+          noResults: '<p>Nothing found.</p>'
+        });
+  });
+
+  (function( $, window, undefined ) {
+    
+     var bs = {
+          close: $(".icon-remove-sign"),
+          searchform: $(".search-form"),
+          canvas: $("body"),
+          dothis: $('.dosearch')
+      };
+    
+    bs.dothis.on('click', function() {
+      $('.search-wrapper').css({ display: "block" });
+      bs.searchform.toggleClass('active');
+      bs.searchform.find('input').focus();
+      bs.canvas.toggleClass('search-overlay');
+    });
+    
+      bs.close.on('click', function() {
+        $('.search-wrapper').removeAttr( 'style' );
+        bs.searchform.toggleClass('active');
+        bs.canvas.removeClass('search-overlay');
+    });
+  })( jQuery, window );
+</script>
+
+
+	        
+
+</body>
+</html>
