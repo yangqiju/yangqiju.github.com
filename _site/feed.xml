@@ -2,26 +2,26 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
 <title type="text">Orange</title>
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
-<link rel="self" type="application/atom+xml" href="http://localhost:4000/feed.xml" />
-<link rel="alternate" type="text/html" href="http://localhost:4000" />
-<updated>2020-05-12T07:37:59-04:00</updated>
-<id>http://localhost:4000/</id>
+<link rel="self" type="application/atom+xml" href="http://yangqiju.github.io/feed.xml" />
+<link rel="alternate" type="text/html" href="http://yangqiju.github.io" />
+<updated>2020-05-12T07:42:47-04:00</updated>
+<id>http://yangqiju.github.io/</id>
 <author>
   <name>yangqiju</name>
-  <uri>http://localhost:4000/</uri>
+  <uri>http://yangqiju.github.io/</uri>
   <email>362991493@qq.com</email>
 </author>
 
 
 <entry>
   <title type="html"><![CDATA[mysql innodb 学习]]></title>
-  <link>http://localhost:4000/innnodb</link>
-  <id>http://localhost:4000/innnodb</id>
+  <link>http://yangqiju.github.io/innnodb</link>
+  <id>http://yangqiju.github.io/innnodb</id>
   <published>2020-05-15T00:00:00-04:00</published>
   <updated>2020-05-15T00:00:00-04:00</updated>
   <author>
     <name>yangqiju</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://yangqiju.github.io</uri>
     <email>362991493@qq.com</email>
   </author>
   <content type="html">&lt;p&gt;INNODB学习&lt;/p&gt;
@@ -619,19 +619,19 @@ Buffer Pool，但是对 young 区域完全没有影响，从而保证了 Buffer 
 
 &lt;p&gt;&lt;a href=&quot;https://time.geekbang.org/column/article/75173&quot;&gt;https://time.geekbang.org/column/article/75173&lt;/a&gt;&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/innnodb&quot;&gt;mysql innodb 学习&lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://localhost:4000&quot;&gt;Orange&lt;/a&gt; on May 15, 2020.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://yangqiju.github.io/innnodb&quot;&gt;mysql innodb 学习&lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://yangqiju.github.io&quot;&gt;Orange&lt;/a&gt; on May 15, 2020.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[语法解析学习]]></title>
-  <link>http://localhost:4000/%E8%AF%AD%E6%B3%95%E8%A7%A3%E6%9E%90%E5%AD%A6%E4%B9%A0</link>
-  <id>http://localhost:4000/语法解析学习</id>
+  <link>http://yangqiju.github.io/%E8%AF%AD%E6%B3%95%E8%A7%A3%E6%9E%90%E5%AD%A6%E4%B9%A0</link>
+  <id>http://yangqiju.github.io/语法解析学习</id>
   <published>2020-04-03T00:00:00-04:00</published>
   <updated>2020-04-03T00:00:00-04:00</updated>
   <author>
     <name>yangqiju</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://yangqiju.github.io</uri>
     <email>362991493@qq.com</email>
   </author>
   <content type="html">&lt;h1 id=&quot;概述&quot;&gt;概述&lt;/h1&gt;
@@ -960,19 +960,19 @@ Parser中用于对SQL表达式求值的Visitor。某些场景需要对sql中的�
 
 &lt;p&gt;&amp;lt;https://zhenglinj.github.io/technology/2017/08/05/antlr4-maven-examples/&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/%E8%AF%AD%E6%B3%95%E8%A7%A3%E6%9E%90%E5%AD%A6%E4%B9%A0&quot;&gt;语法解析学习&lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://localhost:4000&quot;&gt;Orange&lt;/a&gt; on April 03, 2020.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://yangqiju.github.io/%E8%AF%AD%E6%B3%95%E8%A7%A3%E6%9E%90%E5%AD%A6%E4%B9%A0&quot;&gt;语法解析学习&lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://yangqiju.github.io&quot;&gt;Orange&lt;/a&gt; on April 03, 2020.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[minio学习]]></title>
-  <link>http://localhost:4000/minio</link>
-  <id>http://localhost:4000/minio</id>
+  <link>http://yangqiju.github.io/minio</link>
+  <id>http://yangqiju.github.io/minio</id>
   <published>2020-03-05T00:00:00-05:00</published>
   <updated>2020-03-05T00:00:00-05:00</updated>
   <author>
     <name>yangqiju</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://yangqiju.github.io</uri>
     <email>362991493@qq.com</email>
   </author>
   <content type="html">&lt;h1 id=&quot;概述&quot;&gt;概述&lt;/h1&gt;
@@ -1335,19 +1335,19 @@ API，可以让用户使用简单的sql语句，对csv、json、parquet格式的
 &lt;a href=&quot;https://www.redhat.com/zh/topics/data-storage/file-block-object-storage&quot;&gt;https://www.redhat.com/zh/topics/data-storage/file-block-object-storage&lt;/a&gt;
 &lt;a href=&quot;http://tech.dianwoda.com/2018/12/04/fen-bu-shi-cun-chu-xi-tong-miniojian-jie/&quot;&gt;http://tech.dianwoda.com/2018/12/04/fen-bu-shi-cun-chu-xi-tong-miniojian-jie/&lt;/a&gt;&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/minio&quot;&gt;minio学习&lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://localhost:4000&quot;&gt;Orange&lt;/a&gt; on March 05, 2020.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://yangqiju.github.io/minio&quot;&gt;minio学习&lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://yangqiju.github.io&quot;&gt;Orange&lt;/a&gt; on March 05, 2020.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Prometheus学习]]></title>
-  <link>http://localhost:4000/prometheus%E5%AD%A6%E4%B9%A0</link>
-  <id>http://localhost:4000/prometheus学习</id>
+  <link>http://yangqiju.github.io/prometheus%E5%AD%A6%E4%B9%A0</link>
+  <id>http://yangqiju.github.io/prometheus学习</id>
   <published>2019-12-16T00:00:00-05:00</published>
   <updated>2019-12-16T00:00:00-05:00</updated>
   <author>
     <name>yangqiju</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://yangqiju.github.io</uri>
     <email>362991493@qq.com</email>
   </author>
   <content type="html">&lt;h1 id=&quot;时序数据库&quot;&gt;时序数据库&lt;/h1&gt;
@@ -1705,19 +1705,19 @@ TSDB的压缩方案实际上与LevelDB、RocksDB等基于LSM树实现存储思�
 &lt;a href=&quot;https://fabxc.org/tsdb/&quot;&gt;https://fabxc.org/tsdb/&lt;/a&gt;
 &lt;a href=&quot;https://zhuanlan.zhihu.com/p/60212547&quot;&gt;https://zhuanlan.zhihu.com/p/60212547&lt;/a&gt;&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/prometheus%E5%AD%A6%E4%B9%A0&quot;&gt;Prometheus学习&lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://localhost:4000&quot;&gt;Orange&lt;/a&gt; on December 16, 2019.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://yangqiju.github.io/prometheus%E5%AD%A6%E4%B9%A0&quot;&gt;Prometheus学习&lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://yangqiju.github.io&quot;&gt;Orange&lt;/a&gt; on December 16, 2019.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[docker网络学习]]></title>
-  <link>http://localhost:4000/docker-network</link>
-  <id>http://localhost:4000/docker-network</id>
+  <link>http://yangqiju.github.io/docker-network</link>
+  <id>http://yangqiju.github.io/docker-network</id>
   <published>2019-10-15T00:00:00-04:00</published>
   <updated>2019-10-15T00:00:00-04:00</updated>
   <author>
     <name>yangqiju</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://yangqiju.github.io</uri>
     <email>362991493@qq.com</email>
   </author>
   <content type="html">&lt;p&gt;Docker网络&lt;/p&gt;
@@ -2058,19 +2058,19 @@ network，他负责将流量送达到前置服务。后续多个容器或服务�
 &lt;/ul&gt;
 
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/docker-network&quot;&gt;docker网络学习&lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://localhost:4000&quot;&gt;Orange&lt;/a&gt; on October 15, 2019.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://yangqiju.github.io/docker-network&quot;&gt;docker网络学习&lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://yangqiju.github.io&quot;&gt;Orange&lt;/a&gt; on October 15, 2019.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[KCP学习]]></title>
-  <link>http://localhost:4000/kcp%E5%AD%A6%E4%B9%A0</link>
-  <id>http://localhost:4000/kcp学习</id>
+  <link>http://yangqiju.github.io/kcp%E5%AD%A6%E4%B9%A0</link>
+  <id>http://yangqiju.github.io/kcp学习</id>
   <published>2019-09-09T00:00:00-04:00</published>
   <updated>2019-09-09T00:00:00-04:00</updated>
   <author>
     <name>yangqiju</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://yangqiju.github.io</uri>
     <email>362991493@qq.com</email>
   </author>
   <content type="html">&lt;h1 id=&quot;背景&quot;&gt;背景&lt;/h1&gt;
@@ -2446,19 +2446,19 @@ height=”2.053472222222222in”}&lt;/p&gt;
 &lt;a href=&quot;https://blog.csdn.net/yusiguyuan/article/details/28625129&quot;&gt;https://blog.csdn.net/yusiguyuan/article/details/28625129&lt;/a&gt;
 &lt;a href=&quot;https://zhuanlan.zhihu.com/p/53849089&quot;&gt;https://zhuanlan.zhihu.com/p/53849089&lt;/a&gt;&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/kcp%E5%AD%A6%E4%B9%A0&quot;&gt;KCP学习&lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://localhost:4000&quot;&gt;Orange&lt;/a&gt; on September 09, 2019.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://yangqiju.github.io/kcp%E5%AD%A6%E4%B9%A0&quot;&gt;KCP学习&lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://yangqiju.github.io&quot;&gt;Orange&lt;/a&gt; on September 09, 2019.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[polardb源码学习]]></title>
-  <link>http://localhost:4000/polardb%E5%AD%A6%E4%B9%A0</link>
-  <id>http://localhost:4000/polardb学习</id>
+  <link>http://yangqiju.github.io/polardb%E5%AD%A6%E4%B9%A0</link>
+  <id>http://yangqiju.github.io/polardb学习</id>
   <published>2019-08-21T00:00:00-04:00</published>
   <updated>2019-08-21T00:00:00-04:00</updated>
   <author>
     <name>yangqiju</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://yangqiju.github.io</uri>
     <email>362991493@qq.com</email>
   </author>
   <content type="html">&lt;h1 id=&quot;背景&quot;&gt;背景&lt;/h1&gt;
@@ -2849,19 +2849,19 @@ vlog，滑动窗口都用到了线程池、lock、condition、mutex等。同时�
 API，可以做Java协程，在一些资源释放无需等待的场景可以使用，亲试后通过vmstat
 -w 1命令看cs列确实少了一些，但是对提高成绩没有很大帮忙。&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/polardb%E5%AD%A6%E4%B9%A0&quot;&gt;polardb源码学习&lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://localhost:4000&quot;&gt;Orange&lt;/a&gt; on August 21, 2019.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://yangqiju.github.io/polardb%E5%AD%A6%E4%B9%A0&quot;&gt;polardb源码学习&lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://yangqiju.github.io&quot;&gt;Orange&lt;/a&gt; on August 21, 2019.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[go shadowsocks源码分析]]></title>
-  <link>http://localhost:4000/go-shadowsocks</link>
-  <id>http://localhost:4000/go-shadowsocks</id>
+  <link>http://yangqiju.github.io/go-shadowsocks</link>
+  <id>http://yangqiju.github.io/go-shadowsocks</id>
   <published>2019-08-17T00:00:00-04:00</published>
   <updated>2019-08-17T00:00:00-04:00</updated>
   <author>
     <name>yangqiju</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://yangqiju.github.io</uri>
     <email>362991493@qq.com</email>
   </author>
   <content type="html">&lt;h1 id=&quot;背景&quot;&gt;背景&lt;/h1&gt;
@@ -3139,19 +3139,19 @@ height=”3.888888888888889in”}&lt;/p&gt;
 &lt;a href=&quot;http://ss.lt8.me/user/node&quot;&gt;http://ss.lt8.me/user/node&lt;/a&gt;
 &lt;a href=&quot;http://nulastudio.org/Freedom/&quot;&gt;http://nulastudio.org/Freedom/&lt;/a&gt;&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/go-shadowsocks&quot;&gt;go shadowsocks源码分析&lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://localhost:4000&quot;&gt;Orange&lt;/a&gt; on August 17, 2019.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://yangqiju.github.io/go-shadowsocks&quot;&gt;go shadowsocks源码分析&lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://yangqiju.github.io&quot;&gt;Orange&lt;/a&gt; on August 17, 2019.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[tcp_tw_recycle问题排查]]></title>
-  <link>http://localhost:4000/tcp_tw_recycle%E7%BD%91%E7%BB%9C%E6%8E%92%E6%9F%A5</link>
-  <id>http://localhost:4000/tcp_tw_recycle网络排查</id>
+  <link>http://yangqiju.github.io/tcp_tw_recycle%E7%BD%91%E7%BB%9C%E6%8E%92%E6%9F%A5</link>
+  <id>http://yangqiju.github.io/tcp_tw_recycle网络排查</id>
   <published>2019-08-10T00:00:00-04:00</published>
   <updated>2019-08-10T00:00:00-04:00</updated>
   <author>
     <name>yangqiju</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://yangqiju.github.io</uri>
     <email>362991493@qq.com</email>
   </author>
   <content type="html">&lt;h1 id=&quot;问题描述&quot;&gt;问题描述&lt;/h1&gt;
@@ -3337,19 +3337,19 @@ height=”3.19371719160105in”}&lt;/p&gt;
 &lt;a href=&quot;https://www.cnblogs.com/jdonson/p/4760130.html&quot;&gt;https://www.cnblogs.com/jdonson/p/4760130.html&lt;/a&gt;
 &lt;a href=&quot;https://blog.51cto.com/fuyuan2016/1795998&quot;&gt;https://blog.51cto.com/fuyuan2016/1795998&lt;/a&gt;&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/tcp_tw_recycle%E7%BD%91%E7%BB%9C%E6%8E%92%E6%9F%A5&quot;&gt;tcp_tw_recycle问题排查&lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://localhost:4000&quot;&gt;Orange&lt;/a&gt; on August 10, 2019.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://yangqiju.github.io/tcp_tw_recycle%E7%BD%91%E7%BB%9C%E6%8E%92%E6%9F%A5&quot;&gt;tcp_tw_recycle问题排查&lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://yangqiju.github.io&quot;&gt;Orange&lt;/a&gt; on August 10, 2019.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[java synchronized的实现]]></title>
-  <link>http://localhost:4000/java-lock</link>
-  <id>http://localhost:4000/java-lock</id>
+  <link>http://yangqiju.github.io/java-lock</link>
+  <id>http://yangqiju.github.io/java-lock</id>
   <published>2019-08-06T00:00:00-04:00</published>
   <updated>2019-08-06T00:00:00-04:00</updated>
   <author>
     <name>yangqiju</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://yangqiju.github.io</uri>
     <email>362991493@qq.com</email>
   </author>
   <content type="html">&lt;h2 id=&quot;锁的实现&quot;&gt;锁的实现&lt;/h2&gt;
@@ -3436,19 +3436,19 @@ X…X01(无锁)。如果是，则替换为刚才分配的锁记录的地址。�
 
 &lt;p&gt;&lt;a href=&quot;https://www.zhihu.com/question/53826114&quot;&gt;https://www.zhihu.com/question/53826114&lt;/a&gt;&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/java-lock&quot;&gt;java synchronized的实现&lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://localhost:4000&quot;&gt;Orange&lt;/a&gt; on August 06, 2019.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://yangqiju.github.io/java-lock&quot;&gt;java synchronized的实现&lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://yangqiju.github.io&quot;&gt;Orange&lt;/a&gt; on August 06, 2019.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[openwrt ubus学习]]></title>
-  <link>http://localhost:4000/ubus%E5%AD%A6%E4%B9%A0</link>
-  <id>http://localhost:4000/ubus学习</id>
+  <link>http://yangqiju.github.io/ubus%E5%AD%A6%E4%B9%A0</link>
+  <id>http://yangqiju.github.io/ubus学习</id>
   <published>2019-08-03T00:00:00-04:00</published>
   <updated>2019-08-03T00:00:00-04:00</updated>
   <author>
     <name>yangqiju</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://yangqiju.github.io</uri>
     <email>362991493@qq.com</email>
   </author>
   <content type="html">&lt;h1 id=&quot;概述&quot;&gt;概述&lt;/h1&gt;
@@ -3813,19 +3813,19 @@ height=”3.365980971128609in”}&lt;/p&gt;
 client可以参考之前的servcie进行实现，通过ubus进行跨进程间的通讯，将数据交付到mqtt
 服务中，这样mqtt client与mqtt borker就只有一个连接了。&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/ubus%E5%AD%A6%E4%B9%A0&quot;&gt;openwrt ubus学习&lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://localhost:4000&quot;&gt;Orange&lt;/a&gt; on August 03, 2019.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://yangqiju.github.io/ubus%E5%AD%A6%E4%B9%A0&quot;&gt;openwrt ubus学习&lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://yangqiju.github.io&quot;&gt;Orange&lt;/a&gt; on August 03, 2019.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[OPENWRT自定义固件]]></title>
-  <link>http://localhost:4000/openwrt%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9B%BA%E4%BB%B6</link>
-  <id>http://localhost:4000/openwrt自定义固件</id>
+  <link>http://yangqiju.github.io/openwrt%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9B%BA%E4%BB%B6</link>
+  <id>http://yangqiju.github.io/openwrt自定义固件</id>
   <published>2019-07-21T00:00:00-04:00</published>
   <updated>2019-07-21T00:00:00-04:00</updated>
   <author>
     <name>yangqiju</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://yangqiju.github.io</uri>
     <email>362991493@qq.com</email>
   </author>
   <content type="html">&lt;h1 id=&quot;概述&quot;&gt;概述&lt;/h1&gt;
@@ -3836,7 +3836,7 @@ client可以参考之前的servcie进行实现，通过ubus进行跨进程间的
 
 &lt;h2 id=&quot;下载源代码&quot;&gt;下载源代码&lt;/h2&gt;
 
-&lt;p&gt;&amp;lt;https://github.com/openwrt/openwrt&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/openwrt/openwrt&quot;&gt;https://github.com/openwrt/openwrt&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;本文示例为17.0.6&lt;/p&gt;
 
@@ -4174,19 +4174,19 @@ height=”2.2640048118985128in”}&lt;/p&gt;
 
 &lt;p&gt;双镜像的uboot&lt;/p&gt;
 
-&lt;p&gt;&amp;lt;https://github.com/angusding/witi-uboot&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/angusding/witi-uboot&quot;&gt;https://github.com/angusding/witi-uboot&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;reboot-卡死问题&quot;&gt;Reboot 卡死问题&lt;/h2&gt;
 
 &lt;p&gt;MT7621完美支持32M SPI Flash(W25Q256) 修复 soft reset fail&lt;/p&gt;
 
-&lt;p&gt;&amp;lt;https://blog.csdn.net/yubing_615/article/details/52649489&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/yubing_615/article/details/52649489&quot;&gt;https://blog.csdn.net/yubing_615/article/details/52649489&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;添加第三方包&quot;&gt;添加第三方包&lt;/h2&gt;
 
 &lt;p&gt;默认的openwrt只有核心源码，如果需要拓展新的功能，就需要导入packages，checkout到相应的版本，进行导入。&lt;/p&gt;
 
-&lt;p&gt;&amp;lt;https://github.com/openwrt/packages&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/openwrt/packages&quot;&gt;https://github.com/openwrt/packages&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;模组上网方式不同&quot;&gt;模组上网方式不同&lt;/h2&gt;
 
@@ -4335,19 +4335,19 @@ height=”4.156944444444444in”}&lt;/p&gt;
 
 &lt;h2 id=&quot;附件-1&quot;&gt;附件&lt;/h2&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/openwrt%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9B%BA%E4%BB%B6&quot;&gt;OPENWRT自定义固件&lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://localhost:4000&quot;&gt;Orange&lt;/a&gt; on July 21, 2019.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://yangqiju.github.io/openwrt%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9B%BA%E4%BB%B6&quot;&gt;OPENWRT自定义固件&lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://yangqiju.github.io&quot;&gt;Orange&lt;/a&gt; on July 21, 2019.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Java虚拟机规范笔记]]></title>
-  <link>http://localhost:4000/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%A7%84%E8%8C%83%E5%BF%AB%E6%9F%A5</link>
-  <id>http://localhost:4000/java虚拟机规范快查</id>
+  <link>http://yangqiju.github.io/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%A7%84%E8%8C%83%E5%BF%AB%E6%9F%A5</link>
+  <id>http://yangqiju.github.io/java虚拟机规范快查</id>
   <published>2019-04-03T00:00:00-04:00</published>
   <updated>2019-04-03T00:00:00-04:00</updated>
   <author>
     <name>yangqiju</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://yangqiju.github.io</uri>
     <email>362991493@qq.com</email>
   </author>
   <content type="html">&lt;h2 id=&quot;虚拟机结构&quot;&gt;虚拟机结构&lt;/h2&gt;
@@ -4620,19 +4620,19 @@ class）。战争是线程私有数据，不可能在一个战争中引入另一
 
 &lt;p&gt;标识java语言中的synchronized块，指令为monitorenter和monitorexit两个指令。&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%A7%84%E8%8C%83%E5%BF%AB%E6%9F%A5&quot;&gt;Java虚拟机规范笔记&lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://localhost:4000&quot;&gt;Orange&lt;/a&gt; on April 03, 2019.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://yangqiju.github.io/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%A7%84%E8%8C%83%E5%BF%AB%E6%9F%A5&quot;&gt;Java虚拟机规范笔记&lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://yangqiju.github.io&quot;&gt;Orange&lt;/a&gt; on April 03, 2019.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Rocketmq学习]]></title>
-  <link>http://localhost:4000/rocketmq%E5%AD%A6%E4%B9%A0</link>
-  <id>http://localhost:4000/rocketmq学习</id>
+  <link>http://yangqiju.github.io/rocketmq%E5%AD%A6%E4%B9%A0</link>
+  <id>http://yangqiju.github.io/rocketmq学习</id>
   <published>2019-03-04T00:00:00-05:00</published>
   <updated>2019-03-04T00:00:00-05:00</updated>
   <author>
     <name>yangqiju</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://yangqiju.github.io</uri>
     <email>362991493@qq.com</email>
   </author>
   <content type="html">&lt;h1 id=&quot;概述&quot;&gt;概述&lt;/h1&gt;
@@ -4771,19 +4771,19 @@ height=”3.390972222222222in”}&lt;/p&gt;
  &lt;a href=&quot;https://blog.51cto.com/13925625/2276357&quot;&gt;https://blog.51cto.com/13925625/2276357&lt;/a&gt;
  &lt;a href=&quot;https://www.songma.com/news/txtlist_i24016v.html&quot;&gt;https://www.songma.com/news/txtlist_i24016v.html&lt;/a&gt;&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/rocketmq%E5%AD%A6%E4%B9%A0&quot;&gt;Rocketmq学习&lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://localhost:4000&quot;&gt;Orange&lt;/a&gt; on March 04, 2019.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://yangqiju.github.io/rocketmq%E5%AD%A6%E4%B9%A0&quot;&gt;Rocketmq学习&lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://yangqiju.github.io&quot;&gt;Orange&lt;/a&gt; on March 04, 2019.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[nacos学习]]></title>
-  <link>http://localhost:4000/nacos%E5%AD%A6%E4%B9%A0</link>
-  <id>http://localhost:4000/nacos学习</id>
+  <link>http://yangqiju.github.io/nacos%E5%AD%A6%E4%B9%A0</link>
+  <id>http://yangqiju.github.io/nacos学习</id>
   <published>2019-01-19T00:00:00-05:00</published>
   <updated>2019-01-19T00:00:00-05:00</updated>
   <author>
     <name>yangqiju</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://yangqiju.github.io</uri>
     <email>362991493@qq.com</email>
   </author>
   <content type="html">&lt;h1 id=&quot;概述&quot;&gt;概述&lt;/h1&gt;
@@ -5049,19 +5049,19 @@ height=”2.5017902449693787in”}&lt;/p&gt;
 示例如下：
 &lt;a href=&quot;https://github.com/paderlol/nacos-sync-example&quot;&gt;https://github.com/paderlol/nacos-sync-example&lt;/a&gt;&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/nacos%E5%AD%A6%E4%B9%A0&quot;&gt;nacos学习&lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://localhost:4000&quot;&gt;Orange&lt;/a&gt; on January 19, 2019.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://yangqiju.github.io/nacos%E5%AD%A6%E4%B9%A0&quot;&gt;nacos学习&lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://yangqiju.github.io&quot;&gt;Orange&lt;/a&gt; on January 19, 2019.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[虚拟机类加载机制]]></title>
-  <link>http://localhost:4000/%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6</link>
-  <id>http://localhost:4000/虚拟机类加载机制</id>
+  <link>http://yangqiju.github.io/%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6</link>
+  <id>http://yangqiju.github.io/虚拟机类加载机制</id>
   <published>2018-04-10T00:00:00-04:00</published>
   <updated>2018-04-10T00:00:00-04:00</updated>
   <author>
     <name>yangqiju</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://yangqiju.github.io</uri>
     <email>362991493@qq.com</email>
   </author>
   <content type="html">&lt;h1 id=&quot;章节&quot;&gt;章节&lt;/h1&gt;
@@ -5248,19 +5248,19 @@ ClassLoder来加载DriverManager了，但是如果他要想加载mysql驱动的�
 
 &lt;p&gt;有些容器（例如Glassfish）会将JDBC驱动放到lib\ext下面，这样的话直接使用ExtClassLoader就加载成功了，而有的程序（main方法直接跑）加载就是用了AppClassLoader进行加载了。&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6&quot;&gt;虚拟机类加载机制&lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://localhost:4000&quot;&gt;Orange&lt;/a&gt; on April 10, 2018.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://yangqiju.github.io/%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6&quot;&gt;虚拟机类加载机制&lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://yangqiju.github.io&quot;&gt;Orange&lt;/a&gt; on April 10, 2018.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[ThreadLocal代码解析]]></title>
-  <link>http://localhost:4000/ThreadLocal%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90</link>
-  <id>http://localhost:4000/ThreadLocal代码解析</id>
+  <link>http://yangqiju.github.io/ThreadLocal%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90</link>
+  <id>http://yangqiju.github.io/ThreadLocal代码解析</id>
   <published>2018-04-05T00:00:00-04:00</published>
   <updated>2018-04-05T00:00:00-04:00</updated>
   <author>
     <name>yangqiju</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://yangqiju.github.io</uri>
     <email>362991493@qq.com</email>
   </author>
   <content type="html">&lt;h1 id=&quot;概述&quot;&gt;概述&lt;/h1&gt;
@@ -5800,19 +5800,19 @@ OutOfMemoryException。&lt;/p&gt;
 &lt;p&gt;tomcat请求线程是个线程池，所以当调用完set之后，myThreadLocal就被设置到了线程池的thread里的threadLocalMap变量，而myThreadLocal又是static的。所以类的引用一直存在。所以需要调用remove方法清理myThreadLocal
 和Thrad引用。&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/ThreadLocal%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90&quot;&gt;ThreadLocal代码解析&lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://localhost:4000&quot;&gt;Orange&lt;/a&gt; on April 05, 2018.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://yangqiju.github.io/ThreadLocal%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90&quot;&gt;ThreadLocal代码解析&lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://yangqiju.github.io&quot;&gt;Orange&lt;/a&gt; on April 05, 2018.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[infer 对idea和jenkins的支持]]></title>
-  <link>http://localhost:4000/infer-gradle-jenkins</link>
-  <id>http://localhost:4000/infer-gradle-jenkins</id>
+  <link>http://yangqiju.github.io/infer-gradle-jenkins</link>
+  <id>http://yangqiju.github.io/infer-gradle-jenkins</id>
   <published>2018-02-06T00:00:00-05:00</published>
   <updated>2018-02-06T00:00:00-05:00</updated>
   <author>
     <name>yangqiju</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://yangqiju.github.io</uri>
     <email>362991493@qq.com</email>
   </author>
   <content type="html">&lt;p&gt;&lt;a href=&quot;https://github.com/facebook/infer&quot;&gt;infer&lt;/a&gt;是facebook开源的代码检查工具，里面提供了findbugs、阿里pmd所没有的竞态的资源问题。
@@ -5834,19 +5834,19 @@ idea可参考&lt;a href=&quot;http://depressiverobot.com/2016/02/05/intellij-pat
 
 &lt;p&gt;jenkins可以直接在&lt;code class=&quot;highlighter-rouge&quot;&gt;系统设置&lt;/code&gt;中添加&lt;code class=&quot;highlighter-rouge&quot;&gt;环境变量&lt;/code&gt;,&lt;code class=&quot;highlighter-rouge&quot;&gt;键&lt;/code&gt;为&lt;code class=&quot;highlighter-rouge&quot;&gt;PATH&lt;/code&gt;,值为&lt;code class=&quot;highlighter-rouge&quot;&gt;$PATH:/usr/local/bin&lt;/code&gt;,重启即可.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/infer-gradle-jenkins&quot;&gt;infer 对idea和jenkins的支持&lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://localhost:4000&quot;&gt;Orange&lt;/a&gt; on February 06, 2018.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://yangqiju.github.io/infer-gradle-jenkins&quot;&gt;infer 对idea和jenkins的支持&lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://yangqiju.github.io&quot;&gt;Orange&lt;/a&gt; on February 06, 2018.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[springmvc代码解析]]></title>
-  <link>http://localhost:4000/springmvc%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90</link>
-  <id>http://localhost:4000/springmvc代码解析</id>
+  <link>http://yangqiju.github.io/springmvc%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90</link>
+  <id>http://yangqiju.github.io/springmvc代码解析</id>
   <published>2018-01-02T00:00:00-05:00</published>
   <updated>2018-01-02T00:00:00-05:00</updated>
   <author>
     <name>yangqiju</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://yangqiju.github.io</uri>
     <email>362991493@qq.com</email>
   </author>
   <content type="html">&lt;h1 id=&quot;概述&quot;&gt;概述&lt;/h1&gt;
@@ -6335,19 +6335,19 @@ height=”2.5756944444444443in”}&lt;/p&gt;
 Support\QQ\Users\362991493\QQ\Temp.db\95AE37F3-DCB4-4AEF-90C1-A7E6092CFB0B.png&quot; /&gt;{width=”5.768055555555556in”
 height=”0.7720253718285215in”}&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/springmvc%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90&quot;&gt;springmvc代码解析&lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://localhost:4000&quot;&gt;Orange&lt;/a&gt; on January 02, 2018.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://yangqiju.github.io/springmvc%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90&quot;&gt;springmvc代码解析&lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://yangqiju.github.io&quot;&gt;Orange&lt;/a&gt; on January 02, 2018.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[session总结]]></title>
-  <link>http://localhost:4000/session%E6%80%BB%E7%BB%93</link>
-  <id>http://localhost:4000/session总结</id>
+  <link>http://yangqiju.github.io/session%E6%80%BB%E7%BB%93</link>
+  <id>http://yangqiju.github.io/session总结</id>
   <published>2017-12-01T00:00:00-05:00</published>
   <updated>2017-12-01T00:00:00-05:00</updated>
   <author>
     <name>yangqiju</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://yangqiju.github.io</uri>
     <email>362991493@qq.com</email>
   </author>
   <content type="html">&lt;h2 id=&quot;session-是什么&quot;&gt;Session 是什么&lt;/h2&gt;
@@ -6972,7 +6972,7 @@ AbstractNamedValueMethodArgumentResolver中进行处理。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;../images/Session总结/image20.png&quot; alt=&quot;&quot; /&gt;{width=”5.768055555555556in”
 height=”2.6743055555555557in”}&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/session%E6%80%BB%E7%BB%93&quot;&gt;session总结&lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://localhost:4000&quot;&gt;Orange&lt;/a&gt; on December 01, 2017.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://yangqiju.github.io/session%E6%80%BB%E7%BB%93&quot;&gt;session总结&lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://yangqiju.github.io&quot;&gt;Orange&lt;/a&gt; on December 01, 2017.&lt;/p&gt;</content>
 </entry>
 
 </feed>
