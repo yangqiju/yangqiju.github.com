@@ -141,7 +141,7 @@ Facebook Gorilla简介
 
 Prometheus TSDB实现参考了Facebook 2015年发表的论文《Gorilla: A Fast,
 Scalable, In-Memory Time Series
-DataBase》（http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.718.197&rep=rep1&type=pdf），其中详细介绍了Gorilla时序数据库的原理，英文阅读吃力的读者可以参考一些翻译文章（<https://yq.aliyun.com/articles/72871）。
+DataBase》（<http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.718.197&rep=rep1&type=pdf>），其中详细介绍了Gorilla时序数据库的原理，英文阅读吃力的读者可以参考一些翻译文章（<https://yq.aliyun.com/articles/72871>）。
 
 在时序场景中，每个时序点的核心本质是一对64位的值，一个表示该点的timestamp，另一个表示该点的value值。Prometheus
 TSDB借鉴了Facebook Gorilla论文的压缩方式：
@@ -291,14 +291,9 @@ TSDB的压缩方案实际上与LevelDB、RocksDB等基于LSM树实现存储思�
 引用
 ====
 
-<https://blog.csdn.net/liukuan73/article/details/79950329
-
-<https://www.cnblogs.com/vovlie/p/7709312.html
-
-<https://yq.aliyun.com/articles/174535
-
-<https://zhuanlan.zhihu.com/p/59691668
-
-<https://fabxc.org/tsdb/
-
-<https://zhuanlan.zhihu.com/p/60212547
+<https://blog.csdn.net/liukuan73/article/details/79950329>
+<https://www.cnblogs.com/vovlie/p/7709312.html>
+<https://yq.aliyun.com/articles/174535>
+<https://zhuanlan.zhihu.com/p/59691668>
+<https://fabxc.org/tsdb/>
+<https://zhuanlan.zhihu.com/p/60212547>

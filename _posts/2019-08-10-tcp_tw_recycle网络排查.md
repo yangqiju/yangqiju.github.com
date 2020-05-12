@@ -39,7 +39,7 @@ net.ipv4.tcp_timestamps = 0
 sysctl -p
 {% endhighlight %}
 
-Timestamps计算：<https://www.cnblogs.com/good90/p/3911110.html
+Timestamps计算：<https://www.cnblogs.com/good90/p/3911110.html>
 
 其他思考
 ========
@@ -108,9 +108,9 @@ height="1.3006944444444444in"}
 
 网络文章：
 
-<http://www.just4coding.com/blog/2017/11/09/timewait/
+<http://www.just4coding.com/blog/2017/11/09/timewait/>
 
-<https://www.cnblogs.com/jdonson/p/4760130.html
+<https://www.cnblogs.com/jdonson/p/4760130.html>
 
 TSval大的成功后60秒，小的都不能连接？
 -------------------------------------
@@ -163,7 +163,7 @@ against it before accepting new connection request.
 1.  Server主动断开会产生TIME\_WAIT连接，通常可以通过netstat -n -t
     查看，但是可能很难看到，因为tcp\_tw\_recycle就是为了快速回收TIME\_WAIT的连接的。
 
-2.  上面的示例（<http://www.just4coding.com/blog/2017/11/09/timewait/）文章做测试的时候，将nginx的keepalive关闭，让server上的nginx主动断开，所以curl也能复现，但实际使用nginx不会这么用，带来了一定的误解。
+2.  上面的示例（<http://www.just4coding.com/blog/2017/11/09/timewait/>）文章做测试的时候，将nginx的keepalive关闭，让server上的nginx主动断开，所以curl也能复现，但实际使用nginx不会这么用，带来了一定的误解。
 
 其他
 ====
@@ -175,16 +175,12 @@ against it before accepting new connection request.
 引用文章
 ========
 
-<https://blog.csdn.net/pengzhouzhou/article/details/85229437
+<https://blog.csdn.net/pengzhouzhou/article/details/85229437>
 
-<https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=4396e46187ca5070219b81773c4e65088dac50cc
+<https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=4396e46187ca5070219b81773c4e65088dac50cc>
 
-<https://www.cnblogs.com/good90/p/3911110.html
-
-<https://www.iteye.com/blog/elf8848-2089414
-
-<https://www.cnblogs.com/10087622blog/p/11017455.html
-
-<https://www.cnblogs.com/jdonson/p/4760130.html
-
-<https://blog.51cto.com/fuyuan2016/1795998
+<https://www.cnblogs.com/good90/p/3911110.html>
+<https://www.iteye.com/blog/elf8848-2089414>
+<https://www.cnblogs.com/10087622blog/p/11017455.html>
+<https://www.cnblogs.com/jdonson/p/4760130.html>
+<https://blog.51cto.com/fuyuan2016/1795998>

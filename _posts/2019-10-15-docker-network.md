@@ -86,7 +86,7 @@ VXLAN替代了UDP模式下的程序封包处理，在内核中进行数据包的
 ![](../images/docker_net/image3.png){width="5.768055555555556in"
 height="0.7784722222222222in"}
 
-<http://www.just4coding.com/blog/2017/05/21/vxlan/
+<http://www.just4coding.com/blog/2017/05/21/vxlan/>
 
 HOST-GW
 -------
@@ -169,7 +169,7 @@ height="2.8986111111111112in"}
 ------------
 
 以下描述为(docker stack
-deploy模式下，单独启动servcie参考<https://anoyi.com/p/dba9342071d8 )
+deploy模式下，单独启动servcie参考<https://anoyi.com/p/dba9342071d8> )
 
 ![在这里插入图片描述](../images/docker_net/image11.png){width="5.768055555555556in"
 height="2.9483792650918637in"}
@@ -282,23 +282,23 @@ network，他负责将流量送达到前置服务。后续多个容器或服务�
 参考
 ====
 
-<http://www.just4coding.com/blog/2017/05/21/vxlan/
+<http://www.just4coding.com/blog/2017/05/21/vxlan/>
 
-<https://jkzhao.github.io/2017/09/05/overlay%E5%AE%9E%E7%8E%B0%E5%AE%B9%E5%99%A8%E8%B7%A8%E4%B8%BB%E6%9C%BA%E9%80%9A%E4%BF%A1/
+<https://jkzhao.github.io/2017/09/05/overlay%E5%AE%9E%E7%8E%B0%E5%AE%B9%E5%99%A8%E8%B7%A8%E4%B8%BB%E6%9C%BA%E9%80%9A%E4%BF%A1/>
 
-<https://www.cnblogs.com/goldsunshine/p/10740928.html
+<https://www.cnblogs.com/goldsunshine/p/10740928.html>
 
-<https://blog.csdn.net/huangjun0210/article/details/86478157
+<https://blog.csdn.net/huangjun0210/article/details/86478157>
 
-<http://blog.daocloud.io/docker1-12lb/
+<http://blog.daocloud.io/docker1-12lb/>
 
-<https://success.docker.com/article/ucp-service-discovery-swarm
+<https://success.docker.com/article/ucp-service-discovery-swarm>
 
-<https://zhoujinl.github.io/2018/09/20/docker-swarm-scheduler/
+<https://zhoujinl.github.io/2018/09/20/docker-swarm-scheduler/>
 
-<https://blog.51cto.com/jerry12356/2384159
+<https://blog.51cto.com/jerry12356/2384159>
 
-<https://mp.weixin.qq.com/s?__biz=MzIyMTUwMDMyOQ==&mid=2247492160&idx=1&sn=6ff4c4423f4834042e0ad3b476bafd9f&chksm=e8396486df4eed90bc1c401e2a20b070931e700b9e6f6931bdaf9820f3d0974fdac3cdf09c31&mpshare=1&scene=1&srcid=1014dpS7QNtyWCQ5uBg8fZXc&sharer_sharetime=1571068017820&sharer_shareid=5604a26ad45580769f078004811e0dc5&key=e224974e93afb4cc75358c6974746b3e9438b850e7120ca8338645c3298c01d5e11619cd726cb256c5983147aa2ec180fe77b69962fe6295a15e791f61c4ba4c4a18e46d56aa0b9ab4d318d81d1a4e7a&ascene=0&uin=NDEyMzAwMDgw&devicetype=iMac+MacBookPro12%2C1+OSX+OSX+10.15+build(19A583)&version=12020010&nettype=WIFI&lang=zh_CN&fontScale=100&pass_ticket=1PafF1oOL%2FoCfZqc5Sh0obHz6PGNO15q%2FGD4MvDPcv3pPTVOEXb5JOZ4vjFCbh8E
+<https://mp.weixin.qq.com/s?__biz=MzIyMTUwMDMyOQ==&mid=2247492160&idx=1&sn=6ff4c4423f4834042e0ad3b476bafd9f&chksm=e8396486df4eed90bc1c401e2a20b070931e700b9e6f6931bdaf9820f3d0974fdac3cdf09c31&mpshare=1&scene=1&srcid=1014dpS7QNtyWCQ5uBg8fZXc&sharer_sharetime=1571068017820&sharer_shareid=5604a26ad45580769f078004811e0dc5&key=e224974e93afb4cc75358c6974746b3e9438b850e7120ca8338645c3298c01d5e11619cd726cb256c5983147aa2ec180fe77b69962fe6295a15e791f61c4ba4c4a18e46d56aa0b9ab4d318d81d1a4e7a&ascene=0&uin=NDEyMzAwMDgw&devicetype=iMac+MacBookPro12%2C1+OSX+OSX+10.15+build(19A583)&version=12020010&nettype=WIFI&lang=zh_CN&fontScale=100&pass_ticket=1PafF1oOL%2FoCfZqc5Sh0obHz6PGNO15q%2FGD4MvDPcv3pPTVOEXb5JOZ4vjFCbh8E>
 
 问题
 ====

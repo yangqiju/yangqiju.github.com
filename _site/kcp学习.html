@@ -416,7 +416,7 @@ height=”2.1475251531058617in”}</p>
 
 <p>KCP使用ikcp_send发送数据，该函数调用ikcp_output发送数据，实际上最终调用事先注册的发送回调发送数据。KCP通过ikcp_recv将数据接收出来，如果被分片发送，将在此自动重组，数据将与发送前保持一致。</p>
 
-<p>&lt;https://blog.csdn.net/yongkai0214/article/details/85156452</p>
+<p><a href="https://blog.csdn.net/yongkai0214/article/details/85156452">https://blog.csdn.net/yongkai0214/article/details/85156452</a></p>
 
 <h1 id="数据结构">数据结构</h1>
 
@@ -427,7 +427,7 @@ height=”3.1633902012248467in”}</p>
 
 <p>如上图中，snd_queue待发送队列中有4个KCP包等待发送，这个时候snd_nxt下一个发送的kcp包序列号为11，snd_una下一个确认的KCP包为9（8已经确认，9，10已经发送但是还没得到接收方的确认）。因为cwnd=5，发送队列中还有2个发送了但是还未得到确认，所以可以从待发送队列中取前面的3个KCP包放入到发送队列中，序列号分别设置为11,12,13。</p>
 
-<p>&lt;https://www.cnblogs.com/wetest/p/9190786.html</p>
+<p><a href="https://www.cnblogs.com/wetest/p/9190786.html">https://www.cnblogs.com/wetest/p/9190786.html</a></p>
 
 <h1 id="kcptun">KCPTUN</h1>
 
@@ -436,7 +436,7 @@ height=”2.3868055555555556in”}</p>
 
 <p>KCPTUN是一个使用KCP建立的安全和高效的隧道。</p>
 
-<p>&lt;https://github.com/xtaci/kcptun</p>
+<p><a href="https://github.com/xtaci/kcptun">https://github.com/xtaci/kcptun</a></p>
 
 <p><img src="../images/KCP学习/image27.png" alt="" />{width=”5.768055555555556in”
 height=”3.772222222222222in”}</p>
@@ -495,25 +495,17 @@ height=”2.053472222222222in”}</p>
 
 <p>它的发送端每次执行一次写操作，UDP就将其封装成一个数据报发送出去，接收端必须及时对每个UDP数据报进行写操作，否则将会丢包。此外，如果客户没有指定足够的应用程序缓冲区来读取UDP数据，则UDP数据将会被截断。</p>
 
-<p>&lt;https://blog.csdn.net/ljh0302/article/details/49738191</p>
-
-<p>&lt;http://www.pianshen.com/article/1818281353/</p>
+<p><a href="https://blog.csdn.net/ljh0302/article/details/49738191">https://blog.csdn.net/ljh0302/article/details/49738191</a>
+<a href="http://www.pianshen.com/article/1818281353/">http://www.pianshen.com/article/1818281353/</a></p>
 
 <h1 id="资源">资源</h1>
-
-<p>&lt;http://kaiyuan.me/2017/07/29/KCP%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</p>
-
-<p>&lt;https://github.com/skywind3000/kcp</p>
-
-<p>&lt;https://www.cnblogs.com/wetest/p/9190786.html</p>
-
-<p>&lt;https://github.com/xtaci/kcptun</p>
-
-<p>&lt;https://www.cnblogs.com/purpleraintear/p/6403053.html</p>
-
-<p>&lt;https://blog.csdn.net/yusiguyuan/article/details/28625129</p>
-
-<p>&lt;https://zhuanlan.zhihu.com/p/53849089</p>
+<p><a href="http://kaiyuan.me/2017/07/29/KCP%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/">http://kaiyuan.me/2017/07/29/KCP%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</a>
+<a href="https://github.com/skywind3000/kcp">https://github.com/skywind3000/kcp</a>
+<a href="https://www.cnblogs.com/wetest/p/9190786.html">https://www.cnblogs.com/wetest/p/9190786.html</a>
+<a href="https://github.com/xtaci/kcptun">https://github.com/xtaci/kcptun</a>
+<a href="https://www.cnblogs.com/purpleraintear/p/6403053.html">https://www.cnblogs.com/purpleraintear/p/6403053.html</a>
+<a href="https://blog.csdn.net/yusiguyuan/article/details/28625129">https://blog.csdn.net/yusiguyuan/article/details/28625129</a>
+<a href="https://zhuanlan.zhihu.com/p/53849089">https://zhuanlan.zhihu.com/p/53849089</a></p>
 
         
       </div><!-- /.entry-content -->

@@ -140,7 +140,7 @@
 
 <p>本章通过学习go-shadowsocks源码，了解一下内部实现原理。</p>
 
-<p>&lt;https://github.com/shadowsocks/go-shadowsocks2</p>
+<p><a href="https://github.com/shadowsocks/go-shadowsocks2">https://github.com/shadowsocks/go-shadowsocks2</a></p>
 
 <p>ss：ss作者是clowwindy，大约两年前，他自己为了翻墙写了shadowsocks，简称ss或者叫影梭。</p>
 
@@ -156,7 +156,7 @@ GFW，GFW将它不喜欢的内容统统过滤掉，于是客户当触发 GFW
 的过滤规则的时候，就会收到 Connection Reset
 这样的响应内容，而无法接收到正常的内容。</p>
 
-<p>&lt;https://sulangsss.github.io/2018/12/18/Network/SS%20SSR%20%E5%8E%9F%E7%90%86/</p>
+<p><a href="https://sulangsss.github.io/2018/12/18/Network/SS%20SSR%20%E5%8E%9F%E7%90%86/">https://sulangsss.github.io/2018/12/18/Network/SS%20SSR%20%E5%8E%9F%E7%90%86/</a></p>
 
 <h2 id="dns污染劫持">DNS污染/劫持</h2>
 
@@ -223,7 +223,7 @@ SOCKS5 协议，读出本次请求真正的目标服务地址(例如 Google
 
 <p>socks 协议</p>
 
-<p>&lt;https://www.ietf.org/rfc/rfc1928.txt</p>
+<p><a href="https://www.ietf.org/rfc/rfc1928.txt">https://www.ietf.org/rfc/rfc1928.txt</a></p>
 
 <h1 id="qa">Q&amp;A</h1>
 
@@ -255,7 +255,7 @@ privoxy两个进程，ss-local是做socks5代理的，监听1086端口，而priv
 
 <p>可通过如下指令测试：</p>
 
-<p>curl --socks5 127.0.0.1:1086 &lt;http://google.com</p>
+<p>curl --socks5 127.0.0.1:1086 http://google.com</p>
 
 <p>curl --proxy 127.0.0.1:1087 http://google.com</p>
 
@@ -278,7 +278,7 @@ privoxy两个进程，ss-local是做socks5代理的，监听1086端口，而priv
 
 <p>本文中的go-shadowsocks
 是直接使用socks协议进行代理的，而ssr（shadowsocksR
-&lt;https://github.com/shadowsocksr-backup/shadowsocksr.git
+<a href="https://github.com/shadowsocksr-backup/shadowsocksr.git">https://github.com/shadowsocksr-backup/shadowsocksr.git</a>
 ）是在这基础上添加了混淆功能。为什么要混淆？</p>
 
 <p>简单来说用的人多了GFW聪明了，需要对GFW进行欺骗一下，减少此类代理特征，让GFW无法识别出这是个”梯子”。</p>
@@ -306,7 +306,7 @@ height=”2.248611111111111in”}</p>
 
 <p>其他更多混淆参考：</p>
 
-<p>&lt;https://blog.csdn.net/mmcooo/article/details/80094194</p>
+<p><a href="https://blog.csdn.net/mmcooo/article/details/80094194">https://blog.csdn.net/mmcooo/article/details/80094194</a></p>
 
 <h2 id="https不就是加密的也会被识别">https不就是加密的，也会被识别？</h2>
 
@@ -317,11 +317,11 @@ height=”2.248611111111111in”}</p>
 <p><img src="../images/go_shadowsocks/image13.png" alt="" />{width=”5.768055555555556in”
 height=”2.0034722222222223in”}</p>
 
-<p>&lt;https://gist.github.com/clowwindy/5947691</p>
+<p><a href="https://gist.github.com/clowwindy/5947691">https://gist.github.com/clowwindy/5947691</a></p>
 
 <h2 id="openwrt里直接安装后如何代理所有wlan的接入">Openwrt里直接安装后，如何代理所有wlan的接入？</h2>
 
-<p>翻墙时，需要有个本地端口监听，通过插件或者”小飞机”将流量转发到该端口中才能完成代理，但是openwrt集成shadowsocksr-libev之后，就能代理所有无线网的请求了，怎么实现的？包含代理的固件为（&lt;https://github.com/coolsnowwolf/）</p>
+<p>翻墙时，需要有个本地端口监听，通过插件或者”小飞机”将流量转发到该端口中才能完成代理，但是openwrt集成shadowsocksr-libev之后，就能代理所有无线网的请求了，怎么实现的？包含代理的固件为（<a href="https://github.com/coolsnowwolf/">https://github.com/coolsnowwolf/</a>）</p>
 
 <p>与之前本地起一个ss-local端口，进行正向代理不同。在linux机器上，通过启动ss-redir和在iptables上定义网络包的转发策略，实现了用户无感知的透明代理，透明代理后，用户将不会在设置浏览器插件。</p>
 
@@ -333,8 +333,8 @@ height=”2.0034722222222223in”}</p>
 <p><img src="../images/go_shadowsocks/image14.png" alt="" />{width=”5.768055555555556in”
 height=”4.095833333333333in”}</p>
 
-<p>该固件是在实现了 &lt;https://github.com/shadowsocksrr/shadowsocksr-libev
-的基础上，增加了luci-app-ssr-plus（&lt;https://github.com/coolsnowwolf/lede/tree/9eeb898ee39567d5eef5d7e87c3db062ce9c860b/package/lean/luci-app-ssr-plus
+<p>该固件是在实现了 <a href="https://github.com/shadowsocksrr/shadowsocksr-libev">https://github.com/shadowsocksrr/shadowsocksr-libev</a>
+的基础上，增加了luci-app-ssr-plus（<a href="https://github.com/coolsnowwolf/lede/tree/9eeb898ee39567d5eef5d7e87c3db062ce9c860b/package/lean/luci-app-ssr-plus">https://github.com/coolsnowwolf/lede/tree/9eeb898ee39567d5eef5d7e87c3db062ce9c860b/package/lean/luci-app-ssr-plus</a>
 ）插件。</p>
 
 <p>通过ipset定义管理了gfwlist的ip集合和名为china的国内ip的范围，通过iptables进行匹配选择是否走代理。比如下面描述，匹配了目标地址为gfwlist，目标地址不为china
@@ -354,11 +354,11 @@ height=”2.670138888888889in”}</p>
 <p><img src="../images/go_shadowsocks/image18.png" alt="" />{width=”5.768055555555556in”
 height=”3.888888888888889in”}</p>
 
-<p>&lt;https://github.com/zfl9/ss-tproxy</p>
+<p><a href="https://github.com/zfl9/ss-tproxy">https://github.com/zfl9/ss-tproxy</a></p>
 
-<p>&lt;https://www.zfl9.com/ss-redir.html</p>
+<p><a href="https://www.zfl9.com/ss-redir.html">https://www.zfl9.com/ss-redir.html</a></p>
 
-<p>&lt;https://vvl.me/2018/06/from-ss-redir-to-linux-nat/</p>
+<p><a href="https://vvl.me/2018/06/from-ss-redir-to-linux-nat/">https://vvl.me/2018/06/from-ss-redir-to-linux-nat/</a></p>
 
 <h1 id="复盘">复盘</h1>
 
@@ -397,27 +397,17 @@ height=”3.888888888888889in”}</p>
 
 <h1 id="参考">参考</h1>
 
-<p>&lt;https://sulangsss.github.io/2018/12/18/Network/SS%20SSR%20%E5%8E%9F%E7%90%86/</p>
-
-<p>&lt;https://sq.163yun.com/blog/article/185530682109534208</p>
-
-<p>&lt;https://segmentfault.com/a/1190000011485579</p>
-
-<p>&lt;https://gist.github.com/clowwindy/5947691</p>
-
-<p>&lt;http://waimian.me/?thread-95.htm</p>
-
-<p>&lt;http://ssr.bingly.cn/user/tutorial</p>
-
-<p>&lt;https://choucuoqiong.blogspot.com/p/ssr.html</p>
-
-<p>&lt;https://github.com/hq450/fancyss_history_package</p>
-
-<p>&lt;https://github.com/coolsnowwolf/lede</p>
-
-<p>&lt;http://ss.lt8.me/user/node</p>
-
-<p>&lt;http://nulastudio.org/Freedom/</p>
+<p><a href="https://sulangsss.github.io/2018/12/18/Network/SS%20SSR%20%E5%8E%9F%E7%90%86/">https://sulangsss.github.io/2018/12/18/Network/SS%20SSR%20%E5%8E%9F%E7%90%86/</a>
+<a href="https://sq.163yun.com/blog/article/185530682109534208">https://sq.163yun.com/blog/article/185530682109534208</a>
+<a href="https://segmentfault.com/a/1190000011485579">https://segmentfault.com/a/1190000011485579</a>
+<a href="https://gist.github.com/clowwindy/5947691">https://gist.github.com/clowwindy/5947691</a>
+<a href="http://waimian.me/?thread-95.htm">http://waimian.me/?thread-95.htm</a>
+<a href="http://ssr.bingly.cn/user/tutorial">http://ssr.bingly.cn/user/tutorial</a>
+<a href="https://choucuoqiong.blogspot.com/p/ssr.html">https://choucuoqiong.blogspot.com/p/ssr.html</a>
+<a href="https://github.com/hq450/fancyss_history_package">https://github.com/hq450/fancyss_history_package</a>
+<a href="https://github.com/coolsnowwolf/lede">https://github.com/coolsnowwolf/lede</a>
+<a href="http://ss.lt8.me/user/node">http://ss.lt8.me/user/node</a>
+<a href="http://nulastudio.org/Freedom/">http://nulastudio.org/Freedom/</a></p>
 
         
       </div><!-- /.entry-content -->

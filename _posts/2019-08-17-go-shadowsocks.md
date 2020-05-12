@@ -14,7 +14,7 @@ Shadowsocks用作最熟悉的翻墙软件，是程序员面向google开发的利
 
 本章通过学习go-shadowsocks源码，了解一下内部实现原理。
 
-<https://github.com/shadowsocks/go-shadowsocks2
+<https://github.com/shadowsocks/go-shadowsocks2>
 
 ss：ss作者是clowwindy，大约两年前，他自己为了翻墙写了shadowsocks，简称ss或者叫影梭。
 
@@ -31,7 +31,7 @@ GFW，GFW将它不喜欢的内容统统过滤掉，于是客户当触发 GFW
 的过滤规则的时候，就会收到 Connection Reset
 这样的响应内容，而无法接收到正常的内容。
 
-<https://sulangsss.github.io/2018/12/18/Network/SS%20SSR%20%E5%8E%9F%E7%90%86/
+<https://sulangsss.github.io/2018/12/18/Network/SS%20SSR%20%E5%8E%9F%E7%90%86/>
 
 DNS污染/劫持
 ------------
@@ -105,7 +105,7 @@ SOCKS5 协议，读出本次请求真正的目标服务地址(例如 Google
 
 socks 协议
 
-<https://www.ietf.org/rfc/rfc1928.txt
+<https://www.ietf.org/rfc/rfc1928.txt>
 
 Q&A
 ===
@@ -140,7 +140,7 @@ privoxy两个进程，ss-local是做socks5代理的，监听1086端口，而priv
 
 可通过如下指令测试：
 
-curl \--socks5 127.0.0.1:1086 <http://google.com
+curl \--socks5 127.0.0.1:1086 http://google.com
 
 curl \--proxy 127.0.0.1:1087 http://google.com
 
@@ -165,7 +165,7 @@ VPN
 
 本文中的go-shadowsocks
 是直接使用socks协议进行代理的，而ssr（shadowsocksR
-<https://github.com/shadowsocksr-backup/shadowsocksr.git
+<https://github.com/shadowsocksr-backup/shadowsocksr.git>
 ）是在这基础上添加了混淆功能。为什么要混淆？
 
 简单来说用的人多了GFW聪明了，需要对GFW进行欺骗一下，减少此类代理特征，让GFW无法识别出这是个"梯子"。
@@ -194,7 +194,7 @@ height="2.248611111111111in"}
 
 其他更多混淆参考：
 
-<https://blog.csdn.net/mmcooo/article/details/80094194
+<https://blog.csdn.net/mmcooo/article/details/80094194>
 
  https不就是加密的，也会被识别？
 -------------------------------
@@ -206,12 +206,12 @@ height="2.248611111111111in"}
 ![](../images/go_shadowsocks/image13.png){width="5.768055555555556in"
 height="2.0034722222222223in"}
 
-<https://gist.github.com/clowwindy/5947691
+<https://gist.github.com/clowwindy/5947691>
 
 Openwrt里直接安装后，如何代理所有wlan的接入？
 ---------------------------------------------
 
-翻墙时，需要有个本地端口监听，通过插件或者"小飞机"将流量转发到该端口中才能完成代理，但是openwrt集成shadowsocksr-libev之后，就能代理所有无线网的请求了，怎么实现的？包含代理的固件为（<https://github.com/coolsnowwolf/）
+翻墙时，需要有个本地端口监听，通过插件或者"小飞机"将流量转发到该端口中才能完成代理，但是openwrt集成shadowsocksr-libev之后，就能代理所有无线网的请求了，怎么实现的？包含代理的固件为（<https://github.com/coolsnowwolf/>）
 
 与之前本地起一个ss-local端口，进行正向代理不同。在linux机器上，通过启动ss-redir和在iptables上定义网络包的转发策略，实现了用户无感知的透明代理，透明代理后，用户将不会在设置浏览器插件。
 
@@ -223,8 +223,8 @@ Openwrt里直接安装后，如何代理所有wlan的接入？
 ![](../images/go_shadowsocks/image14.png){width="5.768055555555556in"
 height="4.095833333333333in"}
 
-该固件是在实现了 <https://github.com/shadowsocksrr/shadowsocksr-libev
-的基础上，增加了luci-app-ssr-plus（<https://github.com/coolsnowwolf/lede/tree/9eeb898ee39567d5eef5d7e87c3db062ce9c860b/package/lean/luci-app-ssr-plus
+该固件是在实现了 <https://github.com/shadowsocksrr/shadowsocksr-libev>
+的基础上，增加了luci-app-ssr-plus（<https://github.com/coolsnowwolf/lede/tree/9eeb898ee39567d5eef5d7e87c3db062ce9c860b/package/lean/luci-app-ssr-plus>
 ）插件。
 
 通过ipset定义管理了gfwlist的ip集合和名为china的国内ip的范围，通过iptables进行匹配选择是否走代理。比如下面描述，匹配了目标地址为gfwlist，目标地址不为china
@@ -244,11 +244,11 @@ height="2.670138888888889in"}
 ![](../images/go_shadowsocks/image18.png){width="5.768055555555556in"
 height="3.888888888888889in"}
 
-<https://github.com/zfl9/ss-tproxy
+<https://github.com/zfl9/ss-tproxy>
 
-<https://www.zfl9.com/ss-redir.html
+<https://www.zfl9.com/ss-redir.html>
 
-<https://vvl.me/2018/06/from-ss-redir-to-linux-nat/
+<https://vvl.me/2018/06/from-ss-redir-to-linux-nat/>
 
 复盘
 ====
@@ -285,24 +285,14 @@ server端收到消息后，将数据解析，获得client浏览器想请求的�
 参考
 ====
 
-<https://sulangsss.github.io/2018/12/18/Network/SS%20SSR%20%E5%8E%9F%E7%90%86/
-
-<https://sq.163yun.com/blog/article/185530682109534208
-
-<https://segmentfault.com/a/1190000011485579
-
-<https://gist.github.com/clowwindy/5947691
-
-<http://waimian.me/?thread-95.htm
-
-<http://ssr.bingly.cn/user/tutorial
-
-<https://choucuoqiong.blogspot.com/p/ssr.html
-
-<https://github.com/hq450/fancyss_history_package
-
-<https://github.com/coolsnowwolf/lede
-
-<http://ss.lt8.me/user/node
-
-<http://nulastudio.org/Freedom/
+<https://sulangsss.github.io/2018/12/18/Network/SS%20SSR%20%E5%8E%9F%E7%90%86/>
+<https://sq.163yun.com/blog/article/185530682109534208>
+<https://segmentfault.com/a/1190000011485579>
+<https://gist.github.com/clowwindy/5947691>
+<http://waimian.me/?thread-95.htm>
+<http://ssr.bingly.cn/user/tutorial>
+<https://choucuoqiong.blogspot.com/p/ssr.html>
+<https://github.com/hq450/fancyss_history_package>
+<https://github.com/coolsnowwolf/lede>
+<http://ss.lt8.me/user/node>
+<http://nulastudio.org/Freedom/>

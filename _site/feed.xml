@@ -4,7 +4,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://localhost:4000/feed.xml" />
 <link rel="alternate" type="text/html" href="http://localhost:4000" />
-<updated>2020-05-12T07:17:17-04:00</updated>
+<updated>2020-05-12T07:37:59-04:00</updated>
 <id>http://localhost:4000/</id>
 <author>
   <name>yangqiju</name>
@@ -1517,7 +1517,7 @@ TSDB在单机上可以支撑每秒百万级时序点的写入。&lt;/p&gt;
 
 &lt;p&gt;Prometheus TSDB实现参考了Facebook 2015年发表的论文《Gorilla: A Fast,
 Scalable, In-Memory Time Series
-DataBase》（http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.718.197&amp;amp;rep=rep1&amp;amp;type=pdf），其中详细介绍了Gorilla时序数据库的原理，英文阅读吃力的读者可以参考一些翻译文章（&amp;lt;https://yq.aliyun.com/articles/72871）。&lt;/p&gt;
+DataBase》（&lt;a href=&quot;http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.718.197&amp;amp;rep=rep1&amp;amp;type=pdf&quot;&gt;http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.718.197&amp;amp;rep=rep1&amp;amp;type=pdf&lt;/a&gt;），其中详细介绍了Gorilla时序数据库的原理，英文阅读吃力的读者可以参考一些翻译文章（&lt;a href=&quot;https://yq.aliyun.com/articles/72871&quot;&gt;https://yq.aliyun.com/articles/72871&lt;/a&gt;）。&lt;/p&gt;
 
 &lt;p&gt;在时序场景中，每个时序点的核心本质是一对64位的值，一个表示该点的timestamp，另一个表示该点的value值。Prometheus
 TSDB借鉴了Facebook Gorilla论文的压缩方式：&lt;/p&gt;
@@ -1698,17 +1698,12 @@ TSDB的压缩方案实际上与LevelDB、RocksDB等基于LSM树实现存储思�
 
 &lt;h1 id=&quot;引用&quot;&gt;引用&lt;/h1&gt;
 
-&lt;p&gt;&amp;lt;https://blog.csdn.net/liukuan73/article/details/79950329&lt;/p&gt;
-
-&lt;p&gt;&amp;lt;https://www.cnblogs.com/vovlie/p/7709312.html&lt;/p&gt;
-
-&lt;p&gt;&amp;lt;https://yq.aliyun.com/articles/174535&lt;/p&gt;
-
-&lt;p&gt;&amp;lt;https://zhuanlan.zhihu.com/p/59691668&lt;/p&gt;
-
-&lt;p&gt;&amp;lt;https://fabxc.org/tsdb/&lt;/p&gt;
-
-&lt;p&gt;&amp;lt;https://zhuanlan.zhihu.com/p/60212547&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/liukuan73/article/details/79950329&quot;&gt;https://blog.csdn.net/liukuan73/article/details/79950329&lt;/a&gt;
+&lt;a href=&quot;https://www.cnblogs.com/vovlie/p/7709312.html&quot;&gt;https://www.cnblogs.com/vovlie/p/7709312.html&lt;/a&gt;
+&lt;a href=&quot;https://yq.aliyun.com/articles/174535&quot;&gt;https://yq.aliyun.com/articles/174535&lt;/a&gt;
+&lt;a href=&quot;https://zhuanlan.zhihu.com/p/59691668&quot;&gt;https://zhuanlan.zhihu.com/p/59691668&lt;/a&gt;
+&lt;a href=&quot;https://fabxc.org/tsdb/&quot;&gt;https://fabxc.org/tsdb/&lt;/a&gt;
+&lt;a href=&quot;https://zhuanlan.zhihu.com/p/60212547&quot;&gt;https://zhuanlan.zhihu.com/p/60212547&lt;/a&gt;&lt;/p&gt;
 
   &lt;p&gt;&lt;a href=&quot;http://localhost:4000/prometheus%E5%AD%A6%E4%B9%A0&quot;&gt;Prometheus学习&lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://localhost:4000&quot;&gt;Orange&lt;/a&gt; on December 16, 2019.&lt;/p&gt;</content>
 </entry>
@@ -1824,7 +1819,7 @@ B当中的路由表（10.244.2.0），内核将IP包转发给cni0&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;../images/docker_net/image3.png&quot; alt=&quot;&quot; /&gt;{width=”5.768055555555556in”
 height=”0.7784722222222222in”}&lt;/p&gt;
 
-&lt;p&gt;&amp;lt;http://www.just4coding.com/blog/2017/05/21/vxlan/&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.just4coding.com/blog/2017/05/21/vxlan/&quot;&gt;http://www.just4coding.com/blog/2017/05/21/vxlan/&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;host-gw&quot;&gt;HOST-GW&lt;/h2&gt;
 
@@ -1906,7 +1901,7 @@ height=”2.8986111111111112in”}&lt;/p&gt;
 &lt;h2 id=&quot;内部负载均衡&quot;&gt;内部负载均衡&lt;/h2&gt;
 
 &lt;p&gt;以下描述为(docker stack
-deploy模式下，单独启动servcie参考&amp;lt;https://anoyi.com/p/dba9342071d8 )&lt;/p&gt;
+deploy模式下，单独启动servcie参考&lt;a href=&quot;https://anoyi.com/p/dba9342071d8&quot;&gt;https://anoyi.com/p/dba9342071d8&lt;/a&gt; )&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;../images/docker_net/image11.png&quot; alt=&quot;在这里插入图片描述&quot; /&gt;{width=”5.768055555555556in”
 height=”2.9483792650918637in”}&lt;/p&gt;
@@ -2028,23 +2023,23 @@ network，他负责将流量送达到前置服务。后续多个容器或服务�
 
 &lt;h1 id=&quot;参考&quot;&gt;参考&lt;/h1&gt;
 
-&lt;p&gt;&amp;lt;http://www.just4coding.com/blog/2017/05/21/vxlan/&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.just4coding.com/blog/2017/05/21/vxlan/&quot;&gt;http://www.just4coding.com/blog/2017/05/21/vxlan/&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&amp;lt;https://jkzhao.github.io/2017/09/05/overlay%E5%AE%9E%E7%8E%B0%E5%AE%B9%E5%99%A8%E8%B7%A8%E4%B8%BB%E6%9C%BA%E9%80%9A%E4%BF%A1/&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://jkzhao.github.io/2017/09/05/overlay%E5%AE%9E%E7%8E%B0%E5%AE%B9%E5%99%A8%E8%B7%A8%E4%B8%BB%E6%9C%BA%E9%80%9A%E4%BF%A1/&quot;&gt;https://jkzhao.github.io/2017/09/05/overlay%E5%AE%9E%E7%8E%B0%E5%AE%B9%E5%99%A8%E8%B7%A8%E4%B8%BB%E6%9C%BA%E9%80%9A%E4%BF%A1/&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&amp;lt;https://www.cnblogs.com/goldsunshine/p/10740928.html&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/goldsunshine/p/10740928.html&quot;&gt;https://www.cnblogs.com/goldsunshine/p/10740928.html&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&amp;lt;https://blog.csdn.net/huangjun0210/article/details/86478157&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/huangjun0210/article/details/86478157&quot;&gt;https://blog.csdn.net/huangjun0210/article/details/86478157&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&amp;lt;http://blog.daocloud.io/docker1-12lb/&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://blog.daocloud.io/docker1-12lb/&quot;&gt;http://blog.daocloud.io/docker1-12lb/&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&amp;lt;https://success.docker.com/article/ucp-service-discovery-swarm&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://success.docker.com/article/ucp-service-discovery-swarm&quot;&gt;https://success.docker.com/article/ucp-service-discovery-swarm&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&amp;lt;https://zhoujinl.github.io/2018/09/20/docker-swarm-scheduler/&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://zhoujinl.github.io/2018/09/20/docker-swarm-scheduler/&quot;&gt;https://zhoujinl.github.io/2018/09/20/docker-swarm-scheduler/&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&amp;lt;https://blog.51cto.com/jerry12356/2384159&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://blog.51cto.com/jerry12356/2384159&quot;&gt;https://blog.51cto.com/jerry12356/2384159&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&amp;lt;https://mp.weixin.qq.com/s?__biz=MzIyMTUwMDMyOQ==&amp;amp;mid=2247492160&amp;amp;idx=1&amp;amp;sn=6ff4c4423f4834042e0ad3b476bafd9f&amp;amp;chksm=e8396486df4eed90bc1c401e2a20b070931e700b9e6f6931bdaf9820f3d0974fdac3cdf09c31&amp;amp;mpshare=1&amp;amp;scene=1&amp;amp;srcid=1014dpS7QNtyWCQ5uBg8fZXc&amp;amp;sharer_sharetime=1571068017820&amp;amp;sharer_shareid=5604a26ad45580769f078004811e0dc5&amp;amp;key=e224974e93afb4cc75358c6974746b3e9438b850e7120ca8338645c3298c01d5e11619cd726cb256c5983147aa2ec180fe77b69962fe6295a15e791f61c4ba4c4a18e46d56aa0b9ab4d318d81d1a4e7a&amp;amp;ascene=0&amp;amp;uin=NDEyMzAwMDgw&amp;amp;devicetype=iMac+MacBookPro12%2C1+OSX+OSX+10.15+build(19A583)&amp;amp;version=12020010&amp;amp;nettype=WIFI&amp;amp;lang=zh_CN&amp;amp;fontScale=100&amp;amp;pass_ticket=1PafF1oOL%2FoCfZqc5Sh0obHz6PGNO15q%2FGD4MvDPcv3pPTVOEXb5JOZ4vjFCbh8E&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://mp.weixin.qq.com/s?__biz=MzIyMTUwMDMyOQ==&amp;amp;mid=2247492160&amp;amp;idx=1&amp;amp;sn=6ff4c4423f4834042e0ad3b476bafd9f&amp;amp;chksm=e8396486df4eed90bc1c401e2a20b070931e700b9e6f6931bdaf9820f3d0974fdac3cdf09c31&amp;amp;mpshare=1&amp;amp;scene=1&amp;amp;srcid=1014dpS7QNtyWCQ5uBg8fZXc&amp;amp;sharer_sharetime=1571068017820&amp;amp;sharer_shareid=5604a26ad45580769f078004811e0dc5&amp;amp;key=e224974e93afb4cc75358c6974746b3e9438b850e7120ca8338645c3298c01d5e11619cd726cb256c5983147aa2ec180fe77b69962fe6295a15e791f61c4ba4c4a18e46d56aa0b9ab4d318d81d1a4e7a&amp;amp;ascene=0&amp;amp;uin=NDEyMzAwMDgw&amp;amp;devicetype=iMac+MacBookPro12%2C1+OSX+OSX+10.15+build(19A583)&amp;amp;version=12020010&amp;amp;nettype=WIFI&amp;amp;lang=zh_CN&amp;amp;fontScale=100&amp;amp;pass_ticket=1PafF1oOL%2FoCfZqc5Sh0obHz6PGNO15q%2FGD4MvDPcv3pPTVOEXb5JOZ4vjFCbh8E&quot;&gt;https://mp.weixin.qq.com/s?__biz=MzIyMTUwMDMyOQ==&amp;amp;mid=2247492160&amp;amp;idx=1&amp;amp;sn=6ff4c4423f4834042e0ad3b476bafd9f&amp;amp;chksm=e8396486df4eed90bc1c401e2a20b070931e700b9e6f6931bdaf9820f3d0974fdac3cdf09c31&amp;amp;mpshare=1&amp;amp;scene=1&amp;amp;srcid=1014dpS7QNtyWCQ5uBg8fZXc&amp;amp;sharer_sharetime=1571068017820&amp;amp;sharer_shareid=5604a26ad45580769f078004811e0dc5&amp;amp;key=e224974e93afb4cc75358c6974746b3e9438b850e7120ca8338645c3298c01d5e11619cd726cb256c5983147aa2ec180fe77b69962fe6295a15e791f61c4ba4c4a18e46d56aa0b9ab4d318d81d1a4e7a&amp;amp;ascene=0&amp;amp;uin=NDEyMzAwMDgw&amp;amp;devicetype=iMac+MacBookPro12%2C1+OSX+OSX+10.15+build(19A583)&amp;amp;version=12020010&amp;amp;nettype=WIFI&amp;amp;lang=zh_CN&amp;amp;fontScale=100&amp;amp;pass_ticket=1PafF1oOL%2FoCfZqc5Sh0obHz6PGNO15q%2FGD4MvDPcv3pPTVOEXb5JOZ4vjFCbh8E&lt;/a&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;问题&quot;&gt;问题&lt;/h1&gt;
 
@@ -2360,7 +2355,7 @@ height=”2.1475251531058617in”}&lt;/p&gt;
 
 &lt;p&gt;KCP使用ikcp_send发送数据，该函数调用ikcp_output发送数据，实际上最终调用事先注册的发送回调发送数据。KCP通过ikcp_recv将数据接收出来，如果被分片发送，将在此自动重组，数据将与发送前保持一致。&lt;/p&gt;
 
-&lt;p&gt;&amp;lt;https://blog.csdn.net/yongkai0214/article/details/85156452&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/yongkai0214/article/details/85156452&quot;&gt;https://blog.csdn.net/yongkai0214/article/details/85156452&lt;/a&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;数据结构&quot;&gt;数据结构&lt;/h1&gt;
 
@@ -2371,7 +2366,7 @@ height=”3.1633902012248467in”}&lt;/p&gt;
 
 &lt;p&gt;如上图中，snd_queue待发送队列中有4个KCP包等待发送，这个时候snd_nxt下一个发送的kcp包序列号为11，snd_una下一个确认的KCP包为9（8已经确认，9，10已经发送但是还没得到接收方的确认）。因为cwnd=5，发送队列中还有2个发送了但是还未得到确认，所以可以从待发送队列中取前面的3个KCP包放入到发送队列中，序列号分别设置为11,12,13。&lt;/p&gt;
 
-&lt;p&gt;&amp;lt;https://www.cnblogs.com/wetest/p/9190786.html&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/wetest/p/9190786.html&quot;&gt;https://www.cnblogs.com/wetest/p/9190786.html&lt;/a&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;kcptun&quot;&gt;KCPTUN&lt;/h1&gt;
 
@@ -2380,7 +2375,7 @@ height=”2.3868055555555556in”}&lt;/p&gt;
 
 &lt;p&gt;KCPTUN是一个使用KCP建立的安全和高效的隧道。&lt;/p&gt;
 
-&lt;p&gt;&amp;lt;https://github.com/xtaci/kcptun&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/xtaci/kcptun&quot;&gt;https://github.com/xtaci/kcptun&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;../images/KCP学习/image27.png&quot; alt=&quot;&quot; /&gt;{width=”5.768055555555556in”
 height=”3.772222222222222in”}&lt;/p&gt;
@@ -2439,25 +2434,17 @@ height=”2.053472222222222in”}&lt;/p&gt;
 
 &lt;p&gt;它的发送端每次执行一次写操作，UDP就将其封装成一个数据报发送出去，接收端必须及时对每个UDP数据报进行写操作，否则将会丢包。此外，如果客户没有指定足够的应用程序缓冲区来读取UDP数据，则UDP数据将会被截断。&lt;/p&gt;
 
-&lt;p&gt;&amp;lt;https://blog.csdn.net/ljh0302/article/details/49738191&lt;/p&gt;
-
-&lt;p&gt;&amp;lt;http://www.pianshen.com/article/1818281353/&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/ljh0302/article/details/49738191&quot;&gt;https://blog.csdn.net/ljh0302/article/details/49738191&lt;/a&gt;
+&lt;a href=&quot;http://www.pianshen.com/article/1818281353/&quot;&gt;http://www.pianshen.com/article/1818281353/&lt;/a&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;资源&quot;&gt;资源&lt;/h1&gt;
-
-&lt;p&gt;&amp;lt;http://kaiyuan.me/2017/07/29/KCP%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/&lt;/p&gt;
-
-&lt;p&gt;&amp;lt;https://github.com/skywind3000/kcp&lt;/p&gt;
-
-&lt;p&gt;&amp;lt;https://www.cnblogs.com/wetest/p/9190786.html&lt;/p&gt;
-
-&lt;p&gt;&amp;lt;https://github.com/xtaci/kcptun&lt;/p&gt;
-
-&lt;p&gt;&amp;lt;https://www.cnblogs.com/purpleraintear/p/6403053.html&lt;/p&gt;
-
-&lt;p&gt;&amp;lt;https://blog.csdn.net/yusiguyuan/article/details/28625129&lt;/p&gt;
-
-&lt;p&gt;&amp;lt;https://zhuanlan.zhihu.com/p/53849089&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://kaiyuan.me/2017/07/29/KCP%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/&quot;&gt;http://kaiyuan.me/2017/07/29/KCP%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/&lt;/a&gt;
+&lt;a href=&quot;https://github.com/skywind3000/kcp&quot;&gt;https://github.com/skywind3000/kcp&lt;/a&gt;
+&lt;a href=&quot;https://www.cnblogs.com/wetest/p/9190786.html&quot;&gt;https://www.cnblogs.com/wetest/p/9190786.html&lt;/a&gt;
+&lt;a href=&quot;https://github.com/xtaci/kcptun&quot;&gt;https://github.com/xtaci/kcptun&lt;/a&gt;
+&lt;a href=&quot;https://www.cnblogs.com/purpleraintear/p/6403053.html&quot;&gt;https://www.cnblogs.com/purpleraintear/p/6403053.html&lt;/a&gt;
+&lt;a href=&quot;https://blog.csdn.net/yusiguyuan/article/details/28625129&quot;&gt;https://blog.csdn.net/yusiguyuan/article/details/28625129&lt;/a&gt;
+&lt;a href=&quot;https://zhuanlan.zhihu.com/p/53849089&quot;&gt;https://zhuanlan.zhihu.com/p/53849089&lt;/a&gt;&lt;/p&gt;
 
   &lt;p&gt;&lt;a href=&quot;http://localhost:4000/kcp%E5%AD%A6%E4%B9%A0&quot;&gt;KCP学习&lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://localhost:4000&quot;&gt;Orange&lt;/a&gt; on September 09, 2019.&lt;/p&gt;</content>
 </entry>
@@ -2883,7 +2870,7 @@ API，可以做Java协程，在一些资源释放无需等待的场景可以使�
 
 &lt;p&gt;本章通过学习go-shadowsocks源码，了解一下内部实现原理。&lt;/p&gt;
 
-&lt;p&gt;&amp;lt;https://github.com/shadowsocks/go-shadowsocks2&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/shadowsocks/go-shadowsocks2&quot;&gt;https://github.com/shadowsocks/go-shadowsocks2&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;ss：ss作者是clowwindy，大约两年前，他自己为了翻墙写了shadowsocks，简称ss或者叫影梭。&lt;/p&gt;
 
@@ -2899,7 +2886,7 @@ GFW，GFW将它不喜欢的内容统统过滤掉，于是客户当触发 GFW
 的过滤规则的时候，就会收到 Connection Reset
 这样的响应内容，而无法接收到正常的内容。&lt;/p&gt;
 
-&lt;p&gt;&amp;lt;https://sulangsss.github.io/2018/12/18/Network/SS%20SSR%20%E5%8E%9F%E7%90%86/&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://sulangsss.github.io/2018/12/18/Network/SS%20SSR%20%E5%8E%9F%E7%90%86/&quot;&gt;https://sulangsss.github.io/2018/12/18/Network/SS%20SSR%20%E5%8E%9F%E7%90%86/&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;dns污染劫持&quot;&gt;DNS污染/劫持&lt;/h2&gt;
 
@@ -2966,7 +2953,7 @@ SOCKS5 协议，读出本次请求真正的目标服务地址(例如 Google
 
 &lt;p&gt;socks 协议&lt;/p&gt;
 
-&lt;p&gt;&amp;lt;https://www.ietf.org/rfc/rfc1928.txt&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.ietf.org/rfc/rfc1928.txt&quot;&gt;https://www.ietf.org/rfc/rfc1928.txt&lt;/a&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;qa&quot;&gt;Q&amp;amp;A&lt;/h1&gt;
 
@@ -2998,7 +2985,7 @@ privoxy两个进程，ss-local是做socks5代理的，监听1086端口，而priv
 
 &lt;p&gt;可通过如下指令测试：&lt;/p&gt;
 
-&lt;p&gt;curl --socks5 127.0.0.1:1086 &amp;lt;http://google.com&lt;/p&gt;
+&lt;p&gt;curl --socks5 127.0.0.1:1086 http://google.com&lt;/p&gt;
 
 &lt;p&gt;curl --proxy 127.0.0.1:1087 http://google.com&lt;/p&gt;
 
@@ -3021,7 +3008,7 @@ privoxy两个进程，ss-local是做socks5代理的，监听1086端口，而priv
 
 &lt;p&gt;本文中的go-shadowsocks
 是直接使用socks协议进行代理的，而ssr（shadowsocksR
-&amp;lt;https://github.com/shadowsocksr-backup/shadowsocksr.git
+&lt;a href=&quot;https://github.com/shadowsocksr-backup/shadowsocksr.git&quot;&gt;https://github.com/shadowsocksr-backup/shadowsocksr.git&lt;/a&gt;
 ）是在这基础上添加了混淆功能。为什么要混淆？&lt;/p&gt;
 
 &lt;p&gt;简单来说用的人多了GFW聪明了，需要对GFW进行欺骗一下，减少此类代理特征，让GFW无法识别出这是个”梯子”。&lt;/p&gt;
@@ -3049,7 +3036,7 @@ height=”2.248611111111111in”}&lt;/p&gt;
 
 &lt;p&gt;其他更多混淆参考：&lt;/p&gt;
 
-&lt;p&gt;&amp;lt;https://blog.csdn.net/mmcooo/article/details/80094194&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/mmcooo/article/details/80094194&quot;&gt;https://blog.csdn.net/mmcooo/article/details/80094194&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;https不就是加密的也会被识别&quot;&gt;https不就是加密的，也会被识别？&lt;/h2&gt;
 
@@ -3060,11 +3047,11 @@ height=”2.248611111111111in”}&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;../images/go_shadowsocks/image13.png&quot; alt=&quot;&quot; /&gt;{width=”5.768055555555556in”
 height=”2.0034722222222223in”}&lt;/p&gt;
 
-&lt;p&gt;&amp;lt;https://gist.github.com/clowwindy/5947691&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://gist.github.com/clowwindy/5947691&quot;&gt;https://gist.github.com/clowwindy/5947691&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;openwrt里直接安装后如何代理所有wlan的接入&quot;&gt;Openwrt里直接安装后，如何代理所有wlan的接入？&lt;/h2&gt;
 
-&lt;p&gt;翻墙时，需要有个本地端口监听，通过插件或者”小飞机”将流量转发到该端口中才能完成代理，但是openwrt集成shadowsocksr-libev之后，就能代理所有无线网的请求了，怎么实现的？包含代理的固件为（&amp;lt;https://github.com/coolsnowwolf/）&lt;/p&gt;
+&lt;p&gt;翻墙时，需要有个本地端口监听，通过插件或者”小飞机”将流量转发到该端口中才能完成代理，但是openwrt集成shadowsocksr-libev之后，就能代理所有无线网的请求了，怎么实现的？包含代理的固件为（&lt;a href=&quot;https://github.com/coolsnowwolf/&quot;&gt;https://github.com/coolsnowwolf/&lt;/a&gt;）&lt;/p&gt;
 
 &lt;p&gt;与之前本地起一个ss-local端口，进行正向代理不同。在linux机器上，通过启动ss-redir和在iptables上定义网络包的转发策略，实现了用户无感知的透明代理，透明代理后，用户将不会在设置浏览器插件。&lt;/p&gt;
 
@@ -3076,8 +3063,8 @@ height=”2.0034722222222223in”}&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;../images/go_shadowsocks/image14.png&quot; alt=&quot;&quot; /&gt;{width=”5.768055555555556in”
 height=”4.095833333333333in”}&lt;/p&gt;
 
-&lt;p&gt;该固件是在实现了 &amp;lt;https://github.com/shadowsocksrr/shadowsocksr-libev
-的基础上，增加了luci-app-ssr-plus（&amp;lt;https://github.com/coolsnowwolf/lede/tree/9eeb898ee39567d5eef5d7e87c3db062ce9c860b/package/lean/luci-app-ssr-plus
+&lt;p&gt;该固件是在实现了 &lt;a href=&quot;https://github.com/shadowsocksrr/shadowsocksr-libev&quot;&gt;https://github.com/shadowsocksrr/shadowsocksr-libev&lt;/a&gt;
+的基础上，增加了luci-app-ssr-plus（&lt;a href=&quot;https://github.com/coolsnowwolf/lede/tree/9eeb898ee39567d5eef5d7e87c3db062ce9c860b/package/lean/luci-app-ssr-plus&quot;&gt;https://github.com/coolsnowwolf/lede/tree/9eeb898ee39567d5eef5d7e87c3db062ce9c860b/package/lean/luci-app-ssr-plus&lt;/a&gt;
 ）插件。&lt;/p&gt;
 
 &lt;p&gt;通过ipset定义管理了gfwlist的ip集合和名为china的国内ip的范围，通过iptables进行匹配选择是否走代理。比如下面描述，匹配了目标地址为gfwlist，目标地址不为china
@@ -3097,11 +3084,11 @@ height=”2.670138888888889in”}&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;../images/go_shadowsocks/image18.png&quot; alt=&quot;&quot; /&gt;{width=”5.768055555555556in”
 height=”3.888888888888889in”}&lt;/p&gt;
 
-&lt;p&gt;&amp;lt;https://github.com/zfl9/ss-tproxy&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/zfl9/ss-tproxy&quot;&gt;https://github.com/zfl9/ss-tproxy&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&amp;lt;https://www.zfl9.com/ss-redir.html&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.zfl9.com/ss-redir.html&quot;&gt;https://www.zfl9.com/ss-redir.html&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&amp;lt;https://vvl.me/2018/06/from-ss-redir-to-linux-nat/&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://vvl.me/2018/06/from-ss-redir-to-linux-nat/&quot;&gt;https://vvl.me/2018/06/from-ss-redir-to-linux-nat/&lt;/a&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;复盘&quot;&gt;复盘&lt;/h1&gt;
 
@@ -3140,27 +3127,17 @@ height=”3.888888888888889in”}&lt;/p&gt;
 
 &lt;h1 id=&quot;参考&quot;&gt;参考&lt;/h1&gt;
 
-&lt;p&gt;&amp;lt;https://sulangsss.github.io/2018/12/18/Network/SS%20SSR%20%E5%8E%9F%E7%90%86/&lt;/p&gt;
-
-&lt;p&gt;&amp;lt;https://sq.163yun.com/blog/article/185530682109534208&lt;/p&gt;
-
-&lt;p&gt;&amp;lt;https://segmentfault.com/a/1190000011485579&lt;/p&gt;
-
-&lt;p&gt;&amp;lt;https://gist.github.com/clowwindy/5947691&lt;/p&gt;
-
-&lt;p&gt;&amp;lt;http://waimian.me/?thread-95.htm&lt;/p&gt;
-
-&lt;p&gt;&amp;lt;http://ssr.bingly.cn/user/tutorial&lt;/p&gt;
-
-&lt;p&gt;&amp;lt;https://choucuoqiong.blogspot.com/p/ssr.html&lt;/p&gt;
-
-&lt;p&gt;&amp;lt;https://github.com/hq450/fancyss_history_package&lt;/p&gt;
-
-&lt;p&gt;&amp;lt;https://github.com/coolsnowwolf/lede&lt;/p&gt;
-
-&lt;p&gt;&amp;lt;http://ss.lt8.me/user/node&lt;/p&gt;
-
-&lt;p&gt;&amp;lt;http://nulastudio.org/Freedom/&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://sulangsss.github.io/2018/12/18/Network/SS%20SSR%20%E5%8E%9F%E7%90%86/&quot;&gt;https://sulangsss.github.io/2018/12/18/Network/SS%20SSR%20%E5%8E%9F%E7%90%86/&lt;/a&gt;
+&lt;a href=&quot;https://sq.163yun.com/blog/article/185530682109534208&quot;&gt;https://sq.163yun.com/blog/article/185530682109534208&lt;/a&gt;
+&lt;a href=&quot;https://segmentfault.com/a/1190000011485579&quot;&gt;https://segmentfault.com/a/1190000011485579&lt;/a&gt;
+&lt;a href=&quot;https://gist.github.com/clowwindy/5947691&quot;&gt;https://gist.github.com/clowwindy/5947691&lt;/a&gt;
+&lt;a href=&quot;http://waimian.me/?thread-95.htm&quot;&gt;http://waimian.me/?thread-95.htm&lt;/a&gt;
+&lt;a href=&quot;http://ssr.bingly.cn/user/tutorial&quot;&gt;http://ssr.bingly.cn/user/tutorial&lt;/a&gt;
+&lt;a href=&quot;https://choucuoqiong.blogspot.com/p/ssr.html&quot;&gt;https://choucuoqiong.blogspot.com/p/ssr.html&lt;/a&gt;
+&lt;a href=&quot;https://github.com/hq450/fancyss_history_package&quot;&gt;https://github.com/hq450/fancyss_history_package&lt;/a&gt;
+&lt;a href=&quot;https://github.com/coolsnowwolf/lede&quot;&gt;https://github.com/coolsnowwolf/lede&lt;/a&gt;
+&lt;a href=&quot;http://ss.lt8.me/user/node&quot;&gt;http://ss.lt8.me/user/node&lt;/a&gt;
+&lt;a href=&quot;http://nulastudio.org/Freedom/&quot;&gt;http://nulastudio.org/Freedom/&lt;/a&gt;&lt;/p&gt;
 
   &lt;p&gt;&lt;a href=&quot;http://localhost:4000/go-shadowsocks&quot;&gt;go shadowsocks源码分析&lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://localhost:4000&quot;&gt;Orange&lt;/a&gt; on August 17, 2019.&lt;/p&gt;</content>
 </entry>
@@ -3208,7 +3185,7 @@ height=”3.8306780402449694in”}&lt;/p&gt;
 &lt;span class=&quot;err&quot;&gt;##&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;使配置生效&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;sysctl&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Timestamps计算：&amp;lt;https://www.cnblogs.com/good90/p/3911110.html&lt;/p&gt;
+&lt;p&gt;Timestamps计算：&lt;a href=&quot;https://www.cnblogs.com/good90/p/3911110.html&quot;&gt;https://www.cnblogs.com/good90/p/3911110.html&lt;/a&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;其他思考&quot;&gt;其他思考&lt;/h1&gt;
 
@@ -3272,9 +3249,9 @@ height=”1.3006944444444444in”}&lt;/p&gt;
 
 &lt;p&gt;网络文章：&lt;/p&gt;
 
-&lt;p&gt;&amp;lt;http://www.just4coding.com/blog/2017/11/09/timewait/&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.just4coding.com/blog/2017/11/09/timewait/&quot;&gt;http://www.just4coding.com/blog/2017/11/09/timewait/&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&amp;lt;https://www.cnblogs.com/jdonson/p/4760130.html&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/jdonson/p/4760130.html&quot;&gt;https://www.cnblogs.com/jdonson/p/4760130.html&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;tsval大的成功后60秒小的都不能连接&quot;&gt;TSval大的成功后60秒，小的都不能连接？&lt;/h2&gt;
 
@@ -3333,7 +3310,7 @@ height=”3.19371719160105in”}&lt;/p&gt;
 查看，但是可能很难看到，因为tcp_tw_recycle就是为了快速回收TIME_WAIT的连接的。&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;上面的示例（&amp;lt;http://www.just4coding.com/blog/2017/11/09/timewait/）文章做测试的时候，将nginx的keepalive关闭，让server上的nginx主动断开，所以curl也能复现，但实际使用nginx不会这么用，带来了一定的误解。&lt;/p&gt;
+    &lt;p&gt;上面的示例（&lt;a href=&quot;http://www.just4coding.com/blog/2017/11/09/timewait/&quot;&gt;http://www.just4coding.com/blog/2017/11/09/timewait/&lt;/a&gt;）文章做测试的时候，将nginx的keepalive关闭，让server上的nginx主动断开，所以curl也能复现，但实际使用nginx不会这么用，带来了一定的误解。&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
 
@@ -3350,19 +3327,15 @@ height=”3.19371719160105in”}&lt;/p&gt;
 
 &lt;h1 id=&quot;引用文章&quot;&gt;引用文章&lt;/h1&gt;
 
-&lt;p&gt;&amp;lt;https://blog.csdn.net/pengzhouzhou/article/details/85229437&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/pengzhouzhou/article/details/85229437&quot;&gt;https://blog.csdn.net/pengzhouzhou/article/details/85229437&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&amp;lt;https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=4396e46187ca5070219b81773c4e65088dac50cc&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=4396e46187ca5070219b81773c4e65088dac50cc&quot;&gt;https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=4396e46187ca5070219b81773c4e65088dac50cc&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&amp;lt;https://www.cnblogs.com/good90/p/3911110.html&lt;/p&gt;
-
-&lt;p&gt;&amp;lt;https://www.iteye.com/blog/elf8848-2089414&lt;/p&gt;
-
-&lt;p&gt;&amp;lt;https://www.cnblogs.com/10087622blog/p/11017455.html&lt;/p&gt;
-
-&lt;p&gt;&amp;lt;https://www.cnblogs.com/jdonson/p/4760130.html&lt;/p&gt;
-
-&lt;p&gt;&amp;lt;https://blog.51cto.com/fuyuan2016/1795998&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/good90/p/3911110.html&quot;&gt;https://www.cnblogs.com/good90/p/3911110.html&lt;/a&gt;
+&lt;a href=&quot;https://www.iteye.com/blog/elf8848-2089414&quot;&gt;https://www.iteye.com/blog/elf8848-2089414&lt;/a&gt;
+&lt;a href=&quot;https://www.cnblogs.com/10087622blog/p/11017455.html&quot;&gt;https://www.cnblogs.com/10087622blog/p/11017455.html&lt;/a&gt;
+&lt;a href=&quot;https://www.cnblogs.com/jdonson/p/4760130.html&quot;&gt;https://www.cnblogs.com/jdonson/p/4760130.html&lt;/a&gt;
+&lt;a href=&quot;https://blog.51cto.com/fuyuan2016/1795998&quot;&gt;https://blog.51cto.com/fuyuan2016/1795998&lt;/a&gt;&lt;/p&gt;
 
   &lt;p&gt;&lt;a href=&quot;http://localhost:4000/tcp_tw_recycle%E7%BD%91%E7%BB%9C%E6%8E%92%E6%9F%A5&quot;&gt;tcp_tw_recycle问题排查&lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://localhost:4000&quot;&gt;Orange&lt;/a&gt; on August 10, 2019.&lt;/p&gt;</content>
 </entry>
@@ -3816,7 +3789,7 @@ height=”1.0000513998250218in”}&lt;/p&gt;
 
 &lt;h2 id=&quot;什么是tvl&quot;&gt;什么是TVL&lt;/h2&gt;
 
-&lt;p&gt;&amp;lt;http://www.wtango.com/tlv%E7%BC%96%E7%A0%81%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE%E8%AE%BE%E8%AE%A1/&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.wtango.com/tlv%E7%BC%96%E7%A0%81%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE%E8%AE%BE%E8%AE%A1/&quot;&gt;http://www.wtango.com/tlv%E7%BC%96%E7%A0%81%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE%E8%AE%BE%E8%AE%A1/&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;bus的意义是什么&quot;&gt;Bus的意义是什么？&lt;/h2&gt;
 
@@ -3829,7 +3802,7 @@ height=”4.064583333333333in”}&lt;/p&gt;
 
 &lt;p&gt;这有涉及到SOA中esb相关知识了。&lt;/p&gt;
 
-&lt;p&gt;&amp;lt;https://www.cnblogs.com/zdz8207/p/java-esb.html&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/zdz8207/p/java-esb.html&quot;&gt;https://www.cnblogs.com/zdz8207/p/java-esb.html&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;../images/ubus源码分析/image31.png&quot; alt=&quot;https://images2018.cnblogs.com/blog/47685/201806/47685-20180627204743899-564991765.png&quot; /&gt;{width=”5.768055555555556in”
 height=”3.365980971128609in”}&lt;/p&gt;
@@ -4450,7 +4423,7 @@ value）。&lt;/p&gt;
 space），类在伊甸区生成，经过minor
 gc后，要么被回收，要么会到幸存区，幸存区经过major gc后到达老年区。&lt;/p&gt;
 
-&lt;p&gt;更多查看：&amp;lt;http://blog.jamesdbloom.com/JVMInternals.html#jvm_system_threads&lt;/p&gt;
+&lt;p&gt;更多查看：&lt;a href=&quot;http://blog.jamesdbloom.com/JVMInternals.html#jvm_system_threads&quot;&gt;http://blog.jamesdbloom.com/JVMInternals.html#jvm_system_threads&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;运行时数据区：&lt;/p&gt;
 
@@ -4740,7 +4713,7 @@ class）。战争是线程私有数据，不可能在一个战争中引入另一
 
 &lt;p&gt;所以：当topic很多的时候，RocketMQ是个好的选择&lt;/p&gt;
 
-&lt;p&gt;原文： &amp;lt;https://blog.csdn.net/chunlongyu/article/details/54576649&lt;/p&gt;
+&lt;p&gt;原文： &lt;a href=&quot;https://blog.csdn.net/chunlongyu/article/details/54576649&quot;&gt;https://blog.csdn.net/chunlongyu/article/details/54576649&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;ms架构&quot;&gt;M/S架构&lt;/h2&gt;
 
@@ -4794,11 +4767,9 @@ height=”3.390972222222222in”}&lt;/p&gt;
 
 &lt;h2 id=&quot;其他&quot;&gt;其他&lt;/h2&gt;
 
-&lt;p&gt;&amp;lt;https://www.jianshu.com/p/eece39beee20&lt;/p&gt;
-
-&lt;p&gt;&amp;lt;https://blog.51cto.com/13925625/2276357&lt;/p&gt;
-
-&lt;p&gt;&amp;lt;https://www.songma.com/news/txtlist_i24016v.html&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.jianshu.com/p/eece39beee20&quot;&gt;https://www.jianshu.com/p/eece39beee20&lt;/a&gt;
+ &lt;a href=&quot;https://blog.51cto.com/13925625/2276357&quot;&gt;https://blog.51cto.com/13925625/2276357&lt;/a&gt;
+ &lt;a href=&quot;https://www.songma.com/news/txtlist_i24016v.html&quot;&gt;https://www.songma.com/news/txtlist_i24016v.html&lt;/a&gt;&lt;/p&gt;
 
   &lt;p&gt;&lt;a href=&quot;http://localhost:4000/rocketmq%E5%AD%A6%E4%B9%A0&quot;&gt;Rocketmq学习&lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://localhost:4000&quot;&gt;Orange&lt;/a&gt; on March 04, 2019.&lt;/p&gt;</content>
 </entry>
@@ -5057,8 +5028,7 @@ height=”4.246773840769904in”}&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;http://nacos.com/&quot;&gt;http://nacos.com&lt;/a&gt;:port/openAPI 域名 +
 VIP模式，可读性好，而且换ip方便，推荐模式：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;../images/nacos学习/image10.jpeg&quot; alt=&quot;\\Mac\Home\Library\Containers\com.tencent.qq\Data\Library\Application
-Support\QQ\Users\362991493\QQ\Temp.db\96D273CF-416B-4637-A784-9071AC613771.png&quot; /&gt;{width=”5.768055555555556in”
+&lt;p&gt;&lt;img src=&quot;../images/nacos学习/image10.jpeg&quot; alt=&quot;96D273CF-416B-4637-A784-9071AC613771.png&quot; /&gt;{width=”5.768055555555556in”
 height=”2.5017902449693787in”}&lt;/p&gt;
 
 &lt;p&gt;作为配置中心，nacos可将配置存放在mysql中。&lt;/p&gt;
@@ -5073,15 +5043,11 @@ height=”2.5017902449693787in”}&lt;/p&gt;
 
 &lt;p&gt;Zookeeper三个节点，挂两个之后不可用。&lt;/p&gt;
 
-&lt;p&gt;详情查看：&amp;lt;https://www.infoq.cn/article/why-doesnot-alibaba-use-zookeeper&lt;/p&gt;
-
-&lt;p&gt;官方提供了一个nacos和zookeeper数据同步的工具：&lt;/p&gt;
-
-&lt;p&gt;&amp;lt;https://github.com/nacos-group/nacos-sync&lt;/p&gt;
-
-&lt;p&gt;示例如下：&lt;/p&gt;
-
-&lt;p&gt;&amp;lt;https://github.com/paderlol/nacos-sync-example&lt;/p&gt;
+&lt;p&gt;详情查看：&lt;a href=&quot;https://www.infoq.cn/article/why-doesnot-alibaba-use-zookeeper&quot;&gt;https://www.infoq.cn/article/why-doesnot-alibaba-use-zookeeper&lt;/a&gt;
+官方提供了一个nacos和zookeeper数据同步的工具：
+&lt;a href=&quot;https://github.com/nacos-group/nacos-sync&quot;&gt;https://github.com/nacos-group/nacos-sync&lt;/a&gt;
+示例如下：
+&lt;a href=&quot;https://github.com/paderlol/nacos-sync-example&quot;&gt;https://github.com/paderlol/nacos-sync-example&lt;/a&gt;&lt;/p&gt;
 
   &lt;p&gt;&lt;a href=&quot;http://localhost:4000/nacos%E5%AD%A6%E4%B9%A0&quot;&gt;nacos学习&lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://localhost:4000&quot;&gt;Orange&lt;/a&gt; on January 19, 2019.&lt;/p&gt;</content>
 </entry>
@@ -5126,8 +5092,7 @@ height=”2.5017902449693787in”}&lt;/p&gt;
 
 &lt;p&gt;加载过程如下：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;../images/虚拟机类加载机制/image1.png&quot; alt=&quot;&quot; /&gt;{width=”5.768055555555556in”
-height=”2.051388888888889in”}&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../images/虚拟机类加载机制/image1.png&quot; alt=&quot;&quot; width=&quot;100%&quot; /&gt;&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;加载&lt;/li&gt;
@@ -5141,45 +5106,33 @@ height=”2.051388888888889in”}&lt;/p&gt;
 
 &lt;p&gt;确保class文件字节流的信息符合虚拟机要求&lt;/p&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;文件格式验证&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;元数据验证&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;字节码验证&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;符号引用验证&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1.  文件格式验证
 
-&lt;pre&gt;&lt;code class=&quot;language-{=html}&quot;&gt;&amp;lt;!-- --
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ol&gt;
-  &lt;li&gt;准备&lt;/li&gt;
-&lt;/ol&gt;
+2.  元数据验证
 
-&lt;p&gt;为类变量分配内存并设置初始值，变量使用的内存都在方法区。例如（static
- int
- value=123）在这个阶段会被初始化为0，把value赋值运算的putstatic指令编译后放在了&amp;lt;clinit\方法中，所以初始化阶段才会将value赋值为123。但如果value修饰为static
- final，则准备阶段就会赋值为123。&lt;/p&gt;
+3.  字节码验证
+
+4.  符号引用验证
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;准备&lt;/p&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;为类变量分配内存并设置初始值，变量使用的内存都在方法区。例如（static int value=123）在这个阶段会被初始化为0，把value赋值运算的putstatic指令编译后放在了 clinit方法中，所以初始化阶段才会将value赋值为123。但如果value修饰为static final，则准备阶段就会赋值为123。&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;解析&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;初始化&lt;/p&gt;
+    &lt;blockquote&gt;
+      &lt;clinit&gt;()方法是由编译器收集类变量的赋值动作和静态语句块合并产生的，如果两个都没有，则不生成该方法。它不需要显示调用父类构造器，虚拟机自动执行（&lt;init&gt;不会）。父类的&lt;clinit&gt;先执行，所以父类的静态语句要优先于子类。但接口不需要执行父类的&lt;clinit&gt;方法。接口的实现和子接口在初始化时，接口都不会被初始化，除非调用了变量。（接口没有静态方法块）。虚拟机用锁保证了&lt;clinit&gt;的多线程安全，有阻塞的可能。
+&lt;/clinit&gt;&lt;/clinit&gt;&lt;/clinit&gt;&lt;/init&gt;&lt;/clinit&gt;
+    &lt;/blockquote&gt;
   &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&amp;lt;clinit()方法是由编译器收集类变量的赋值动作和静态语句块合并产生的，如果两个都没有，则不生成该方法。它不需要显示调用父类构造器，虚拟机自动执行（&amp;lt;init\不会）。父类的&amp;lt;clinit\先执行，所以父类的静态语句要优先于子类。但接口不需要执行父类的&amp;lt;clinit\方法。接口的实现和子接口在初始化时，接口都不会被初始化，除非调用了变量。（接口没有静态方法块）。虚拟机用锁保证了&amp;lt;clinit\的多线程安全，有阻塞的可能。&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h2 id=&quot;类加载器&quot;&gt;类加载器&lt;/h2&gt;
@@ -5206,55 +5159,34 @@ height=”2.051388888888889in”}&lt;/p&gt;
 
 &lt;p&gt;这个类加载器有sun.misc.Launcher$AppClassLoader实现，负责加载用户类路径（ClassPath）上所指定的类库。它是ClassLoader中的getSystemClassLoader()方法的返回值，所以也叫系统加载器，通常就是程序的默认加载器。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;../images/虚拟机类加载机制/image2.png&quot; alt=&quot;&quot; /&gt;{width=”3.9227263779527557in” height=”3.16in”}&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../images/虚拟机类加载机制/image2.png&quot; alt=&quot;&quot; width=&quot;60%&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;图中这种关系被称为类加载器的双亲委派模型，除了bootstrap
 classloader其他的类加载器都有自己的父类加载器。父子关系不是用继承，而是组合的方式复用父类加载器的代码。&lt;/p&gt;
 
 &lt;p&gt;它的工作过程是：如果有一个类加载器收到了类加载的请求，它首先不自己加载这个类，而是委托给父类去加载，每个层次的类加载都是如此，只有父加载器反馈自己无法完成加载请求（它的搜索范围没有找到这个类），子加载器才会自己加载。&lt;/p&gt;
 
-&lt;p&gt;+———————————————————————-+
-| protected synchronized Class&amp;lt;?\ loadClass(String name,boolean      |
-| resolve) throws ClassNotFoundException {                             |
-|                                                                      |
-| Class c = findLoaderClass(name);                                     |
-|                                                                      |
-| if (c==null){                                                        |
-|                                                                      |
-| try{                                                                 |
-|                                                                      |
-| if (parent != null){                                                 |
-|                                                                      |
-| c = parent.loadClass(name,flase);                                    |
-|                                                                      |
-| }else{                                                               |
-|                                                                      |
-| c = findBootstrapClassOrNull(name);                                  |
-|                                                                      |
-| }                                                                    |
-|                                                                      |
-| }catch(ClassNotFoundException e ){                                   |
-|                                                                      |
-| }                                                                    |
-|                                                                      |
-| if(c==null){                                                         |
-|                                                                      |
-| c = findClass(name);                                                 |
-|                                                                      |
-| }                                                                    |
-|                                                                      |
-| if(resolve){                                                         |
-|                                                                      |
-| resolveClass(c);                                                     |
-|                                                                      |
-| }                                                                    |
-|                                                                      |
-| return c;                                                            |
-|                                                                      |
-| }                                                                    |
-|                                                                      |
-| }                                                                    |
-+———————————————————————-+&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kd&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;synchronized&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;?&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;loadClass&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;boolean&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ClassNotFoundException&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;Class&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;findLoaderClass&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;parent&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;parent&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;loadClass&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;flase&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;findBootstrapClassOrNull&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ClassNotFoundException&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
+ &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;findClass&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;resolveClass&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h2 id=&quot;破坏双亲委派&quot;&gt;破坏双亲委派&lt;/h2&gt;
 
@@ -5265,90 +5197,52 @@ interface）了。&lt;/p&gt;
 
 &lt;p&gt;最简单的实现就是：&lt;/p&gt;
 
-&lt;p&gt;+———————————————————————-+
-| Class.forName(&quot;com.mysql.jdbc.Driver&quot;);                            |
-|                                                                      |
-| String url =                                                         |
-| &quot;jdbc:mysql://localhost:3306/test?characterEncoding=UTF-8&quot;;        |
-|                                                                      |
-| Connection conn = java.sql.DriverManager.getConnection(url,          |
-| &quot;root&quot;, &quot;passwd&quot;);                                               |
-|                                                                      |
-| //conn execute sql                                                   |
-+———————————————————————-+&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;nc&quot;&gt;Class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;forName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;com.mysql.jdbc.Driver&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;jdbc:mysql://localhost:3306/test?characterEncoding=UTF-8&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;Connection&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;conn&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;java&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;sql&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;DriverManager&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getConnection&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;root&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;passwd&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//conn execute sql&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;先通过Class.forName进行注册&lt;/p&gt;
 
-&lt;p&gt;+———————————————————————-+
-| package com.mysql.jdbc;                                              |
-|                                                                      |
-| public class Driver extends NonRegisteringDriver implements          |
-| java.sql.Driver {                                                    |
-|                                                                      |
-| // 注册到DriverManager                                               |
-|                                                                      |
-| static {                                                             |
-|                                                                      |
-| try {                                                                |
-|                                                                      |
-| java.sql.DriverManager.registerDriver(new Driver());                 |
-|                                                                      |
-| } catch (SQLException E) {                                           |
-|                                                                      |
-| throw new RuntimeException(&quot;Can't register driver!&quot;);             |
-|                                                                      |
-| }                                                                    |
-|                                                                      |
-| }                                                                    |
-|                                                                      |
-| public Driver() throws SQLException {                                |
-|                                                                      |
-| // Required for Class.forName().newInstance()                        |
-|                                                                      |
-| }                                                                    |
-|                                                                      |
-| }                                                                    |
-+———————————————————————-+&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;com.mysql.jdbc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Driver&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;NonRegisteringDriver&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;java&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;sql&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;Driver&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// 注册到DriverManager&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;java&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;sql&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;DriverManager&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;registerDriver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Driver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;SQLException&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;E&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;RuntimeException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Can't register driver!&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Driver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SQLException&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// Required for Class.forName().newInstance()&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;然后就执行DriverManager.getConnection方法&lt;/p&gt;
 
-&lt;p&gt;+———————————————-+
-| package java.sql;                            |
-|                                              |
-| public class DriverManager {                 |
-|                                              |
-| static {                                     |
-|                                              |
-| //执行ServiceLoader.load(Driver.class);      |
-|                                              |
-| loadInitialDrivers();                        |
-|                                              |
-| println(&quot;JDBC DriverManager initialized&quot;); |
-|                                              |
-| }                                            |
-|                                              |
-| }                                            |
-+———————————————-+&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.sql&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;DriverManager&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//执行ServiceLoader.load(Driver.class);&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;loadInitialDrivers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;JDBC DriverManager initialized&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;loadInitialDrivers方法会直接利用SPI加载Driver。因为驱动里面已经实现了SPI的配置。如下：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;../images/虚拟机类加载机制/image3.jpeg&quot; alt=&quot;\\psf\Home\Library\Containers\com.tencent.qq\Data\Library\Application
-Support\QQ\Users\362991493\QQ\Temp.db\5FD56F7C-23EF-43F3-B3B5-ECED51EEE8F3.png&quot; /&gt;{width=”5.768055555555556in”
+&lt;p&gt;&lt;img src=&quot;../images/虚拟机类加载机制/image3.jpeg&quot; alt=&quot;5FD56F7C-23EF-43F3-B3B5-ECED51EEE8F3.png&quot; /&gt;{width=”5.768055555555556in”
 height=”1.640384951881015in”}&lt;/p&gt;
 
 &lt;p&gt;所以在loadInitialDrivers执行的时候，会通过ServiceLoader把他们加载器来。这时候问题来了，DriverManager的代码是在rt.jar
 的java.sql包里面，根据上面双亲委派的图来看能加载它的也就只有Bootstarp
 ClassLoder来加载DriverManager了，但是如果他要想加载mysql驱动的话是不可能的，它只能加载java_home\lib下的包，所以可以看到在ServiceLoader.load(Driver.class)的时候，有些技巧。&lt;/p&gt;
 
-&lt;p&gt;+———————————————————————–+
-| &lt;strong&gt;public static&lt;/strong&gt; &amp;lt;S\ ServiceLoader&amp;lt;S\ load(Class&amp;lt;S\ service) { |
-|                                                                       |
-| ClassLoader cl = Thread.&lt;em&gt;currentThread&lt;/em&gt;().getContextClassLoader();    |
-|                                                                       |
-| &lt;strong&gt;return&lt;/strong&gt; ServiceLoader.&lt;em&gt;load&lt;/em&gt;(service, cl);                         |
-|                                                                       |
-| }                                                                     |
-+———————————————————————–+&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;S&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ServiceLoader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;S&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;load&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;S&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;service&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nc&quot;&gt;ClassLoader&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cl&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Thread&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;currentThread&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getContextClassLoader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ServiceLoader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;load&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;service&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;通过代码可以看到，在加载Driver的时候指定了Thread.&lt;em&gt;currentThread&lt;/em&gt;().getContextClassLoader()进行加载，而Thread在init的时候会将AppClassLoader设置ContentClassLoader，所以当进行JDBC进行加载的时候就又回到了加载器的最底层，加载的步骤为BootStrap-\Ext-\App。&lt;/p&gt;
 
