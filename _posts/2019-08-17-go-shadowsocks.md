@@ -245,42 +245,8 @@ height="2.670138888888889in"}
 height="3.888888888888889in"}
 
 <https://github.com/zfl9/ss-tproxy>
-
 <https://www.zfl9.com/ss-redir.html>
-
 <https://vvl.me/2018/06/from-ss-redir-to-linux-nat/>
-
-复盘
-====
-
-复述所学
---------
-
-用自己的话复述学到的内容
-
-Shadowsocks用socks协议做了一款http的代理服务，分为client端和server端，client启动后会监听端口，浏览器可以将http请求转为socks协议格式输出到client端口中，client会将数据转发的哦server端。
-
-server端收到消息后，将数据解析，获得client浏览器想请求的请求地址和内容，并进行真实的请求动作，将请求的相应内容传回给client。
-
-这样就将真实的http请求进行了伪装，防止了GFW解析http后，对该请求的拦截。
-
-慢慢的这种简单的代理被识别，变得不好用了，之后就基于Shadowsocks出现了ShadowsocksR，对传输内容进行"混淆"操作，使得请求不像是翻墙的请求。
-
-关联经验
---------
-
-学到的内容和自己往期那些经验或认知相关，描述关联
-
-1.  Shadowsocks的实现思路很清晰也很简单，和分布式里面的rpc设计相差不大，通过自己定义协议内容，实现相应的代理功能
-
-行动计划
---------
-
-接下来我会把这些经验用在哪些地方
-
-1.  买服务器自己实现一个稳定的代理，方便自己面向google开发
-
-2.  参考socks协议，以后定义协议的时候可以更加精简，可以效仿
 
 参考
 ====

@@ -4,7 +4,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://yangqiju.github.io/feed.xml" />
 <link rel="alternate" type="text/html" href="http://yangqiju.github.io" />
-<updated>2020-05-14T07:40:26-04:00</updated>
+<updated>2020-05-14T10:59:28-04:00</updated>
 <id>http://yangqiju.github.io/</id>
 <author>
   <name>yangqiju</name>
@@ -2453,7 +2453,7 @@ height=”2.053472222222222in”}&lt;/p&gt;
   </author>
   <content type="html">&lt;h1 id=&quot;背景&quot;&gt;背景&lt;/h1&gt;
 
-&lt;p&gt;原文：&amp;lt;http://neoremind.com/2018/12/2018-polar-race-java-no-1/&lt;/p&gt;
+&lt;p&gt;原文：&lt;a href=&quot;http://neoremind.com/2018/12/2018-polar-race-java-no-1/&quot;&gt;http://neoremind.com/2018/12/2018-polar-race-java-no-1/&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;参加天池大赛-阿里云第一届PolarDB数据库性能大赛，比赛以NVME Optane
 SSD为背景，在此之上开发单机存储引擎比拼性能，支持C++和Java语言。完赛成绩是Java语言排名第一，总排名20（共1653人参赛，队伍名称：neoremind），与C++第一差距在2.1%（&amp;lt;9s）。&lt;/p&gt;
@@ -2751,7 +2751,7 @@ pin、无锁队列)，从而达到更高的性能。&lt;/p&gt;
 &lt;p&gt;DPDK(Data Plane Development
 Kit)是由Intel发起，主要基于Linux系统运行，用于快速数据包处理的函数库与驱动集合，可以极大提高数据处理性能和吞吐量，提高数据平面应用程序的工作效率。DPDK使用了轮询(polling)而不是中断来处理数据包。在收到数据包时，经DPDK重载的网卡驱动不会通过中断通知CPU，而是直接将数据包存入内存，交付应用层软件通过DPDK提供的接口来直接处理，这样节省了大量的CPU中断时间和内存拷贝时间。&lt;/p&gt;
 
-&lt;p&gt;&amp;lt;https://www.cnblogs.com/qcloud1001/p/9585724.html&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/qcloud1001/p/9585724.html&quot;&gt;https://www.cnblogs.com/qcloud1001/p/9585724.html&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;spdk&quot;&gt;SPDK&lt;/h3&gt;
 
@@ -2765,7 +2765,7 @@ SSD作为后端存储的应用软件加速库，该软件库的核心是用户�
 &lt;p&gt;&lt;img src=&quot;../images/polardb源码学习/image18.png&quot; alt=&quot;&quot; /&gt;{width=”5.768055555555556in”
 height=”1.6583333333333334in”}&lt;/p&gt;
 
-&lt;p&gt;&amp;lt;https://blog.csdn.net/zlarm/article/details/79140299&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/zlarm/article/details/79140299&quot;&gt;https://blog.csdn.net/zlarm/article/details/79140299&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;rdma&quot;&gt;RDMA&lt;/h3&gt;
 
@@ -2782,10 +2782,10 @@ value，避免频繁的分配内存。&lt;/p&gt;
 
 &lt;h2 id=&quot;dio库&quot;&gt;DIO库&lt;/h2&gt;
 
-&lt;p&gt;&amp;lt;https://github.com/smacke/jaydio&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/smacke/jaydio&quot;&gt;https://github.com/smacke/jaydio&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;据说java 10
-会添加上（&amp;lt;https://bugs.openjdk.java.net/browse/JDK-8164900）&lt;/p&gt;
+会添加上（&lt;a href=&quot;https://bugs.openjdk.java.net/browse/JDK-8164900&quot;&gt;https://bugs.openjdk.java.net/browse/JDK-8164900&lt;/a&gt;）&lt;/p&gt;
 
 &lt;h2 id=&quot;重点&quot;&gt;重点&lt;/h2&gt;
 
@@ -3074,46 +3074,9 @@ height=”2.670138888888889in”}&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;../images/go_shadowsocks/image18.png&quot; alt=&quot;&quot; /&gt;{width=”5.768055555555556in”
 height=”3.888888888888889in”}&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://github.com/zfl9/ss-tproxy&quot;&gt;https://github.com/zfl9/ss-tproxy&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.zfl9.com/ss-redir.html&quot;&gt;https://www.zfl9.com/ss-redir.html&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://vvl.me/2018/06/from-ss-redir-to-linux-nat/&quot;&gt;https://vvl.me/2018/06/from-ss-redir-to-linux-nat/&lt;/a&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;复盘&quot;&gt;复盘&lt;/h1&gt;
-
-&lt;h2 id=&quot;复述所学&quot;&gt;复述所学&lt;/h2&gt;
-
-&lt;p&gt;用自己的话复述学到的内容&lt;/p&gt;
-
-&lt;p&gt;Shadowsocks用socks协议做了一款http的代理服务，分为client端和server端，client启动后会监听端口，浏览器可以将http请求转为socks协议格式输出到client端口中，client会将数据转发的哦server端。&lt;/p&gt;
-
-&lt;p&gt;server端收到消息后，将数据解析，获得client浏览器想请求的请求地址和内容，并进行真实的请求动作，将请求的相应内容传回给client。&lt;/p&gt;
-
-&lt;p&gt;这样就将真实的http请求进行了伪装，防止了GFW解析http后，对该请求的拦截。&lt;/p&gt;
-
-&lt;p&gt;慢慢的这种简单的代理被识别，变得不好用了，之后就基于Shadowsocks出现了ShadowsocksR，对传输内容进行”混淆”操作，使得请求不像是翻墙的请求。&lt;/p&gt;
-
-&lt;h2 id=&quot;关联经验&quot;&gt;关联经验&lt;/h2&gt;
-
-&lt;p&gt;学到的内容和自己往期那些经验或认知相关，描述关联&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Shadowsocks的实现思路很清晰也很简单，和分布式里面的rpc设计相差不大，通过自己定义协议内容，实现相应的代理功能&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;行动计划&quot;&gt;行动计划&lt;/h2&gt;
-
-&lt;p&gt;接下来我会把这些经验用在哪些地方&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;买服务器自己实现一个稳定的代理，方便自己面向google开发&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;参考socks协议，以后定义协议的时候可以更加精简，可以效仿&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/zfl9/ss-tproxy&quot;&gt;https://github.com/zfl9/ss-tproxy&lt;/a&gt;
+&lt;a href=&quot;https://www.zfl9.com/ss-redir.html&quot;&gt;https://www.zfl9.com/ss-redir.html&lt;/a&gt;
+&lt;a href=&quot;https://vvl.me/2018/06/from-ss-redir-to-linux-nat/&quot;&gt;https://vvl.me/2018/06/from-ss-redir-to-linux-nat/&lt;/a&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;参考&quot;&gt;参考&lt;/h1&gt;
 
@@ -3788,7 +3751,7 @@ height=”1.0000513998250218in”}&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;../images/ubus源码分析/image30.png&quot; alt=&quot;&quot; /&gt;{width=”5.768055555555556in”
 height=”4.064583333333333in”}&lt;/p&gt;
 
-&lt;p&gt;原文：&amp;lt;https://github.com/robbie-cao/kb-openwrt/blob/master/UBUS.md&lt;/p&gt;
+&lt;p&gt;原文：&lt;a href=&quot;https://github.com/robbie-cao/kb-openwrt/blob/master/UBUS.md&quot;&gt;https://github.com/robbie-cao/kb-openwrt/blob/master/UBUS.md&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;这有涉及到SOA中esb相关知识了。&lt;/p&gt;
 
@@ -4405,7 +4368,7 @@ value）。&lt;/p&gt;
 
 &lt;p&gt;非堆包括code cache 和 永久带，永久带中包含 interned strings和
 方法区（method area）。interned strings 是JVM为保证string
-引入相同的实例，在永久代中存储为Hashtable&amp;lt;oop, Symbol\，即当(&quot;j&quot; +
+引入相同的实例，在永久代中存储为Hashtable&amp;lt;oop, Symbol&amp;gt;，即当(&quot;j&quot; +
 &quot;v&quot; + &quot;m&quot;).intern() == &quot;jvm&quot;。方法区中存储了栈帧中引用的class
 信息。&lt;/p&gt;
 
@@ -4508,13 +4471,13 @@ class）。战争是线程私有数据，不可能在一个战争中引入另一
 
 &lt;p&gt;特殊方法：&lt;/p&gt;
 
-&lt;p&gt;构造器以名为&amp;lt;init\的特殊实例初始化方法的形式出现，它在实例初始化期间，通过invokespecial指令调用，并且是在没有初始化的实例上。&lt;/p&gt;
+&lt;p&gt;构造器以名为&amp;lt;init&amp;gt;的特殊实例初始化方法的形式出现，它在实例初始化期间，通过invokespecial指令调用，并且是在没有初始化的实例上。&lt;/p&gt;
 
-&lt;p&gt;一个类或接口最多可以包换不超过一个类或接口的初始化方法，通过它完成初始化，该方法不包含参数、返回类型为void，名称为&amp;lt;clinit\。版本号大于51.0时，该方法必须设置ACC_STATIC标志。&lt;/p&gt;
+&lt;p&gt;一个类或接口最多可以包换不超过一个类或接口的初始化方法，通过它完成初始化，该方法不包含参数、返回类型为void，名称为&amp;lt;clinit&amp;gt;。版本号大于51.0时，该方法必须设置ACC_STATIC标志。&lt;/p&gt;
 
-&lt;p&gt;&amp;lt;clinit\被称为类构造器，java在编译之后会在字节码文件中生成该方法，它会将父类静态变量初始化、父类静态语句块、子类静态变量初始化、子类静态语句块放到&amp;lt;clinit\方法中，在类加载的过程中执行，且在&amp;lt;init\之前执行。&lt;/p&gt;
+&lt;p&gt;&amp;lt;clinit&amp;gt;被称为类构造器，java在编译之后会在字节码文件中生成该方法，它会将父类静态变量初始化、父类静态语句块、子类静态变量初始化、子类静态语句块放到&amp;lt;clinit&amp;gt;方法中，在类加载的过程中执行，且在&amp;lt;init&amp;gt;之前执行。&lt;/p&gt;
 
-&lt;p&gt;&amp;lt;init\被称为实例构造器，它会将父类变量初始化、父类语句块、父类构造器、子类变量初始化、子类语句块、子类构造器方法放入&amp;lt;init\方法中，在类实例被初始化时被执行。&lt;/p&gt;
+&lt;p&gt;&amp;lt;init&amp;gt;被称为实例构造器，它会将父类变量初始化、父类语句块、父类构造器、子类变量初始化、子类语句块、子类构造器方法放入&amp;lt;init&amp;gt;方法中，在类实例被初始化时被执行。&lt;/p&gt;
 
 &lt;p&gt;异常：&lt;/p&gt;
 
@@ -4540,9 +4503,11 @@ class）。战争是线程私有数据，不可能在一个战争中引入另一
 
 &lt;p&gt;数据类型与助记符关系：&lt;/p&gt;
 
-&lt;p&gt;符号   i     l      s       b      c      f       d        a
-  —— —– —— ——- —— —— ——- ——– ———–
-  类型   int   long   short   byte   char   float   double   reference&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;  &lt;span class=&quot;n&quot;&gt;符号&lt;/span&gt;   &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;     &lt;span class=&quot;n&quot;&gt;l&lt;/span&gt;      &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;       &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;      &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;      &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;       &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;        &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;------&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-----&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;------&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-------&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;------&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;------&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-------&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--------&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-----------&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;类型&lt;/span&gt;   &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;   &lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt;   &lt;span class=&quot;kt&quot;&gt;short&lt;/span&gt;   &lt;span class=&quot;kt&quot;&gt;byte&lt;/span&gt;   &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt;   &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt;   &lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt;   &lt;span class=&quot;n&quot;&gt;reference&lt;/span&gt;
+
+ &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;例如iload，指将一个int变量从本地变量加载到操作数栈中。&lt;/p&gt;
 
