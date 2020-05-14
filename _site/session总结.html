@@ -150,11 +150,9 @@
 
 <p>在Session机制中，需要个标识证明请求者的身份，最简单的方式就是透明化SESSIONID，直接将sessionid放在url上。例如：</p>
 
-<p>+————————————————————+
-| &lt;http://www.xxx.com/xxx_app;jsessionid=xxxxxxxxxx?a=x&amp;b=x |
-|                                                            |
-| # request.getParameter()方法还取不到jsessionid            |
-+————————————————————+</p>
+<figure class="highlight"><pre><code class="language-java" data-lang="java"> <span class="o">&lt;</span><span class="nl">http:</span><span class="c1">//www.xxx.com/xxx_app;jsessionid=xxxxxxxxxx?a=x&amp;b=x &gt;</span>
+                                                       
+ <span class="err">\#</span> <span class="n">request</span><span class="o">.</span><span class="na">getParameter</span><span class="o">()</span><span class="n">方法还取不到jsessionid</span>            </code></pre></figure>
 
 <p>但是这种方法很不好，url是明文并且很容易被劫持，如果B获得了A的sessionid，那B就能假冒A发起请求了。该方法太过简陋，也不建议被使用。</p>
 
@@ -178,9 +176,8 @@ height=”1.604861111111111in”}</p>
 
 <p>或者通过curl直接设置cookie请求，可以直接获得session。</p>
 
-<hr />
-<p>curl -i --cookie "SESSION=3e4fb030-c085-4c2c-bc31-6a9d3ac6c115;" http://localhost:8080/webtest/test
-  ——————————————————————————————————–</p>
+<figure class="highlight"><pre><code class="language-java" data-lang="java">  <span class="n">curl</span> <span class="o">-</span><span class="n">i</span> <span class="err">\</span><span class="o">--</span><span class="n">cookie</span> <span class="err">\</span><span class="s">"SESSION=3e4fb030-c085-4c2c-bc31-6a9d3ac6c115;\"</span> <span class="nl">http:</span><span class="c1">//localhost:8080/webtest/test</span>
+ </code></pre></figure>
 
 <h2 id="xss攻击">XSS攻击</h2>
 
@@ -191,16 +188,13 @@ scripting，通常简称为：XSS）是一种网站应用程序的安全漏洞�
 scripting的英文首字母缩写本应为CSS，但因为CSS在网页设计领域已经被广泛指层叠样式表（Cascading
 Style
 Sheets），所以将Cross（意为”交叉”）改以交叉形的X做为缩写。但早期的文件还是会使用CSS表示Cross-site
-scripting。</p>
-
-<p><img src="../images/Session总结/image3.jpeg" alt="\\psf\Home\Library\Containers\com.tencent.qq\Data\Library\Application
-Support\QQ\Users\362991493\QQ\Temp.db\24ECE278-A137-4108-A6A4-96EB47476C39.png" />{width=”4.84375in”
+scripting。
+24ECE278-A137-4108-A6A4-96EB47476C39.png](../images/Session总结/image3.jpeg){width=”4.84375in”
 height=”3.376466535433071in”}</p>
 
 <p>以上最关键的一部是通过JavaScript从Cookie中获得Session编号。例如如下代码：</p>
 
-<p><img src="../images/Session总结/image4.jpeg" alt="\\psf\Home\Library\Containers\com.tencent.qq\Data\Library\Application
-Support\QQ\Users\362991493\QQ\Temp.db\4146B27F-221E-4CA7-B93C-31EA977A49F6.png" />{width=”5.768055555555556in”
+<p><img src="../images/Session总结/image4.jpeg" alt="4146B27F-221E-4CA7-B93C-31EA977A49F6.png" />{width=”5.768055555555556in”
 height=”1.1661767279090114in”}</p>
 
 <p>先放入将username放入cookie中，再通过alert将cookie内容数据。结果如下：</p>
@@ -237,8 +231,7 @@ height=”0.3034722222222222in”}</p>
 <p>跨域请求和Ajax技术都会极大地提高页面的体验，但同时也会带来安全的隐患，其中最主要的隐患来自于CSRF（Cross-site
 request forgery）跨站请求伪造</p>
 
-<p><img src="../images/Session总结/image8.jpeg" alt="\\psf\Home\Library\Containers\com.tencent.qq\Data\Library\Application
-Support\QQ\Users\362991493\QQ\Temp.db\F35F0A9C-DC06-4932-ADCF-D7E2B851742A.png" />{width=”5.768055555555556in”
+<p><img src="../images/Session总结/image8.jpeg" alt="F35F0A9C-DC06-4932-ADCF-D7E2B851742A.png" />{width=”5.768055555555556in”
 height=”3.418360673665792in”}</p>
 
 <p>CSRF攻击的大致原理是：</p>
@@ -270,25 +263,21 @@ height=”3.418360673665792in”}</p>
 
 <p>目前我们为了对ES进行了简单的cors开启，此类开启也就信任的所有的网站了，不够安全。</p>
 
-<p>+———————————–+
-| http.cors.allow-origin: "/.*/" |
-|                                   |
-| http.cors.enabled: true           |
-+———————————–+</p>
+<figure class="highlight"><pre><code class="language-java" data-lang="java">  <span class="n">http</span><span class="o">.</span><span class="na">cors</span><span class="o">.</span><span class="na">allow</span><span class="o">-</span><span class="nl">origin:</span> <span class="err">\</span><span class="s">"/.\*/\"</span>               
+  <span class="n">http</span><span class="o">.</span><span class="na">cors</span><span class="o">.</span><span class="na">enabled</span><span class="o">:</span> <span class="kc">true</span>           </code></pre></figure>
 
 <p>对参数应该更加细化的配置，保证安全，例如只允许GET方法。</p>
 
-<p>http.cors.allow-origin        Which origins to allow. Defaults to no origins allowed. If you prepend and append a / to the value, this will be treated as a regular expression, allowing you to support HTTP and HTTPs. for example using /https?:\/\/localhost(:[0-9]+)?/ would return the request header appropriately in both cases. * is a valid value but is considered a security risk as your Elasticsearch instance is open to cross origin requests from anywhere.
-  —————————– —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————-
-  http.cors.max-age             Browsers send a "preflight" OPTIONS-request to determine CORS settings. max-age defines how long the result should be cached for. Defaults to 1728000 (20 days)
-  http.cors.allow-methods       Which methods to allow. Defaults to OPTIONS, HEAD, GET, POST, PUT, DELETE.
-  http.cors.allow-headers       Which headers to allow. Defaults to X-Requested-With, Content-Type, Content-Length.
-  http.cors.allow-credentials   Whether the Access-Control-Allow-Credentials header should be returned. Note: This header is only returned, when the setting is set to true. Defaults to false</p>
+<figure class="highlight"><pre><code class="language-java" data-lang="java">  <span class="n">http</span><span class="o">.</span><span class="na">cors</span><span class="o">.</span><span class="na">allow</span><span class="o">-</span><span class="n">origin</span>        <span class="nc">Which</span> <span class="n">origins</span> <span class="n">to</span> <span class="n">allow</span><span class="o">.</span> <span class="nc">Defaults</span> <span class="n">to</span> <span class="n">no</span> <span class="n">origins</span> <span class="n">allowed</span><span class="o">.</span> <span class="nc">If</span> <span class="n">you</span> <span class="n">prepend</span> <span class="n">and</span> <span class="n">append</span> <span class="n">a</span> <span class="o">/</span> <span class="n">to</span> <span class="n">the</span> <span class="n">value</span><span class="o">,</span> <span class="k">this</span> <span class="n">will</span> <span class="n">be</span> <span class="n">treated</span> <span class="n">as</span> <span class="n">a</span> <span class="n">regular</span> <span class="n">expression</span><span class="o">,</span> <span class="n">allowing</span> <span class="n">you</span> <span class="n">to</span> <span class="n">support</span> <span class="no">HTTP</span> <span class="n">and</span> <span class="nc">HTTPs</span><span class="o">.</span> <span class="k">for</span> <span class="n">example</span> <span class="n">using</span> <span class="o">/</span><span class="n">https</span><span class="o">?:</span><span class="err">\\</span><span class="o">/</span><span class="err">\\</span><span class="o">/</span><span class="n">localhost</span><span class="o">(:</span><span class="err">\</span><span class="o">[</span><span class="mi">0</span><span class="o">-</span><span class="mi">9</span><span class="err">\</span><span class="o">]+)?/</span> <span class="n">would</span> <span class="k">return</span> <span class="n">the</span> <span class="n">request</span> <span class="n">header</span> <span class="n">appropriately</span> <span class="n">in</span> <span class="n">both</span> <span class="n">cases</span><span class="o">.</span> <span class="err">\</span><span class="o">*</span> <span class="n">is</span> <span class="n">a</span> <span class="n">valid</span> <span class="n">value</span> <span class="n">but</span> <span class="n">is</span> <span class="n">considered</span> <span class="n">a</span> <span class="n">security</span> <span class="n">risk</span> <span class="n">as</span> <span class="n">your</span> <span class="nc">Elasticsearch</span> <span class="n">instance</span> <span class="n">is</span> <span class="n">open</span> <span class="n">to</span> <span class="n">cross</span> <span class="n">origin</span> <span class="n">requests</span> <span class="n">from</span> <span class="n">anywhere</span><span class="o">.</span>
+  <span class="o">-----------------------------</span> <span class="o">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+  <span class="n">http</span><span class="o">.</span><span class="na">cors</span><span class="o">.</span><span class="na">max</span><span class="o">-</span><span class="n">age</span>             <span class="nc">Browsers</span> <span class="n">send</span> <span class="n">a</span> <span class="err">\</span><span class="s">"preflight\"</span> <span class="no">OPTIONS</span><span class="o">-</span><span class="n">request</span> <span class="n">to</span> <span class="n">determine</span> <span class="no">CORS</span> <span class="n">settings</span><span class="o">.</span> <span class="n">max</span><span class="o">-</span><span class="n">age</span> <span class="n">defines</span> <span class="n">how</span> <span class="kt">long</span> <span class="n">the</span> <span class="n">result</span> <span class="n">should</span> <span class="n">be</span> <span class="n">cached</span> <span class="k">for</span><span class="o">.</span> <span class="nc">Defaults</span> <span class="n">to</span> <span class="mi">1728000</span> <span class="o">(</span><span class="mi">20</span> <span class="n">days</span><span class="o">)</span>
+  <span class="n">http</span><span class="o">.</span><span class="na">cors</span><span class="o">.</span><span class="na">allow</span><span class="o">-</span><span class="n">methods</span>       <span class="nc">Which</span> <span class="n">methods</span> <span class="n">to</span> <span class="n">allow</span><span class="o">.</span> <span class="nc">Defaults</span> <span class="n">to</span> <span class="no">OPTIONS</span><span class="o">,</span> <span class="no">HEAD</span><span class="o">,</span> <span class="no">GET</span><span class="o">,</span> <span class="no">POST</span><span class="o">,</span> <span class="no">PUT</span><span class="o">,</span> <span class="no">DELETE</span><span class="o">.</span>
+  <span class="n">http</span><span class="o">.</span><span class="na">cors</span><span class="o">.</span><span class="na">allow</span><span class="o">-</span><span class="n">headers</span>       <span class="nc">Which</span> <span class="n">headers</span> <span class="n">to</span> <span class="n">allow</span><span class="o">.</span> <span class="nc">Defaults</span> <span class="n">to</span> <span class="no">X</span><span class="o">-</span><span class="nc">Requested</span><span class="o">-</span><span class="nc">With</span><span class="o">,</span> <span class="nc">Content</span><span class="o">-</span><span class="nc">Type</span><span class="o">,</span> <span class="nc">Content</span><span class="o">-</span><span class="nc">Length</span><span class="o">.</span>
+  <span class="n">http</span><span class="o">.</span><span class="na">cors</span><span class="o">.</span><span class="na">allow</span><span class="o">-</span><span class="n">credentials</span>   <span class="nc">Whether</span> <span class="n">the</span> <span class="nc">Access</span><span class="o">-</span><span class="nc">Control</span><span class="o">-</span><span class="nc">Allow</span><span class="o">-</span><span class="nc">Credentials</span> <span class="n">header</span> <span class="n">should</span> <span class="n">be</span> <span class="n">returned</span><span class="o">.</span> <span class="nl">Note:</span> <span class="nc">This</span> <span class="n">header</span> <span class="n">is</span> <span class="n">only</span> <span class="n">returned</span><span class="o">,</span> <span class="n">when</span> <span class="n">the</span> <span class="n">setting</span> <span class="n">is</span> <span class="n">set</span> <span class="n">to</span> <span class="kc">true</span><span class="o">.</span> <span class="nc">Defaults</span> <span class="n">to</span> <span class="kc">false</span></code></pre></figure>
 
 <p>当配置了cors后，request将会用origin表述自己的身份，response也会描述cors允许的结果。</p>
 
-<p><img src="../images/Session总结/image9.jpeg" alt="\\psf\Home\Library\Containers\com.tencent.qq\Data\Library\Application
-Support\QQ\Users\362991493\QQ\Temp.db\6780A0A5-0006-4E72-A258-0C71CE9C014B.png" />{width=”4.791666666666667in”
+<p><img src="../images/Session总结/image9.jpeg" alt="6780A0A5-0006-4E72-A258-0C71CE9C014B.png" />{width=”4.791666666666667in”
 height=”2.0552099737532807in”}</p>
 
 <h2 id="分布式session">分布式Session</h2>
@@ -308,8 +297,7 @@ Cluster都能提供此功能。但是每台机器都需要存储，只适合用�
 <p>集中式管理就是将所有的Session集中起来统一管理，例如所有模块集成spring
 session，将session存储到Redis中，当再次请求时将会查看Redis中是否有该用户的session。</p>
 
-<p><img src="../images/Session总结/image11.jpeg" alt="\\psf\Home\Library\Containers\com.tencent.qq\Data\Library\Application
-Support\QQ\Users\362991493\QQ\Temp.db\0C0DF304-99E0-42B2-9DF5-06A7D069A256.png" />{width=”3.9166666666666665in”
+<p><img src="../images/Session总结/image11.jpeg" alt="0C0DF304-99E0-42B2-9DF5-06A7D069A256.png" />{width=”3.9166666666666665in”
 height=”2.262979002624672in”}</p>
 
 <p>集中式管理解决多个节点的问题，但是也增加了相应的网络开销，并且存储最好使用分布式集群，否则存储挂了所有的业务都会受到影响。</p>
@@ -329,15 +317,14 @@ Stick的方式就是在多个节点的情况下，保证每次请求都落在同
 
 <p>例如在Docker中使用，所有的请求都会先到Træfik，然后由他统一分发，如有用户在A上登录了，那么用户的每个请求都会活在A上。</p>
 
-<p><img src="../images/Session总结/image12.jpeg" alt="\\psf\Home\Library\Containers\com.tencent.qq\Data\Library\Application
-Support\QQ\Users\362991493\QQ\Temp.db\31D4B529-A066-4CBB-A56C-C62F26798DC2.png" />{width=”5.768055555555556in”
+<p><img src="../images/Session总结/image12.jpeg" alt="31D4B529-A066-4CBB-A56C-C62F26798DC2.png" />{width=”5.768055555555556in”
 height=”3.337331583552056in”}</p>
 
 <p>该方案的缺点就是，当A机器挂了，那么用户必须要重新登录。并且为了安全，需要保证该代理为集群模式。</p>
 
 <h1 id="spring-session">Spring Session</h1>
 
-<p>&lt;https://github.com/spring-projects/spring-session</p>
+<p><a href="https://github.com/spring-projects/spring-session">https://github.com/spring-projects/spring-session</a></p>
 
 <p>spring session
 提供了分布式的session，使用了集中式管理的方式，将session存储在独立的存储中，目前官方支持了redis、JDBC和apache
@@ -347,13 +334,11 @@ geode。</p>
 session默认使用cookie传递sessionid，同样也适应了目前流行的Restful风格，可以使用http
 header传递sessionid。</p>
 
-<p>+—————————————————-+
-| GET /messages/ HTTP/1.1                            |
-|                                                    |
-| Host: example.com                                  |
-|                                                    |
-| x-auth-token: f81d4fae-7dec-11d0-a765-00a0c91e6bf6 |
-+—————————————————-+</p>
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="o">|</span> <span class="no">GET</span> <span class="o">/</span><span class="n">messages</span><span class="o">/</span> <span class="no">HTTP</span><span class="o">/</span><span class="mf">1.1</span>                             
+<span class="o">|</span>                                                    
+<span class="o">|</span> <span class="nl">Host:</span> <span class="n">example</span><span class="o">.</span><span class="na">com</span>                                   
+<span class="o">|</span>                                                     
+<span class="o">|</span> <span class="n">x</span><span class="o">-</span><span class="n">auth</span><span class="o">-</span><span class="nl">token:</span> <span class="n">f81d4fae</span><span class="o">-</span><span class="mi">7</span><span class="n">dec</span><span class="o">-</span><span class="mi">11</span><span class="n">d0</span><span class="o">-</span><span class="n">a765</span><span class="o">-</span><span class="mo">00</span><span class="n">a0c91e6bf6</span>  </code></pre></figure>
 
 <p>在此基础之上，我们实现了spring-session-cassandra，将session数据存储在Cassandra中。</p>
 
@@ -363,8 +348,7 @@ header传递sessionid。</p>
   <li>web.xml中添加配置</li>
 </ol>
 
-<p><img src="../images/Session总结/image13.jpeg" alt="\\psf\Home\Library\Containers\com.tencent.qq\Data\Library\Application
- Support\QQ\Users\362991493\QQ\Temp.db\BA829B9E-654B-47EB-8C1C-A7F3EE478BD4.png" />{width=”5.768055555555556in”
+<p><img src="../images/Session总结/image13.jpeg" alt="BA829B9E-654B-47EB-8C1C-A7F3EE478BD4.png" />{width=”5.768055555555556in”
  height=”1.15709208223972in”}</p>
 
 <ol>
@@ -382,66 +366,60 @@ header传递sessionid。</p>
 
 <p>例如spring-session中添加springSessionRepositoryFilter可以使用该方法。使用springSessionRepositoryFilter可以在web.xml中注册。web.xml中注册方法如下：</p>
 
-<p>+———————————————————————-+
-| &lt;filter\                                                           |
-|                                                                      |
-| &lt;filter-name\springSessionRepositoryFilter&lt;/filter-name\         |
-|                                                                      |
-| &lt;filter-class\o                                                    |
-| rg.springframework.web.filter.DelegatingFilterProxy&lt;/filter-class\ |
-|                                                                      |
-| &lt;/filter\                                                          |
-|                                                                      |
-| &lt;filter-mapping\                                                   |
-|                                                                      |
-| &lt;filter-name\springSessionRepositoryFilter&lt;/filter-name\         |
-|                                                                      |
-| &lt;url-pattern\/*&lt;/url-pattern\                                   |
-|                                                                      |
-| &lt;/filter-mapping\                                                  |
-+———————————————————————-+</p>
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="o">+----------------------------------------------------------------------+</span>
+<span class="o">|</span> <span class="err">\</span><span class="o">&lt;</span><span class="n">filter</span><span class="err">\</span>                                                           <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="err">\</span><span class="o">&lt;</span><span class="n">filter</span><span class="o">-</span><span class="n">name</span><span class="err">\</span><span class="n">springSessionRepositoryFilter</span><span class="err">\</span><span class="o">&lt;/</span><span class="n">filter</span><span class="o">-</span><span class="n">name</span><span class="err">\</span>         <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="err">\</span><span class="o">&lt;</span><span class="n">filter</span><span class="o">-</span><span class="kd">class</span><span class="err">\</span><span class="nc">o</span>                                                    <span class="o">|</span>
+<span class="o">|</span> <span class="n">rg</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">filter</span><span class="o">.</span><span class="na">DelegatingFilterProxy</span><span class="err">\</span><span class="o">&lt;/</span><span class="n">filter</span><span class="o">-</span><span class="kd">class</span><span class="err">\</span> <span class="err">|</span>
+<span class="err">|</span>                                                                      <span class="err">|</span>
+<span class="err">|</span> <span class="err">\&lt;/</span><span class="nc">filter</span><span class="err">\</span>                                                          <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="err">\</span><span class="o">&lt;</span><span class="n">filter</span><span class="o">-</span><span class="n">mapping</span><span class="err">\</span>                                                   <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="err">\</span><span class="o">&lt;</span><span class="n">filter</span><span class="o">-</span><span class="n">name</span><span class="err">\</span><span class="n">springSessionRepositoryFilter</span><span class="err">\</span><span class="o">&lt;/</span><span class="n">filter</span><span class="o">-</span><span class="n">name</span><span class="err">\</span>         <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="err">\</span><span class="o">&lt;</span><span class="n">url</span><span class="o">-</span><span class="n">pattern</span><span class="err">\</span><span class="o">/</span><span class="err">\</span><span class="o">*</span><span class="err">\</span><span class="o">&lt;/</span><span class="n">url</span><span class="o">-</span><span class="n">pattern</span><span class="err">\</span>                                   <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="err">\</span><span class="o">&lt;/</span><span class="n">filter</span><span class="o">-</span><span class="n">mapping</span><span class="err">\</span>                                                  <span class="o">|</span>
+<span class="o">+----------------------------------------------------------------------+</span></code></pre></figure>
 
 <p>也可以使用纯代码方法实现，例如官方给出的示例：</p>
 
-<p>+———————————————————————-+
-| //写出一个j                                                          |
-| ava类，继承AbstractHttpSessionApplicationInitializer，构造其中放java |
-| config类                                                             |
-|                                                                      |
-| public class Initializer extends                                     |
-| AbstractHttpSessionApplicationInitializer {                          |
-|                                                                      |
-| public Initializer() {                                               |
-|                                                                      |
-| super(Config.class); //spring java config                            |
-|                                                                      |
-| }                                                                    |
-|                                                                      |
-| }                                                                    |
-|                                                                      |
-| //类实现了spring-web 包中的org.springframework.web.                  |
-| WebApplicationInitializer                                            |
-|                                                                      |
-| // WebApplicationInitializer 中就一个方法就是onStartup               |
-|                                                                      |
-| public abstract class AbstractHttpSessionApplicationInitializer      |
-| implements WebApplicationInitializer {                               |
-|                                                                      |
-| public void onStartup(ServletContext servletContext) throws          |
-| ServletException {                                                   |
-|                                                                      |
-| 省略...                                                             |
-|                                                                      |
-| //这个方法中会向servletContext 中注册springSessionRepositoryFilter   |
-|                                                                      |
-| insertSessionRepositoryFilter(servletContext);                       |
-|                                                                      |
-| 省略...                                                             |
-|                                                                      |
-| }                                                                    |
-|                                                                      |
-| }                                                                    |
-+———————————————————————-+</p>
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="o">+----------------------------------------------------------------------+</span>
+<span class="o">|</span> <span class="c1">//写出一个j                                                          |</span>
+<span class="o">|</span> <span class="n">ava类</span><span class="err">，</span><span class="n">继承AbstractHttpSessionApplicationInitializer</span><span class="err">，</span><span class="n">构造其中放java</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">config类</span>                                                             <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Initializer</span> <span class="kd">extends</span>                                     <span class="o">|</span>
+<span class="o">|</span> <span class="nc">AbstractHttpSessionApplicationInitializer</span> <span class="o">{</span>                          <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="kd">public</span> <span class="nf">Initializer</span><span class="o">()</span> <span class="o">{</span>                                               <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="kd">super</span><span class="o">(</span><span class="nc">Config</span><span class="o">.</span><span class="na">class</span><span class="o">);</span> <span class="c1">//spring java config                            |</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="o">}</span>                                                                    <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="o">}</span>                                                                    <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="c1">//类实现了spring-web 包中的org.springframework.web.                  |</span>
+<span class="o">|</span> <span class="nc">WebApplicationInitializer</span>                                            <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="c1">// WebApplicationInitializer 中就一个方法就是onStartup               |</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">AbstractHttpSessionApplicationInitializer</span>      <span class="o">|</span>
+<span class="o">|</span> <span class="kd">implements</span> <span class="nc">WebApplicationInitializer</span> <span class="o">{</span>                               <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onStartup</span><span class="o">(</span><span class="nc">ServletContext</span> <span class="n">servletContext</span><span class="o">)</span> <span class="kd">throws</span>          <span class="o">|</span>
+<span class="o">|</span> <span class="nc">ServletException</span> <span class="o">{</span>                                                   <span class="o">||</span>
+<span class="o">|</span> <span class="n">省略</span><span class="err">\</span><span class="o">...</span>                                                             <span class="o">|</span>
+<span class="o">|</span> <span class="c1">//这个方法中会向servletContext 中注册springSessionRepositoryFilter   |</span>
+<span class="o">|</span> <span class="n">insertSessionRepositoryFilter</span><span class="o">(</span><span class="n">servletContext</span><span class="o">);</span>                       <span class="o">|</span>  <span class="o">|</span>
+<span class="o">|</span> <span class="n">省略</span><span class="err">\</span><span class="o">...</span>                                                             <span class="o">|</span>
+<span class="o">|</span> <span class="o">}</span>                                                                    <span class="o">||</span>
+<span class="o">|</span> <span class="o">}</span>                                                                    <span class="o">|</span>
+<span class="o">+----------------------------------------------------------------------+</span></code></pre></figure>
 
 <p>通过上面的代码就完成了和在web.xml中一样的filter注册功能。但是到这里就有个疑问，filter如何是注册的，onStartup
 为什么会被执行？</p>
@@ -463,95 +441,95 @@ header传递sessionid。</p>
 
 <p>在spring-web包中，有个SpringServletContainerInitializer类，代码如下：</p>
 
-<p>+———————————————————————-+
-| //对WebApplicationInitializer进行监控,功能是只监控WebAp              |
-| plicationInitializer，这样在onStartup方法中获得的class都是它的实现类 |
-|                                                                      |
-| \@HandlesTypes(WebApplicationInitializer.class)                      |
-|                                                                      |
-| //实现了servlet包的ServletContainerInitializer接口                   |
-|                                                                      |
-| public class SpringServletContainerInitializer implements            |
-| ServletContainerInitializer {                                        |
-|                                                                      |
-| \@Override                                                           |
-|                                                                      |
-| public void onStartup(Set&lt;Class&lt;?\ webAppInitializerClasses,    |
-| ServletContext servletContext)                                       |
-|                                                                      |
-| throws ServletException {                                            |
-|                                                                      |
-| List&lt;WebApplicationInitializer\ initializers = new                 |
-| LinkedList&lt;WebApplicationInitializer();                           |
-|                                                                      |
-| if (webAppInitializerClasses != null) {                              |
-|                                                                      |
-| for (Class&lt;?\ waiClass : webAppInitializerClasses) {               |
-|                                                                      |
-| if (!waiClass.isInterface() &amp;&amp;                                       |
-| !Modifier.isAbstract(waiClass.getModifiers()) &amp;&amp;                     |
-|                                                                      |
-| WebApplicationInitializer.class.isAssignableFrom(waiClass)) {        |
-|                                                                      |
-| try {                                                                |
-|                                                                      |
-| //对实现WebApplicationInitializer的类进行实例化                      |
-|                                                                      |
-| initializers.add((WebApplicationInitializer)                         |
-| waiClass.newInstance());                                             |
-|                                                                      |
-| }                                                                    |
-|                                                                      |
-| catch (Throwable ex) {                                               |
-|                                                                      |
-| throw new ServletException("Failed to instantiate                   |
-| WebApplicationInitializer class", ex);                              |
-|                                                                      |
-| }                                                                    |
-|                                                                      |
-| }                                                                    |
-|                                                                      |
-| }                                                                    |
-|                                                                      |
-| }                                                                    |
-|                                                                      |
-| //省略...                                                           |
-|                                                                      |
-| for (WebApplicationInitializer initializer : initializers) {         |
-|                                                                      |
-| initializer.onStartup(servletContext);//执行onStartup方法            |
-|                                                                      |
-| }                                                                    |
-|                                                                      |
-| }                                                                    |
-|                                                                      |
-| }                                                                    |
-+———————————————————————-+</p>
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="o">+----------------------------------------------------------------------+</span>
+<span class="o">|</span> <span class="c1">//对WebApplicationInitializer进行监控,功能是只监控WebAp              |</span>
+<span class="o">|</span> <span class="n">plicationInitializer</span><span class="err">，</span><span class="n">这样在onStartup方法中获得的class都是它的实现类</span> <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="err">\</span><span class="nd">@HandlesTypes</span><span class="o">(</span><span class="nc">WebApplicationInitializer</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>                      <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="c1">//实现了servlet包的ServletContainerInitializer接口                   |</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="kd">public</span> <span class="kd">class</span> <span class="nc">SpringServletContainerInitializer</span> <span class="kd">implements</span>            <span class="o">|</span>
+<span class="o">|</span> <span class="nc">ServletContainerInitializer</span> <span class="o">{</span>                                        <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="err">\</span><span class="nd">@Override</span>                                                           <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onStartup</span><span class="o">(</span><span class="nc">Set</span><span class="err">\</span><span class="o">&lt;</span><span class="nc">Class</span><span class="err">\</span><span class="o">&lt;?</span><span class="err">\\</span> <span class="n">webAppInitializerClasses</span><span class="o">,</span>    <span class="o">|</span>
+<span class="o">|</span> <span class="nc">ServletContext</span> <span class="n">servletContext</span><span class="o">)</span>                                       <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="kd">throws</span> <span class="nc">ServletException</span> <span class="o">{</span>                                            <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="nc">List</span><span class="err">\</span><span class="o">&lt;</span><span class="nc">WebApplicationInitializer</span><span class="err">\</span> <span class="n">initializers</span> <span class="o">=</span> <span class="k">new</span>                 <span class="o">|</span>
+<span class="o">|</span> <span class="nc">LinkedList</span><span class="err">\</span><span class="o">&lt;</span><span class="nc">WebApplicationInitializer</span><span class="err">\</span><span class="o">();</span>                           <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="k">if</span> <span class="o">(</span><span class="n">webAppInitializerClasses</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>                              <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="k">for</span> <span class="o">(</span><span class="nc">Class</span><span class="err">\</span><span class="o">&lt;?</span><span class="err">\</span> <span class="n">waiClass</span> <span class="o">:</span> <span class="n">webAppInitializerClasses</span><span class="o">)</span> <span class="o">{</span>               <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="k">if</span> <span class="o">(!</span><span class="n">waiClass</span><span class="o">.</span><span class="na">isInterface</span><span class="o">()</span> <span class="o">&amp;&amp;</span>                                       <span class="o">|</span>
+<span class="o">|</span> <span class="o">!</span><span class="nc">Modifier</span><span class="o">.</span><span class="na">isAbstract</span><span class="o">(</span><span class="n">waiClass</span><span class="o">.</span><span class="na">getModifiers</span><span class="o">())</span> <span class="o">&amp;&amp;</span>                     <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="nc">WebApplicationInitializer</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">isAssignableFrom</span><span class="o">(</span><span class="n">waiClass</span><span class="o">))</span> <span class="o">{</span>        <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="k">try</span> <span class="o">{</span>                                                                <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="c1">//对实现WebApplicationInitializer的类进行实例化                      |</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="n">initializers</span><span class="o">.</span><span class="na">add</span><span class="o">((</span><span class="nc">WebApplicationInitializer</span><span class="o">)</span>                         <span class="o">|</span>
+<span class="o">|</span> <span class="n">waiClass</span><span class="o">.</span><span class="na">newInstance</span><span class="o">());</span>                                             <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="o">}</span>                                                                    <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">Throwable</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>                                               <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="k">throw</span> <span class="k">new</span> <span class="nc">ServletException</span><span class="o">(</span><span class="err">\</span><span class="s">"Failed to instantiate                   |
+| WebApplicationInitializer class\"</span><span class="o">,</span> <span class="n">ex</span><span class="o">);</span>                              <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="o">}</span>                                                                    <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="o">}</span>                                                                    <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="o">}</span>                                                                    <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="o">}</span>                                                                    <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="c1">//省略\...                                                           |</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="k">for</span> <span class="o">(</span><span class="nc">WebApplicationInitializer</span> <span class="n">initializer</span> <span class="o">:</span> <span class="n">initializers</span><span class="o">)</span> <span class="o">{</span>         <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="n">initializer</span><span class="o">.</span><span class="na">onStartup</span><span class="o">(</span><span class="n">servletContext</span><span class="o">);</span><span class="c1">//执行onStartup方法            |</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="o">}</span>                                                                    <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="o">}</span>                                                                    <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="o">}</span>                                                                    <span class="o">|</span>
+<span class="o">+----------------------------------------------------------------------+</span></code></pre></figure>
 
 <ol>
   <li>为什么SpringServletContainerInitializer的实现类执行onStartup方法？</li>
 </ol>
 
-<p>+———————————————————————-+
-| SpringServletContainerInitializer在web项目启动的时候就会             |
-| 执行onStartup方法，是因为它满足了servlet对第三方包初始化扩展的条件。 |
-|                                                                      |
-| 1. 实现ServletContainerInitializer                                  |
-|                                                                      |
-| <a href="mailto:2.使用@HandlesTypes">2.                                                                  |
-| 使用\@HandlesTypes</a>对关注的类进行注册    |
-|                                                                      |
-| 3.                                                                  |
-| 添加META-INF/se                                                      |
-| rvices/javax.servlet.ServletContainerInitializer配置文件，里面内容为 |
-|                                                                      |
-|   ———————————————————–        |
-|   org.springframework.web.SpringServletContainerInitializer          |
-|   ———————————————————–        |
-|                                                                      |
-| 这样在tomcat启动的时候，就会去加载SpringServletContainerInitialize   |
-| r这个类，并且加载完成之后，会调用onStartup方法，进行具体的启动流程。 |
-+———————————————————————-+</p>
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="o">+----------------------------------------------------------------------+</span>
+<span class="o">|</span> <span class="nc">SpringServletContainerInitializer在web项目启动的时候就会</span>             <span class="o">|</span>
+<span class="o">|</span> <span class="n">执行onStartup方法</span><span class="err">，</span><span class="n">是因为它满足了servlet对第三方包初始化扩展的条件</span><span class="err">。</span> <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="mi">1</span><span class="err">\</span><span class="o">.</span> <span class="n">实现ServletContainerInitializer</span>                                  <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="o">[</span><span class="mi">2</span><span class="o">.</span>                                                                  <span class="o">|</span>
+<span class="o">|</span> <span class="n">使用</span><span class="err">\</span><span class="nd">@HandlesTypes</span><span class="o">](</span><span class="nl">mailto:</span><span class="mi">2</span><span class="o">.</span><span class="na">使用</span><span class="nd">@HandlesTypes</span><span class="o">)</span><span class="n">对关注的类进行注册</span>    <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="mi">3</span><span class="err">\</span><span class="o">.</span>                                                                  <span class="o">|</span>
+<span class="o">|</span> <span class="n">添加META</span><span class="o">-</span><span class="no">INF</span><span class="o">/</span><span class="n">se</span>                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="n">rvices</span><span class="o">/</span><span class="n">javax</span><span class="o">.</span><span class="na">servlet</span><span class="o">.</span><span class="na">ServletContainerInitializer配置文件</span><span class="err">，</span><span class="n">里面内容为</span> <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span>   <span class="o">-----------------------------------------------------------</span>        <span class="o">|</span>
+<span class="o">|</span>   <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">SpringServletContainerInitializer</span>          <span class="o">|</span>
+<span class="o">|</span>   <span class="o">-----------------------------------------------------------</span>        <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="n">这样在tomcat启动的时候</span><span class="err">，</span><span class="n">就会去加载SpringServletContainerInitialize</span>   <span class="o">|</span>
+<span class="o">|</span> <span class="n">r这个类</span><span class="err">，</span><span class="n">并且加载完成之后</span><span class="err">，</span><span class="n">会调用onStartup方法</span><span class="err">，</span><span class="n">进行具体的启动流程</span><span class="err">。</span> <span class="o">|</span>
+<span class="o">+----------------------------------------------------------------------+</span></code></pre></figure>
 
 <ol>
   <li>tomcat如何根绝配置文件和标签去加载的？</li>
@@ -559,89 +537,89 @@ header传递sessionid。</p>
 
 <p>在tomcat初始化过程中会执行org.apache.catalina.startup.ContextConfig中的processServletContainerInitializers方法，方法内容如下：</p>
 
-<p>+———————————————————————-+
-| protected void processServletContainerInitializers() {               |
-|                                                                      |
-| List&lt;ServletContainerInitializer\ detectedScis;                    |
-|                                                                      |
-| try {                                                                |
-|                                                                      |
-| WebappServiceLoader&lt;ServletContainerInitializer\ loader = new      |
-| WebappServiceLoader&lt;(context);                                    |
-|                                                                      |
-| //通过加载li                                                         |
-| b包里面的META-INF/services/javax.servlet.ServletContainerInitializer |
-|                                                                      |
-| detectedScis = loader.load(ServletContainerInitializer.class);       |
-|                                                                      |
-| } catch (IOException e) {                                            |
-|                                                                      |
-| 省略...                                                             |
-|                                                                      |
-| return;                                                              |
-|                                                                      |
-| }                                                                    |
-|                                                                      |
-| for (ServletContainerInitializer sci : detectedScis) {               |
-|                                                                      |
-| initializerClassMap.put(sci, new HashSet&lt;Class&lt;?\());           |
-|                                                                      |
-| HandlesTypes ht;                                                     |
-|                                                                      |
-| try {                                                                |
-|                                                                      |
-| //获得关注的类                                                       |
-|                                                                      |
-| ht = sci.getClass().getAnnotation(HandlesTypes.class);               |
-|                                                                      |
-| } catch (Exception e) {                                              |
-|                                                                      |
-| 省略...                                                             |
-|                                                                      |
-| continue;                                                            |
-|                                                                      |
-| }                                                                    |
-|                                                                      |
-| if (ht == null) { continue; }                                        |
-|                                                                      |
-| Class&lt;?\[] types = ht.value();                                   |
-|                                                                      |
-| if (types == null) { continue; }                                     |
-|                                                                      |
-| for (Class&lt;?\ type : types) {                                      |
-|                                                                      |
-| if (type.isAnnotation()) {                                           |
-|                                                                      |
-| handlesTypesAnnotations = true;                                      |
-|                                                                      |
-| } else {                                                             |
-|                                                                      |
-| handlesTypesNonAnnotations = true;                                   |
-|                                                                      |
-| }                                                                    |
-|                                                                      |
-| Set&lt;ServletContainerInitializer\ scis =                            |
-|                                                                      |
-| typeInitializerMap.get(type);                                        |
-|                                                                      |
-| if (scis == null) {                                                  |
-|                                                                      |
-| scis = new HashSet&lt;();                                            |
-|                                                                      |
-| typeInitializerMap.put(type, scis);                                  |
-|                                                                      |
-| }                                                                    |
-|                                                                      |
-| //将关注的类放到ServletContainerInitializer关注的容器中              |
-|                                                                      |
-| scis.add(sci);                                                       |
-|                                                                      |
-| }                                                                    |
-|                                                                      |
-| }                                                                    |
-|                                                                      |
-| }                                                                    |
-+———————————————————————-+</p>
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="o">+----------------------------------------------------------------------+</span>
+<span class="o">|</span> <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">processServletContainerInitializers</span><span class="o">()</span> <span class="o">{</span>               <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="nc">List</span><span class="err">\</span><span class="o">&lt;</span><span class="nc">ServletContainerInitializer</span><span class="err">\</span> <span class="n">detectedScis</span><span class="o">;</span>                    <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="k">try</span> <span class="o">{</span>                                                                <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="nc">WebappServiceLoader</span><span class="err">\</span><span class="o">&lt;</span><span class="nc">ServletContainerInitializer</span><span class="err">\</span> <span class="n">loader</span> <span class="o">=</span> <span class="k">new</span>      <span class="o">|</span>
+<span class="o">|</span> <span class="nc">WebappServiceLoader</span><span class="err">\</span><span class="o">&lt;</span><span class="err">\</span><span class="o">(</span><span class="n">context</span><span class="o">);</span>                                    <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="c1">//通过加载li                                                         |</span>
+<span class="o">|</span> <span class="n">b包里面的META</span><span class="o">-</span><span class="no">INF</span><span class="o">/</span><span class="n">services</span><span class="o">/</span><span class="n">javax</span><span class="o">.</span><span class="na">servlet</span><span class="o">.</span><span class="na">ServletContainerInitializer</span> <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="n">detectedScis</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="na">load</span><span class="o">(</span><span class="nc">ServletContainerInitializer</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>       <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>                                            <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="n">省略</span><span class="err">\</span><span class="o">...</span>                                                             <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="k">return</span><span class="o">;</span>                                                              <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="o">}</span>                                                                    <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="k">for</span> <span class="o">(</span><span class="nc">ServletContainerInitializer</span> <span class="n">sci</span> <span class="o">:</span> <span class="n">detectedScis</span><span class="o">)</span> <span class="o">{</span>               <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="n">initializerClassMap</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">sci</span><span class="o">,</span> <span class="k">new</span> <span class="nc">HashSet</span><span class="err">\</span><span class="o">&lt;</span><span class="nc">Class</span><span class="err">\</span><span class="o">&lt;?</span><span class="err">\\</span><span class="o">());</span>           <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="nc">HandlesTypes</span> <span class="n">ht</span><span class="o">;</span>                                                     <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="k">try</span> <span class="o">{</span>                                                                <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="c1">//获得关注的类                                                       |</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="n">ht</span> <span class="o">=</span> <span class="n">sci</span><span class="o">.</span><span class="na">getClass</span><span class="o">().</span><span class="na">getAnnotation</span><span class="o">(</span><span class="nc">HandlesTypes</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>               <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>                                              <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="n">省略</span><span class="err">\</span><span class="o">...</span>                                                             <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="k">continue</span><span class="o">;</span>                                                            <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="o">}</span>                                                                    <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="k">if</span> <span class="o">(</span><span class="n">ht</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span> <span class="k">continue</span><span class="o">;</span> <span class="o">}</span>                                        <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="nc">Class</span><span class="err">\</span><span class="o">&lt;?</span><span class="err">\\</span><span class="o">[</span><span class="err">\</span><span class="o">]</span> <span class="n">types</span> <span class="o">=</span> <span class="n">ht</span><span class="o">.</span><span class="na">value</span><span class="o">();</span>                                   <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="k">if</span> <span class="o">(</span><span class="n">types</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span> <span class="k">continue</span><span class="o">;</span> <span class="o">}</span>                                     <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="k">for</span> <span class="o">(</span><span class="nc">Class</span><span class="err">\</span><span class="o">&lt;?</span><span class="err">\</span> <span class="n">type</span> <span class="o">:</span> <span class="n">types</span><span class="o">)</span> <span class="o">{</span>                                      <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="k">if</span> <span class="o">(</span><span class="n">type</span><span class="o">.</span><span class="na">isAnnotation</span><span class="o">())</span> <span class="o">{</span>                                           <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="n">handlesTypesAnnotations</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>                                      <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>                                                             <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="n">handlesTypesNonAnnotations</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>                                   <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="o">}</span>                                                                    <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="nc">Set</span><span class="err">\</span><span class="o">&lt;</span><span class="nc">ServletContainerInitializer</span><span class="err">\</span> <span class="n">scis</span> <span class="o">=</span>                            <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="n">typeInitializerMap</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">type</span><span class="o">);</span>                                        <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="k">if</span> <span class="o">(</span><span class="n">scis</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>                                                  <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="n">scis</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashSet</span><span class="err">\</span><span class="o">&lt;</span><span class="err">\</span><span class="o">();</span>                                            <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="n">typeInitializerMap</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">type</span><span class="o">,</span> <span class="n">scis</span><span class="o">);</span>                                  <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="o">}</span>                                                                    <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="c1">//将关注的类放到ServletContainerInitializer关注的容器中              |</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="n">scis</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">sci</span><span class="o">);</span>                                                       <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="o">}</span>                                                                    <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="o">}</span>                                                                    <span class="o">|</span>
+<span class="o">|</span>                                                                      <span class="o">|</span>
+<span class="o">|</span> <span class="o">}</span>                                                                    <span class="o">|</span>
+<span class="o">+----------------------------------------------------------------------+</span></code></pre></figure>
 
 <ol>
   <li>
@@ -658,17 +636,15 @@ onstartup方法的类。由于AbstractHttpSessionApplicationInitializer实现了
 
 <h3 id="springmvc的无标识参数">Springmvc的无标识参数</h3>
 
-<p>+———————————————————————-+
-| \@ResponseBody                                                       |
-|                                                                      |
-| \@RequestMapping(method = RequestMethod.GET)                         |
-|                                                                      |
-| public TestBean hello(HttpServletRequest request,                    |
-| HttpServletResponse response,HttpSession                             |
-| session,\@RequestParam("q1") String q1,String q2) {                |
-|                                                                      |
-| }                                                                    |
-+———————————————————————-+</p>
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="o">|</span> <span class="err">\</span><span class="nd">@ResponseBody</span>                                                       
+<span class="o">|</span>                                                                      
+<span class="o">|</span> <span class="err">\</span><span class="nd">@RequestMapping</span><span class="o">(</span><span class="n">method</span> <span class="o">=</span> <span class="nc">RequestMethod</span><span class="o">.</span><span class="na">GET</span><span class="o">)</span>                          
+<span class="o">|</span>                                                                       
+<span class="o">|</span> <span class="kd">public</span> <span class="nc">TestBean</span> <span class="nf">hello</span><span class="o">(</span><span class="nc">HttpServletRequest</span> <span class="n">request</span><span class="o">,</span>                     
+<span class="o">|</span> <span class="nc">HttpServletResponse</span> <span class="n">response</span><span class="o">,</span><span class="nc">HttpSession</span>                              
+<span class="o">|</span> <span class="n">session</span><span class="o">,</span><span class="err">\</span><span class="nd">@RequestParam</span><span class="o">(</span><span class="err">\</span><span class="s">"q1\"</span><span class="o">)</span> <span class="nc">String</span> <span class="n">q1</span><span class="o">,</span><span class="nc">String</span> <span class="n">q2</span><span class="o">)</span> <span class="o">{</span>                 
+<span class="o">|</span>                                                                       
+<span class="o">|</span> <span class="o">}</span>                                                                     </code></pre></figure>
 
 <p>问题：</p>
 
@@ -688,22 +664,20 @@ onstartup方法的类。由于AbstractHttpSessionApplicationInitializer实现了
 
 <p>q1必须，spring注解明确说明，RequestParam注解中，required没有写时，默认为true。当调用者没有提供该值时，将报400.</p>
 
-<p><img src="../images/Session总结/image15.jpeg" alt="\\psf\Home\Library\Containers\com.tencent.qq\Data\Library\Application
-Support\QQ\Users\362991493\QQ\Temp.db\20711B2F-0E1C-49E9-852D-FDD62DC4D0A9.png" />{width=”5.768055555555556in”
+<p><img src="../images/Session总结/image15.jpeg" alt="20711B2F-0E1C-49E9-852D-FDD62DC4D0A9.png" />{width=”5.768055555555556in”
 height=”2.636075021872266in”}</p>
 
 <p>问题二：</p>
 
 <p>q2在不加标签的情况下，非必须传入，如果已经传入将会赋值，如果没有传入q2将会是null，不会报400错误。在方法中，不建议对需要的参数不加注解，对方法应该表示需要什么和不需要什么。例如：</p>
 
-<p>+———————————————————————-+
-| public TestBean hello(HttpServletRequest request,                    |
-| HttpServletResponse response,HttpSession                             |
-| session,\@RequestParam("q1") String q1,                            |
-| \@RequestParam(value="q2",required=false)String q2) {              |
-|                                                                      |
-| }                                                                    |
-+———————————————————————-+</p>
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="o">+----------------------------------------------------------------------+</span>
+<span class="o">|</span> <span class="kd">public</span> <span class="nc">TestBean</span> <span class="nf">hello</span><span class="o">(</span><span class="nc">HttpServletRequest</span> <span class="n">request</span><span class="o">,</span>                    <span class="o">|</span>
+<span class="o">|</span> <span class="nc">HttpServletResponse</span> <span class="n">response</span><span class="o">,</span><span class="nc">HttpSession</span>                             <span class="o">|</span>
+<span class="o">|</span> <span class="n">session</span><span class="o">,</span><span class="err">\</span><span class="nd">@RequestParam</span><span class="o">(</span><span class="err">\</span><span class="s">"q1\") String q1,                            |
+| \@RequestParam(value=\"q2\"</span><span class="o">,</span><span class="n">required</span><span class="o">=</span><span class="kc">false</span><span class="o">)</span><span class="nc">String</span> <span class="n">q2</span><span class="o">)</span> <span class="o">{</span>              <span class="o">|</span>
+<span class="o">|</span> <span class="o">}</span>                                                                    <span class="o">|</span>
+<span class="o">+----------------------------------------------------------------------+</span></code></pre></figure>
 
 <p>问题三：</p>
 

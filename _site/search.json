@@ -177,14 +177,6 @@
 		} ,
 	
 		{
-		  "title"      : "ThreadPoolExecutor代码解析",
-		  "category"   : "",
-		  "url"        : "http://yangqiju.github.io/ThreadPoolExecutor%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90",
-		  "date"       : "2017-04-02 00:00:00 -0400",
-		  "shortdate"  : "April 02, 2017"
-		} ,
-	
-		{
 		  "title"      : "httpclient对pkcs11 https的支持",
 		  "category"   : "",
 		  "url"        : "http://yangqiju.github.io/pkcs11-https-httpclient",
