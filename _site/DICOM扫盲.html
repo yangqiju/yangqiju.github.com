@@ -170,11 +170,11 @@ dcm4che项目中包含了dcm4chee(额外的e代表‘enterprise’)，它是一�
 <img src="../images/DICOM扫盲/45f52490faaa11ebbb1a1f11b0a3351c.png" alt="aaaaaaaaaaaa" /></p>
 <h4 id="导入dcm数据">导入DCM数据</h4>
 <p>通过storescu工具进行数据导入:
-<a href="https://github.com/dcm4che/dcm4che/blob/master/dcm4che-tool/dcm4che-tool-storescu/README.md">storescu工具</a>
-`
-storescu -c DCM4CHEE@localhost:11112 test.dcm
-`
-DCM4CHEE是指定的AET,需要提前设定才能通过验证进行通讯.(该安装版本默认已经添加)</p>
+<a href="https://github.com/dcm4che/dcm4che/blob/master/dcm4che-tool/dcm4che-tool-storescu/README.md">storescu工具</a></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">storescu</span> <span class="o">-</span><span class="n">c</span> <span class="no">DCM4CHEE</span><span class="nd">@localhost</span><span class="o">:</span><span class="mi">11112</span> <span class="n">test</span><span class="o">.</span><span class="na">dcm</span>
+</code></pre></div></div>
+<p>DCM4CHEE是指定的AET,需要提前设定才能通过验证进行通讯.(该安装版本默认已经添加)</p>
 
 <p><img src="../images/DICOM扫盲/87119480faab11eba86d0501193eee8d.png" alt="aaaaaaaaaaaa" /></p>
 
