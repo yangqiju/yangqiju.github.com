@@ -134,7 +134,7 @@
         <span><a href="http://yangqiju.github.io/gradle-jar-application-shell" rel="bookmark" title="使用gradle打包可运行的jar包" itemprop="url"><i class="icon-link"></i> Permalink</a></span>
       </footer>
       <div class="entry-content" style="font-size:14px" itemprop="description">
-        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>对于gradle的打包功能还是比较好的，起初用的是非官方的一个哥们写的插件，
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>对于gradle的打包功能还是比较好的，起初用的是非官方的一个哥们写的插件，
 最近试了试官方的打包功能，还是比较好的，记录一下。
 
 先说一下官方的吧，添加application plugin 和制定main 入口：
@@ -143,7 +143,7 @@
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby">	<span class="n">apply</span> <span class="ss">plugin: </span><span class="s1">'application'</span>
 	<span class="n">mainClassName</span> <span class="o">=</span> <span class="s2">"com.joyveb.jkp.pressure.starter.SendClientStarter"</span></code></pre></figure>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>然后运行 gradle distZip 就可以打包成zip包了，当然还可以打包成tar包(distTar)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>然后运行 gradle distZip 就可以打包成zip包了，当然还可以打包成tar包(distTar)
 这个还是比较好的，直接打包成了包含shell脚本和bat脚本的工具。
 在build - distributions 中可以找到打好的包
 当然，还可以把自己想加的配置文件放到里面
@@ -160,7 +160,7 @@
 	}
 }</span></code></pre></figure>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>还有个是个人写的，看看写的代码挺有意思，值得学习；
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>还有个是个人写的，看看写的代码挺有意思，值得学习；
 在build.gradle中添加
 </code></pre></div></div>
 
@@ -197,7 +197,7 @@
 
 <div class="footer-wrapper">
   <footer role="contentinfo">
-    <span>&copy; 2020 yangqiju. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">So Simple Theme</a>.</span>
+    <span>&copy; 2021 yangqiju. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">So Simple Theme</a>.</span>
 <div class="social-icons">
 	
 	

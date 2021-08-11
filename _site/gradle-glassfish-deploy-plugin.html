@@ -134,7 +134,7 @@
         <span><a href="http://yangqiju.github.io/gradle-glassfish-deploy-plugin" rel="bookmark" title="glassfish4 deploy gradle plugin" itemprop="url"><i class="icon-link"></i> Permalink</a></span>
       </footer>
       <div class="entry-content" style="font-size:14px" itemprop="description">
-        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>以前的项目一直用的maven管理，新项目又一直使用osgi，没有涉及到web项目的直接
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>以前的项目一直用的maven管理，新项目又一直使用osgi，没有涉及到web项目的直接
 部署，才发现官网貌似没有提供glassfish的插件，有点费解，找了找解决方案：
 1.Codehaus cargo 能够完成相应的功能
 2.直接使用glassfish 的 asadmin直接部署
@@ -157,7 +157,7 @@
         <span class="n">proc</span><span class="o">.</span><span class="na">err</span><span class="o">.</span><span class="na">each</span> <span class="o">{</span><span class="n">println</span> <span class="s1">'[ERROR]'</span><span class="o">+</span><span class="n">it</span> <span class="o">}</span>
 <span class="o">}</span></code></pre></figure>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>其中有写比较有意思的是 task deploy2glassfish(){} 和 task deploy2glassfish &lt;&lt; {} 有点分别，没有 &lt;&lt; 的会
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>其中有写比较有意思的是 task deploy2glassfish(){} 和 task deploy2glassfish &lt;&lt; {} 有点分别，没有 &lt;&lt; 的会
 自动运行，添加了&lt;&lt; 的task 需要手动执行(gradle deploy2glassfish)。
 peoject 是build.gradle 中的内置对象。
 
@@ -166,12 +166,12 @@ peoject 是build.gradle 中的内置对象。
 
 <figure class="highlight"><pre><code class="language-groovy" data-lang="groovy">        <span class="n">asadmin</span> <span class="n">deploy</span> <span class="o">--</span><span class="n">name</span> <span class="n">webtest</span> <span class="o">--</span><span class="n">contextroot</span> <span class="n">webtest</span> <span class="s">/home/</span><span class="o">....</span><span class="na">path</span><span class="o">/</span><span class="n">webtext</span><span class="o">.</span><span class="na">war</span></code></pre></figure>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>部署的结果可以直接使用下列命令查看，或者进入到glassfish 4848 后台进行查看
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>部署的结果可以直接使用下列命令查看，或者进入到glassfish 4848 后台进行查看
 </code></pre></div></div>
 
 <figure class="highlight"><pre><code class="language-groovy" data-lang="groovy">        <span class="n">asadmin</span> <span class="n">list</span><span class="o">-</span><span class="n">applications</span></code></pre></figure>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>进一步把上面deploy脚本加工成为gradle 插件，方便以后扩展，代码如下
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>进一步把上面deploy脚本加工成为gradle 插件，方便以后扩展，代码如下
 https://github.com/yangqiju/glassfish4-gradle-plugin/tree/master
 
 其他项目在使用的时候在下面添加如下配置,便可以调用gradle deploy2glassfish进行部署
@@ -187,7 +187,7 @@ https://github.com/yangqiju/glassfish4-gradle-plugin/tree/master
 <span class="o">}</span>
 <span class="n">apply</span> <span class="nl">plugin:</span> <span class="s1">'glassfish4'</span></code></pre></figure>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>web项目中也遇到了写比较有意思的地方，需要添加如下配置
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>web项目中也遇到了写比较有意思的地方，需要添加如下配置
 </code></pre></div></div>
 
 <figure class="highlight"><pre><code class="language-groovy" data-lang="groovy"><span class="n">apply</span> <span class="nl">plugin:</span> <span class="s1">'war'</span>
@@ -217,7 +217,7 @@ https://github.com/yangqiju/glassfish4-gradle-plugin/tree/master
 
 <div class="footer-wrapper">
   <footer role="contentinfo">
-    <span>&copy; 2020 yangqiju. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">So Simple Theme</a>.</span>
+    <span>&copy; 2021 yangqiju. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">So Simple Theme</a>.</span>
 <div class="social-icons">
 	
 	

@@ -134,7 +134,7 @@
         <span><a href="http://yangqiju.github.io/glassfish-osgi-deploy" rel="bookmark" title="glassfish OSGi 环境使用obr部署选择版本部署 " itemprop="url"><i class="icon-link"></i> Permalink</a></span>
       </footer>
       <div class="entry-content" style="font-size:14px" itemprop="description">
-        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>在glassfish中使用OSGi有一段时间了，我们一直使用obr(Apache Felix OSGi Bundle Repository)来
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>在glassfish中使用OSGi有一段时间了，我们一直使用obr(Apache Felix OSGi Bundle Repository)来
 对bundle包进行deploy等操作，obr他能够自动识别并部署所部署的bundle的依赖bundle。
 但我们之前就发现了不能自主选择version部署这个问题，由于时间问题，我们没有考虑太多，
 现在是时候来解决他了。
@@ -174,12 +174,12 @@
 
 <figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">obr</span> <span class="n">deploy</span> <span class="s">"P1"</span><span class="o">;</span><span class="mf">1.0</span><span class="o">.</span><span class="mi">0</span></code></pre></figure>
 
-<p>确定分号(;)可以在命令行里面使用的么？无论你怎么搞，用什么转义<code class="highlighter-rouge">\</code>单引<code class="highlighter-rouge">'</code>都没用。按照shell的罗辑也
+<p>确定分号(;)可以在命令行里面使用的么？无论你怎么搞，用什么转义<code class="language-plaintext highlighter-rouge">\</code>单引<code class="language-plaintext highlighter-rouge">'</code>都没用。按照shell的罗辑也
 应该是这样才对。看着官方文档，有点无力。</p>
 
 <figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="nl">bash:</span> <span class="mf">1.0</span><span class="o">.</span><span class="mi">0</span><span class="o">:</span> <span class="n">command</span> <span class="n">not</span> <span class="n">found</span></code></pre></figure>
 
-<p>于是乎我想起了之前使用的<code class="highlighter-rouge">Apache Karaf</code></p>
+<p>于是乎我想起了之前使用的<code class="language-plaintext highlighter-rouge">Apache Karaf</code></p>
 
 <p>Apache Karaf is a small OSGi based runtime which provides a lightweight container onto which various 
 components and applications can be deployed.</p>
@@ -188,24 +188,24 @@ components and applications can be deployed.</p>
 
 <figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">karaf</span><span class="nd">@root</span><span class="o">()</span> <span class="nl">obr:</span><span class="n">deploy</span> <span class="n">org</span><span class="o">.</span><span class="na">apache</span><span class="o">.</span><span class="na">karaf</span><span class="o">.</span><span class="na">wrapper</span><span class="o">.</span><span class="na">core</span><span class="o">,</span><span class="mf">4.0</span><span class="o">.</span><span class="mi">0</span></code></pre></figure>
 
-<p>呵呵，他居然直接用的逗号<code class="highlighter-rouge">,</code> 
+<p>呵呵，他居然直接用的逗号<code class="language-plaintext highlighter-rouge">,</code> 
 好吧，拿你没办法，bundle包互相依赖，把bundle升级一次，要大费周折，并且还要测试，看看
 升级之后有没有问题，想了想，既然只是一个简单的符号问题，倒不如把源码download下来进行简单的修改。
-我们使用的obr 包为：<code class="highlighter-rouge">org.apache.felix.bundlerepository-1.6.6</code>
+我们使用的obr 包为：<code class="language-plaintext highlighter-rouge">org.apache.felix.bundlerepository-1.6.6</code>
 遇到了些问题，有意思的记录一下：</p>
 
 <figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">使用jar</span> <span class="n">tf</span> <span class="n">查看META</span><span class="o">-</span><span class="no">INF</span><span class="o">/</span><span class="no">MANIFEST</span><span class="o">.</span><span class="na">MF</span> <span class="n">是否在前两列</span><span class="err">，</span><span class="n">不是就有问题</span>
 <span class="n">如果想替换其中个class</span><span class="err">，</span><span class="n">重新打jar包</span><span class="err">，</span><span class="n">使用</span> <span class="n">jar</span> <span class="n">cvfm</span> <span class="n">命令</span></code></pre></figure>
 
 <p>然后接下来开始了虐心情节，不管如何重新部署，删除 osgi-cache ，都无法运行我所修改的代码，不管我把
-当前代码修改成什么样子。无语了，难不成还有别的相同的包？好吧，还真的是，在<code class="highlighter-rouge">glassfish4/glassfish/modules</code>
-目录中有个<code class="highlighter-rouge">org.apache.felix.bundlerepository.jar</code>
+当前代码修改成什么样子。无语了，难不成还有别的相同的包？好吧，还真的是，在<code class="language-plaintext highlighter-rouge">glassfish4/glassfish/modules</code>
+目录中有个<code class="language-plaintext highlighter-rouge">org.apache.felix.bundlerepository.jar</code>
 我把所有的bundlerepository包都删除了，手动导入我自己的包，好吧，不论这么样还是不行，依旧没有走我的代码。</p>
 
 <p>Apache Felix Gogo is a subproject of Apache Felix implementing the OSGi RFC 147, which describes a standard shell for OSGi-based environments</p>
 
 <p>偶然在google错误的时候发现了，gogo.runtime 有deploy的方法,好吧，我觉得我找到问题了，因为在我们找错的时候
-发现在 <code class="highlighter-rouge">glassfish4/glassfish/modules/autostart</code>的目录中有如下文件：</p>
+发现在 <code class="language-plaintext highlighter-rouge">glassfish4/glassfish/modules/autostart</code>的目录中有如下文件：</p>
 
 <figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">org</span><span class="o">.</span><span class="na">apache</span><span class="o">.</span><span class="na">felix</span><span class="o">.</span><span class="na">configadmin</span><span class="o">.</span><span class="na">jar</span>
 <span class="n">org</span><span class="o">.</span><span class="na">apache</span><span class="o">.</span><span class="na">felix</span><span class="o">.</span><span class="na">eventadmin</span><span class="o">.</span><span class="na">jar</span>
@@ -237,7 +237,7 @@ components and applications can be deployed.</p>
   <span class="o">...</span>
   <span class="o">}</span></code></pre></figure>
 
-<p>看到这就明白了，gogo很明智的使用了<code class="highlighter-rouge">@</code>符号来分割version。</p>
+<p>看到这就明白了，gogo很明智的使用了<code class="language-plaintext highlighter-rouge">@</code>符号来分割version。</p>
 
 <figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">obr</span> <span class="n">deploy</span> <span class="s">"P1"</span><span class="err">@</span><span class="mf">1.0</span><span class="o">.</span><span class="mi">0</span></code></pre></figure>
 
@@ -260,7 +260,7 @@ components and applications can be deployed.</p>
 
 <div class="footer-wrapper">
   <footer role="contentinfo">
-    <span>&copy; 2020 yangqiju. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">So Simple Theme</a>.</span>
+    <span>&copy; 2021 yangqiju. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">So Simple Theme</a>.</span>
 <div class="social-icons">
 	
 	

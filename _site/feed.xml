@@ -4,13 +4,123 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://yangqiju.github.io/feed.xml" />
 <link rel="alternate" type="text/html" href="http://yangqiju.github.io" />
-<updated>2020-05-14T10:59:28-04:00</updated>
+<updated>2021-08-11T10:53:47-04:00</updated>
 <id>http://yangqiju.github.io/</id>
 <author>
   <name>yangqiju</name>
   <uri>http://yangqiju.github.io/</uri>
   <email>362991493@qq.com</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[DICOM 扫盲]]></title>
+  <link>http://yangqiju.github.io/DICOM%E6%89%AB%E7%9B%B2</link>
+  <id>http://yangqiju.github.io/DICOM扫盲</id>
+  <published>2021-08-10T00:00:00-04:00</published>
+  <updated>2021-08-10T00:00:00-04:00</updated>
+  <author>
+    <name>yangqiju</name>
+    <uri>http://yangqiju.github.io</uri>
+    <email>362991493@qq.com</email>
+  </author>
+  <content type="html">&lt;p&gt;DICOM 扫盲&lt;/p&gt;
+
+&lt;h1 id=&quot;dicom介绍&quot;&gt;DICOM介绍&lt;/h1&gt;
+&lt;p&gt;根据《医用电气设备DICOM在放射治疗中的应用指南》中描述到，在飞速增长的图像采集系统、显示工作站、归档系统与医院放射信息系统之间的互联和互相操作变得至关重要。为了简化和改善设备的互联性，专业医疗组织[美国放射学会(ACR)]联合医疗设备制造商们[美国国家电气制造商协会(NEMA)]国际化合作，共同开发DICOM(医学数字影像与通讯标准)。
+ &lt;img src=&quot;../images/DICOM扫盲/5ea12350fa6d11ebb0fd49f3d06242d6.png&quot; alt=&quot;aaaaaaaaaaaa&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;目前，DICOM标准提供下列服务：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;网络图像传输&lt;/strong&gt;：
+提供了两个设备间通讯发送对象的功能，诸如放射图像(例如CT、MR、CR、X射线血管造影与RF、PET、NM、US等)或RT图像与数据（RT结构集、计划、图像、剂量与治疗记录）。同事也可以识别和获取/传输远程设备上的图像/数据.网络传输是目前DICOM产品支持的最常用的互联特性。&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;在线图像检查管理&lt;/strong&gt;：
+提供了医疗设备通过网络与各种信息系统想整合的功能，如医院信息系统（HIS）中的临床与管理数据，放射治疗信息系统（RIS）中的放射和放射治疗图像/数据。&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;网络打印管理&lt;/strong&gt;：
+提供了通过网络连接的打印机/相机打印图像的功能。这样的一个示例是多个扫描机或工作站在单个共享的硬拷贝介质上打印图像。&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;开放式介质交换&lt;/strong&gt;：
+提供了手工交换对象(图像或RT对象)与相关信息(例如报告或胶片信息)的功能，DICOM实现了通过文件格式、医疗目录结构与物理介质(例如CD、软盘)的标准化。示例包括用于出版的图像交换和用于远程会诊而发送患者图像序列。&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;工作流程管理&lt;/strong&gt;：
+DICOM标准经过扩展，能够定义设备工作列表和通用目标工作列表，该列表设计用于请求、规划与描述成像性能和其他过程操作。这些过程的整合可以和其他标准化机构保持一直。在这方面更进一步的服务正在考虑中。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;dcm4che&quot;&gt;DCM4CHE&lt;/h1&gt;
+&lt;p&gt;dcm4che 是面向医疗保健企业的开源应用程序和实用工具集合。项目使用java编写，实现了DICOM的标准。
+dcm4che项目中包含了dcm4chee(额外的e代表‘enterprise’)，它是一个图像管理存储程序，该应用程序包含为医疗保健环境提供存储、检索和工作流所需的 DICOM、HL7 服务和接口。&lt;/p&gt;
+
+&lt;h2 id=&quot;dcm4che-demo&quot;&gt;DCM4CHE demo&lt;/h2&gt;
+&lt;p&gt;由于当前(2021-08)网络中存在的版本较老，部分搭建攻略也失效或不友好，这里记录一下如何快速搭建demo环境。&lt;/p&gt;
+&lt;h4 id=&quot;使用docker运行minimum版本dcm4che&quot;&gt;使用docker运行minimum版本dcm4che.&lt;/h4&gt;
+&lt;p&gt;详情如下:
+&lt;a href=&quot;https://github.com/dcm4che/dcm4chee-arc-light/wiki/Run-minimum-set-of-archive-services-on-a-single-host&quot;&gt;minimum版本运行&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;运行起来后可以看到如下服务:
+&lt;img src=&quot;../images/DICOM扫盲/45f52490faaa11ebbb1a1f11b0a3351c.png&quot; alt=&quot;aaaaaaaaaaaa&quot; /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;导入dcm数据&quot;&gt;导入DCM数据&lt;/h4&gt;
+&lt;p&gt;通过storescu工具进行数据导入:
+&lt;a href=&quot;https://github.com/dcm4che/dcm4che/blob/master/dcm4che-tool/dcm4che-tool-storescu/README.md&quot;&gt;storescu工具&lt;/a&gt;
+`
+storescu -c DCM4CHEE@localhost:11112 test.dcm
+`
+DCM4CHEE是指定的AET,需要提前设定才能通过验证进行通讯.(该安装版本默认已经添加)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/DICOM扫盲/87119480faab11eba86d0501193eee8d.png&quot; alt=&quot;aaaaaaaaaaaa&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;查阅数据&quot;&gt;查阅数据&lt;/h4&gt;
+&lt;p&gt;在Navigation -&amp;gt; studies 菜单中,以DCM4CHE进行搜索,便可以将上一步上传数据查阅出
+&lt;img src=&quot;../images/DICOM扫盲/df6dd1c0faab11eba86d0501193eee8d.png&quot; alt=&quot;aaaaaaaaaaaa&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;通过查询出的结果工具中，可以查看相关图形数据。
+&lt;img src=&quot;../images/DICOM扫盲/6a481580faac11ebb0fd49f3d06242d6.png&quot; alt=&quot;aaaaaaaaaaaa&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;使用oviyam查看图形&quot;&gt;使用oviyam查看图形&lt;/h4&gt;
+&lt;p&gt;oviyam是一款开源的DICOM数据浏览器，可以使用docker进行部署。例如对刚刚的docker-compose.yml追加oviyam服务，将他们部署在同一套集群中&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nl&quot;&gt;oviyam:&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;image:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;informaticamedica&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;oviyam:&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;2.8&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;ports:&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;80:8080&quot;&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;1025:1025&quot;&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;depends_on:&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arc&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;重新启动集群后,可以进入到oviyam管理端(admin:adm1n),添加相应的配置，并进行配置验证。
+&lt;img src=&quot;../images/DICOM扫盲/f8a940a0faad11ebb494a1d4796cd9b0.png&quot; alt=&quot;aaaaaaaaaaaa&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;这样就可以将DCOM4CHEE中的数据查询出来。
+&lt;img src=&quot;../images/DICOM扫盲/3187d0d0faae11ebb969dba37c0615cf.png&quot; alt=&quot;aaaaaaaaaaaa&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/DICOM扫盲/5cec5de0faae11eb9b14070fbd75ca5d.png&quot; alt=&quot;aaaaaaaaaaaa&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;名词解释&quot;&gt;名词解释&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;PACS:Picture Archiving and Communication Systems的缩写，意思为影像归档和通信系统。
+是近年来随着数字成像技术、计算机技术和网络技术的进步而迅速发展起来的、旨在全面解决医学图像的获取、显示、存贮、传送和管理的综合系统。&lt;/li&gt;
+  &lt;li&gt;DICOM:Digital Imaging and Communications in Medicine的英文缩写，即医学数字成像和通信标准
+DICOM标准以计算机网络的工业化标准为基础，它能帮助更有效地在医学影像设备之间传输交换数字影像，这些设备不仅包括CT、MR、核医学和超声检查，而且还包括CR、胶片数字化系统、视频采集系统和HIS／RIS信息管理系统等&lt;/li&gt;
+  &lt;li&gt;ACR（American College of Radiology,美国放射学会）&lt;/li&gt;
+  &lt;li&gt;NEMA（National Electrical Manufactorers Association,国家电子制造商协会）&lt;/li&gt;
+  &lt;li&gt;HIS:医院信息系统(Hospital Information System, HIS)
+利用电子计算机和通讯设备，为医院所属各部门提供病人诊疗信息和行政管理信息的收集、存储、处理、提取和数据交换的能力，并满足所有授权用户的功能需求。&lt;/li&gt;
+  &lt;li&gt;LIS:实验室信息管理系统(Laboratory Information Management System, LIS)
+是专为医院检验科设计的一套信息管理系统，能将实验仪器与计算机组成网络，使病人样品登录、实验数据存取、报告审核、打印分发，实验数据统计分析等繁杂的操作过程实现了智能化、自动化和规范化管理。有助于提高实验室的整体管理水平，减少漏洞，提高检验质量。&lt;/li&gt;
+  &lt;li&gt;RIS:放射信息管理系统(Radioiogy information system, RIS)
+是优化医院放射科工作流程管理的软件系统,一个典型的流程包括登记预约、就诊、产生影像、出片、报告、审核、发片等环节&lt;/li&gt;
+  &lt;li&gt;HL7:卫生信息交换标准（Health Level 7）
+标准化的卫生信息传输协议，是医疗领域不同应用之间电子传输的协议。HL7汇集了不同厂商用来设计应用软件之间接口的标准格式，它将允许各个医疗机构在异构系统之间，进行数据交互。HL7的主要应用领域是HIS/RIS，主要是规范HIS/RIS系统及其设备之间的通信，它涉及到病房和病人信息管理、化验系统、药房系统、放射系统、收费系统等各个方面。&lt;/li&gt;
+  &lt;li&gt;IHE:Integrating the Healthcare Enterprise整合医疗保健企业&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;其他&quot;&gt;其他&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.dicomserver.co.uk/WADO/&quot;&gt;https://www.dicomserver.co.uk/WADO/&lt;/a&gt;
+&lt;a href=&quot;https://www.dicomstandard.org/current/&quot;&gt;https://www.dicomstandard.org/current/&lt;/a&gt;
+&lt;a href=&quot;https://zhuanlan.zhihu.com/p/74966427&quot;&gt;https://zhuanlan.zhihu.com/p/74966427&lt;/a&gt;&lt;/p&gt;
+
+
+  &lt;p&gt;&lt;a href=&quot;http://yangqiju.github.io/DICOM%E6%89%AB%E7%9B%B2&quot;&gt;DICOM 扫盲&lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://yangqiju.github.io&quot;&gt;Orange&lt;/a&gt; on August 10, 2021.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>
@@ -5061,7 +5171,7 @@ height=”2.5017902449693787in”}&lt;/p&gt;
 
 &lt;p&gt;确保class文件字节流的信息符合虚拟机要求&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1.  文件格式验证
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1.  文件格式验证
 
 2.  元数据验证
 
@@ -5783,11 +5893,11 @@ OutOfMemoryException。&lt;/p&gt;
 	&lt;span class=&quot;n&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;java&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;lang&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ProcessBuilder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ProcessBuilder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;java&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1029&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
 	&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;91&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;more&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;原因就是因为在运行idea或jenkins时，infer的路径不在&lt;code class=&quot;highlighter-rouge&quot;&gt;/usr/local/bin&lt;/code&gt;中，所以需要在&lt;code class=&quot;highlighter-rouge&quot;&gt;PATH&lt;/code&gt;中
+&lt;p&gt;原因就是因为在运行idea或jenkins时，infer的路径不在&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/usr/local/bin&lt;/code&gt;中，所以需要在&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PATH&lt;/code&gt;中
 加上。
 idea可参考&lt;a href=&quot;http://depressiverobot.com/2016/02/05/intellij-path.html&quot;&gt;此内容&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;jenkins可以直接在&lt;code class=&quot;highlighter-rouge&quot;&gt;系统设置&lt;/code&gt;中添加&lt;code class=&quot;highlighter-rouge&quot;&gt;环境变量&lt;/code&gt;,&lt;code class=&quot;highlighter-rouge&quot;&gt;键&lt;/code&gt;为&lt;code class=&quot;highlighter-rouge&quot;&gt;PATH&lt;/code&gt;,值为&lt;code class=&quot;highlighter-rouge&quot;&gt;$PATH:/usr/local/bin&lt;/code&gt;,重启即可.&lt;/p&gt;
+&lt;p&gt;jenkins可以直接在&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;系统设置&lt;/code&gt;中添加&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;环境变量&lt;/code&gt;,&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;键&lt;/code&gt;为&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PATH&lt;/code&gt;,值为&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$PATH:/usr/local/bin&lt;/code&gt;,重启即可.&lt;/p&gt;
 
   &lt;p&gt;&lt;a href=&quot;http://yangqiju.github.io/infer-gradle-jenkins&quot;&gt;infer 对idea和jenkins的支持&lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://yangqiju.github.io&quot;&gt;Orange&lt;/a&gt; on February 06, 2018.&lt;/p&gt;</content>
 </entry>
@@ -6291,617 +6401,6 @@ Support\QQ\Users\362991493\QQ\Temp.db\95AE37F3-DCB4-4AEF-90C1-A7E6092CFB0B.png&q
 height=”0.7720253718285215in”}&lt;/p&gt;
 
   &lt;p&gt;&lt;a href=&quot;http://yangqiju.github.io/springmvc%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90&quot;&gt;springmvc代码解析&lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://yangqiju.github.io&quot;&gt;Orange&lt;/a&gt; on January 02, 2018.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[session总结]]></title>
-  <link>http://yangqiju.github.io/session%E6%80%BB%E7%BB%93</link>
-  <id>http://yangqiju.github.io/session总结</id>
-  <published>2017-12-01T00:00:00-05:00</published>
-  <updated>2017-12-01T00:00:00-05:00</updated>
-  <author>
-    <name>yangqiju</name>
-    <uri>http://yangqiju.github.io</uri>
-    <email>362991493@qq.com</email>
-  </author>
-  <content type="html">&lt;h2 id=&quot;session-是什么&quot;&gt;Session 是什么&lt;/h2&gt;
-
-&lt;p&gt;在计算机科学领域来说，尤其是在网络领域，会话（session）是一种持久网络协议，在用户（或用户代理）端和服务器端之间创建关联，从而起到交换数据包的作用机制，session在网络协议（例如telnet或FTP）中是非常重要的部分。（wikipedia）&lt;/p&gt;
-
-&lt;p&gt;结合应用场景来说，当用户登录成功后，server端需要记录用户的状态，需要用某种机制来识别具体的用户，这个机制就是Session。&lt;/p&gt;
-
-&lt;p&gt;用java开发web服务时，通常会在server端新建session，并存储在内存中，会在session放入一些必要的属性，例如username。&lt;/p&gt;
-
-&lt;p&gt;但是HTTP通常是短链接，并且是无状态的，server端是如何知道发起者是否已经登录的？所以通常会有个标识，该标识能够证明”我”是谁。&lt;/p&gt;
-
-&lt;p&gt;在JAVA中，标识通常为JSESSIONID，PHP中为PHPSESSID。&lt;/p&gt;
-
-&lt;h2 id=&quot;标识&quot;&gt;标识&lt;/h2&gt;
-
-&lt;p&gt;在Session机制中，需要个标识证明请求者的身份，最简单的方式就是透明化SESSIONID，直接将sessionid放在url上。例如：&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;http:&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;//www.xxx.com/xxx_app;jsessionid=xxxxxxxxxx?a=x&amp;amp;b=x &amp;gt;&lt;/span&gt;
-                                                       
- &lt;span class=&quot;err&quot;&gt;\#&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getParameter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;方法还取不到jsessionid&lt;/span&gt;            &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;但是这种方法很不好，url是明文并且很容易被劫持，如果B获得了A的sessionid，那B就能假冒A发起请求了。该方法太过简陋，也不建议被使用。&lt;/p&gt;
-
-&lt;p&gt;再一个方案就是用的很广泛的cookie了。对于web开发，session和cookie一点也不陌生，随口就会说session存储在服务端，cookie存储在客户端。开发购物车将物品信息放在cookie中，方便用户下次点开还能看到购物车中没有购买的内容。&lt;/p&gt;
-
-&lt;p&gt;同购物车的例子相同，在session机制中，cookie担当的就是存储session标识的责任。下面以登录为例：&lt;/p&gt;
-
-&lt;p&gt;当登录成功后，server会在 response headers中set
-cookie。让浏览器将sessionid记录下来。（key为session，sessionid的标识，可自己定义）&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;../images/Session总结/image1.png&quot; alt=&quot;&quot; /&gt;{width=”5.768055555555556in”
-height=”0.9881944444444445in”}&lt;/p&gt;
-
-&lt;p&gt;当登录后请求其他页面时，可以查看requeset
-headers，cookie中标识了session的id。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;../images/Session总结/image2.png&quot; alt=&quot;&quot; /&gt;{width=”5.768055555555556in”
-height=”1.604861111111111in”}&lt;/p&gt;
-
-&lt;p&gt;当客户端携带cookie发起请求时，服务端会解析cookie内容，并通过sessionid找到相应的session。&lt;/p&gt;
-
-&lt;p&gt;或者通过curl直接设置cookie请求，可以直接获得session。&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;  &lt;span class=&quot;n&quot;&gt;curl&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cookie&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;SESSION=3e4fb030-c085-4c2c-bc31-6a9d3ac6c115;\&quot;&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;http:&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;//localhost:8080/webtest/test&lt;/span&gt;
- &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;h2 id=&quot;xss攻击&quot;&gt;XSS攻击&lt;/h2&gt;
-
-&lt;p&gt;跨站脚本（英语：Cross-site
-scripting，通常简称为：XSS）是一种网站应用程序的安全漏洞攻击，是代码注入的一种。它允许恶意用户将代码注入到网页上，其他用户在观看网页时就会受到影响。这类攻击通常包含了HTML以及用户端脚本语言。&lt;/p&gt;
-
-&lt;p&gt;*Cross-site
-scripting的英文首字母缩写本应为CSS，但因为CSS在网页设计领域已经被广泛指层叠样式表（Cascading
-Style
-Sheets），所以将Cross（意为”交叉”）改以交叉形的X做为缩写。但早期的文件还是会使用CSS表示Cross-site
-scripting。
-24ECE278-A137-4108-A6A4-96EB47476C39.png](../images/Session总结/image3.jpeg){width=”4.84375in”
-height=”3.376466535433071in”}&lt;/p&gt;
-
-&lt;p&gt;以上最关键的一部是通过JavaScript从Cookie中获得Session编号。例如如下代码：&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;../images/Session总结/image4.jpeg&quot; alt=&quot;4146B27F-221E-4CA7-B93C-31EA977A49F6.png&quot; /&gt;{width=”5.768055555555556in”
-height=”1.1661767279090114in”}&lt;/p&gt;
-
-&lt;p&gt;先放入将username放入cookie中，再通过alert将cookie内容数据。结果如下：&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;../images/Session总结/image5.png&quot; alt=&quot;&quot; /&gt;{width=”5.768055555555556in”
-height=”2.3881944444444443in”}&lt;/p&gt;
-
-&lt;p&gt;可以看到输出的内容有_ga、manager、username三个cookie的内容。&lt;/p&gt;
-
-&lt;p&gt;说明刚刚放入的username直接被打印了出来。&lt;/p&gt;
-
-&lt;p&gt;*manager是用go语言的gin框架开发的web服务的sessionid。HttpOnly默认为false。&lt;/p&gt;
-
-&lt;p&gt;再查看一下浏览器中的cookie内容。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;../images/Session总结/image6.png&quot; alt=&quot;&quot; /&gt;{width=”5.768055555555556in”
-height=”1.0520833333333333in”}&lt;/p&gt;
-
-&lt;p&gt;实际内容的SESSION没有被打印出来，而username则被js读取出来了。所以为了安全，需要将HttpOnly设置为true，设置完该参数后，js将无法读取该cookie的值。&lt;/p&gt;
-
-&lt;h2 id=&quot;cors&quot;&gt;CORS&lt;/h2&gt;
-
-&lt;p&gt;CORS（Cross-Origin Resource Sharing
-跨源资源共享），当一个请求url的协议、域名、端口三者之间任意一与当前页面地址不同即为跨域。&lt;/p&gt;
-
-&lt;p&gt;No 'Access-Control-Allow-Origin' header is present on the requested
-resource.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;../images/Session总结/image7.png&quot; alt=&quot;&quot; /&gt;{width=”5.768055555555556in”
-height=”0.3034722222222222in”}&lt;/p&gt;
-
-&lt;p&gt;例如A域名中引入的B域名的图片，或者管理后台web端的js代码直接向ElasticSearch发起查询请求。ElasticSearch默认是关闭了该功能。&lt;/p&gt;
-
-&lt;p&gt;跨域请求和Ajax技术都会极大地提高页面的体验，但同时也会带来安全的隐患，其中最主要的隐患来自于CSRF（Cross-site
-request forgery）跨站请求伪造&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;../images/Session总结/image8.jpeg&quot; alt=&quot;F35F0A9C-DC06-4932-ADCF-D7E2B851742A.png&quot; /&gt;{width=”5.768055555555556in”
-height=”3.418360673665792in”}&lt;/p&gt;
-
-&lt;p&gt;CSRF攻击的大致原理是：&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;用户通过浏览器，访问正常网站A（例如某银行），通过用户的身份认证（比如用户名/密码）成功A网站。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;网站A产生Cookie信息并返回给用户的浏览器；&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;用户保持A网站页面登录状态，在同一浏览器中，打开一个新的TAB页访问恶意网站B；&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;网站B接收到用户请求后，返回一些攻击性代码，请求A网站的资源（例如转账请求）；&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;浏览器执行恶意代码，在用户不知情的情况下携带Cookie信息，向网站A发出请求。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;网站A根据用户的Cookie信息核实用户身份（此时用户在A网站是已登录状态），A网站会处理该请求，导致来自网站B的恶意请求被执行。&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;分析上面的情景，原因就是当用户在B网站发起对A网站的操作是，A并没有拒绝，也就是信任了B网站，所以导致了问题。&lt;/p&gt;
-
-&lt;p&gt;通过上面就能获知为什么ES为什么关闭了该功能。当管理员登录了ES后，再登录一个恶意网页，网页中向ES发起delete操作，那么数据也就没了。&lt;/p&gt;
-
-&lt;p&gt;目前我们为了对ES进行了简单的cors开启，此类开启也就信任的所有的网站了，不够安全。&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;  &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;cors&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;allow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;origin:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/.\*/\&quot;&lt;/span&gt;               
-  &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;cors&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;enabled&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;           &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;对参数应该更加细化的配置，保证安全，例如只允许GET方法。&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;  &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;cors&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;allow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;origin&lt;/span&gt;        &lt;span class=&quot;nc&quot;&gt;Which&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;origins&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;allow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Defaults&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;no&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;origins&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;allowed&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;If&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;you&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prepend&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;append&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;will&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;be&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;treated&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;regular&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;expression&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;allowing&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;you&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;support&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;HTTP&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;HTTPs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;example&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;https&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;?:&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\\&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\\&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;localhost&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(:&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]+)?/&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;would&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;header&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;appropriately&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;both&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cases&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;valid&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;but&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;considered&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;security&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;risk&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;your&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Elasticsearch&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;instance&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;open&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cross&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;origin&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;requests&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;anywhere&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;-----------------------------&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;cors&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;age&lt;/span&gt;             &lt;span class=&quot;nc&quot;&gt;Browsers&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;send&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;preflight\&quot;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;OPTIONS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;determine&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;CORS&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;settings&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;age&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;defines&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;how&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;should&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;be&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cached&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Defaults&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1728000&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;days&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;cors&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;allow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;methods&lt;/span&gt;       &lt;span class=&quot;nc&quot;&gt;Which&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;methods&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;allow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Defaults&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;OPTIONS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;HEAD&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;POST&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;PUT&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;DELETE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;cors&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;allow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt;       &lt;span class=&quot;nc&quot;&gt;Which&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;allow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Defaults&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Requested&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;With&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Content&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Content&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;cors&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;allow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;credentials&lt;/span&gt;   &lt;span class=&quot;nc&quot;&gt;Whether&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Access&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Control&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Allow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Credentials&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;header&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;should&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;be&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;returned&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;Note:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;This&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;header&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;only&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;returned&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;when&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;setting&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Defaults&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;当配置了cors后，request将会用origin表述自己的身份，response也会描述cors允许的结果。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;../images/Session总结/image9.jpeg&quot; alt=&quot;6780A0A5-0006-4E72-A258-0C71CE9C014B.png&quot; /&gt;{width=”4.791666666666667in”
-height=”2.0552099737532807in”}&lt;/p&gt;
-
-&lt;h2 id=&quot;分布式session&quot;&gt;分布式Session&lt;/h2&gt;
-
-&lt;p&gt;如果应用只是单节点的话，用普通的内存存储session没有问题，当时当系统变成多节点的分布式了怎么办？例如下图，通常在分布式架构中，为了负载均衡请求都是随机或轮训服务器，当用户在A中登录后，再次发起请求，请求到B服务器，如果验证登录状态，则验证失败。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;../images/Session总结/image10.png&quot; alt=&quot;&quot; /&gt;{width=”3.6009700349956257in”
-height=”2.307292213473316in”}&lt;/p&gt;
-
-&lt;h3 id=&quot;session复制&quot;&gt;Session复制&lt;/h3&gt;
-
-&lt;p&gt;session复制很容易理解，就是配置web容器让每个容器都存储session。目前Tomcat、Glassfish
-Cluster都能提供此功能。但是每台机器都需要存储，只适合用户数不多且服务器不多的情况。&lt;/p&gt;
-
-&lt;h3 id=&quot;session集中管理&quot;&gt;Session集中管理&lt;/h3&gt;
-
-&lt;p&gt;集中式管理就是将所有的Session集中起来统一管理，例如所有模块集成spring
-session，将session存储到Redis中，当再次请求时将会查看Redis中是否有该用户的session。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;../images/Session总结/image11.jpeg&quot; alt=&quot;0C0DF304-99E0-42B2-9DF5-06A7D069A256.png&quot; /&gt;{width=”3.9166666666666665in”
-height=”2.262979002624672in”}&lt;/p&gt;
-
-&lt;p&gt;集中式管理解决多个节点的问题，但是也增加了相应的网络开销，并且存储最好使用分布式集群，否则存储挂了所有的业务都会受到影响。&lt;/p&gt;
-
-&lt;h3 id=&quot;基于cookie&quot;&gt;基于Cookie&lt;/h3&gt;
-
-&lt;p&gt;基于cookie是指用户对session添加内容时，server端将会把数据要求client将数据写入cookie中，这样server端什么都不用存了，用户每次请求时将cookie数据带到server端即可。&lt;/p&gt;
-
-&lt;p&gt;这个缺点就是cookie的承载是有限的，并且每次传输都会消耗宽带，并且存储到cookie中不安全，最好是加密。&lt;/p&gt;
-
-&lt;p&gt;*golang的gin框架用到的session就是这样做的。将数据序列化后写入cookie。&lt;/p&gt;
-
-&lt;h3 id=&quot;session-stick&quot;&gt;Session Stick&lt;/h3&gt;
-
-&lt;p&gt;Session
-Stick的方式就是在多个节点的情况下，保证每次请求都落在同一台机器上，这样就没有了session校验失败的问题。&lt;/p&gt;
-
-&lt;p&gt;例如在Docker中使用，所有的请求都会先到Træfik，然后由他统一分发，如有用户在A上登录了，那么用户的每个请求都会活在A上。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;../images/Session总结/image12.jpeg&quot; alt=&quot;31D4B529-A066-4CBB-A56C-C62F26798DC2.png&quot; /&gt;{width=”5.768055555555556in”
-height=”3.337331583552056in”}&lt;/p&gt;
-
-&lt;p&gt;该方案的缺点就是，当A机器挂了，那么用户必须要重新登录。并且为了安全，需要保证该代理为集群模式。&lt;/p&gt;
-
-&lt;h1 id=&quot;spring-session&quot;&gt;Spring Session&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/spring-projects/spring-session&quot;&gt;https://github.com/spring-projects/spring-session&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;spring session
-提供了分布式的session，使用了集中式管理的方式，将session存储在独立的存储中，目前官方支持了redis、JDBC和apache
-geode。&lt;/p&gt;
-
-&lt;p&gt;spring
-session默认使用cookie传递sessionid，同样也适应了目前流行的Restful风格，可以使用http
-header传递sessionid。&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;messages&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;HTTP&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1.1&lt;/span&gt;                             
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                    
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;Host:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;example&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;com&lt;/span&gt;                                   
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                     
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;auth&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;token:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;f81d4fae&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dec&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;11&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a765&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;00&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a0c91e6bf6&lt;/span&gt;  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;在此基础之上，我们实现了spring-session-cassandra，将session数据存储在Cassandra中。&lt;/p&gt;
-
-&lt;p&gt;使用方法为：&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;web.xml中添加配置&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;img src=&quot;../images/Session总结/image13.jpeg&quot; alt=&quot;BA829B9E-654B-47EB-8C1C-A7F3EE478BD4.png&quot; /&gt;{width=”5.768055555555556in”
- height=”1.15709208223972in”}&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;添加spring配置&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;img src=&quot;../images/Session总结/image14.png&quot; alt=&quot;&quot; /&gt;{width=”5.768055555555556in”
- height=”1.7326388888888888in”}&lt;/p&gt;
-
-&lt;h2 id=&quot;扩展知识&quot;&gt;扩展知识&lt;/h2&gt;
-
-&lt;h3 id=&quot;servletcontainerinitializer&quot;&gt;ServletContainerInitializer&lt;/h3&gt;
-
-&lt;p&gt;javax.servlet.ServletContainerInitializer是servlet里面的一个web容器初始化的一个初始化扩展接口。通过它能够实现在web容器中进行初始化，例如注册servlet或者filtes。同时也可以免去web.xml配置文件启动web项目。&lt;/p&gt;
-
-&lt;p&gt;例如spring-session中添加springSessionRepositoryFilter可以使用该方法。使用springSessionRepositoryFilter可以在web.xml中注册。web.xml中注册方法如下：&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;o&quot;&gt;+----------------------------------------------------------------------+&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;                                                           &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;springSessionRepositoryFilter&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;         &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;o&lt;/span&gt;                                                    &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;springframework&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;web&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;DelegatingFilterProxy&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;err&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;\&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;                                                          &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mapping&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;                                                   &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;springSessionRepositoryFilter&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;         &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pattern&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pattern&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;                                   &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mapping&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;                                                  &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;+----------------------------------------------------------------------+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;也可以使用纯代码方法实现，例如官方给出的示例：&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;o&quot;&gt;+----------------------------------------------------------------------+&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//写出一个j                                                          |&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ava类&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;，&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;继承AbstractHttpSessionApplicationInitializer&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;，&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;构造其中放java&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;config类&lt;/span&gt;                                                             &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Initializer&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt;                                     &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AbstractHttpSessionApplicationInitializer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;                          &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Initializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;                                               &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Config&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//spring java config                            |&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;                                                                    &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;                                                                    &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//类实现了spring-web 包中的org.springframework.web.                  |&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;WebApplicationInitializer&lt;/span&gt;                                            &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// WebApplicationInitializer 中就一个方法就是onStartup               |&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;abstract&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AbstractHttpSessionApplicationInitializer&lt;/span&gt;      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;WebApplicationInitializer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;                               &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onStartup&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ServletContext&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;servletContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt;          &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ServletException&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;                                                   &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;省略&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;                                                             &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//这个方法中会向servletContext 中注册springSessionRepositoryFilter   |&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;insertSessionRepositoryFilter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;servletContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;                       &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;省略&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;                                                             &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;                                                                    &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;                                                                    &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;+----------------------------------------------------------------------+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;通过上面的代码就完成了和在web.xml中一样的filter注册功能。但是到这里就有个疑问，filter如何是注册的，onStartup
-为什么会被执行？&lt;/p&gt;
-
-&lt;p&gt;对代码进行逆推如下：&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;AbstractHttpSessionApplicationInitializer
-实现了spring-web里的WebApplicationInitializer&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;AbstractHttpSessionApplicationInitializer
- 实现了WebApplicationInitializer中的onStartup方法，在onStartup方法中执行了filter注册的操作&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;SpringServletContainerInitializer
-对WebApplicationInitializer执行onStartup方法&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;在spring-web包中，有个SpringServletContainerInitializer类，代码如下：&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;o&quot;&gt;+----------------------------------------------------------------------+&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//对WebApplicationInitializer进行监控,功能是只监控WebAp              |&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;plicationInitializer&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;，&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;这样在onStartup方法中获得的class都是它的实现类&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;@HandlesTypes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;WebApplicationInitializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//实现了servlet包的ServletContainerInitializer接口                   |&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SpringServletContainerInitializer&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;implements&lt;/span&gt;            &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ServletContainerInitializer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;                                        &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;                                                           &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onStartup&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Set&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Class&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;?&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\\&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;webAppInitializerClasses&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;    &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ServletContext&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;servletContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;                                       &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ServletException&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;                                            &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;WebApplicationInitializer&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;initializers&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt;                 &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LinkedList&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;WebApplicationInitializer&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;                           &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;webAppInitializerClasses&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;                              &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Class&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;?&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;waiClass&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;webAppInitializerClasses&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;               &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;waiClass&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;isInterface&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt;                                       &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Modifier&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;isAbstract&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;waiClass&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getModifiers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;())&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt;                     &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;WebApplicationInitializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;isAssignableFrom&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;waiClass&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;        &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;                                                                &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//对实现WebApplicationInitializer的类进行实例化                      |&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;initializers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;WebApplicationInitializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;                         &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;waiClass&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;newInstance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;                                             &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;                                                                    &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Throwable&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;                                               &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ServletException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Failed to instantiate                   |
-| WebApplicationInitializer class\&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;                              &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;                                                                    &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;                                                                    &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;                                                                    &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;                                                                    &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//省略\...                                                           |&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;WebApplicationInitializer&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;initializer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;initializers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;         &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;initializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;onStartup&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;servletContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;//执行onStartup方法            |&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;                                                                    &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;                                                                    &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;                                                                    &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;+----------------------------------------------------------------------+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;为什么SpringServletContainerInitializer的实现类执行onStartup方法？&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;o&quot;&gt;+----------------------------------------------------------------------+&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SpringServletContainerInitializer在web项目启动的时候就会&lt;/span&gt;             &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;执行onStartup方法&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;，&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;是因为它满足了servlet对第三方包初始化扩展的条件&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;。&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;实现ServletContainerInitializer&lt;/span&gt;                                  &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;                                                                  &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;使用&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;@HandlesTypes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;](&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;mailto:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;使用&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;@HandlesTypes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;对关注的类进行注册&lt;/span&gt;    &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;                                                                  &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;添加META&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;INF&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;se&lt;/span&gt;                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rvices&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;javax&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;servlet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ServletContainerInitializer配置文件&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;，&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;里面内容为&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;   &lt;span class=&quot;o&quot;&gt;-----------------------------------------------------------&lt;/span&gt;        &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;   &lt;span class=&quot;n&quot;&gt;org&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;springframework&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;web&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;SpringServletContainerInitializer&lt;/span&gt;          &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;   &lt;span class=&quot;o&quot;&gt;-----------------------------------------------------------&lt;/span&gt;        &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;这样在tomcat启动的时候&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;，&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;就会去加载SpringServletContainerInitialize&lt;/span&gt;   &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;r这个类&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;，&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;并且加载完成之后&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;，&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;会调用onStartup方法&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;，&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;进行具体的启动流程&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;。&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;+----------------------------------------------------------------------+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;tomcat如何根绝配置文件和标签去加载的？&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;在tomcat初始化过程中会执行org.apache.catalina.startup.ContextConfig中的processServletContainerInitializers方法，方法内容如下：&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;o&quot;&gt;+----------------------------------------------------------------------+&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;processServletContainerInitializers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;               &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ServletContainerInitializer&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;detectedScis&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;                    &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;                                                                &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;WebappServiceLoader&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ServletContainerInitializer&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;loader&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt;      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;WebappServiceLoader&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;                                    &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//通过加载li                                                         |&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b包里面的META&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;INF&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;services&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;javax&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;servlet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ServletContainerInitializer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;detectedScis&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;loader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;load&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ServletContainerInitializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;       &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;IOException&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;                                            &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;省略&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;                                                             &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;                                                              &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;                                                                    &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ServletContainerInitializer&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sci&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;detectedScis&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;               &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;initializerClassMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sci&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;HashSet&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Class&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;?&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\\&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;           &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;HandlesTypes&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ht&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;                                                     &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;                                                                &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//获得关注的类                                                       |&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ht&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sci&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getClass&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getAnnotation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;HandlesTypes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;               &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Exception&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;                                              &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;省略&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;                                                             &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;continue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;                                                            &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;                                                                    &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ht&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;continue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;                                        &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Class&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;?&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\\&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;types&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ht&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;                                   &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;types&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;continue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;                                     &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Class&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;?&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;types&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;isAnnotation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;())&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;                                           &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;handlesTypesAnnotations&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;                                                             &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;handlesTypesNonAnnotations&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;                                   &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;                                                                    &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Set&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ServletContainerInitializer&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scis&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;                            &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;typeInitializerMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;                                        &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;scis&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;                                                  &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scis&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;HashSet&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;                                            &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;typeInitializerMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scis&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;                                  &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;                                                                    &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//将关注的类放到ServletContainerInitializer关注的容器中              |&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scis&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sci&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;                                                       &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;                                                                    &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;                                                                    &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;                                                                    &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;+----------------------------------------------------------------------+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;使用processServletContainerInitializers将HandlesTypes标签里的class获取到后，有个processAnnotations方法，会对项目中的jar包进行扫描，将监控的类获取出后，使用context的classloader进行类加载操作。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;总结&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;通过上面的代码能看到，tomcat在启动时，会通过lib包中的配置获取到spring
-web包下的SpringServletContainerInitializer配置，然后将SpringServletContainerInitializer实例化，对WebApplicationInitializer进行关注，并在SpringServletContainerInitializer的onstartup方法中循环调用所有实现了WebApplicationInitializer接口的onstartup方法，当tomcat初始化完成后，会调用SpringServletContainerInitializer的onstartup方法，也就会调用所有spring中实现了WebApplicationInitializer
-onstartup方法的类。由于AbstractHttpSessionApplicationInitializer实现了WebApplicationInitializer，并在onstartup中进行springSessionRepositoryFilter的注册，所有在没有web.xml的情况下，就完成了对filter的注册。&lt;/p&gt;
-
-&lt;h3 id=&quot;springmvc的无标识参数&quot;&gt;Springmvc的无标识参数&lt;/h3&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;@ResponseBody&lt;/span&gt;                                                       
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                      
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;@RequestMapping&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;method&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;RequestMethod&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;                          
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                       
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;TestBean&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;HttpServletRequest&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;                     
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;HttpServletResponse&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;HttpSession&lt;/span&gt;                              
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;session&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;@RequestParam&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;q1\&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;q1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;q2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;                 
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;                                                                       
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;                                                                     &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;问题：&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;请求时，请求端q1是否必须&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;q2 为什么没有标签？是否必须？&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;q2、HttpSession 如何注入？&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;问题一：&lt;/p&gt;
-
-&lt;p&gt;q1必须，spring注解明确说明，RequestParam注解中，required没有写时，默认为true。当调用者没有提供该值时，将报400.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;../images/Session总结/image15.jpeg&quot; alt=&quot;20711B2F-0E1C-49E9-852D-FDD62DC4D0A9.png&quot; /&gt;{width=”5.768055555555556in”
-height=”2.636075021872266in”}&lt;/p&gt;
-
-&lt;p&gt;问题二：&lt;/p&gt;
-
-&lt;p&gt;q2在不加标签的情况下，非必须传入，如果已经传入将会赋值，如果没有传入q2将会是null，不会报400错误。在方法中，不建议对需要的参数不加注解，对方法应该表示需要什么和不需要什么。例如：&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;o&quot;&gt;+----------------------------------------------------------------------+&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;TestBean&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;HttpServletRequest&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;                    &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;HttpServletResponse&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;HttpSession&lt;/span&gt;                             &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;session&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;@RequestParam&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;q1\&quot;) String q1,                            |
-| \@RequestParam(value=\&quot;q2\&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;required&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;q2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;              &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;                                                                    &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;+----------------------------------------------------------------------+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;问题三：&lt;/p&gt;
-
-&lt;p&gt;为什么q2、HttpSession 没有加注解，spring也注入了？&lt;/p&gt;
-
-&lt;p&gt;具体流程如下：&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;请求会先到org.springframework.web.servlet.DispatcherServlet&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;然后会到org.springframework.web.method.support.InvocableHandlerMethod的invokeAndHandle方法&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;获得方法需要的参数，然后反射执行&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;img src=&quot;../images/Session总结/image16.png&quot; alt=&quot;&quot; /&gt;{width=”5.768055555555556in”
-height=”2.6256944444444446in”}&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;获得参数时，spring会查看是否有支持该参数的解析器，找到后进行相应的解析和处理，RequestBody，RequestParam就是在这一步处理的。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;img src=&quot;../images/Session总结/image17.png&quot; alt=&quot;&quot; /&gt;{width=”5.768055555555556in”
-height=”2.9409722222222223in”}&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;HttpServletRequest 、HttpServletResponse
-、HttpSession都可找到对应的解析器&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;img src=&quot;../images/Session总结/image18.png&quot; alt=&quot;&quot; /&gt;{width=”5.768055555555556in”
-height=”4.78125in”}&lt;/p&gt;
-
-&lt;p&gt;httpSession也使用ServletRequestMethodArgumentResolver注入。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;../images/Session总结/image19.png&quot; alt=&quot;&quot; /&gt;{width=”5.768055555555556in”
-height=”1.66875in”}&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;q2在不明确的情况下&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;在org.springframework.web.method.annotation.
-AbstractNamedValueMethodArgumentResolver中进行处理。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;../images/Session总结/image20.png&quot; alt=&quot;&quot; /&gt;{width=”5.768055555555556in”
-height=”2.6743055555555557in”}&lt;/p&gt;
-
-  &lt;p&gt;&lt;a href=&quot;http://yangqiju.github.io/session%E6%80%BB%E7%BB%93&quot;&gt;session总结&lt;/a&gt; was originally published by yangqiju at &lt;a href=&quot;http://yangqiju.github.io&quot;&gt;Orange&lt;/a&gt; on December 01, 2017.&lt;/p&gt;</content>
 </entry>
 
 </feed>

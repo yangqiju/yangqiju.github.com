@@ -1,0 +1,304 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>DICOM 扫盲 &#8211; Orange</title>
+<meta name="description" content="DICOM 扫盲">
+<meta name="keywords" content="DICOM, DCM4CHE, DCM4CHEE">
+
+
+<meta name="baidu-site-verification" content="kGTic24zBh" />
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DICOM 扫盲">
+<meta property="og:description" content="DICOM 扫盲">
+<meta property="og:url" content="http://yangqiju.github.io/DICOM%E6%89%AB%E7%9B%B2">
+<meta property="og:site_name" content="Orange">
+
+
+
+
+
+<link rel="canonical" href="http://yangqiju.github.io/DICOM%E6%89%AB%E7%9B%B2">
+<link href="http://yangqiju.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="Orange Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://yangqiju.github.io/assets/css/main.min.css">
+<!-- Webfonts 
+<script src="//use.edgefonts.net/source-sans-pro:n2,i2,n3,i3,n4,i4,n6,i6,n7,i7,n9,i9;source-code-pro:n4,n7;volkhov.js"></script>
+-->
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="http://yangqiju.github.io/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://yangqiju.github.io/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://yangqiju.github.io/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://yangqiju.github.io/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://yangqiju.github.io/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://yangqiju.github.io/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://yangqiju.github.io/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body id="post" itemscope itemtype="http://schema.org/WebPage">
+
+<div class="navigation-wrapper">
+	<nav role="navigation" id="site-nav" class="animated drop" itemscope itemtype="http://schema.org/SiteNavigationElement">
+	    <ul>
+	        
+			<li>
+				
+					<a href="http://yangqiju.github.io/about">Home</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="http://yangqiju.github.io/work">Work</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="http://yangqiju.github.io/interest">Interest</a>
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="http://yangqiju.github.io/life">life</a>
+				 
+			</li>
+	        
+	        <!-- 
+	        <li><a href="http://yangqiju.github.io/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
+	         -->
+	        <li class="dosearch"><i class="icon-search"></i> Search</li>
+	    </ul>
+	</nav>
+</div><!-- /.navigation-wrapper -->
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+
+<div class="search-wrapper">
+	<div class="search-form">
+		<input type="text" class="search-field" placeholder="Search...">
+		<i class="icon-remove-sign icon-2x"></i>
+		<ul class="search-results post-list"></ul><!-- /.search-results -->
+	</div><!-- /.search-form -->
+</div><!-- ./search-wrapper -->
+
+<header class="masthead" itemscope itemtype="http://schema.org/Organization">
+	<div class="wrap">
+		<a href="http://yangqiju.github.io" class="site-logo" rel="home" title="Orange" itemprop="url"><img src="http://yangqiju.github.io/images/logo.jpeg" width="200" height="200" alt="Orange logo" class="animated fadeInUp" itemprop="logo"></a>
+		<h1 class="site-title animated fadeIn"><a href="http://yangqiju.github.io">Orange</a></h1>
+		<h2 class="site-description animated fadeIn" itemprop="description">做个简单的coder.</h2>
+	</div>
+</header><!-- /.masthead -->
+
+
+<div id="main" role="main" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/Blog">
+  <article class="hentry" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="entry-wrapper">
+      <header class="entry-header">
+        <span class="entry-tags"><a href="http://yangqiju.github.io/tags.html#DICOM" title="Pages tagged DICOM" rel="tag">DICOM</a>&nbsp;&bull;&nbsp;<a href="http://yangqiju.github.io/tags.html#DCM4CHE" title="Pages tagged DCM4CHE" rel="tag">DCM4CHE</a>&nbsp;&bull;&nbsp;<a href="http://yangqiju.github.io/tags.html#DCM4CHEE" title="Pages tagged DCM4CHEE" rel="tag">DCM4CHEE</a></span>
+        
+          <h1 class="entry-title" itemprop="headline">DICOM 扫盲</h1>
+        
+      </header>
+      <footer class="entry-meta">
+        <img src="http://yangqiju.github.io/images/logo.jpeg" alt="yangqiju photo" class="author-photo">
+        <span class="author vcard" itemprop="author" itemscope itemtype="http://schema.org/Person">By <span itemprop="name" class="fn"><a href="http://yangqiju.github.io/about" title="About yangqiju" itemprop="url">yangqiju</a></span></span>
+        <span class="entry-date date published"><time datetime="2021-08-10T00:00:00-04:00" itemprop="datePublished"><i class="icon-calendar-empty"></i> August 10, 2021</time></span>
+        
+        
+        <span><a href="http://yangqiju.github.io/DICOM%E6%89%AB%E7%9B%B2" rel="bookmark" title="DICOM 扫盲" itemprop="url"><i class="icon-link"></i> Permalink</a></span>
+      </footer>
+      <div class="entry-content" style="font-size:14px" itemprop="description">
+        <p>DICOM 扫盲</p>
+
+<h1 id="dicom介绍">DICOM介绍</h1>
+<p>根据《医用电气设备DICOM在放射治疗中的应用指南》中描述到，在飞速增长的图像采集系统、显示工作站、归档系统与医院放射信息系统之间的互联和互相操作变得至关重要。为了简化和改善设备的互联性，专业医疗组织[美国放射学会(ACR)]联合医疗设备制造商们[美国国家电气制造商协会(NEMA)]国际化合作，共同开发DICOM(医学数字影像与通讯标准)。
+ <img src="../images/DICOM扫盲/5ea12350fa6d11ebb0fd49f3d06242d6.png" alt="aaaaaaaaaaaa" /></p>
+
+<hr />
+<p>目前，DICOM标准提供下列服务：</p>
+
+<ul>
+  <li><strong>网络图像传输</strong>：
+提供了两个设备间通讯发送对象的功能，诸如放射图像(例如CT、MR、CR、X射线血管造影与RF、PET、NM、US等)或RT图像与数据（RT结构集、计划、图像、剂量与治疗记录）。同事也可以识别和获取/传输远程设备上的图像/数据.网络传输是目前DICOM产品支持的最常用的互联特性。</li>
+  <li><strong>在线图像检查管理</strong>：
+提供了医疗设备通过网络与各种信息系统想整合的功能，如医院信息系统（HIS）中的临床与管理数据，放射治疗信息系统（RIS）中的放射和放射治疗图像/数据。</li>
+  <li><strong>网络打印管理</strong>：
+提供了通过网络连接的打印机/相机打印图像的功能。这样的一个示例是多个扫描机或工作站在单个共享的硬拷贝介质上打印图像。</li>
+  <li><strong>开放式介质交换</strong>：
+提供了手工交换对象(图像或RT对象)与相关信息(例如报告或胶片信息)的功能，DICOM实现了通过文件格式、医疗目录结构与物理介质(例如CD、软盘)的标准化。示例包括用于出版的图像交换和用于远程会诊而发送患者图像序列。</li>
+  <li><strong>工作流程管理</strong>：
+DICOM标准经过扩展，能够定义设备工作列表和通用目标工作列表，该列表设计用于请求、规划与描述成像性能和其他过程操作。这些过程的整合可以和其他标准化机构保持一直。在这方面更进一步的服务正在考虑中。</li>
+</ul>
+
+<h1 id="dcm4che">DCM4CHE</h1>
+<p>dcm4che 是面向医疗保健企业的开源应用程序和实用工具集合。项目使用java编写，实现了DICOM的标准。
+dcm4che项目中包含了dcm4chee(额外的e代表‘enterprise’)，它是一个图像管理存储程序，该应用程序包含为医疗保健环境提供存储、检索和工作流所需的 DICOM、HL7 服务和接口。</p>
+
+<h2 id="dcm4che-demo">DCM4CHE demo</h2>
+<p>由于当前(2021-08)网络中存在的版本较老，部分搭建攻略也失效或不友好，这里记录一下如何快速搭建demo环境。</p>
+<h4 id="使用docker运行minimum版本dcm4che">使用docker运行minimum版本dcm4che.</h4>
+<p>详情如下:
+<a href="https://github.com/dcm4che/dcm4chee-arc-light/wiki/Run-minimum-set-of-archive-services-on-a-single-host">minimum版本运行</a></p>
+
+<p>运行起来后可以看到如下服务:
+<img src="../images/DICOM扫盲/45f52490faaa11ebbb1a1f11b0a3351c.png" alt="aaaaaaaaaaaa" /></p>
+<h4 id="导入dcm数据">导入DCM数据</h4>
+<p>通过storescu工具进行数据导入:
+<a href="https://github.com/dcm4che/dcm4che/blob/master/dcm4che-tool/dcm4che-tool-storescu/README.md">storescu工具</a>
+`
+storescu -c DCM4CHEE@localhost:11112 test.dcm
+`
+DCM4CHEE是指定的AET,需要提前设定才能通过验证进行通讯.(该安装版本默认已经添加)</p>
+
+<p><img src="../images/DICOM扫盲/87119480faab11eba86d0501193eee8d.png" alt="aaaaaaaaaaaa" /></p>
+
+<h4 id="查阅数据">查阅数据</h4>
+<p>在Navigation -&gt; studies 菜单中,以DCM4CHE进行搜索,便可以将上一步上传数据查阅出
+<img src="../images/DICOM扫盲/df6dd1c0faab11eba86d0501193eee8d.png" alt="aaaaaaaaaaaa" /></p>
+
+<p>通过查询出的结果工具中，可以查看相关图形数据。
+<img src="../images/DICOM扫盲/6a481580faac11ebb0fd49f3d06242d6.png" alt="aaaaaaaaaaaa" /></p>
+
+<h4 id="使用oviyam查看图形">使用oviyam查看图形</h4>
+<p>oviyam是一款开源的DICOM数据浏览器，可以使用docker进行部署。例如对刚刚的docker-compose.yml追加oviyam服务，将他们部署在同一套集群中</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nl">oviyam:</span>
+    <span class="nl">image:</span> <span class="n">informaticamedica</span><span class="o">/</span><span class="nl">oviyam:</span><span class="mf">2.8</span>
+    <span class="nl">ports:</span>
+      <span class="o">-</span> <span class="s">"80:8080"</span>
+      <span class="o">-</span> <span class="s">"1025:1025"</span>
+    <span class="nl">depends_on:</span>
+      <span class="o">-</span> <span class="n">arc</span>
+</code></pre></div></div>
+<p>重新启动集群后,可以进入到oviyam管理端(admin:adm1n),添加相应的配置，并进行配置验证。
+<img src="../images/DICOM扫盲/f8a940a0faad11ebb494a1d4796cd9b0.png" alt="aaaaaaaaaaaa" /></p>
+
+<p>这样就可以将DCOM4CHEE中的数据查询出来。
+<img src="../images/DICOM扫盲/3187d0d0faae11ebb969dba37c0615cf.png" alt="aaaaaaaaaaaa" /></p>
+
+<p><img src="../images/DICOM扫盲/5cec5de0faae11eb9b14070fbd75ca5d.png" alt="aaaaaaaaaaaa" /></p>
+
+<h1 id="名词解释">名词解释</h1>
+<ul>
+  <li>PACS:Picture Archiving and Communication Systems的缩写，意思为影像归档和通信系统。
+是近年来随着数字成像技术、计算机技术和网络技术的进步而迅速发展起来的、旨在全面解决医学图像的获取、显示、存贮、传送和管理的综合系统。</li>
+  <li>DICOM:Digital Imaging and Communications in Medicine的英文缩写，即医学数字成像和通信标准
+DICOM标准以计算机网络的工业化标准为基础，它能帮助更有效地在医学影像设备之间传输交换数字影像，这些设备不仅包括CT、MR、核医学和超声检查，而且还包括CR、胶片数字化系统、视频采集系统和HIS／RIS信息管理系统等</li>
+  <li>ACR（American College of Radiology,美国放射学会）</li>
+  <li>NEMA（National Electrical Manufactorers Association,国家电子制造商协会）</li>
+  <li>HIS:医院信息系统(Hospital Information System, HIS)
+利用电子计算机和通讯设备，为医院所属各部门提供病人诊疗信息和行政管理信息的收集、存储、处理、提取和数据交换的能力，并满足所有授权用户的功能需求。</li>
+  <li>LIS:实验室信息管理系统(Laboratory Information Management System, LIS)
+是专为医院检验科设计的一套信息管理系统，能将实验仪器与计算机组成网络，使病人样品登录、实验数据存取、报告审核、打印分发，实验数据统计分析等繁杂的操作过程实现了智能化、自动化和规范化管理。有助于提高实验室的整体管理水平，减少漏洞，提高检验质量。</li>
+  <li>RIS:放射信息管理系统(Radioiogy information system, RIS)
+是优化医院放射科工作流程管理的软件系统,一个典型的流程包括登记预约、就诊、产生影像、出片、报告、审核、发片等环节</li>
+  <li>HL7:卫生信息交换标准（Health Level 7）
+标准化的卫生信息传输协议，是医疗领域不同应用之间电子传输的协议。HL7汇集了不同厂商用来设计应用软件之间接口的标准格式，它将允许各个医疗机构在异构系统之间，进行数据交互。HL7的主要应用领域是HIS/RIS，主要是规范HIS/RIS系统及其设备之间的通信，它涉及到病房和病人信息管理、化验系统、药房系统、放射系统、收费系统等各个方面。</li>
+  <li>IHE:Integrating the Healthcare Enterprise整合医疗保健企业</li>
+</ul>
+
+<h1 id="其他">其他</h1>
+<p><a href="https://www.dicomserver.co.uk/WADO/">https://www.dicomserver.co.uk/WADO/</a>
+<a href="https://www.dicomstandard.org/current/">https://www.dicomstandard.org/current/</a>
+<a href="https://zhuanlan.zhihu.com/p/74966427">https://zhuanlan.zhihu.com/p/74966427</a></p>
+
+
+        
+      </div><!-- /.entry-content -->
+    </div><!-- /.entry-wrapper -->
+    <nav class="pagination" role="navigation">
+      
+        <a href="http://yangqiju.github.io/innnodb" class="btn" title="mysql innodb 学习">Previous article</a>
+      
+      
+    </nav><!-- /.pagination -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2021 yangqiju. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">So Simple Theme</a>.</span>
+<div class="social-icons">
+	
+	
+	
+	
+	
+	
+	
+	<a href="http://github.com/yangqiju" title="yangqiju on Github" target="_blank"><i class="icon-github icon-2x"></i></a>
+	
+</div><!-- /.social-icons -->
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://yangqiju.github.io/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://yangqiju.github.io/assets/js/scripts.min.js"></script>
+
+<!-- Jekyll Simple Search option -->
+<script>
+  $(document).ready(function() {
+      $('.search-field').simpleJekyllSearch({
+          jsonFile : 'http://yangqiju.github.io/search.json',
+          searchResults : '.search-results',
+          template : '<li><article><a href="{url}">{title} <span class="entry-date"><time datetime="{date}">{shortdate}</time></span></a></article></li>',
+          noResults: '<p>Nothing found.</p>'
+        });
+  });
+
+  (function( $, window, undefined ) {
+    
+     var bs = {
+          close: $(".icon-remove-sign"),
+          searchform: $(".search-form"),
+          canvas: $("body"),
+          dothis: $('.dosearch')
+      };
+    
+    bs.dothis.on('click', function() {
+      $('.search-wrapper').css({ display: "block" });
+      bs.searchform.toggleClass('active');
+      bs.searchform.find('input').focus();
+      bs.canvas.toggleClass('search-overlay');
+    });
+    
+      bs.close.on('click', function() {
+        $('.search-wrapper').removeAttr( 'style' );
+        bs.searchform.toggleClass('active');
+        bs.canvas.removeClass('search-overlay');
+    });
+  })( jQuery, window );
+</script>
+
+
+	        
+
+</body>
+</html>

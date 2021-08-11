@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "DICOM 扫盲",
+		  "category"   : "",
+		  "url"        : "http://yangqiju.github.io/DICOM%E6%89%AB%E7%9B%B2",
+		  "date"       : "2021-08-10 00:00:00 -0400",
+		  "shortdate"  : "August 10, 2021"
+		} ,
+	
+		{
 		  "title"      : "mysql innodb 学习",
 		  "category"   : "",
 		  "url"        : "http://yangqiju.github.io/innnodb",

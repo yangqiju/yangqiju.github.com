@@ -134,7 +134,7 @@
         <span><a href="http://yangqiju.github.io/VM-Linux-eth0" rel="bookmark" title="VirtualBox set network" itemprop="url"><i class="icon-link"></i> Permalink</a></span>
       </footer>
       <div class="entry-content" style="font-size:14px" itemprop="description">
-        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>准备在本地安装docker，使用VirtualBox，想用Xmanager来连接，结果连接不了。
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>准备在本地安装docker，使用VirtualBox，想用Xmanager来连接，结果连接不了。
 使用ifconfig 没有显示eth0重启报错
 </code></pre></div></div>
 
@@ -144,7 +144,7 @@
 <span class="nc">Bringing</span> <span class="n">up</span> <span class="kd">interface</span> <span class="nc">eth0</span><span class="o">:</span>  
 <span class="nc">Device</span> <span class="n">eth0</span> <span class="n">does</span> <span class="n">not</span> <span class="n">seem</span> <span class="n">to</span> <span class="n">be</span> <span class="n">present</span><span class="o">,</span><span class="n">delaying</span> <span class="n">initialization</span><span class="o">.</span>  <span class="o">[</span><span class="no">FAILED</span><span class="o">]</span></code></pre></figure>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>如下解决:
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>如下解决:
 1. vi /etc/udev/rules.d/70-persistent-net.rules 
 2. 记录eth1网卡的mac地址 00:00:00:00:00:00(example1)
 3. vi /etc/sysconfig/network-scripts/ifcfg-eth0
@@ -173,7 +173,7 @@
 
 <div class="footer-wrapper">
   <footer role="contentinfo">
-    <span>&copy; 2020 yangqiju. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">So Simple Theme</a>.</span>
+    <span>&copy; 2021 yangqiju. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">So Simple Theme</a>.</span>
 <div class="social-icons">
 	
 	

@@ -134,7 +134,7 @@
         <span><a href="http://yangqiju.github.io/mybatis-generator-change-field-plugin" rel="bookmark" title="mybatis generate 修改默认字段类型的plugin" itemprop="url"><i class="icon-link"></i> Permalink</a></span>
       </footer>
       <div class="entry-content" style="font-size:14px" itemprop="description">
-        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>最近遇到了个问题,就是mybatis的生成工具,会对应的mysql中的数据类型,生成对应的java类型。
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>最近遇到了个问题,就是mybatis的生成工具,会对应的mysql中的数据类型,生成对应的java类型。
 比如大于18位的数字,他会默认使用BigDecimal,只大于9位的是Long,大于4位的Integer,那下雨4位的就是Short了。
 
 但是现在我想要修改为自己想要的类型,不想用Short,那么怎么办呢。
@@ -170,7 +170,7 @@
         <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
     <span class="o">}</span></code></pre></figure>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>可以看出,在配置为DEFAULT 时,或者我们没配置时,都是用JavaTypeResolverDefaultImpl.
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>可以看出,在配置为DEFAULT 时,或者我们没配置时,都是用JavaTypeResolverDefaultImpl.
 然后通过 createInternalObject 方法获得我们自己可以定义的 resolver。
 这时候我们只需要给他配置一个type 参数,就ok了。
 </code></pre></div></div>
@@ -201,7 +201,7 @@
         <span class="k">return</span> <span class="n">clazz</span><span class="o">;</span>
     <span class="o">}</span></code></pre></figure>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>看到这里,我们不难看出,他需要的这个type,就是用来获得这个class 的。ok。那我配置给他就好了。
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>看到这里,我们不难看出,他需要的这个type,就是用来获得这个class 的。ok。那我配置给他就好了。
 </code></pre></div></div>
 
 <figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;generatorConfiguration</span>
@@ -209,7 +209,7 @@
 		<span class="err">&lt;javaTypeResolver</span> <span class="na">type=</span><span class="s">"com.joyveb.。。.JavaTypeResolverJoyvebImpl"</span><span class="err">/</span>
 <span class="err">&lt;/generatorConfiguration</span></code></pre></figure>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>这样就搞定了。
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>这样就搞定了。
 </code></pre></div></div>
 
 
@@ -229,7 +229,7 @@
 
 <div class="footer-wrapper">
   <footer role="contentinfo">
-    <span>&copy; 2020 yangqiju. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">So Simple Theme</a>.</span>
+    <span>&copy; 2021 yangqiju. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">So Simple Theme</a>.</span>
 <div class="social-icons">
 	
 	
